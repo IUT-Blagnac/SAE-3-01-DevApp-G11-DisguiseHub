@@ -32,8 +32,8 @@ body:
         - Haute
         - Moyenne
         - Basse
-      validations:
-        required: true
+    validations:
+      required: true
   - type: textarea
     id: acceptation
     attributes:

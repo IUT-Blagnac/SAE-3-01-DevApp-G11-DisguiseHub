@@ -18,13 +18,9 @@ body:
       description: Quelle est l'importance de cette user story pour le client ?
       options:
         - Must
-        labels: ["1️⃣ Must"]
         - Should
-        labels: ["2️⃣ Should"]
         - Could
-        labels: ["3️⃣ Could"]
         - Will
-        labels: ["4️⃣ Will"]
     validations:
       required: true
   - type: dropdown
@@ -34,11 +30,8 @@ body:
       description: Quelle est la complexité de cette user story pour les développeurs ?
       options:
         - Haute
-        labels: ["❗ Haute"]
         - Moyenne
-        labels: ["➖ Moyenne"]
         - Basse
-        labels: ["⬇️ Basse"]
       validations:
         required: true
   - type: textarea
@@ -53,8 +46,6 @@ body:
       description: Quelle est l'application concernée par cette user story ?
       options:
         - Site e-commerce
-        labels: ["🌐 Site"]
         - Application IOT
-        labels: ["🌡️ Application IOT"]
     validations:
       required: true

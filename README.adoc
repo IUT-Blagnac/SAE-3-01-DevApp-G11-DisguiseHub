@@ -29,7 +29,7 @@ ifdef::env-github[]
 endif::[]
 
 // /!\ A MODIFIER !!!
-:baseURL: https://github.com/IUT-Blagnac/sae3-01-template
+:baseURL: https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub
 
 // Tags
 image:{baseURL}/actions/workflows/blank.yml/badge.svg[Bidon] 
@@ -38,28 +38,24 @@ image:{baseURL}/actions/workflows/tests.yml/badge.svg[Tests]
 image:https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg[License: MPL-2.0, link="https://opensource.org/licenses/MPL-2.0"]
 //---------------------------------------------------------------
 
-TIP: Pensez à mettre à jour les infos dans ce fichier pour que les badges pointent sur les résultats effectifs de vos intégrations continue ou sur la bonne licence logicielle.
-
-WARNING: Ce dépôt présente le projet à développer dans le cadre de la SAÉ 3.01 du BUT1 Informatique de l'IUT de Blagnac.
-
-Ce fichier `README.adoc` (dont vous lisez sûrement le rendu HTML automatiquement effectué par GitHUb), fait partie du dépôt initial cloné à partir du lien GitHub classroom qui vous a été donné en cours (https://classroom.github.com/a/fePVlfpN).
-Vous trouverez le dépôt "template" qui a servi de base ici : https://github.com/IUT-Blagnac/sae3-01-template. En complément du cours Moodle de la SAE 3.01 (cf. <<liensUtiles>>), ce dépôt template vous permet d'accéder à des exemples d'https://github.com/IUT-Blagnac/sae3-01-template/issues[issues], de https://github.com/IUT-Blagnac/sae3-01-template/releases[releases], ou d'autres artefacts à venir.
+WARNING: Ce dépôt présente le projet à développer dans le cadre de la SAÉ 3.01 du BUT2 Informatique de l'IUT de Blagnac.
 
 toc::[]
 
 == Equipe
 
-Projet est réalisé par::
+Ce projet est réalisé par le groupe 11, composé de :
 
-- https://github.com/janeDoe[Jane Doe]
-- https://github.com/johnSmith[John Smith]
-...
+- https://github.com/marwanizo[AL MASRI Marwan] _(MOA de SigmaPrime)_
+- https://github.com/Guychelove[BABELA Guychel]
+- https://github.com/Maxeuh[KRILL Maxence] _(MOE de MAGM)_
+- https://github.com/GeloSwift[NICHELE Angelo]
 
 Tuteur/tutrice enseignant(e) de l'équipe:: mailto:jean-michel.bruel@univ-tlse2.fr[JMB]
 
 == Contexte général
 
-TIP: Cette partie de votre `README.adoc` peut être supprimée ou mise ailleurs.
+Dans une vision stratégique, la société Disguise'Hub nous a sollicité pour la réalisation d'un site internet d'e-commerce pour renforcer sa présence sur le marché du déguisement. Cette décision a été motivée par plusieurs facteurs, notamment l'évolution des comportements d'achat des consommateurs vers le numérique, la nécessité de gagner en visibilité et en notoriété en ligne, ainsi que l'opportunité de conquérir de nouvelles parts de marché à l'échelle mondiale.
 
 === Dépôt initial
 
@@ -97,7 +93,7 @@ Utilisez pour cela les fonctionnalités de GitHub pour les https://docs.github.c
 
 De plus ce fichier `README.adoc` devra être à jour des informations suivantes :
 
-- Version courante : https://github.com/IUT-Blagnac/sae3-01-template/releases/tag/v0.1.2[v0.1.2]
+- Version courante : {baseURL}/releases/tag/v1.0.0[v1.0.0]
 - Lien vers la doc technique
 - Lien vers la doc utilisateur
 - Liste des (ou lien vers les) User Stories (ToDo/Ongoing/Done) et % restant

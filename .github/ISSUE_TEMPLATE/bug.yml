@@ -1,63 +1,70 @@
-# JMB 2022 -- Taken from https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
-name: Bug Report
-description: File a bug report
-title: "[Bug]: "
-labels: ["bug", "triage"]
-assignees:
-  - octocat
+name: ❌ Bug
+description: Signaler un bug
+title: "❌ "
+labels: ["❌ Bug"]
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for taking the time to fill out this bug report!
   - type: input
     id: contact
     attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
+      label: Coordonnées de contact
+      description: Comment pouvons-nous vous contacter si nous avons besoin de plus d'informations ?
+      placeholder: email@exemple.com
     validations:
       required: false
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Sur quels navigateurs rencontrez-vous le problème ?
+      multiple: true
+      options:
+        - Firefox
+        labels: ["🌐 Site"]
+        - Chrome
+        labels: ["🌐 Site"]
+        - Safari
+        labels: ["🌐 Site"]
+        - Microsoft Edge
+        labels: ["🌐 Site"]
+        - Application IOT
+        labels: ["🌡️ Application IOT"]
   - type: textarea
     id: what-happened
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
+      label: Qu'est-ce qui s'est passé ?
+      description: Dites-nous également ce que vous attendiez qu'il se passe. N'hésitez pas à inclure des captures d'écran !
+      placeholder: Dites-nous ce que vous voyez !
     validations:
       required: true
   - type: dropdown
     id: version
     attributes:
       label: Version
-      description: What version of our software are you running?
+      description: Quelle version de notre application utilisez-vous ?
       options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+        - v1.0
+        - v2.0
+        - v3.0
+        - v4.0
+        - v5.0
+        - v6.0
+        - v7.0
+        - v8.1
+        - v8.2
     validations:
       required: true
-  - type: dropdown
-    id: browsers
-    attributes:
-      label: What browsers are you seeing the problem on?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
   - type: textarea
     id: logs
     attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      label: Sortie de programme pertinente
+      description: Veuillez copier-coller toute sortie de programme pertinente. Cela sera automatiquement formaté en code, donc pas besoin de guillemets.
       render: shell
   - type: checkboxes
     id: terms
     attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
+        label: Confirmation
+        description: Merci de regarder les <a href="https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub">issues ouvertes et fermées</a> afin de ne pas créer des doublons.
+        options:
+          - label: J'ai regardé les issues ouvertes et fermées
+            required: true  
+          - label: J'accepte de suivre le Code de conduite de ce projet
+            required: true

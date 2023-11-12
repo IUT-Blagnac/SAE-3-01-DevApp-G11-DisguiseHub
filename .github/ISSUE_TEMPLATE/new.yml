@@ -10,9 +10,7 @@ body:
       multiple: true
       options:
         - Site e-commerce
-        labels: ["🌐 Site"]
         - Application IOT
-        labels: ["🌡️ Application IOT"]
   - type: textarea
     id: what-happened
     attributes:
@@ -23,24 +21,6 @@ body:
       required: true
     validations:
       required: true
-  - type: checkboxes
-    id: tasks
-    attributes:
-      label: Tâches associées
-      description: Choississez les tâches associées à cette fonctionnalité
-      options:
-        - label: Développer du HTML/CSS/PHP
-        labels: ["HTML/CSS/PHP"]
-        - label: Développer en Oracle BD
-        labels: ["Oracle DB"]
-        - label: Développer du Java
-        labels: ["Java"]
-        - label: Développer du Python
-        labels: ["Python"]
-        - label: Écrire un test
-        labels: ["✔️ Test"]
-        - label: Écrire la documentation
-        labels: ["📄 Documentation"]
   - type: checkboxes
     id: terms
     attributes:

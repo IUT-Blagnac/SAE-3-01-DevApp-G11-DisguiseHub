@@ -58,21 +58,3 @@ body:
         labels: ["🌡️ Application IOT"]
     validations:
       required: true
-  - type: checkboxes
-    id: tasks
-    attributes:
-      label: Tâches associées
-      description: Choississez les tâches associées à cette user story
-      options:
-        - label: Développer du HTML/CSS/PHP
-        labels: ["HTML/CSS/PHP"]
-        - label: Développer en Oracle BD
-        labels: ["Oracle DB"]
-        - label: Développer du Java
-        labels: ["Java"]
-        - label: Développer du Python
-        labels: ["Python"]
-        - label: Écrire un test
-        labels: ["✔️ Test"]
-        - label: Écrire la documentation
-        labels: ["📄 Documentation"]

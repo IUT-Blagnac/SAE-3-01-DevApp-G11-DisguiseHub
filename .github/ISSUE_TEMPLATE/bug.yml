@@ -18,15 +18,10 @@ body:
       multiple: true
       options:
         - Firefox
-        labels: ["🌐 Site"]
         - Chrome
-        labels: ["🌐 Site"]
         - Safari
-        labels: ["🌐 Site"]
         - Microsoft Edge
-        labels: ["🌐 Site"]
         - Application IOT
-        labels: ["🌡️ Application IOT"]
   - type: textarea
     id: what-happened
     attributes:

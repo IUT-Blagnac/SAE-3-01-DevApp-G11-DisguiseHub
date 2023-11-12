@@ -1,0 +1,53 @@
+name: 💎 Fonctionnalité
+description: Intégrer une fonctionnalité
+title: "💎 "
+labels: ["💎 Fonctionnalité"]
+body:
+  - type: dropdown
+    id: application
+    attributes:
+      label: Cela concerne ?
+      multiple: true
+      options:
+        - Site e-commerce
+        labels: ["🌐 Site"]
+        - Application IOT
+        labels: ["🌡️ Application IOT"]
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Quelle fonctionnalité souhaiteriez-vous ?
+      description: Dites-nous également ce que vous attendiez qu'il se passe.
+      placeholder: Décrivez votre fonctionnalité
+    validations:
+      required: true
+    validations:
+      required: true
+  - type: checkboxes
+    id: tasks
+    attributes:
+      label: Tâches associées
+      description: Choississez les tâches associées à cette fonctionnalité
+      options:
+        - label: Développer du HTML/CSS/PHP
+        labels: ["HTML/CSS/PHP"]
+        - label: Développer en Oracle BD
+        labels: ["Oracle DB"]
+        - label: Développer du Java
+        labels: ["Java"]
+        - label: Développer du Python
+        labels: ["Python"]
+        - label: Écrire un test
+        labels: ["✔️ Test"]
+        - label: Écrire la documentation
+        labels: ["📄 Documentation"]
+  - type: checkboxes
+    id: terms
+    attributes:
+        label: Confirmation
+        description: Merci de regarder les <a href="https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/issues">issues ouvertes et fermées</a> afin de ne pas créer des doublons.
+        options:
+          - label: J'ai regardé les issues ouvertes et fermées
+            required: true  
+          - label: J'accepte de suivre le Code de conduite de ce projet
+            required: true

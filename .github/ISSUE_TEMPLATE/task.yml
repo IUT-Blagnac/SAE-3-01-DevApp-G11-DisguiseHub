@@ -26,10 +26,8 @@ body:
       label: Quelle amélioration souhaiteriez-vous ?
       description: Dites-nous également ce que vous attendiez qu'il se passe.
       placeholder: Décrivez votre amélioration
-    validations:
-      required: true
-    validations:
-      required: true
+      validations:
+        required: true
   - type: checkboxes
     id: terms
     attributes:

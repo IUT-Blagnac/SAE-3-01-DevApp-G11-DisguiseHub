@@ -9,8 +9,8 @@ body:
       label: Coordonnées de contact
       description: Comment pouvons-nous vous contacter si nous avons besoin de plus d'informations ?
       placeholder: email@exemple.com
-    validations:
-      required: false
+      validations:
+        required: false
   - type: dropdown
     id: application
     attributes:

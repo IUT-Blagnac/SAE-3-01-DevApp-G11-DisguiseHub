@@ -9,8 +9,8 @@ body:
       label: Coordonnées de contact
       description: Comment pouvons-nous vous contacter si nous avons besoin de plus d'informations ?
       placeholder: email@exemple.com
-      validations:
-        required: false
+    validations:
+      required: false
   - type: dropdown
     id: application
     attributes:
@@ -18,16 +18,16 @@ body:
       options:
         - Site e-commerce
         - Application IOT
-      validations:
-        required: false
+    validations:
+      required: false
   - type: textarea
     id: what-happened
     attributes:
       label: Quelle amélioration souhaiteriez-vous ?
       description: Dites-nous également ce que vous attendiez qu'il se passe.
       placeholder: Décrivez votre amélioration
-      validations:
-        required: true
+    validations:
+      required: true
   - type: checkboxes
     id: terms
     attributes:

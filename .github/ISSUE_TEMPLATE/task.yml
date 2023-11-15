@@ -15,10 +15,11 @@ body:
     id: application
     attributes:
       label: Cela concerne ?
-      multiple: true
       options:
         - Site e-commerce
         - Application IOT
+      validations:
+        required: false
   - type: textarea
     id: what-happened
     attributes:

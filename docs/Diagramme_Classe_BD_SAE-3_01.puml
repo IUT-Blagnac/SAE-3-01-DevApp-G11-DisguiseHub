@@ -1,0 +1,108 @@
+@startuml Diagramme de classes métiers BD SAE3.01
+
+class Produit {
+    + refProduit
+    nomProduit
+    descProduit
+    prixProduit
+    qteProduit
+    tailleProduit
+    couleurProduit
+    photoProduit
+}
+
+class Promotion {
+    + idPromotion
+    nomPromotion
+    pourcentageReduction
+}
+
+class CategTaille {
+    tailleSelonAgeEtSexe
+}
+
+class GuideTaille {
+    + idTaille
+    tourPoitrine
+    tourDeTaille
+    tourBassin
+    tailleFr
+    tailleACommander
+}
+
+class Categorie {
+    + idCategorie
+    nomCategorie
+}
+
+class Client {
+    + numClient
+    nomClient
+    prenomClient
+    adresseClient
+    mailClient
+    codePostalClient
+    villeClient
+    civiliteClient
+    telClient
+    mdpClient
+}
+
+class Panier {
+    + idPanier
+    prixUnitaire
+    prixTotal
+    qteProduit
+}
+
+class Commande {
+    + idCommande
+    dateCommande
+    fraisLivraison
+    statutCommande
+    modePaiement
+}
+
+class Paiement {
+    + idPaiement
+}
+
+class CB {
+    + numCb
+    nomCb
+    moisExpCb
+    anneeExpCb
+    cryptoCb
+}
+
+class Paypal {
+    + idPaypal
+    email
+    mdp
+}
+
+class Commander {
+    qteCommandee
+}
+
+class Avis {
+    + idAvis
+    commentaire
+    note
+}
+
+Produit "*" -- "1" Categorie: Appartenir
+Paypal "1" -- "1" Paiement : Payer avec Paypal
+CB "1" -- "1" Paiement : Payer avec CB
+Paiement "1" -- "*" Commande : Régler la commande
+Produit "*" - "*" Commande
+(Produit, Commande) -- Commander
+Produit "*" -- "*" Panier : Ajouter
+Commande "*" -- "1" Client: Passer
+Client "1" -- "1" Panier: Posseder
+Avis "*" -- "1" Produit: Concerner
+GuideTaille "1" - "*" Produit
+(GuideTaille, Produit) -- CategTaille
+Promotion "1" -- "*" Produit: Promo
+
+@enduml

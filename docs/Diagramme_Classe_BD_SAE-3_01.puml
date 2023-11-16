@@ -72,13 +72,11 @@ class CB {
     nomCb
     moisExpCb
     anneeExpCb
-    cryptoCb
 }
 
 class Paypal {
     + idPaypal
     email
-    mdp
 }
 
 class Commander {

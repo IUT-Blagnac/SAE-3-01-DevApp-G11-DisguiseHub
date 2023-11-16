@@ -1,0 +1,39 @@
+@startuml
+skinparam actorStyle awesome
+actor Utilisateur
+participant Navigateur
+participant "Serveur Web" as ServeurWeb
+
+Utilisateur -> Navigateur: 1. Accède au site web
+activate Navigateur
+Navigateur -> ServeurWeb: 2. Requête page d'accueil
+activate ServeurWeb
+ServeurWeb --> Navigateur: 3. Renvoie page d'accueil
+deactivate ServeurWeb
+
+Utilisateur <- Navigateur: 4. Interagit, recherche un produit
+Navigateur -> ServeurWeb: 5. Requête résultats de recherche
+activate ServeurWeb
+ServeurWeb --> Navigateur: 6. Renvoie résultats de recherche
+deactivate ServeurWeb
+
+Utilisateur <- Navigateur: 7. Sélectionne un produit
+Navigateur -> ServeurWeb: 8. Ajoute au panier
+activate ServeurWeb
+ServeurWeb --> Navigateur: 9. Confirmation ajout au panier
+deactivate ServeurWeb
+
+Utilisateur <- Navigateur: 10. Affiche le panier
+Navigateur -> ServeurWeb: 11. Requête contenu du panier
+activate ServeurWeb
+ServeurWeb --> Navigateur: 12. Renvoie contenu du panier
+deactivate ServeurWeb
+
+Utilisateur <- Navigateur: 13. Passe la commande
+Navigateur -> ServeurWeb: 14. Requête de commande
+activate ServeurWeb
+ServeurWeb --> Navigateur: 15. Confirmation de commande
+deactivate ServeurWeb
+
+Utilisateur <- Navigateur: 16. Affiche la confirmation
+@enduml

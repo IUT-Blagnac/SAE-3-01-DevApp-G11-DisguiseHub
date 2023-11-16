@@ -1,0 +1,14 @@
+@startuml
+skinparam actorStyle awesome
+actor Utilisateur #yellow
+participant "Interface Utilisateur" as Interface #lightgreen
+participant ApplicationJavaFX as App #red
+participant Data as BD #lightblue
+
+Utilisateur -> Interface: Interagit avec l'interface
+Interface -> App: Demande de visualisation de l'entrepôt
+App -> BD: Récupération des données dans l'entrepôt
+BD --> App: Renvoie les données demandées
+App --> Interface: Affiche les données de l'entrepôt
+Interface --> Utilisateur: Affiche les données
+@enduml

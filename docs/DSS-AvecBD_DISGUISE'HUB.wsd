@@ -1,0 +1,44 @@
+@startuml
+actor Utilisateur
+boundary "Site Web" as SiteWeb
+' object BaseDeDonnees {
+'   + getProduitInfo(): InfoProduit
+'   + ajouterProduitAuPanier(): Confirmation
+'   + getContenuDuPanier(): ContenuPanier
+'   + passerCommande(): ConfirmationCommande
+' }
+
+Utilisateur -> SiteWeb: Sélectionne un produit
+activate SiteWeb
+SiteWeb -> BaseDeDonnees: getProduitInfo()
+activate BaseDeDonnees
+
+BaseDeDonnees --> SiteWeb: Informations du produit
+deactivate BaseDeDonnees
+
+SiteWeb -> BaseDeDonnees: ajouterProduitAuPanier()
+activate BaseDeDonnees
+BaseDeDonnees --> SiteWeb: Confirmation de l'ajout au panier
+deactivate BaseDeDonnees
+
+SiteWeb -> Utilisateur: Affiche la confirmation
+
+Utilisateur -> SiteWeb: Affiche le contenu du panier
+SiteWeb -> BaseDeDonnees: getContenuDuPanier()
+activate BaseDeDonnees
+
+BaseDeDonnees --> SiteWeb: Contenu du panier
+deactivate BaseDeDonnees
+
+SiteWeb -> Utilisateur: Affiche le contenu du panier
+
+Utilisateur -> SiteWeb: Passe la commande
+SiteWeb -> BaseDeDonnees: passerCommande()
+activate BaseDeDonnees
+
+BaseDeDonnees --> SiteWeb: Confirmation de la commande
+deactivate BaseDeDonnees
+
+SiteWeb -> Utilisateur: Affiche la confirmation de la commande
+deactivate SiteWeb
+@enduml

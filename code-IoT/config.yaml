@@ -1,0 +1,12 @@
+capteur:
+  connection:
+    host: chirpstack.iut-blagnac.fr
+    port: 1883
+  ecriture:
+    temps: 20
+  observer:
+    - activity
+    - co2
+    - humidity
+    - pressure
+    - temperature

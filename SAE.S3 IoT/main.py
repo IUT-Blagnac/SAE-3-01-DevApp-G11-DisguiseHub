@@ -1,4 +1,5 @@
 import configparser
+import os
 import paho.mqtt.client as mqtt
 import json
 import csv
@@ -8,7 +9,7 @@ import threading
 
 # Charger les paramètres depuis le fichier de configuration
 config = configparser.ConfigParser()
-config.read('config.ini')
+config.read(os.path.join(os.path.dirname(__file__), 'Config.ini'))
 
 broker_address = config['MQTT']['broker_address']
 port = int(config['MQTT']['port'])
@@ -18,19 +19,17 @@ humidity_key = config['observateur']['humidity']
 temperature_key = config['observateur']['temperature']
 co2_key = config['observateur']['co2']
 tvoc_key = config['observateur']['tvoc']
-
-# Seuils d'alerte
-seuil_temperature_max = 21.0  # Exemple de seuil de température maximale
-seuil_humidity_max = 50.0  # Exemple de seuil d'humidité maximale
-seuil_co2_max = 500.0  # Exemple de seuil de CO2 maximale
+seuil_temperature_key = config['observateur']['seuil_temperature']
+seuil_humidity_key = config['observateur']['seuil_humidity']
+seuil_co2_key = config['observateur']['seuil_co2']
 
 # Chemins des fichiers d'alerte
-chemin_alerte_temperature = r"C:\Users\guych\OneDrive\Bureau\SAE.S3 IoT\alertes_temperature.txt"
-chemin_alerte_humidity = r"C:\Users\guych\OneDrive\Bureau\SAE.S3 IoT\alertes_humidity.txt"
-chemin_alerte_co2 = r"C:\Users\guych\OneDrive\Bureau\SAE.S3 IoT\alertes_co2.txt"
+chemin_alerte_temperature = r"alertes_temperature.txt"
+chemin_alerte_humidity = r"alertes_humidity.txt"
+chemin_alerte_co2 = r"alertes_co2.txt"
 
 # Chemin du fichier CSV
-chemin_fichier_csv = r"C:\Users\guych\OneDrive\Bureau\SAE.S3 IoT\votre_fichier.csv"
+chemin_fichier_csv = r"données.csv"
 
 # Callback lorsque la connexion MQTT est établie
 def on_connect(client, userdata, flags, rc):
@@ -45,17 +44,20 @@ def on_connect(client, userdata, flags, rc):
 def verifier_alertes(tab1, tab2):
     # Vérifier les seuils de température
     temperature = float(tab1.get(temperature_key))
-    if temperature > seuil_temperature_max:
+    temperature_max = float(tab2.get(seuil_temperature_key))
+    if temperature > temperature_max:
         enregistrer_alerte(chemin_alerte_temperature, tab2.get(room_key), "Température", temperature)
 
     # Vérifier les seuils d'humidité
     humidity = float(tab1.get(humidity_key))
-    if humidity > seuil_humidity_max:
+    humidity_max = float(tab2.get(seuil_humidity_key))
+    if humidity > humidity_max:
         enregistrer_alerte(chemin_alerte_humidity, tab2.get(room_key), "Humidité", humidity)
     
     # Vérifier les seuils de CO2
     co2 = float(tab1.get(co2_key))
-    if co2 > seuil_co2_max:
+    co2_max = float(tab2.get(seuil_co2_key))
+    if co2 > co2_max:
         enregistrer_alerte(chemin_alerte_co2, tab2.get(room_key), "CO2", co2)
 
 # Fonction pour enregistrer une alerte dans un fichier

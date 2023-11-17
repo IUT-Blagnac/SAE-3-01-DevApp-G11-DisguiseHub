@@ -1,0 +1,22 @@
+{
+  "E003": [
+    {
+      "temperature": 21.3,
+      "humidity": 56.5,
+      "activity": 242,
+      "co2": 1513,
+      "tvoc": 1084,
+      "illumination": 67,
+      "infrared": 14,
+      "infrared_and_visible": 59,
+      "pressure": 996.3
+    },
+    {
+      "deviceName": "AM107-26",
+      "devEUI": "24e124128c017035",
+      "room": "E003",
+      "floor": 0,
+      "Building": "E"
+    }
+  ]
+}

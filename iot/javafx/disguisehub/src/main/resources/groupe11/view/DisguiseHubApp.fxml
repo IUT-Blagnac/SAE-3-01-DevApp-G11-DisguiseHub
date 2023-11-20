@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="701.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="groupe11.view.DisguiseHubAppController">
+   <top>
+      <BorderPane prefHeight="553.0" prefWidth="701.0" BorderPane.alignment="CENTER">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="Menu">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Voir les données par salle" />
+                        <MenuItem mnemonicParsing="false" text="Paramétrer le fichier de configuration" />
+                        <MenuItem mnemonicParsing="false" text="Voir les alertes" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#Quitter" text="Quitter" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="160.0" minHeight="9.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="327.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="327.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="327.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="327.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="161.0" prefWidth="843.0" text="ACCUEIL">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </Label>
+                  <Button minHeight="60.0" mnemonicParsing="false" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Voir les données par salle" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="230.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button minHeight="60.0" mnemonicParsing="false" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Paramétrer le fichier de configuration" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="230.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button minHeight="60.0" mnemonicParsing="false" onAction="#Quitter" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Quitter" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="230.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button minHeight="60.0" mnemonicParsing="false" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Voir les alertes" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="230.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets top="25.0" />
+               </BorderPane.margin>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </top>
+</BorderPane>

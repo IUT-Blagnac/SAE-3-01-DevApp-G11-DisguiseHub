@@ -1,56 +1,97 @@
-import yaml, json, os, sys, time
+import yaml, json, signal, threading, sys, time
 import paho.mqtt.client as mqtt
-import pandas as pd
 
-donnee_par_salle = {}
-
+# Connexion au MQTT et abonnement au topic
 def on_connect(client, userdata, flags, rc):
-    print("Connected with result code "+str(rc))
     client.subscribe("AM107/by-room/+/data")
+    print("🔗 Connecté avec le code " + str(rc))
 
+# Réception des données
 def on_message(client, userdata, msg):
-    print(msg.topic+" "+str(msg.payload))
+    # Décodage du message
     payload = json.loads(msg.payload)
 
-    # salle[msg.topic.split("/")[2]] = msg.payload
-
+    # Vérification de la présence de données
+    if not (msg.payload):
+        return
+    elif not (payload[1]):
+        return
+    
+    # Découpage des données
     salle = payload[1]["room"]
     donnee = payload[0]
+    temps = int(time.time())
 
-    temps = time.time()
+    # Message dans la console
+    print("📥 Données reçues de la salle \"" + salle + "\" (" + str(len(donnee)) + " données)")
 
-    if salle not in donnee_par_salle:
-        donnee_par_salle[salle] = {}
+    # Ajout des données voulues dans le jeu de données
+    if salle not in data:
+        data[salle] = {}
+    
+    data[salle][temps] = {}
+    
+    for (cle, valeur) in donnee.items():
+        if (cle in config["collecte"]):
+            data[salle][temps][cle] = valeur
 
-    donnee_par_salle[salle][temps] = donnee
+            # Vérification des alertes
+            if not (cle in config["alerte"]):
+                continue
+            if (config["alerte"][cle]["min"] > valeur or config["alerte"][cle]["max"] < valeur):
+                if salle not in alerte:
+                    alerte[salle] = {}
+                if temps not in alerte[salle]:
+                    alerte[salle][temps] = {}
+                alerte[salle][temps][cle] = valeur
 
-    temps_ecoule = time.time() - temps_final_lecture
+                # Message dans la console
+                print("🚨 Anomalie dans la salle \"" + salle + "\" pour la donnée \"" + cle + "\" : " + str(valeur))
 
-    if temps_ecoule > config["capteur"]["ecriture"]["temps"] / 1000:
-        write()
-
+# Ecriture des données dans le fichier
 def write():
-    if(sys.platform.startswith("win")):
-        print("Windows")
-    elif(sys.platform.startswith("linux")):
-        print("Linux")
-    
+    # Ecriture des données dans le fichier
     with open("data.json", "w") as file:
-        json.dump(donnee_par_salle, file)
+        json.dump(data, file)
+    with open("alerte.json", "w") as file:
+        json.dump(alerte, file)
 
-    global temps_final_ecriture
-    temps_final_lecture = time.time()
-    
+    # Rafraichissement des données
+    dataload()
 
+    # Message dans la console
+    print("💾 Données enregistrées")
+
+    # Redémarrage du timer
+    if (sys.platform.startswith("win")):
+        timer = threading.Timer(config["ecriture"]["intervale"], write)
+        timer.start()
+    elif (sys.platform.startswith("linux")):
+        signal.alarm(config["ecriture"]["intervale"])
+
+# Lecture des données
+def dataload():
+    global config, data, alerte
+    with open("config.yaml", "r") as file:
+        config = yaml.safe_load(file)
+    with open("data.json", "r") as file:
+        data = json.load(file)
+    with open("alerte.json", "r") as file:
+        alerte = json.load(file)
+
+# Initialisation des variables
+dataload()
+
+# Intervalle en fonction du système d'exploitation
+if (sys.platform.startswith("win")):
+    timer = threading.Timer(config["ecriture"]["intervale"], write)
+    timer.start()
+elif (sys.platform.startswith("linux")):
+    signal.signal(signal.SIGINT, write)
+
+# Connexion au MQTT
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
-
-with open("config.yaml", "r") as file:
-    config = yaml.safe_load(file)
-
-client.connect(config["capteur"]["connection"]["host"], config["capteur"]["connection"]["port"], 60)
-
-temps_final_lecture = time.time()
-
+client.connect(config["connection"]["host"], config["connection"]["port"], 60)
 client.loop_forever()

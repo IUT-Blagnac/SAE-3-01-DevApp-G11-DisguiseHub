@@ -1,0 +1,18 @@
+@startuml
+actor Utilisateur
+participant Navigateur
+participant "Serveur Web" as ServeurWeb
+
+Utilisateur -> Navigateur: 1. Accède au site web
+activate Navigateur
+Navigateur -> ServeurWeb: 2. Affiche la page d'accueil
+activate ServeurWeb
+Utilisateur <- Navigateur: 3. Recherche un produit
+Navigateur -> ServeurWeb: 4. Affiche les résultats
+Utilisateur <- Navigateur: 5. Sélectionne un produit
+Navigateur -> ServeurWeb: 6. Ajoute au panier
+Utilisateur <- Navigateur: 7. Affiche le panier
+Navigateur -> ServeurWeb: 8. Passe la commande
+activate ServeurWeb
+Utilisateur <- Navigateur: 10. Affiche la confirmation
+@enduml

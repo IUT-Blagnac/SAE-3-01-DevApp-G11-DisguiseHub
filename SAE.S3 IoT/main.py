@@ -24,7 +24,7 @@ tvoc_key = config['observateur']['tvoc']
 seuil_temperature = config['observateur'].getfloat('seuil_temperature')
 seuil_humidity = config['observateur'].getfloat('seuil_humidity')
 seuil_co2 = config['observateur'].getfloat('seuil_co2')
-frequence_lecture = config['observateur'].getfloat('frequence_lecture')
+frequence_affichage = config['observateur'].getfloat('freqeunce_affichage')
 
 # Chemins des fichiers d'alerte
 chemin_alerte_temperature = r"SAE.S3 IoT\alertes_temperature.txt"
@@ -67,8 +67,16 @@ def verifier_alertes(tab1, tab2):
 # Fonction pour enregistrer une alerte dans un fichier
 def enregistrer_alerte(chemin_alerte, room, type_alerte, valeur):
     with open(chemin_alerte, 'a', newline='', encoding='utf-8') as fichier_alerte:
+        
+        # Obtenir la date et l'heure actuelles
+        now = datetime.now()
+        date_heure_actuelles = now.strftime("%Y-%m-%d %H:%M:%S")
+        
         writer = csv.writer(fichier_alerte)
-        writer.writerow([datetime.now(), room, type_alerte, valeur])
+        writer.writerow([date_heure_actuelles, room, type_alerte, valeur])
+        
+        time.sleep(frequence_affichage)
+
 
 
 
@@ -106,7 +114,7 @@ def on_message(client, userdata, msg):
                 tab1.get(co2_key),
                 tab1.get(tvoc_key)
             ])
-            time.sleep(frequence_lecture)
+            time.sleep(frequence_affichage)
     except json.JSONDecodeError as e:
         print("Erreur de décodage JSON:", e)
         

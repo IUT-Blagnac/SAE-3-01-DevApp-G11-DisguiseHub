@@ -5,7 +5,6 @@ import json
 import csv
 import time
 from datetime import datetime
-import threading
 
 # Charger les paramètres depuis le fichier de configuration
 config = configparser.ConfigParser()
@@ -25,6 +24,7 @@ tvoc_key = config['observateur']['tvoc']
 seuil_temperature = config['observateur'].getfloat('seuil_temperature')
 seuil_humidity = config['observateur'].getfloat('seuil_humidity')
 seuil_co2 = config['observateur'].getfloat('seuil_co2')
+frequence_lecture = config['observateur'].getfloat('frequence_lecture')
 
 # Chemins des fichiers d'alerte
 chemin_alerte_temperature = r"SAE.S3 IoT\alertes_temperature.txt"
@@ -106,8 +106,10 @@ def on_message(client, userdata, msg):
                 tab1.get(co2_key),
                 tab1.get(tvoc_key)
             ])
+            time.sleep(frequence_lecture)
     except json.JSONDecodeError as e:
         print("Erreur de décodage JSON:", e)
+        
 
 # Initialiser le client MQTT
 client = mqtt.Client()

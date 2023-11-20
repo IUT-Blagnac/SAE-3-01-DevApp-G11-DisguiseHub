@@ -3,7 +3,7 @@ import paho.mqtt.client as mqtt
 
 # Connexion au MQTT et abonnement au topic
 def on_connect(client, userdata, flags, rc):
-    client.subscribe("AM107/by-room/+/data")
+    client.subscribe(config["connection"]["topic"])
     print("🔗 Connecté avec le code " + str(rc))
 
 # Réception des données
@@ -51,9 +51,9 @@ def on_message(client, userdata, msg):
 # Ecriture des données dans le fichier
 def write():
     # Ecriture des données dans le fichier
-    with open("data.json", "w") as file:
+    with open(config["ecriture"]["fichiers"]["data"] + ".json", "w") as file:
         json.dump(data, file)
-    with open("alerte.json", "w") as file:
+    with open(config["ecriture"]["fichiers"]["alerte"] + ".json", "w") as file:
         json.dump(alerte, file)
 
     # Rafraichissement des données
@@ -74,9 +74,9 @@ def dataload():
     global config, data, alerte
     with open("config.yaml", "r") as file:
         config = yaml.safe_load(file)
-    with open("data.json", "r") as file:
+    with open(config["ecriture"]["fichiers"]["data"] + ".json", "r") as file:
         data = json.load(file)
-    with open("alerte.json", "r") as file:
+    with open(config["ecriture"]["fichiers"]["alerte"] + ".json", "r") as file:
         alerte = json.load(file)
 
 # Initialisation des variables
@@ -87,7 +87,7 @@ if (sys.platform.startswith("win")):
     timer = threading.Timer(config["ecriture"]["intervale"], write)
     timer.start()
 elif (sys.platform.startswith("linux")):
-    signal.signal(signal.SIGINT, write)
+    signal.signal(signal.SIGALRM, write)
 
 # Connexion au MQTT
 client = mqtt.Client()

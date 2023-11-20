@@ -1,7 +1,11 @@
 connection:
   host: chirpstack.iut-blagnac.fr
   port: 1883
+  topic: AM107/by-room/+/data
 ecriture:
+  fichiers:
+    data: data
+    alerte: alerte
   intervale: 10
 collecte:
   - activity

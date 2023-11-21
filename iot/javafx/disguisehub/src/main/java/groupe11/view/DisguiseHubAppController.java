@@ -1,6 +1,9 @@
 package groupe11.view;
 
 import groupe11.control.DisguiseHubApp;
+import groupe11.control.DonneesParSalle;
+import groupe11.control.FichierDeConfig;
+import groupe11.control.VoirLesAlertes;
 import groupe11.tools.AlertUtilities;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -37,5 +40,20 @@ public class DisguiseHubAppController {
                 "Voulez vous vraiment fermer la fenetre", "", AlertType.CONFIRMATION)) {
             this.primaryStage.close();
         }
+    }
+
+    @FXML
+    private void Button1() {
+        DonneesParSalle controller1 = new DonneesParSalle(primaryStage);
+    }
+
+    @FXML
+    private void Button2() {
+        FichierDeConfig controller2 = new FichierDeConfig(primaryStage);
+    }
+
+    @FXML
+    private void Button3() {
+        VoirLesAlertes controller3 = new VoirLesAlertes(primaryStage);
     }
 }

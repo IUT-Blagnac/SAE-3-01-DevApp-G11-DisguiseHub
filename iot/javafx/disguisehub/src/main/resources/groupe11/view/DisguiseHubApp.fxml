@@ -14,7 +14,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="701.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="groupe11.view.DisguiseHubAppController">
    <top>
-      <BorderPane prefHeight="553.0" prefWidth="701.0" styleClass="iut" stylesheets="@../application.css" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="581.0" prefWidth="855.0" styleClass="iut" stylesheets="@../application.css" BorderPane.alignment="CENTER">
          <center>
             <GridPane prefHeight="553.0" prefWidth="701.0" BorderPane.alignment="CENTER">
               <columnConstraints>
@@ -33,12 +33,12 @@
                         <Font size="44.0" />
                      </font>
                   </Label>
-                  <Button minHeight="60.0" mnemonicParsing="false" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Voir les données par salle" GridPane.rowIndex="1">
+                  <Button minHeight="60.0" mnemonicParsing="false" onAction="#Button1" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Voir les données par salle" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="230.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button minHeight="60.0" mnemonicParsing="false" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Paramétrer le fichier de configuration" GridPane.rowIndex="2">
+                  <Button minHeight="60.0" mnemonicParsing="false" onAction="#Button2" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Paramétrer le fichier de configuration" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="230.0" />
                      </GridPane.margin>
@@ -48,7 +48,7 @@
                         <Insets left="230.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button minHeight="60.0" mnemonicParsing="false" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Voir les alertes" GridPane.rowIndex="3">
+                  <Button minHeight="60.0" mnemonicParsing="false" onAction="#Button3" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Voir les alertes" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="230.0" />
                      </GridPane.margin>

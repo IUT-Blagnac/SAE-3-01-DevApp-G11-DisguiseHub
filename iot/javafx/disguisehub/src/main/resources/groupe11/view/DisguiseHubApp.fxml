@@ -33,22 +33,22 @@
                         <Font size="44.0" />
                      </font>
                   </Label>
-                  <Button minHeight="60.0" mnemonicParsing="false" onAction="#Button1" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Voir les données par salle" GridPane.rowIndex="1">
+                  <Button fx:id="buttDonneesParSalle" minHeight="60.0" mnemonicParsing="false" onAction="#doDonneesParSalle" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Voir les données par salle" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="230.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button minHeight="60.0" mnemonicParsing="false" onAction="#Button2" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Paramétrer le fichier de configuration" GridPane.rowIndex="2">
+                  <Button fx:id="buttFichierDeConfig" minHeight="60.0" mnemonicParsing="false" onAction="#doFichierDeConfig" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Paramétrer le fichier de configuration" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="230.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button contentDisplay="RIGHT" minHeight="60.0" mnemonicParsing="false" onAction="#Quitter" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Quitter" GridPane.rowIndex="4">
+                  <Button fx:id="buttQuitter" contentDisplay="RIGHT" minHeight="60.0" mnemonicParsing="false" onAction="#doQuitter" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Quitter" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="230.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button minHeight="60.0" mnemonicParsing="false" onAction="#Button3" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Voir les alertes" GridPane.rowIndex="3">
+                  <Button fx:id="buttVoirLesAlerte" minHeight="60.0" mnemonicParsing="false" onAction="#doVoirLesAlerte" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 15; -fx-border-width: 2;" text="Voir les alertes" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="230.0" />
                      </GridPane.margin>

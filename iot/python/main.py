@@ -65,8 +65,11 @@ def write():
         with open(config["ecriture"]["fichiers"]["alerte"] + ".json", "w") as file:
             json.dump(alerte, file)
     elif (sys.platform.startswith("linux")):
-        os.write(os.open(config["ecriture"]["fichiers"]["data"] + ".json", os.O_WRONLY | os.O_TRUNC), json.dumps(data).encode())
-        os.write(os.open(config["ecriture"]["fichiers"]["alerte"] + ".json", os.O_WRONLY | os.O_TRUNC), json.dumps(alerte).encode())
+    	try:
+    		os.write(os.open(config["ecriture"]["fichiers"]["data"] + ".json", os.O_WRONLY | os.O_TRUNC), json.dumps(data).encode())
+    		os.write(os.open(config["ecriture"]["fichiers"]["alerte"] + ".json", os.O_WRONLY | os.O_TRUNC), json.dumps(alerte).encode())
+    	except Exception as e:
+	    	print("❌ Impossible d'écrire dans le fichier :", str(e))
     
     # Rafraichissement des données
     dataload()
@@ -80,6 +83,10 @@ def write():
         timer.start()
     elif (sys.platform.startswith("linux")):
         signal.alarm(config["ecriture"]["intervale"])
+
+# Appel de write spécifique à UNIX car on a pas besoin de numero et frame (qui sont passés en paramètres par l'alerte)
+def unixwrite(numero, frame):
+	write()
 
 # Lecture des données
 def dataload():
@@ -113,15 +120,26 @@ def readfile(file):
                 data = {}
                 with open(file, "w") as file:
                     json.dump(data, file)
+                    print("📝 Fichier \"" + file + "\" créé")
         else:
             data = {}
             with open(file, "w") as file:
                 json.dump(data, file)
+                print("📝 Fichier \"" + file + "\" créé")
     elif (sys.platform.startswith("linux")):
-        data_fd = os.open(file, os.O_RDONLY)
-        data_content = os.read(data_fd, os.path.getsize(file))
-        os.close(data_fd)
-        data = json.loads(data_content)
+        if os.path.getsize(file) > 0:
+        	data_fd = os.open(file, os.O_RDONLY)
+        	data_content = os.read(data_fd, os.path.getsize(file))
+        	os.close(data_fd)
+        	data = json.loads(data_content)
+        else:
+        	data = {}
+        	try:
+        		data_fd = os.open(file, os.O_WRONLY | os.O_CREAT | os.O_TRUNC)
+        		os.write(data_fd, json.dumps(data).encode())
+        	except Exception as e:
+        		print("❌ Impossible de créer le fichier :", str(e))
+        	print("📝 Fichier \"" + file + "\" créé")
     return data
 
 # Initialisation des variables
@@ -132,7 +150,8 @@ if (sys.platform.startswith("win")):
     timer = threading.Timer(config["ecriture"]["intervale"], write)
     timer.start()
 elif (sys.platform.startswith("linux")):
-    signal.signal(signal.SIGALRM, write)
+	signal.signal(signal.SIGALRM, unixwrite)
+	signal.alarm(config["ecriture"]["intervale"])
 
 # Connexion au MQTT
 client = mqtt.Client()

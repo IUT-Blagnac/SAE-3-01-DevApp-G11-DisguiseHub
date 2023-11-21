@@ -100,7 +100,7 @@ def dataload():
 
     data = readfile(config["ecriture"]["fichiers"]["data"] + ".json")
     
-    alerte = readfile(config["ecriture"]["fichiers"]["data"] + ".json")
+    alerte = readfile(config["ecriture"]["fichiers"]["alerte"] + ".json")
 
 # Lecture du fichier, création si inexistant, retourne le contenu
 def readfile(file):

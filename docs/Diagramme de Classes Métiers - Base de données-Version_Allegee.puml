@@ -1,0 +1,45 @@
+@startuml Diagramme de classes métiers BD SAE3.01
+
+skinparam ClassFontSize 23
+
+class Produit 
+
+class Promotion 
+
+class CategTaille 
+
+class GuideTaille 
+
+class Categorie 
+
+class Client
+
+class Panier
+
+class Commande
+
+class Paiement
+
+class CB
+
+class Paypal
+
+class Commander
+
+class Avis
+
+Produit "*" -- "1" Categorie: Appartenir
+Paypal "1" -- "1" Paiement : Payer avec Paypal
+CB "1" -- "1" Paiement : Payer avec CB
+Paiement "1" -- "*" Commande : Régler la commande
+Produit "*" - "*" Commande
+(Produit, Commande) -- Commander
+Produit "*" -- "*" Panier : Ajouter
+Commande "*" -- "1" Client: Passer
+Client "1" -- "1" Panier: Posseder
+Avis "*" -- "1" Produit: Concerner
+GuideTaille "1" - "*" Produit
+(GuideTaille, Produit) -- CategTaille
+Promotion "1" -- "*" Produit: Promo
+
+@enduml

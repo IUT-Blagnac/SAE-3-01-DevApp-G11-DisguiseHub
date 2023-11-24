@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -12,7 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="701.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="groupe11.view.DisguiseHubAppController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="701.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="groupe11.view.DisguiseHubAppController">
    <top>
       <BorderPane prefHeight="581.0" prefWidth="855.0" styleClass="iut" stylesheets="@../application.css" BorderPane.alignment="CENTER">
          <center>
@@ -28,12 +34,12 @@
                   <RowConstraints maxHeight="327.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label alignment="CENTER" prefHeight="161.0" prefWidth="843.0" text="ACCUEIL" textFill="WHITE">
+                  <Label alignment="CENTER" prefHeight="161.0" prefWidth="843.0" text="Menu" textFill="WHITE">
                      <font>
                         <Font size="44.0" />
                      </font>
                   </Label>
-                  <Button fx:id="buttDonneesParSalle" minHeight="60.0" mnemonicParsing="false" onAction="#doDonneesParSalle" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 2;" text="Voir les données par salle" GridPane.rowIndex="1">
+                  <Button fx:id="buttDonneesParSalle" minHeight="60.0" mnemonicParsing="false" onAction="#doDonneesParSalle" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 2;" text="Voir les données par salle" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="230.0" />
                      </GridPane.margin>
@@ -48,7 +54,7 @@
                         <Insets left="230.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="buttVoirLesAlerte" minHeight="60.0" mnemonicParsing="false" onAction="#doVoirLesAlerte" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 2;" text="Voir les alertes" GridPane.rowIndex="3">
+                  <Button fx:id="buttVoirLesAlerte" minHeight="60.0" mnemonicParsing="false" onAction="#doVoirLesAlerte" prefWidth="250.0" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20; -fx-border-width: 2;" text="Voir les alertes" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="230.0" />
                      </GridPane.margin>

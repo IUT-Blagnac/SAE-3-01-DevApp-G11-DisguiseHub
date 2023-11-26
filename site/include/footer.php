@@ -7,7 +7,7 @@
             <a href="https://instagram.com/">Instagram</a>
         </div>
         <div>
-            <h2>Nous magasins</h2>
+            <h2>Nos magasins</h2>
             <a href="/magasins/paris.php">Paris</a>
             <a href="/magasins/toulouse.php">Toulouse</a>
             <a href="/magasins">Autres</a>

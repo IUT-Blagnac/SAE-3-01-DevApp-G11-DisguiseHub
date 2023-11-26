@@ -1,14 +1,14 @@
-@startuml
-skinparam actorStyle awesome
-actor Utilisateur #yellow
-participant "Interface Utilisateur" as Interface #lightgreen
-participant ApplicationJavaFX as App #red
-participant Data as BD #lightblue
+@startuml Diagramme de séquence - Application IOT
+title Diagramme de séquence - Application IOT
+hide footbox
 
-Utilisateur -> Interface: Interagit avec l'interface
-Interface -> App: Demande de visualisation de l'entrepôt
-App -> BD: Récupération des données dans l'entrepôt
-BD --> App: Renvoie les données demandées
-App --> Interface: Affiche les données de l'entrepôt
-Interface --> Utilisateur: Affiche les données
+actor "Utilisateur" as u
+participant "Application JavaFX" as a
+participant "Fichier(s) data" as d
+
+u -> a: Demande de visualisation des données
+a -> d: Récupération des données
+d --> a: data
+a --> u: Affiche les données
+
 @enduml

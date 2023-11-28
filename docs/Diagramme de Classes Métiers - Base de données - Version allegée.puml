@@ -1,31 +1,18 @@
 @startuml Diagramme de classes métiers BD SAE3.01
-
 skinparam ClassFontSize 23
 
 class Produit 
-
 class Promotion 
-
 class CategTaille 
-
 class GuideTaille 
-
 class Categorie 
-
 class Client
-
 class Panier
-
 class Commande
-
 class Paiement
-
 class CB
-
 class Paypal
-
 class Commander
-
 class Avis
 
 Produit "*" -- "1" Categorie: Appartenir

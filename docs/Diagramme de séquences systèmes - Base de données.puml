@@ -1,44 +1,45 @@
-@startuml
-actor Utilisateur
-boundary "Site Web" as SiteWeb
-' object BaseDeDonnees {
-'   + getProduitInfo(): InfoProduit
-'   + ajouterProduitAuPanier(): Confirmation
-'   + getContenuDuPanier(): ContenuPanier
-'   + passerCommande(): ConfirmationCommande
-' }
+@startuml Diagramme de séquence - Base de données
+title Diagramme de séquence - Base de données
+hide footbox
 
-Utilisateur -> SiteWeb: Sélectionne un produit
-activate SiteWeb
-SiteWeb -> BaseDeDonnees: getProduitInfo()
-activate BaseDeDonnees
+actor Utilisateur as u
+participant "Site web" as w
+participant "Base de données" as b
 
-BaseDeDonnees --> SiteWeb: Informations du produit
-deactivate BaseDeDonnees
+u -> w: Sélectionne un produit
+activate w
+w -> b: getProduct()
+activate b
+b --> w: product
+deactivate b
+w --> u: Affiche le produit
+deactivate w
 
-SiteWeb -> BaseDeDonnees: ajouterProduitAuPanier()
-activate BaseDeDonnees
-BaseDeDonnees --> SiteWeb: Confirmation de l'ajout au panier
-deactivate BaseDeDonnees
+u -> w : Ajoute le produit au panier
+activate w
+w -> b: addPanier()
+activate b
+b --> w: panier
+deactivate b
+w --> u: Affiche la confirmation
+deactivate w
 
-SiteWeb -> Utilisateur: Affiche la confirmation
+u -> w: Affiche le contenu du panier
+activate w
+w -> b: getPanier()
+activate b
+b --> w: panier
+deactivate b
+w --> u: Affiche le contenu du panier
+deactivate w
 
-Utilisateur -> SiteWeb: Affiche le contenu du panier
-SiteWeb -> BaseDeDonnees: getContenuDuPanier()
-activate BaseDeDonnees
+u -> w: Passer la commande
+activate w
+w -> b: confirmCommande()
+activate b
+b --> w: commande
+deactivate b
+w --> u: Affiche la confirmation de la commande
+deactivate w
 
-BaseDeDonnees --> SiteWeb: Contenu du panier
-deactivate BaseDeDonnees
-
-SiteWeb -> Utilisateur: Affiche le contenu du panier
-
-Utilisateur -> SiteWeb: Passe la commande
-SiteWeb -> BaseDeDonnees: passerCommande()
-activate BaseDeDonnees
-
-BaseDeDonnees --> SiteWeb: Confirmation de la commande
-deactivate BaseDeDonnees
-
-SiteWeb -> Utilisateur: Affiche la confirmation de la commande
-deactivate SiteWeb
 @enduml

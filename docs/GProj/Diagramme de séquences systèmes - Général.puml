@@ -1,0 +1,63 @@
+@startuml Diagramme de séquence - Général
+title Diagramme de séquence - Général
+hide footbox
+
+actor "Utilisateur" as u
+participant "Navigateur" as n
+participant "Serveur Web" as w
+
+u -> n: Accède au site web
+activate n
+n -> w: GET index.php
+activate w
+w --> n: index.php
+deactivate w
+n --> u: Affiche la page d'accueil
+deactivate n
+
+u -> n: Recherche un produit
+activate n
+n -> w: GET recherche.php?search=...
+activate w
+w --> n: recherche.php
+deactivate w
+n --> u: Affiche les résultats de recherche
+deactivate n
+
+u -> n: Sélectionne un produit
+activate n
+n -> w: GET produit.php?id=...
+activate w
+w --> n: produit.php
+deactivate w
+n --> u: Affiche la page du produit
+deactivate n
+
+u -> n: Ajoute au panier
+activate n
+n -> w: POST panier.php
+activate w
+w --> n: panier
+deactivate w
+n --> u: Confirme l'ajout au panier
+deactivate n
+
+u -> n: Affiche le panier
+activate n
+n -> w: GET panier.php
+activate w
+w --> n: panier.php
+deactivate w
+n --> u: Affiche le panier
+deactivate n
+
+u -> n: Passe la commande
+activate n
+n -> w: POST commande.php
+activate w
+w --> n: commande.php
+deactivate w
+n --> u: Affiche la commande
+deactivate n
+
+@enduml

@@ -1,0 +1,13 @@
+@startuml DCU - Administration
+skinparam actorStyle awesome
+left to right direction
+
+actor "Administrateur" as a #FEFECE
+usecase "Gestionnaire de commandes" as a1 #F0F8FF
+usecase "Gestion des profils clients" as a2 #F0F8FF
+usecase "Gestion des produits" as a3 #F0F8FF
+a --> a1
+a --> a2
+a --> a3
+
+@enduml

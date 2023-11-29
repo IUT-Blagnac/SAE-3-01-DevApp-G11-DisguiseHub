@@ -8,13 +8,6 @@ class Produit {
     qteProduit
     tailleProduit
     couleurProduit
-    photoProduit
-}
-
-class Promotion {
-    + idPromotion
-    nomPromotion
-    pourcentageReduction
 }
 
 class CategTaille {
@@ -48,17 +41,11 @@ class Client {
     mdpClient
 }
 
-class Panier {
-    + idPanier
-    prixUnitaire
-    prixTotal
-    qteProduit
-}
-
 class Commande {
     + idCommande
     dateCommande
     fraisLivraison
+    adrLivraison
     statutCommande
     modePaiement
 }
@@ -79,6 +66,11 @@ class Paypal {
     email
 }
 
+class VirementBancaire {
+    + idVirement
+
+}
+
 class Commander {
     qteCommandee
 }
@@ -95,12 +87,12 @@ CB "1" -- "1" Paiement : Payer avec CB
 Paiement "1" -- "*" Commande : Régler la commande
 Produit "*" - "*" Commande
 (Produit, Commande) -- Commander
-Produit "*" -- "*" Panier : Ajouter
 Commande "*" -- "1" Client: Passer
-Client "1" -- "1" Panier: Posseder
 Avis "*" -- "1" Produit: Concerner
 GuideTaille "1" - "*" Produit
 (GuideTaille, Produit) -- CategTaille
-Promotion "1" -- "*" Produit: Promo
+Avis "*" -- "1" Client: Ecrire
+Categorie "*" -- "1" Categorie : Sous-catégorie
+VirementBancaire "1" -- "1" Paiement : Payer avec Virement
 
 @enduml

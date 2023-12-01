@@ -1,21 +1,15 @@
 package groupe11.view;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.Writer;
-import java.lang.module.Configuration;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
-
+import java.util.Arrays;
+import java.util.List;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import groupe11.control.DisguiseHubApp;
 import groupe11.control.DonneesParSalle;
 import groupe11.control.FichierDeConfig;
@@ -27,8 +21,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
-
-import javafx.scene.control.Alert.AlertType;
 
 public class FichierDeConfigController {
     private FichierDeConfig fichierDeConfig;
@@ -115,15 +107,15 @@ public class FichierDeConfigController {
     private String topic;
     private String fichierData;
     private String fichierAlerte;
-    private String intervalle;
-    private String co2Min;
-    private String co2Max;
-    private String humidityMin;
-    private String humidityMax;
-    private String pressureMin;
-    private String pressureMax;
-    private String temperatureMin;
-    private String temperatureMax;
+    private int intervalle;
+    private double co2Min;
+    private double co2Max;
+    private double humidityMin;
+    private double humidityMax;
+    private double pressureMin;
+    private double pressureMax;
+    private double temperatureMin;
+    private double temperatureMax;
     private boolean humidity;
     private boolean co2;
     private boolean pressure;
@@ -169,77 +161,137 @@ public class FichierDeConfigController {
         cont.start(configue);
     }
 
+    public int entierDeString(String _val) {
+        try {
+            int i = Integer.parseInt(_val.trim());
+            return i;
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
+    public double doubleDeString(String _val) {
+        try {
+            double i = Double.parseDouble(_val.trim());
+            return i;
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
     @FXML
     private void validerButton() {
-        // Chemin du fichier YAML
+        host = hostTextField.getText().trim();
+        port = portTextField.getText().trim();
+        topic = topicTextField.getText().trim();
+        fichierData = fichierDataTextField.getText().trim();
+        fichierAlerte = fichierAlerteTextField.getText().trim();
+        intervalle = entierDeString(intervalleTextField.getText());
+        co2Min = doubleDeString(co2MinTextField.getText());
+        co2Max = doubleDeString(co2MaxTextField.getText().trim());
+        humidityMin = doubleDeString(humidityMinTextField.getText().trim());
+        humidityMax = doubleDeString(humidityMaxTextField.getText().trim());
+        pressureMin = doubleDeString(pressureMinTextField.getText().trim());
+        pressureMax = doubleDeString(pressureMaxTextField.getText().trim());
+        temperatureMin = doubleDeString(temperatureMinTextField.getText().trim());
+        temperatureMax = doubleDeString(temperatureMaxTextField.getText().trim());
+        humidity = humidityCheckBox.isSelected();
+        co2 = co2CheckBox.isSelected();
+        pressure = pressureCheckBox.isSelected();
+        temperature = temperatureCheckBox.isSelected();
+        activity = activityCheckBox.isSelected();
+        tvoc = tvocCheckBox.isSelected();
+        illumination = illuminationCheckBox.isSelected();
+        infrared = infraredCheckBox.isSelected();
+        infrared_and_visible = infrared_and_visibleCheckBox.isSelected();
+
         String filePath = "iot/python/config.yaml";
 
-        // Création d'un objet Yaml
-        Yaml yaml = new Yaml();
+        // Créer une structure de données pour représenter la configuration
+        Map<String, Object> connectionConfig = new LinkedHashMap<>();
+        Map<String, Object> connectionDetails = new LinkedHashMap<>();
+        connectionDetails.put("host", host);
+        connectionDetails.put("port", port);
+        connectionDetails.put("topic", topic);
+        connectionConfig.put("connection", connectionDetails);
 
-        // Création d'un objet InputStream pour lire le fichier YAML
-        InputStream inputStream = null;
-        try {
-            inputStream = new FileInputStream(new File(filePath));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        // Structure pour la section "ecriture"
+        Map<String, Object> config = new LinkedHashMap<>();
+        Map<String, Object> ecritureConfig = new LinkedHashMap<>();
+        Map<String, Object> fichiers = new LinkedHashMap<>();
+        fichiers.put("data", fichierData);
+        fichiers.put("alerte", fichierAlerte);
+        ecritureConfig.put("fichiers", fichiers);
+        ecritureConfig.put("intervale", intervalle);
+        config.put("ecriture", ecritureConfig);
 
-        // Création d'un objet Map pour stocker les données lues
-        Map<String, Object> data = new HashMap<>();
-        try {
-            data.put("host", this.hostTextField.getText());
-            data.put("port", this.portTextField.getText());
-            data.put("topic", this.topicTextField.getText());
-            try {
-                FileWriter writer = new FileWriter(filePath);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            data.put("co2Max", this.co2MaxTextField.getText());
-            data.put("humidityMin", this.humidityMinTextField.getText());
-            data.put("humidityMax", this.humidityMaxTextField.getText());
-            data.put("pressureMin", this.pressureMinTextField.getText());
-            data.put("pressureMax", this.pressureMaxTextField.getText());
-            data.put("temperatureMin", this.temperatureMinTextField.getText());
-            data.put("temperatureMax", this.temperatureMaxTextField.getText());
-            data.put("humidity", this.humidityCheckBox.isSelected());
-            data.put("co2", this.co2CheckBox.isSelected());
-            data.put("pressure", this.pressureCheckBox.isSelected());
-            data.put("temperature", this.temperatureCheckBox.isSelected());
-            data.put("activity", this.activityCheckBox.isSelected());
-            data.put("tvoc", this.tvocCheckBox.isSelected());
-            data.put("illumination", this.illuminationCheckBox.isSelected());
-            data.put("infrared", this.infraredCheckBox.isSelected());
-            data.put("infrared_and_visible", this.infrared_and_visibleCheckBox.isSelected());
+        // Créer une structure de données pour représenter la configuration
+        Map<String, Object> collecteConfig = new LinkedHashMap<>();
+        List<String> collecteList = new ArrayList<>();
 
-            // Affichage des données
-            System.out.println(data);
+        if (temperature)
+            collecteList.add("temperature");
+        if (activity)
+            collecteList.add("activity");
+        if (co2)
+            collecteList.add("co2");
+        if (pressure)
+            collecteList.add("pressure");
+        if (illumination)
+            collecteList.add("illumination");
+        if (infrared)
+            collecteList.add("infrared");
+        if (infrared_and_visible)
+            collecteList.add("infrared_and_visible");
+        if (humidity)
+            collecteList.add("humidity");
+        if (tvoc)
+            collecteList.add("tvoc");
 
-            // Création d'un objet DumperOptions
-            DumperOptions dumperOptions = new DumperOptions();
+        collecteConfig.put("collecte", collecteList);
 
-            // Modification des options de présentation
-            dumperOptions.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
-            dumperOptions.setPrettyFlow(true);
+        // Créer une structure de données pour représenter la configuration
+        Map<String, Map<String, Map<String, Double>>> alerteConfig = new LinkedHashMap<>();
+        Map<String, Map<String, Double>> alerteDetails = new LinkedHashMap<>();
 
-            // Création d'un objet Yaml avec les options
-            Yaml yaml2 = new Yaml(dumperOptions);
+        // Configuration pour chaque type d'alerte
+        Map<String, Double> co2 = new LinkedHashMap<>();
+        co2.put("min", co2Min);
+        co2.put("max", co2Max);
+        Map<String, Double> humidity = new LinkedHashMap<>();
+        humidity.put("min", humidityMin);
+        humidity.put("max", humidityMax);
+        Map<String, Double> pressure = new LinkedHashMap<>();
+        pressure.put("min", pressureMin);
+        pressure.put("max", pressureMax);
+        Map<String, Double> temperature = new LinkedHashMap<>();
+        temperature.put("min", temperatureMin);
+        temperature.put("max", temperatureMax);
+        // Ajout des configurations d'alerte
+        alerteDetails.put("co2", co2);
+        alerteDetails.put("humidity", humidity);
+        alerteDetails.put("pressure", pressure);
+        alerteDetails.put("temperature", temperature);
 
-            // Création d'un objet Writer
-            Writer writer = null;
+        alerteConfig.put("alerte", alerteDetails);
 
-            // Ecriture dans le fichier YAML
-            try {
-                writer = new FileWriter(filePath);
-                yaml2.dump(data, writer);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        // Configurer les options de dumping pour conserver l'ordre des propriétés
+        DumperOptions options = new DumperOptions();
+        options.setAllowReadOnlyProperties(true);
+        options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
+        options.setIndent(2);
 
-            // Fermeture du fichier
-            this.configue.close();
-        } catch (Exception e) {
+        // // Créer un Yaml avec les options personnalisées
+        Yaml yaml = new Yaml(options);
+
+        // // Écrire les valeurs dans le fichier YAML
+        try (FileWriter writer = new FileWriter(filePath)) {
+            yaml.dump(connectionConfig, writer);
+            yaml.dump(config, writer);
+            yaml.dump(collecteConfig, writer);
+            yaml.dump(alerteConfig, writer);
+            System.out.println("La configuration a été écrite dans le fichier YAML avec succès.");
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

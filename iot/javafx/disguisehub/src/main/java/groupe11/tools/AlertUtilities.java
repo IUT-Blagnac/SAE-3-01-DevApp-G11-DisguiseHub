@@ -71,4 +71,7 @@ public class AlertUtilities {
 		alert.showAndWait();
 	}
 
+	public static void showAlert(AlertType error, String string, String string2, String message) {
+	}
+
 }

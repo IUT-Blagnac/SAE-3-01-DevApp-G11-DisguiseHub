@@ -26,6 +26,19 @@
             <artifactId>javafx-fxml</artifactId>
             <version>13</version>
         </dependency>
+
+         <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-controls</artifactId>
+        <version>16</version> <!-- Utilisez la version de JavaFX que vous avez installée -->
+    </dependency>
+
+    <!-- JSON (org.json) -->
+    <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>20210307</version> <!-- Utilisez la version de org.json que vous souhaitez -->
+    </dependency>
     </dependencies>
     <build>
         <plugins>

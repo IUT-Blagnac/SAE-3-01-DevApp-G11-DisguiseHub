@@ -1,6 +1,6 @@
 connection:
   host: chirpstack.iut-blagnac.fr
-  port: '1883'
+  port: 1883
   topic: AM107/by-room/+/data
 ecriture:
   fichiers:
@@ -15,7 +15,7 @@ collecte:
 - humidity
 alerte:
   co2:
-    min: .0
+    min: 0.0
     max: 25.0
   humidity:
     min: 10.0

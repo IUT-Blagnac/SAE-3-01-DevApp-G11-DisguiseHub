@@ -1,19 +1,26 @@
 <header>
     <div class="logo">
-        <a class="search" href="/search.php">
-            <i class="fa-solid fa-magnifying-glass fa-2x"></i>
-        </a>
+        <div class="left">
+            <a class="icon" href="/~saephp11/search.php">
+                <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+            </a>
+        </div>
         <a class="void"></a>
-        <a class="logo" href="/">
-            <img src="img/logo.png" alt="Disguise'Hub">
+        <a class="logo" href="/~saephp11/">
+            <img src="/~saephp11/img/logo.png" alt="Disguise'Hub">
             <div>
                 <h1>Disguise'Hub</h1>
             </div>
         </a>
         <a class="void"></a>
-        <a class="search" href="/compte.php">
-            <i class="fa-solid fa-user fa-2x"></i>
-        </a>
+        <div class="right">
+            <a class="icon" href="/~saephp11/panier.php">
+                <i class="fa-regular fa-cart-shopping fa-2x"></i>
+            </a>
+            <a class="icon" href="/~saephp11/compte/connexion.php">
+                <i class="fa-solid fa-user fa-2x"></i>
+            </a>
+        </div>
     </div>
     <div class="menu">
         <div class="item">

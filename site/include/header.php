@@ -5,19 +5,17 @@
                 <i class="fa-solid fa-magnifying-glass fa-2x"></i>
             </a>
         </div>
-        <a class="void"></a>
         <a class="logo" href="/~saephp11/">
             <img src="/~saephp11/img/logo.png" alt="Disguise'Hub">
             <div>
                 <h1>Disguise'Hub</h1>
             </div>
         </a>
-        <a class="void"></a>
         <div class="right">
             <a class="icon" href="/~saephp11/panier.php">
                 <i class="fa-regular fa-cart-shopping fa-2x"></i>
             </a>
-            <a class="icon" href="/~saephp11/compte/connexion.php">
+            <a class="icon" href="/~saephp11/compte">
                 <i class="fa-solid fa-user fa-2x"></i>
             </a>
         </div>

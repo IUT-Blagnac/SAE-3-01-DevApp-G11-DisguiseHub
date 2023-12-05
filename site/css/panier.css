@@ -1,0 +1,32 @@
+div.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100% - 340px);
+}
+
+table {
+    margin-top: 10px;
+}
+
+tr.head {
+    background-color: var(--secondary-color);
+    color: #FFFFFF;
+}
+
+td {
+    width: 100px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #757575;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}

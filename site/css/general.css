@@ -12,13 +12,10 @@ header {
     width: 100%;
 }
 
-header a.void {
-    width: 100%;
-}
-
 header div {
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 header div.logo {
@@ -50,11 +47,13 @@ header h1 {
 header div.logo div.left {
     position: relative;
     left: 20px;
+    justify-content: flex-start;
 }
 
 header div.logo div.right {
     position: relative;
     right: 20px;
+    justify-content: flex-end;
 }
 
 header div.logo div.left a.icon {

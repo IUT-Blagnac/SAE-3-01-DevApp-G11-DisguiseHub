@@ -3,6 +3,8 @@ DROP TABLE IF EXISTS GuideTaille;
 DROP TABLE IF EXISTS Avis;
 DROP TABLE IF EXISTS Commander;
 DROP TABLE IF EXISTS Commande;
+DROP TABLE IF EXISTS ProduitCompose;
+DROP TABLE IF EXISTS ProduitApparente;
 DROP TABLE IF EXISTS Produit;
 DROP TABLE IF EXISTS Categorie;
 DROP TABLE IF EXISTS Client;
@@ -80,8 +82,23 @@ CREATE TABLE Produit (
     qteProduit DECIMAL,
     tailleProduit VARCHAR(3),
     couleurProduit VARCHAR(30),
+    imageProduit VARCHAR(255),
     PRIMARY KEY (refProduit),
     FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie)
+) Engine=InnoDB;
+
+CREATE TABLE ProduitApparente (
+    refProduit1 INT,
+    refProduit2 INT,
+    PRIMARY KEY (refProduit1, refProduit2),
+    FOREIGN KEY (refProduit1) REFERENCES Produit(refProduit),
+    FOREIGN KEY (refProduit2) REFERENCES Produit(refProduit)
+) Engine=InnoDB;
+
+CREATE TABLE ProduitCompose (
+    refProduitCompose INT PRIMARY KEY,
+    composition TEXT,
+    FOREIGN KEY (refProduitCompose) REFERENCES Produit(refProduit)
 ) Engine=InnoDB;
 
 CREATE TABLE Commande (

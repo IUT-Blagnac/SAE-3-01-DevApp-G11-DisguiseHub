@@ -20,17 +20,17 @@ CREATE TABLE Cartebleue (
 ) Engine=InnoDB;
 
 CREATE TABLE Paypal (
-    idPaypal DECIMAL,
+    idPaypal DECIMAL AUTO_INCREMENT,
     PRIMARY KEY (idPaypal)
 ) Engine=InnoDB;
 
 CREATE TABLE VirementBancaire (
-    idVirement DECIMAL,
+    idVirement DECIMAL AUTO_INCREMENT,
     PRIMARY KEY (idVirement)
 ) Engine=InnoDB;
 
 CREATE TABLE Paiement (
-    idPaiement DECIMAL,
+    idPaiement DECIMAL AUTO_INCREMENT,
     numCB CHAR(16),
     idPaypal DECIMAL,
     idVirement DECIMAL,
@@ -41,7 +41,7 @@ CREATE TABLE Paiement (
 ) Engine=InnoDB;
 
 CREATE TABLE Client (
-    numClient DECIMAL,
+    idClient INT PRIMARY KEY AUTO_INCREMENT,
     numCB CHAR(16),
     nomClient VARCHAR(30),
     prenomClient VARCHAR(30),
@@ -59,9 +59,13 @@ CREATE TABLE Client (
     FOREIGN KEY (numCB) REFERENCES Cartebleue(numCB)
 ) Engine=InnoDB;
 
+INSERT INTO Client (numCB, nomClient, prenomClient, adresseClient, mailClient, codePostalClient, villeClient, civiliteClient, dateNaissanceClient, telClient, mdpClient) VALUES ('1234567891234567', 'DUPONT', 'Jean', '1 rue de la Paix', '    ', 75000, 'Paris', 'Monsieur', STR_TO_DATE('24-May-2005', '%d-%M-%Y'), '0123456789', '123456');
+INSERT INTO Client (numCB, nomClient, prenomClient, adresseClient, mailClient, codePostalClient, villeClient, civiliteClient, dateNaissanceClient, telClient, mdpClient) VALUES ('1234567891234567', 'DUPONT', 'Jean', '1 rue de la Paix', '  ', 75000, 'Paris', 'Monsieur', STR_TO_DATE('24-May-2005', '%d-%M-%Y'), '0123456729', '123456');
+
+
 CREATE TABLE Categorie (
-    idCategorie DECIMAL,
-    idCategoriePere DECIMAL,
+    idCategorie DECIMAL AUTO_INCREMENT,
+    idCategoriePere DECIMAL AUTO_INCREMENT,
     nomCategorie VARCHAR(30),
     PRIMARY KEY (idCategorie),
     FOREIGN KEY (idCategoriePere) REFERENCES Categorie(idCategorie)
@@ -69,9 +73,9 @@ CREATE TABLE Categorie (
 
 CREATE TABLE Produit (
     refProduit VARCHAR(30),
-    idCategorie DECIMAL,
+    idCategorie DECIMAL AUTO_INCREMENT,
     nomProduit VARCHAR(50),
-    descProduit VARCHAR,
+    descProduit VARCHAR(255),
     prixProduit DECIMAL(6,2),
     qteProduit DECIMAL,
     tailleProduit VARCHAR(3),
@@ -81,14 +85,14 @@ CREATE TABLE Produit (
 ) Engine=InnoDB;
 
 CREATE TABLE Commande (
-    idCommande DECIMAL,
-    numClient DECIMAL,
-    idPaiement DECIMAL,
+    idCommande DECIMAL AUTO_INCREMENT,
+    numClient DECIMAL AUTO_INCREMENT,
+    idPaiement DECIMAL AUTO_INCREMENT,
     dateCommande DATE,
     fraisLivraison DECIMAL(6,2),
     adrLivraison VARCHAR(30),
     codePostalLivraison DECIMAL(5),
-    statutCommande VARCHAR,
+    statutCommande VARCHAR(50),
     PRIMARY KEY (idCommande),
     FOREIGN KEY (numClient) REFERENCES Client(numClient),
     FOREIGN KEY (idPaiement) REFERENCES Paiement(idPaiement)
@@ -96,7 +100,7 @@ CREATE TABLE Commande (
 
 CREATE TABLE Commander (
     refProduit VARCHAR(30),
-    idCommande DECIMAL,
+    idCommande DECIMAL AUTO_INCREMENT,
     qteCommandee DECIMAL,
     PRIMARY KEY (refProduit, idCommande),
     FOREIGN KEY (refProduit) REFERENCES Produit(refProduit),
@@ -108,7 +112,7 @@ CREATE TABLE Avis (
     idAvisPere DECIMAL,
     refProduit VARCHAR(30),
     numClient DECIMAL,
-    commentaire VARCHAR,
+    commentaire VARCHAR(255),
     note DECIMAL(1),
     PRIMARY KEY (idAvis),
     FOREIGN KEY (idAvisPere) REFERENCES Avis(idAvis),
@@ -212,3 +216,8 @@ BEGIN
     END IF;
 END;
 //
+
+ALTER TABLE Client 
+MODIFY numClient AUTO_INCREMENT;
+
+ALTER TABLE 

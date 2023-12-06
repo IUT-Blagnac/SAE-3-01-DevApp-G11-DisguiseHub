@@ -3,7 +3,7 @@ div.content {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: calc(100% - 340px);
+    min-height: calc(100% - 330px);
 }
 
 table {
@@ -20,6 +20,10 @@ td {
     text-align: center;
     padding: 5px;
     border: 1px solid #757575;
+}
+
+td a {
+    margin: 0 5px;
 }
 
 button {

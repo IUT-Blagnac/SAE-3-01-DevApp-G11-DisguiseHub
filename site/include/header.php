@@ -21,144 +21,120 @@
         </div>
     </div>
     <div class="menu">
+        <?php
+            $statement = "SELECT * FROM Categorie WHERE idCategoriePere IS NULL";
+            require_once("connect.inc.php");
+
+            $req = $conn -> prepare($statement);
+            $req -> execute();
+
+            while ($cat = $req -> fetch()) {
+                echo "<div class='item'>
+                    <a class='categorie' href='recherche.php?cat='" . $cat2["idCategorie"] . ">" . $cat["nomCategorie"] . "</a>
+                    <div class='sousmenu'>";
+
+                    echo "</div>
+                </div>";
+            }
+            
+            $req -> closeCursor();
+        ?>
         <div class="item">
             <button>Enfant</button>
             <div class="sousmenu">
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
             </div>
         </div>
         <div class="item">
             <button>Adulte</button>
             <div class="sousmenu">
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
+            <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
             </div>
         </div>
         <div class="item">
             <button>Accessoires</button>
             <div class="sousmenu">
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
             </div>
         </div>
         <div class="item">
             <button>Décoration</button>
             <div class="sousmenu">
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
             </div>
         </div>
         <div class="item">
             <button>Anniversaire</button>
             <div class="sousmenu">
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
             </div>
         </div>
         <div class="item">
             <button>Haloween</button>
             <div class="sousmenu">
-                <div>
-                    <a href="">Squelette</a>
-                    <a href="">Diable</a>
-                    <a href="">Clown</a>
-                </div>
-                <div>
-                    <a href="">Sorcière</a>
-                    <a href="">Vampire</a>
-                    <a href="">Monstre</a>
-                </div>
-                <div>
-                    <a href="">Zombie</a>
-                    <a href="">Fantôme</a>
-                    <a href="">Among Us</a>
-                </div>
+                <a href="">Squelette</a>
+                <a href="">Diable</a>
+                <a href="">Clown</a>
+                <a href="">Sorcière</a>
+                <a href="">Vampire</a>
+                <a href="">Monstre</a>
+                <a href="">Zombie</a>
+                <a href="">Fantôme</a>
+                <a href="">Among Us</a>
             </div>
         </div>
         <div class="item">
             <button>Carnaval</button>
             <div class="sousmenu">
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
-                <div>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                    <a href="">Texte</a>
-                </div>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
+                <a href="">Texte</a>
             </div>
         </div>
     </div>

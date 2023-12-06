@@ -16,26 +16,26 @@ DROP TABLE IF EXISTS Cartebleue;
 CREATE TABLE Cartebleue (
     numCB CHAR(16),
     nomSurCB VARCHAR(30),
-    dateExpCB DATE,
-    codeSecuriteCB DECIMAL(3),
+    dateExpCB VARCHAR(7),
+    codeSecuriteCB DECIMAL(4),
     PRIMARY KEY (numCB)
 ) Engine=InnoDB;
 
 CREATE TABLE Paypal (
-    idPaypal DECIMAL AUTO_INCREMENT,
+    idPaypal INT AUTO_INCREMENT,
     PRIMARY KEY (idPaypal)
 ) Engine=InnoDB;
 
 CREATE TABLE VirementBancaire (
-    idVirement DECIMAL AUTO_INCREMENT,
+    idVirement INT AUTO_INCREMENT,
     PRIMARY KEY (idVirement)
 ) Engine=InnoDB;
 
 CREATE TABLE Paiement (
-    idPaiement DECIMAL AUTO_INCREMENT,
+    idPaiement INT AUTO_INCREMENT,
     numCB CHAR(16),
-    idPaypal DECIMAL,
-    idVirement DECIMAL,
+    idPaypal INT,
+    idVirement INT,
     PRIMARY KEY (idPaiement),
     FOREIGN KEY (numCB) REFERENCES Cartebleue(numCB),
     FOREIGN KEY (idPaypal) REFERENCES Paypal(idPaypal),
@@ -43,19 +43,19 @@ CREATE TABLE Paiement (
 ) Engine=InnoDB;
 
 CREATE TABLE Client (
-    idClient INT PRIMARY KEY AUTO_INCREMENT,
+    idClient INT AUTO_INCREMENT,
     numCB CHAR(16),
     nomClient VARCHAR(30),
     prenomClient VARCHAR(30),
-    adresseClient VARCHAR(30),
-    mailClient VARCHAR(30),
+    adresseClient TEXT,
+    mailClient TEXT,
     codePostalClient DECIMAL(5),
-    villeClient VARCHAR(30),
-    civiliteClient VARCHAR(30),
+    villeClient VARCHAR(50),
+    civiliteClient VARCHAR(50),
     dateNaissanceClient DATE,
     telClient CHAR(10),
-    mdpClient VARCHAR(30),
-    PRIMARY KEY (numClient),
+    mdpClient VARCHAR(50),
+    PRIMARY KEY (idClient),
     UNIQUE (mailClient),
     UNIQUE (telClient),
     FOREIGN KEY (numCB) REFERENCES Cartebleue(numCB)
@@ -66,25 +66,31 @@ INSERT INTO Client (numCB, nomClient, prenomClient, adresseClient, mailClient, c
 
 
 CREATE TABLE Categorie (
-    idCategorie DECIMAL AUTO_INCREMENT,
-    idCategoriePere DECIMAL AUTO_INCREMENT,
-    nomCategorie VARCHAR(30),
+    idCategorie INT AUTO_INCREMENT,
+    idCategoriePere INT,
+    nomCategorie VARCHAR(50),
     PRIMARY KEY (idCategorie),
     FOREIGN KEY (idCategoriePere) REFERENCES Categorie(idCategorie)
 ) Engine=InnoDB;
 
 CREATE TABLE Produit (
-    refProduit VARCHAR(30),
-    idCategorie DECIMAL AUTO_INCREMENT,
-    nomProduit VARCHAR(50),
-    descProduit VARCHAR(255),
+    refProduit INT AUTO_INCREMENT,
+    idCategorie INT,
+    nomProduit VARCHAR(100),
+    descProduit TEXT,
     prixProduit DECIMAL(6,2),
-    qteProduit DECIMAL,
+    qteProduit DECIMAL(4),
     tailleProduit VARCHAR(3),
-    couleurProduit VARCHAR(30),
-    imageProduit VARCHAR(255),
+    couleurProduit VARCHAR(40),
     PRIMARY KEY (refProduit),
     FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie)
+) Engine=InnoDB;
+
+CREATE TABLE Image (
+    refProduit INT,
+    imageProduit TEXT,
+    PRIMARY KEY (refProduit, imageProduit),
+    FOREIGN KEY (refProduit) REFERENCES Produit(refProduit)
 ) Engine=InnoDB;
 
 CREATE TABLE ProduitApparente (
@@ -96,28 +102,29 @@ CREATE TABLE ProduitApparente (
 ) Engine=InnoDB;
 
 CREATE TABLE ProduitCompose (
-    refProduitCompose INT PRIMARY KEY,
+    refProduitCompose INT,
     composition TEXT,
+    PRIMARY KEY (refProduitCompose),
     FOREIGN KEY (refProduitCompose) REFERENCES Produit(refProduit)
 ) Engine=InnoDB;
 
 CREATE TABLE Commande (
-    idCommande DECIMAL AUTO_INCREMENT,
-    numClient DECIMAL AUTO_INCREMENT,
-    idPaiement DECIMAL AUTO_INCREMENT,
+    idCommande INT AUTO_INCREMENT,
+    idClient INT,
+    idPaiement INT,
     dateCommande DATE,
     fraisLivraison DECIMAL(6,2),
-    adrLivraison VARCHAR(30),
+    adrLivraison TEXT,
     codePostalLivraison DECIMAL(5),
     statutCommande VARCHAR(50),
     PRIMARY KEY (idCommande),
-    FOREIGN KEY (numClient) REFERENCES Client(numClient),
+    FOREIGN KEY (idClient) REFERENCES Client(idClient),
     FOREIGN KEY (idPaiement) REFERENCES Paiement(idPaiement)
 ) Engine=InnoDB;
 
 CREATE TABLE Commander (
-    refProduit VARCHAR(30),
-    idCommande DECIMAL AUTO_INCREMENT,
+    refProduit INT,
+    idCommande INT,
     qteCommandee DECIMAL,
     PRIMARY KEY (refProduit, idCommande),
     FOREIGN KEY (refProduit) REFERENCES Produit(refProduit),
@@ -125,20 +132,20 @@ CREATE TABLE Commander (
 ) Engine=InnoDB;
 
 CREATE TABLE Avis (
-    idAvis DECIMAL,
-    idAvisPere DECIMAL,
-    refProduit VARCHAR(30),
-    numClient DECIMAL,
-    commentaire VARCHAR(255),
+    idAvis INT AUTO_INCREMENT,
+    idAvisPere INT,
+    refProduit INT,
+    idClient INT,
+    commentaire TEXT,
     note DECIMAL(1),
     PRIMARY KEY (idAvis),
     FOREIGN KEY (idAvisPere) REFERENCES Avis(idAvis),
     FOREIGN KEY (refProduit) REFERENCES Produit(refProduit),
-    FOREIGN KEY (numClient) REFERENCES Client(numClient)
+    FOREIGN KEY (idClient) REFERENCES Client(idClient)
 ) Engine=InnoDB;
 
 CREATE TABLE GuideTaille (
-    idTaille DECIMAL,
+    idTaille INT AUTO_INCREMENT,
     tourPoitrine DECIMAL(6,2),
     tourTaille DECIMAL(6,2),
     tourBassin DECIMAL(6,2),
@@ -148,93 +155,12 @@ CREATE TABLE GuideTaille (
 ) Engine=InnoDB;
 
 CREATE TABLE CategTaille (
-    idTaille DECIMAL,
-    refProduit VARCHAR(30),
+    idTaille INT,
+    refProduit INT,
     tailleSelonAgeEtSexe VARCHAR(3),
     PRIMARY KEY (idTaille, refProduit),
     FOREIGN KEY (idTaille) REFERENCES GuideTaille(idTaille),
     FOREIGN KEY (refProduit) REFERENCES Produit(refProduit)
 ) Engine=InnoDB;
 
-
-CREATE TRIGGER check_dateExpCB
-BEFORE INSERT ON Cartebleue
-FOR EACH ROW
-BEGIN
-    IF NEW.dateExpCB <> DATE_FORMAT(NEW.dateExpCB, '%d/%m/%Y') THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'La date d''expiration de la carte bleue doit être au format DD/MM/YYYY.';
-    END IF;
-END;
-//
-
-CREATE TRIGGER check_dateNaissanceClient
-BEFORE INSERT ON Client
-FOR EACH ROW
-BEGIN
-    IF NEW.dateNaissanceClient <> DATE_FORMAT(NEW.dateNaissanceClient, '%d/%m/%Y') THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'La date de naissance du client doit être au format DD/MM/YYYY.';
-    END IF;
-END;
-//
-
-CREATE TRIGGER check_tailleProduit
-BEFORE INSERT ON Produit
-FOR EACH ROW
-BEGIN
-    IF NEW.tailleProduit NOT IN ('XS', 'S', 'M', 'L', 'XL', 'XXL') THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'La taille du produit doit être XS, S, M, L, XL ou XXL.';
-    END IF;
-END;
-//
-
-CREATE TRIGGER check_dateCommande
-BEFORE INSERT ON Commande
-FOR EACH ROW
-BEGIN
-    IF NEW.dateCommande <> DATE_FORMAT(NEW.dateCommande, '%d/%m/%Y') THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'La date de commande doit être au format DD/MM/YYYY.';
-    END IF;
-END;
-//
-
-CREATE TRIGGER check_note
-BEFORE INSERT ON Avis
-FOR EACH ROW
-BEGIN
-    IF NEW.note NOT BETWEEN 0 AND 5 THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'La note doit être comprise entre 0 et 5.';
-    END IF;
-END;
-//
-
-CREATE TRIGGER check_tailleFR_and_tailleACommander
-BEFORE INSERT ON GuideTaille
-FOR EACH ROW
-BEGIN
-    IF NEW.tailleFR NOT IN ('XS', 'S', 'M', 'L', 'XL', 'XXL') OR NEW.tailleACommander NOT IN ('XS', 'S', 'M', 'L', 'XL', 'XXL') THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Les tailles FR et à commander doivent être XS, S, M, L, XL ou XXL.';
-    END IF;
-END;
-//
-
-CREATE TRIGGER check_tailleSelonAgeEtSexe
-BEFORE INSERT ON CategTaille
-FOR EACH ROW
-BEGIN
-    IF NEW.tailleSelonAgeEtSexe NOT IN ('XS', 'S', 'M', 'L', 'XL', 'XXL') THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'La taille selon l''âge et le sexe doit être XS, S, M, L, XL ou XXL.';
-    END IF;
-END;
-//
-
-ALTER TABLE Client 
-MODIFY numClient AUTO_INCREMENT;
-
-ALTER TABLE 
+ALTER TABLE Produit AUTO_INCREMENT = 100000;

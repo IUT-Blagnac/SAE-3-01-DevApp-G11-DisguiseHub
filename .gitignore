@@ -40,3 +40,6 @@ site/
 # IOT fichiers de configuration/données
 iot/python/*
 !iot/python/main.py
+
+# Faker
+faker/

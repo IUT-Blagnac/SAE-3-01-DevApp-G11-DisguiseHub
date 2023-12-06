@@ -8,11 +8,11 @@ ecriture:
     alerte: alerte
   intervale: 10
 collecte:
-- temperature
-- activity
-- co2
-- pressure
-- humidity
+  - temperature
+  - activity
+  - co2
+  - pressure
+  - humidity
 alerte:
   co2:
     min: 0.0

@@ -84,10 +84,7 @@ header div.menu div.item {
     display: block;
 }
 
-header div.menu div.item button {
-    border: none;
-    outline: none;
-    background-color: transparent;
+header div.menu div.item a.categorie {
     width: 100%;
     text-align: center;
     padding: 10px 10px;
@@ -112,11 +109,11 @@ header div.sousmenu {
     position: absolute;
     left: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 101;
     padding: 5px 0;
 }
 
-header div.sousmenu a {
+header div.sousmenu a.sous-categorie {
     width: 100%;
     text-align: left;
     padding: 15px 40px;
@@ -126,7 +123,7 @@ header div.sousmenu a {
     font-weight: 500;
 }
 
-header div.sousmenu a:hover {
+header div.sousmenu a.sous-categorie:hover {
     background-color: #0000004D;
 }
 
@@ -181,6 +178,7 @@ label:not(.ignore) {
     margin-bottom: 5px;
     text-align: left;
     width: 100%;
+    max-width: 300px;
 }
 
 input:not(.ignore), select:not(.ignore), textarea:not(.ignore) {

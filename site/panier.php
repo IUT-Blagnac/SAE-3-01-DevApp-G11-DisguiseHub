@@ -78,16 +78,16 @@
                                 </td>
                                 <td class='amount'>
                                     <input type='hidden' name='amount' value='" . $amount . "'>
-                                    <button type='submit' name='moins'>
+                                    <button type='submit' name='moins' class='ignore'>
                                         <i class='fa-regular fa-circle-minus'></i>
                                     </button>
                                     <a>" . $amount . "</a>
-                                    <button type='submit' name='plus'>
+                                    <button type='submit' name='plus' class='ignore'>
                                         <i class='fa-regular fa-circle-plus'></i>
                                     </button>
                                 </td>
                                 <td class='suppr'>
-                                    <button type='submit' name='supprime'>
+                                    <button type='submit' name='supprime' class='ignore'>
                                         <i class='fa-regular fa-trash'></i>
                                     </button>
                                 </td>
@@ -96,6 +96,12 @@
                     }
 
                     echo "</table>";
+
+                    if(!isset($_SESSION["connexion"])){
+                        echo "<a href='/~saephp11/compte/connexion.php'>Connectez-vous pour passer commande</a>";
+                    } else {
+                        echo "<button type='submit' name='commander'>Commander</button>";
+                    }
                 } else {
                     echo "<p>Votre panier est vide.</p>";
                 }

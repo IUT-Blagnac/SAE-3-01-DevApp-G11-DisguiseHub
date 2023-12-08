@@ -42,4 +42,6 @@ iot/python/*
 !iot/python/main.py
 
 # Faker
-faker/
+vendor/*
+composer.lock
+composer.json

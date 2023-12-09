@@ -36,6 +36,7 @@ image:{baseURL}/actions/workflows/blank.yml/badge.svg[Bidon]
 image:{baseURL}/actions/workflows/build.yml/badge.svg[Build] 
 image:{baseURL}/actions/workflows/tests.yml/badge.svg[Tests] 
 image:https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg[License: MPL-2.0, link="https://opensource.org/licenses/MPL-2.0"]
+image:https://app.codacy.com/project/badge/Grade/40bc1b9629034dd1a7c516631d189b95["Codacy code quality", link="https://app.codacy.com/gh/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade"]
 //---------------------------------------------------------------
 
 WARNING: Ce dépôt présente le projet à développer dans le cadre de la SAÉ 3.01 du BUT2 Informatique de l'IUT de Blagnac.
@@ -140,6 +141,6 @@ _En cours de réalisation..._
 - *Documentation utilisateur :* _En cours de réalisation..._
 - *User stories :* https://github.com/orgs/IUT-Blagnac/projects/143[Projet GitHub]
 - *Tests unitaires et plans de test :* _En cours de réalisation..._
-- *Indicateurs de qualité du code (dette technique) :* _Besoin d'aide à ce sujet..._
+- *Indicateurs de qualité du code (dette technique) :* https://app.codacy.com/gh/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/dashboard[Codacy]
 
 image:https://docs.google.com/spreadsheets/d/e/2PACX-1vSACcYeKaH_ims3faegSLAFJ9s5_Kd9Fbyi4ODEb8BTN5OnUXWenVGhlVPo84yQDhTkTj3f9nXiluh1/pubchart?oid=1287010292&format=image[link=https://docs.google.com/spreadsheets/d/e/2PACX-1vSACcYeKaH_ims3faegSLAFJ9s5_Kd9Fbyi4ODEb8BTN5OnUXWenVGhlVPo84yQDhTkTj3f9nXiluh1/pubchart?oid=1287010292&format=image]

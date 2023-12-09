@@ -140,6 +140,6 @@ _En cours de réalisation..._
 - *Documentation utilisateur :* _En cours de réalisation..._
 - *User stories :* https://github.com/orgs/IUT-Blagnac/projects/143[Projet GitHub]
 - *Tests unitaires et plans de test :* _En cours de réalisation..._
-- Indicateurs de qualité du code (dette technique) : _Besoin d'aide à ce sujet..._
+- *Indicateurs de qualité du code (dette technique) :* _Besoin d'aide à ce sujet..._
 
 image:https://docs.google.com/spreadsheets/d/e/2PACX-1vSACcYeKaH_ims3faegSLAFJ9s5_Kd9Fbyi4ODEb8BTN5OnUXWenVGhlVPo84yQDhTkTj3f9nXiluh1/pubchart?oid=1287010292&format=image[link=https://docs.google.com/spreadsheets/d/e/2PACX-1vSACcYeKaH_ims3faegSLAFJ9s5_Kd9Fbyi4ODEb8BTN5OnUXWenVGhlVPo84yQDhTkTj3f9nXiluh1/pubchart?oid=1287010292&format=image]

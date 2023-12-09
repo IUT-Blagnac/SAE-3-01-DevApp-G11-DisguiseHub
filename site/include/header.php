@@ -1,21 +1,21 @@
 <header>
     <div class="logo">
         <div class="left">
-            <a class="icon" href="/~saephp11/search.php">
+            <a class="icon" href="recherche.php">
                 <i class="fa-solid fa-magnifying-glass fa-2x"></i>
             </a>
         </div>
         <a class="logo" href="/~saephp11/">
-            <img src="/~saephp11/img/logo.png" alt="Disguise'Hub">
+            <img src="img/logo.png" alt="Disguise'Hub">
             <div>
                 <h1>Disguise'Hub</h1>
             </div>
         </a>
         <div class="right">
-            <a class="icon" href="/~saephp11/panier.php">
+            <a class="icon" href="panier.php">
                 <i class="fa-regular fa-cart-shopping fa-2x"></i>
             </a>
-            <a class="icon" href="/~saephp11/compte">
+            <a class="icon" href="compte">
                 <i class="fa-solid fa-user fa-2x"></i>
             </a>
         </div>
@@ -30,112 +30,26 @@
 
             while ($cat = $req -> fetch()) {
                 echo "<div class='item'>
-                    <a class='categorie' href='recherche.php?cat='" . $cat2["idCategorie"] . ">" . $cat["nomCategorie"] . "</a>
-                    <div class='sousmenu'>";
+                    <a class='categorie' href='recherche.php?cat=" . $cat["idCategorie"] . "'>" . $cat["nomCategorie"] . "</a>";
+                    
+                    $statement2 = "SELECT * FROM Categorie WHERE idCategoriePere = " . $cat["idCategorie"];
+                    $req2 = $conn -> prepare($statement2);
+                    $req2 -> execute();
+                    
+                    if($req2 && $req2->rowCount() > 0) {
+                        echo "<div class='sousmenu'>";
+                        while ($cat2 = $req2 -> fetch()) {
+                            echo "<a class='sous-categorie' href='recherche.php?cat=" . $cat2["idCategorie"] . "'>" . $cat2["nomCategorie"] . "</a>";
+                        }
+                        echo "</div>";
+                    }
 
-                    echo "</div>
-                </div>";
+                    $req2 -> closeCursor();
+
+                    echo "</div>";
             }
             
             $req -> closeCursor();
         ?>
-        <div class="item">
-            <button>Enfant</button>
-            <div class="sousmenu">
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-            </div>
-        </div>
-        <div class="item">
-            <button>Adulte</button>
-            <div class="sousmenu">
-            <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-            </div>
-        </div>
-        <div class="item">
-            <button>Accessoires</button>
-            <div class="sousmenu">
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-            </div>
-        </div>
-        <div class="item">
-            <button>Décoration</button>
-            <div class="sousmenu">
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-            </div>
-        </div>
-        <div class="item">
-            <button>Anniversaire</button>
-            <div class="sousmenu">
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-            </div>
-        </div>
-        <div class="item">
-            <button>Haloween</button>
-            <div class="sousmenu">
-                <a href="">Squelette</a>
-                <a href="">Diable</a>
-                <a href="">Clown</a>
-                <a href="">Sorcière</a>
-                <a href="">Vampire</a>
-                <a href="">Monstre</a>
-                <a href="">Zombie</a>
-                <a href="">Fantôme</a>
-                <a href="">Among Us</a>
-            </div>
-        </div>
-        <div class="item">
-            <button>Carnaval</button>
-            <div class="sousmenu">
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-                <a href="">Texte</a>
-            </div>
-        </div>
     </div>
 </header>

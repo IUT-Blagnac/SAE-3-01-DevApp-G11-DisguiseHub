@@ -35,7 +35,7 @@ build/
 java/build/**
 
 # Site
-site/
+site/**
 
 # IOT fichiers de configuration/données
 iot/python/*

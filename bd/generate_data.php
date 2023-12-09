@@ -1,7 +1,7 @@
 <?php
 
 // Génération de données aléatoires
-require_once '\vendor\autoload.php';
+require_once 'C:\Users\Angelo\OneDrive - etu.univ-tlse2.fr\Documents\GitHub\SAE-3-01-DevApp-G11-DisguiseHub\vendor\autoload.php';
 
 $faker = Faker\Factory::create('fr_FR');
 

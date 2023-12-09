@@ -1,1 +1,5805 @@
-{"C004": [{"date": 1701868403, "humidity": 37.5, "co2": 877}, {"date": 1701869002, "humidity": 37.5, "co2": 922}, {"date": 1701869602, "humidity": 37.5, "co2": 828}, {"date": 1701870202, "humidity": 37, "co2": 747}, {"date": 1701870803, "humidity": 36.5, "co2": 720}, {"date": 1701871402, "humidity": 36.5, "co2": 702}, {"date": 1701872001, "humidity": 36, "co2": 676}, {"date": 1701872601, "humidity": 36, "co2": 670}, {"date": 1701873201, "humidity": 36, "co2": 668}, {"date": 1701873801, "humidity": 36, "co2": 681}, {"date": 1701874401, "humidity": 35.5, "co2": 678}], "C006": [{"date": 1701868432, "co2": 413}, {"date": 1701869031, "co2": 411}, {"date": 1701869632, "co2": 410}, {"date": 1701870232, "co2": 416}, {"date": 1701870831, "co2": 408}, {"date": 1701871431, "co2": 412}, {"date": 1701872032, "co2": 406}, {"date": 1701872634, "co2": 406}, {"date": 1701873231, "co2": 405}, {"date": 1701873831, "co2": 409}, {"date": 1701874432, "co2": 409}], "B202": [{"date": 1701868457, "humidity": 47, "co2": 1363}, {"date": 1701869059, "humidity": 47.5, "co2": 1471}, {"date": 1701869659, "humidity": 47.5, "co2": 1510}, {"date": 1701870258, "humidity": 45.5, "co2": 1030}, {"date": 1701870858, "humidity": 44.5, "co2": 906}, {"date": 1701871459, "humidity": 43.5, "co2": 821}, {"date": 1701872059, "humidity": 44.5, "co2": 1025}, {"date": 1701872658, "humidity": 45.5, "co2": 1172}, {"date": 1701873259, "humidity": 46, "co2": 1328}, {"date": 1701873859, "humidity": 46.5, "co2": 1375}, {"date": 1701874458, "humidity": 46.5, "co2": 1346}], "E001": [{"date": 1701868461, "humidity": 44.5, "co2": 793}, {"date": 1701869061, "humidity": 45.5, "co2": 983}, {"date": 1701869661, "humidity": 48.5, "co2": 1420}, {"date": 1701870261, "humidity": 50, "co2": 1635}, {"date": 1701870861, "humidity": 51.5, "co2": 1799}, {"date": 1701871461, "humidity": 51.5, "co2": 1892}, {"date": 1701872061, "humidity": 52, "co2": 1969}, {"date": 1701872663, "humidity": 52.5, "co2": 2050}, {"date": 1701873861, "humidity": 53.5, "co2": 2233}, {"date": 1701874461, "humidity": 53.5, "co2": 2280}], "E004": [{"date": 1701868463, "humidity": 40, "co2": 486}, {"date": 1701869063, "humidity": 40, "co2": 491}, {"date": 1701869662, "humidity": 40, "co2": 494}, {"date": 1701870263, "humidity": 40, "co2": 485}, {"date": 1701870863, "humidity": 39.5, "co2": 484}, {"date": 1701871463, "humidity": 39.5, "co2": 466}, {"date": 1701872063, "humidity": 39, "co2": 467}, {"date": 1701872663, "humidity": 39, "co2": 465}, {"date": 1701873863, "humidity": 38.5, "co2": 468}, {"date": 1701874463, "humidity": 38, "co2": 471}], "B106": [{"date": 1701868484, "humidity": 44.5, "co2": 1137}, {"date": 1701869084, "humidity": 44.5, "co2": 1099}, {"date": 1701869685, "humidity": 44, "co2": 1061}, {"date": 1701870284, "humidity": 44, "co2": 1032}, {"date": 1701870884, "humidity": 44, "co2": 1014}, {"date": 1701871483, "humidity": 43.5, "co2": 994}, {"date": 1701872084, "humidity": 43.5, "co2": 980}, {"date": 1701872684, "humidity": 43.5, "co2": 966}, {"date": 1701873284, "humidity": 43.5, "co2": 947}, {"date": 1701873884, "humidity": 43.5, "co2": 940}, {"date": 1701874484, "humidity": 43.5, "co2": 958}], "E003": [{"date": 1701868486, "humidity": 40, "co2": 478}, {"date": 1701869086, "humidity": 40, "co2": 500}, {"date": 1701870285, "humidity": 39.5, "co2": 478}, {"date": 1701871486, "humidity": 39, "co2": 467}, {"date": 1701872088, "humidity": 39, "co2": 470}, {"date": 1701872688, "humidity": 38.5, "co2": 470}, {"date": 1701873286, "humidity": 37.5, "co2": 479}, {"date": 1701873886, "humidity": 36.5, "co2": 475}, {"date": 1701874485, "humidity": 36, "co2": 485}], "Serveurs": [{"date": 1701868489, "humidity": 38, "co2": 540}, {"date": 1701869089, "humidity": 39.5, "co2": 542}, {"date": 1701869688, "co2": 536}, {"date": 1701870288, "humidity": 36.5, "co2": 530}, {"date": 1701870889, "humidity": 39.5, "co2": 519}, {"date": 1701871488, "humidity": 41, "co2": 522}, {"date": 1701872088, "humidity": 37.5, "co2": 520}, {"date": 1701872689, "humidity": 40, "co2": 512}, {"date": 1701873289, "humidity": 35.5, "co2": 512}, {"date": 1701873888, "humidity": 39.5, "co2": 508}, {"date": 1701874488, "humidity": 39, "co2": 515}], "E209": [{"date": 1701868518, "humidity": 43, "co2": 440}, {"date": 1701869117, "humidity": 43, "co2": 442}, {"date": 1701869717, "humidity": 43, "co2": 447}, {"date": 1701870318, "humidity": 43, "co2": 442}, {"date": 1701870918, "humidity": 43, "co2": 440}, {"date": 1701871517, "humidity": 43, "co2": 440}, {"date": 1701872118, "humidity": 43, "co2": 436}, {"date": 1701872718, "humidity": 43, "co2": 439}, {"date": 1701873318, "humidity": 42.5, "co2": 438}, {"date": 1701873917, "humidity": 42.5, "co2": 439}, {"date": 1701874518, "humidity": 42.5, "co2": 436}], "B234": [{"date": 1701868522, "humidity": 39, "co2": 1239}, {"date": 1701869122, "humidity": 39, "co2": 1259}, {"date": 1701869723, "humidity": 39.5, "co2": 1284}, {"date": 1701870322, "humidity": 40, "co2": 1360}, {"date": 1701870922, "humidity": 40, "co2": 1366}, {"date": 1701871522, "humidity": 40.5, "co2": 1389}, {"date": 1701872122, "humidity": 40.5, "co2": 1369}, {"date": 1701872722, "humidity": 40.5, "co2": 1390}, {"date": 1701873322, "humidity": 40.5, "co2": 1419}, {"date": 1701873922, "humidity": 41, "co2": 1453}, {"date": 1701874522, "humidity": 41.5, "co2": 1526}], "E207": [{"date": 1701868575, "humidity": 38, "co2": 495}, {"date": 1701869175, "humidity": 39, "co2": 595}, {"date": 1701869775, "humidity": 41.5, "co2": 841}, {"date": 1701870375, "humidity": 42, "co2": 929}, {"date": 1701870975, "humidity": 42.5, "co2": 1015}, {"date": 1701871575, "humidity": 42.5, "co2": 1050}, {"date": 1701872175, "humidity": 42.5, "co2": 1065}, {"date": 1701872774, "humidity": 43, "co2": 1108}, {"date": 1701873375, "humidity": 42.5, "co2": 1121}, {"date": 1701873975, "humidity": 42.5, "co2": 1133}, {"date": 1701874574, "humidity": 42.5, "co2": 1146}], "E103": [{"date": 1701868575, "humidity": 41, "co2": 589}, {"date": 1701869176, "humidity": 42, "co2": 779}, {"date": 1701869778, "humidity": 43, "co2": 985}, {"date": 1701870376, "humidity": 43, "co2": 1141}, {"date": 1701870975, "humidity": 43.5, "co2": 1214}, {"date": 1701871576, "humidity": 44.5, "co2": 1281}, {"date": 1701872178, "humidity": 45, "co2": 1287}, {"date": 1701872776, "humidity": 45, "co2": 1347}, {"date": 1701873376, "humidity": 45, "co2": 1336}, {"date": 1701873976, "humidity": 45, "co2": 1353}, {"date": 1701874576, "humidity": 44.5, "co2": 1350}], " hall-amphi": [{"date": 1701868576, "humidity": 45.5, "co2": 1018}, {"date": 1701869177, "humidity": 46, "co2": 1057}, {"date": 1701869777, "humidity": 45.5, "co2": 1024}, {"date": 1701870376, "humidity": 45.5, "co2": 995}, {"date": 1701870976, "humidity": 45.5, "co2": 980}, {"date": 1701871577, "humidity": 45.5, "co2": 966}, {"date": 1701872177, "humidity": 45, "co2": 953}, {"date": 1701872776, "humidity": 45, "co2": 920}, {"date": 1701873377, "humidity": 45, "co2": 909}, {"date": 1701873977, "humidity": 45, "co2": 887}, {"date": 1701874577, "humidity": 44.5, "co2": 868}], "B103": [{"date": 1701868604, "humidity": 45, "co2": 3057}, {"date": 1701869204, "humidity": 45, "co2": 3075}, {"date": 1701869805, "humidity": 45.5, "co2": 3334}, {"date": 1701870405, "humidity": 46.5, "co2": 3532}, {"date": 1701871004, "humidity": 46.5, "co2": 3530}, {"date": 1701871604, "humidity": 46, "co2": 3515}, {"date": 1701872204, "humidity": 46, "co2": 3459}, {"date": 1701872804, "humidity": 46, "co2": 3456}, {"date": 1701873404, "humidity": 45.5, "co2": 3296}, {"date": 1701874005, "humidity": 46, "co2": 3570}], "B217": [{"date": 1701868608, "humidity": 42, "co2": 649}, {"date": 1701869209, "humidity": 44, "co2": 950}, {"date": 1701869808, "humidity": 46, "co2": 1331}, {"date": 1701870408, "humidity": 47, "co2": 1564}, {"date": 1701871008, "humidity": 48, "co2": 1745}, {"date": 1701871608, "humidity": 48.5, "co2": 1895}, {"date": 1701872208, "humidity": 49, "co2": 2013}, {"date": 1701872808, "humidity": 50, "co2": 2149}, {"date": 1701873408, "humidity": 50.5, "co2": 2284}, {"date": 1701874008, "humidity": 49.5, "co2": 2145}], "B113": [{"date": 1701868609, "humidity": 48.5, "co2": 1295}, {"date": 1701869209, "humidity": 48.5, "co2": 1267}, {"date": 1701869809, "humidity": 48.5, "co2": 1232}, {"date": 1701870408, "humidity": 48, "co2": 1205}, {"date": 1701871009, "humidity": 48, "co2": 1183}, {"date": 1701871609, "humidity": 48, "co2": 1147}, {"date": 1701872208, "humidity": 47.5, "co2": 1107}, {"date": 1701872808, "humidity": 47.5, "co2": 1086}, {"date": 1701873409, "humidity": 47.5, "co2": 1052}, {"date": 1701874009, "humidity": 47, "co2": 1044}], "E106": [{"date": 1701868611, "humidity": 45.5, "co2": 1349}, {"date": 1701869212, "humidity": 45, "co2": 1232}, {"date": 1701869812, "humidity": 44.5, "co2": 1181}, {"date": 1701870412, "humidity": 44, "co2": 1141}, {"date": 1701871011, "humidity": 43.5, "co2": 1088}, {"date": 1701871612, "humidity": 43.5, "co2": 1056}, {"date": 1701872212, "humidity": 43, "co2": 1005}, {"date": 1701872812, "humidity": 43, "co2": 987}, {"date": 1701873412, "humidity": 42.5, "co2": 966}, {"date": 1701874012, "humidity": 42.5, "co2": 955}], "B212": [{"date": 1701868613, "humidity": 50.5, "co2": 1255}, {"date": 1701869214, "humidity": 50.5, "co2": 1270}, {"date": 1701869813, "humidity": 50.5, "co2": 1285}, {"date": 1701870413, "humidity": 50.5, "co2": 1301}, {"date": 1701871013, "humidity": 50.5, "co2": 1321}, {"date": 1701871613, "humidity": 50.5, "co2": 1344}, {"date": 1701872213, "humidity": 50.5, "co2": 1366}, {"date": 1701872813, "humidity": 50.5, "co2": 1390}, {"date": 1701873413, "humidity": 50.5, "co2": 1365}, {"date": 1701874013, "humidity": 50.5, "co2": 1407}], "E102": [{"date": 1701868635, "humidity": 39, "co2": 727}, {"date": 1701869235, "humidity": 39.5, "co2": 779}, {"date": 1701869835, "humidity": 40, "co2": 902}, {"date": 1701870435, "humidity": 41, "co2": 973}, {"date": 1701871035, "humidity": 40.5, "co2": 994}, {"date": 1701871635, "humidity": 40.5, "co2": 1061}, {"date": 1701872235, "humidity": 41, "co2": 1111}, {"date": 1701872835, "humidity": 41, "co2": 1123}, {"date": 1701873434, "humidity": 41.5, "co2": 1158}, {"date": 1701874035, "humidity": 41.5, "co2": 1207}], "Foyer-personnels": [{"date": 1701868641, "humidity": 49, "co2": 1281}, {"date": 1701869241, "humidity": 48.5, "co2": 1286}, {"date": 1701869841, "humidity": 49, "co2": 1338}, {"date": 1701870441, "humidity": 49, "co2": 1367}, {"date": 1701871039, "humidity": 49, "co2": 1404}, {"date": 1701871641, "humidity": 49, "co2": 1422}, {"date": 1701872241, "humidity": 49, "co2": 1438}, {"date": 1701872841, "humidity": 49.5, "co2": 1450}, {"date": 1701873440, "humidity": 49.5, "co2": 1481}, {"date": 1701874041, "humidity": 49.5, "co2": 1529}], "B201": [{"date": 1701868643, "humidity": 48, "co2": 1279}, {"date": 1701869243, "humidity": 48, "co2": 1257}, {"date": 1701869843, "humidity": 48, "co2": 1235}, {"date": 1701870442, "humidity": 48, "co2": 1214}, {"date": 1701871043, "humidity": 48, "co2": 1208}, {"date": 1701871643, "humidity": 48, "co2": 1185}, {"date": 1701872242, "humidity": 47.5, "co2": 1175}, {"date": 1701872843, "humidity": 47.5, "co2": 1146}, {"date": 1701873443, "humidity": 47.5, "co2": 1154}, {"date": 1701874043, "humidity": 47.5, "co2": 1151}], "amphi1": [{"date": 1701868664, "humidity": 51.5, "co2": 459}, {"date": 1701869264, "humidity": 51.5, "co2": 460}, {"date": 1701869864, "humidity": 51, "co2": 463}, {"date": 1701870465, "humidity": 51, "co2": 466}, {"date": 1701871064, "humidity": 51, "co2": 460}, {"date": 1701871664, "humidity": 51, "co2": 456}, {"date": 1701872265, "humidity": 51, "co2": 457}, {"date": 1701872864, "humidity": 51, "co2": 477}, {"date": 1701873464, "humidity": 50.5, "co2": 460}, {"date": 1701874064, "humidity": 50.5, "co2": 457}], "E208": [{"date": 1701868665, "humidity": 42, "co2": 585}, {"date": 1701869265, "humidity": 42.5, "co2": 659}, {"date": 1701869865, "humidity": 44, "co2": 814}, {"date": 1701870465, "humidity": 45, "co2": 963}, {"date": 1701871065, "humidity": 46, "co2": 1088}, {"date": 1701871665, "humidity": 46.5, "co2": 1178}, {"date": 1701872264, "humidity": 46.5, "co2": 1228}, {"date": 1701872865, "humidity": 47, "co2": 1279}, {"date": 1701873465, "humidity": 47, "co2": 1331}, {"date": 1701874064, "humidity": 47, "co2": 1374}], "hall-entr\u00e9e-principale": [{"date": 1701868673, "humidity": 43.5, "co2": 956}, {"date": 1701869273, "humidity": 43.5, "co2": 993}, {"date": 1701869873, "humidity": 43.5, "co2": 987}, {"date": 1701870473, "humidity": 43.5, "co2": 983}, {"date": 1701871073, "humidity": 43, "co2": 964}, {"date": 1701871673, "humidity": 43, "co2": 936}, {"date": 1701872273, "humidity": 43, "co2": 912}, {"date": 1701872874, "humidity": 43, "co2": 901}, {"date": 1701873473, "humidity": 42.5, "co2": 875}, {"date": 1701874073, "humidity": 42.5, "co2": 846}], "E206": [{"date": 1701868694, "humidity": 38, "co2": 561}, {"date": 1701869295, "humidity": 38.5, "co2": 667}, {"date": 1701869895, "humidity": 40.5, "co2": 970}, {"date": 1701870494, "humidity": 41.5, "co2": 1119}, {"date": 1701871095, "humidity": 42, "co2": 1216}, {"date": 1701871695, "humidity": 42.5, "co2": 1296}, {"date": 1701872295, "humidity": 43, "co2": 1361}, {"date": 1701872894, "humidity": 43, "co2": 1355}, {"date": 1701873495, "humidity": 43, "co2": 1387}, {"date": 1701874095, "humidity": 42.5, "co2": 1423}], "B112": [{"date": 1701868695, "humidity": 49.5, "co2": 1793}, {"date": 1701869296, "humidity": 49.5, "co2": 1766}, {"date": 1701869895, "humidity": 49, "co2": 1684}, {"date": 1701870494, "humidity": 49, "co2": 1625}, {"date": 1701871095, "humidity": 48.5, "co2": 1517}, {"date": 1701871695, "humidity": 48, "co2": 1461}, {"date": 1701872294, "humidity": 47.5, "co2": 1422}, {"date": 1701872894, "humidity": 47.5, "co2": 1373}, {"date": 1701873495, "humidity": 47, "co2": 1313}, {"date": 1701874095, "humidity": 47, "co2": 1327}], "E210": [{"date": 1701868725, "humidity": 71.5, "co2": 447}, {"date": 1701869325, "humidity": 71, "co2": 449}, {"date": 1701869925, "humidity": 70.5, "co2": 443}, {"date": 1701870525, "humidity": 70.5, "co2": 441}, {"date": 1701871124, "humidity": 70.5, "co2": 441}, {"date": 1701871725, "humidity": 70, "co2": 448}, {"date": 1701872325, "humidity": 69.5, "co2": 442}, {"date": 1701872925, "humidity": 68.5, "co2": 443}, {"date": 1701873525, "humidity": 68, "co2": 445}, {"date": 1701874125, "humidity": 68, "co2": 442}], "E105": [{"date": 1701868731, "humidity": 43, "co2": 581}, {"date": 1701869331, "humidity": 44.5, "co2": 794}, {"date": 1701869931, "humidity": 45.5, "co2": 940}, {"date": 1701870531, "humidity": 46, "co2": 1025}, {"date": 1701871131, "humidity": 46.5, "co2": 1119}, {"date": 1701871731, "humidity": 46.5, "co2": 1179}, {"date": 1701872331, "humidity": 46.5, "co2": 1232}, {"date": 1701872931, "humidity": 46.5, "co2": 1264}, {"date": 1701873531, "humidity": 46.5, "co2": 1297}, {"date": 1701874131, "humidity": 46.5, "co2": 1328}], "E101": [{"date": 1701868755, "humidity": 41.5, "co2": 554}, {"date": 1701869355, "humidity": 42.5, "co2": 708}, {"date": 1701869955, "humidity": 43.5, "co2": 880}, {"date": 1701870555, "humidity": 45, "co2": 1053}, {"date": 1701871155, "humidity": 45.5, "co2": 1185}, {"date": 1701871755, "humidity": 46, "co2": 1253}, {"date": 1701872355, "humidity": 46.5, "co2": 1313}, {"date": 1701872955, "humidity": 46.5, "co2": 1376}, {"date": 1701873555, "humidity": 46, "co2": 1416}, {"date": 1701874155, "humidity": 46, "co2": 1406}], "B111": [{"date": 1701868758, "humidity": 46, "co2": 1296}, {"date": 1701869358, "humidity": 47, "co2": 1524}, {"date": 1701869957, "humidity": 48.5, "co2": 1880}, {"date": 1701870557, "humidity": 49.5, "co2": 2091}, {"date": 1701871158, "humidity": 50, "co2": 2256}, {"date": 1701871758, "humidity": 50.5, "co2": 2449}, {"date": 1701872358, "humidity": 51, "co2": 2626}, {"date": 1701872958, "humidity": 51.5, "co2": 2735}, {"date": 1701873558, "humidity": 51.5, "co2": 2849}, {"date": 1701874157, "humidity": 51, "co2": 2888}], "B109": [{"date": 1701868759, "humidity": 49, "co2": 1470}, {"date": 1701869960, "humidity": 49, "co2": 1426}, {"date": 1701870559, "humidity": 48.5, "co2": 1389}, {"date": 1701871159, "humidity": 48.5, "co2": 1360}, {"date": 1701871760, "humidity": 48.5, "co2": 1364}, {"date": 1701872359, "humidity": 48, "co2": 1340}, {"date": 1701872959, "humidity": 48, "co2": 1328}, {"date": 1701873559, "humidity": 48, "co2": 1356}, {"date": 1701874160, "humidity": 47.5, "co2": 1340}], "B110": [{"date": 1701868760, "humidity": 49.5, "co2": 1957}, {"date": 1701869360, "humidity": 50, "co2": 1995}, {"date": 1701869960, "humidity": 50.5, "co2": 2096}, {"date": 1701870560, "humidity": 51, "co2": 2281}, {"date": 1701871160, "humidity": 52, "co2": 2496}, {"date": 1701871760, "humidity": 52.5, "co2": 2697}, {"date": 1701872360, "humidity": 53, "co2": 2851}, {"date": 1701872960, "humidity": 53.5, "co2": 2983}, {"date": 1701873560, "humidity": 53.5, "co2": 3002}, {"date": 1701874160, "humidity": 53, "co2": 2792}], "E100": [{"date": 1701868762, "humidity": 35.5, "co2": 655}, {"date": 1701869363, "co2": 682}, {"date": 1701869963, "co2": 715}, {"date": 1701870563, "co2": 739}, {"date": 1701871163, "co2": 778}, {"date": 1701871763, "co2": 799}, {"date": 1701872363, "co2": 840}, {"date": 1701872963, "co2": 866}, {"date": 1701873563, "co2": 901}, {"date": 1701874163, "co2": 924}], "Salle-conseil": [{"date": 1701868762, "humidity": 40.5, "co2": 858}, {"date": 1701869363, "humidity": 40.5, "co2": 851}, {"date": 1701869963, "humidity": 40.5, "co2": 853}, {"date": 1701870562, "humidity": 40.5, "co2": 846}, {"date": 1701871162, "humidity": 40.5, "co2": 838}, {"date": 1701871763, "humidity": 40.5, "co2": 830}, {"date": 1701872363, "humidity": 40.5, "co2": 826}, {"date": 1701872962, "humidity": 40, "co2": 809}, {"date": 1701873563, "humidity": 40, "co2": 802}, {"date": 1701874163, "humidity": 40, "co2": 792}], "E007": [{"date": 1701868764, "humidity": 42, "co2": 668}, {"date": 1701869364, "humidity": 41.5, "co2": 607}, {"date": 1701869964, "humidity": 41, "co2": 579}, {"date": 1701870563, "humidity": 40.5, "co2": 548}, {"date": 1701871163, "humidity": 40, "co2": 524}, {"date": 1701871763, "humidity": 40, "co2": 511}, {"date": 1701872363, "humidity": 40, "co2": 501}, {"date": 1701872963, "humidity": 40, "co2": 494}, {"date": 1701873563, "humidity": 39.5, "co2": 499}, {"date": 1701874163, "humidity": 39.5, "co2": 502}], "E104": [{"date": 1701868789, "humidity": 40, "co2": 462}, {"date": 1701869389, "humidity": 41.5, "co2": 705}, {"date": 1701869989, "humidity": 42.5, "co2": 885}, {"date": 1701870589, "humidity": 43, "co2": 996}, {"date": 1701871189, "humidity": 43.5, "co2": 1063}, {"date": 1701871789, "humidity": 43.5, "co2": 1118}, {"date": 1701872389, "humidity": 44, "co2": 1157}, {"date": 1701872989, "humidity": 44, "co2": 1225}, {"date": 1701873588, "humidity": 44, "co2": 1265}, {"date": 1701874189, "humidity": 44.5, "co2": 1321}], "B203": [{"date": 1701868794, "humidity": 43, "co2": 923}, {"date": 1701869393, "humidity": 43, "co2": 886}, {"date": 1701869994, "humidity": 42.5, "co2": 856}, {"date": 1701870593, "humidity": 42.5, "co2": 829}, {"date": 1701871193, "humidity": 42.5, "co2": 818}, {"date": 1701871793, "humidity": 42, "co2": 790}, {"date": 1701872394, "humidity": 42, "co2": 781}, {"date": 1701872993, "humidity": 42, "co2": 757}, {"date": 1701873593, "humidity": 42, "co2": 746}, {"date": 1701874194, "humidity": 42, "co2": 748}], "B003": [{"date": 1701868820, "humidity": 46, "co2": 1738}, {"date": 1701869420, "humidity": 46.5, "co2": 1911}, {"date": 1701870020, "humidity": 47, "co2": 2088}, {"date": 1701870620, "humidity": 47.5, "co2": 2025}, {"date": 1701871220, "humidity": 47.5, "co2": 2015}, {"date": 1701871821, "humidity": 47.5, "co2": 2006}, {"date": 1701872420, "humidity": 47, "co2": 1974}, {"date": 1701873020, "humidity": 47.5, "co2": 2038}, {"date": 1701873620, "humidity": 47.5, "co2": 2087}, {"date": 1701874220, "humidity": 46.5, "co2": 1964}], "Local-velo": [{"date": 1701868881, "humidity": 79, "co2": 458, "pressure": 0}, {"date": 1701869481, "humidity": 78, "co2": 453, "pressure": 0}, {"date": 1701870081, "humidity": 77.5, "co2": 458, "pressure": 0}, {"date": 1701870681, "humidity": 75.5, "co2": 449, "pressure": 0}, {"date": 1701871281, "humidity": 74, "co2": 446, "pressure": 0}, {"date": 1701871976, "humidity": 73.5, "co2": 449, "pressure": 0}, {"date": 1701872481, "humidity": 73.5, "co2": 450, "pressure": 0}, {"date": 1701873081, "humidity": 73, "co2": 452, "pressure": 0}, {"date": 1701873681, "humidity": 70, "co2": 445, "pressure": 0}, {"date": 1701874280, "humidity": 67.5, "co2": 460, "pressure": 0}], "B108": [{"date": 1701868912, "humidity": 45, "co2": 1123}, {"date": 1701869512, "humidity": 45, "co2": 1207}, {"date": 1701870111, "humidity": 45.5, "co2": 1373}, {"date": 1701870712, "humidity": 45.5, "co2": 1429}, {"date": 1701871312, "humidity": 46, "co2": 1515}, {"date": 1701871976, "humidity": 45.5, "co2": 1476}, {"date": 1701872512, "humidity": 45, "co2": 1433}, {"date": 1701873112, "humidity": 45, "co2": 1379}, {"date": 1701873712, "humidity": 44.5, "co2": 1373}, {"date": 1701874311, "humidity": 45, "co2": 1439}], "E006": [{"date": 1701869594, "humidity": 41.5, "co2": 582}, {"date": 1701870193, "humidity": 42.5, "co2": 786}, {"date": 1701870794, "humidity": 43.5, "co2": 897}, {"date": 1701871394, "humidity": 44, "co2": 990}, {"date": 1701871993, "humidity": 44, "co2": 1004}, {"date": 1701872594, "humidity": 43.5, "co2": 921}, {"date": 1701873194, "humidity": 42.5, "co2": 778}, {"date": 1701873794, "humidity": 42, "co2": 735}, {"date": 1701874393, "humidity": 42, "co2": 757}]}
+{
+  " hall-amphi": [
+    {
+      "date": "1700484959",
+      "temperature": 19.9,
+      "humidity": 60.5,
+      "activity": 92,
+      "co2": 667,
+      "pressure": 996
+    },
+    {
+      "date": "1700485558",
+      "temperature": 19.9,
+      "humidity": 61,
+      "activity": 87,
+      "co2": 718,
+      "pressure": 996
+    },
+    {
+      "date": "1700489758",
+      "temperature": 20,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 677,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700508966",
+      "temperature": 20,
+      "humidity": 59.5,
+      "activity": 0,
+      "co2": 485,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700512565",
+      "temperature": 19.9,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 493,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700513166",
+      "temperature": 19.9,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 501,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700513766",
+      "temperature": 20,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 503,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700514365",
+      "temperature": 20,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 504,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700514966",
+      "temperature": 19.9,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 495,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700515566",
+      "temperature": 19.9,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 502,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700516166",
+      "temperature": 19.9,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 502,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700516765",
+      "temperature": 19.9,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 505,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700517366",
+      "temperature": 19.9,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 508,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700517966",
+      "temperature": 19.9,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 506,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700518565",
+      "temperature": 19.9,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 499,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700519165",
+      "temperature": 19.9,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 498,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700519766",
+      "temperature": 19.9,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 512,
+      "pressure": 995.7
+    }
+  ],
+  "E103": [
+    {
+      "date": "1700484967",
+      "temperature": 21.3,
+      "humidity": 56.5,
+      "activity": 269,
+      "co2": 889,
+      "pressure": 996.3
+    },
+    {
+      "date": "1700485569",
+      "temperature": 21.4,
+      "humidity": 57,
+      "activity": 178,
+      "co2": 939,
+      "pressure": 996.3
+    },
+    {
+      "date": "1700489767",
+      "temperature": 22.4,
+      "humidity": 60.5,
+      "activity": 464,
+      "co2": 1677,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700508978",
+      "temperature": 21.6,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 587,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700512575",
+      "temperature": 21.1,
+      "humidity": 53,
+      "activity": 0,
+      "co2": 497,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700513176",
+      "temperature": 21.1,
+      "humidity": 53,
+      "activity": 0,
+      "co2": 489,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700513775",
+      "temperature": 21,
+      "humidity": 53,
+      "activity": 0,
+      "co2": 488,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700514375",
+      "temperature": 21,
+      "humidity": 52.5,
+      "activity": 0,
+      "co2": 474,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700515576",
+      "temperature": 20.9,
+      "humidity": 52.5,
+      "activity": 0,
+      "co2": 465,
+      "pressure": 996
+    },
+    {
+      "date": "1700516175",
+      "temperature": 20.8,
+      "humidity": 52.5,
+      "activity": 0,
+      "co2": 468,
+      "pressure": 996
+    },
+    {
+      "date": "1700516775",
+      "temperature": 20.8,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 455,
+      "pressure": 996
+    },
+    {
+      "date": "1700517376",
+      "temperature": 20.7,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 458,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700517975",
+      "temperature": 20.7,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 456,
+      "pressure": 996
+    },
+    {
+      "date": "1700518575",
+      "temperature": 20.7,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 457,
+      "pressure": 996
+    },
+    {
+      "date": "1700519175",
+      "temperature": 20.7,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 450,
+      "pressure": 996
+    },
+    {
+      "date": "1700519776",
+      "temperature": 20.7,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 447,
+      "pressure": 996
+    }
+  ],
+  "E207": [
+    {
+      "date": "1700484974",
+      "temperature": 20.7,
+      "humidity": 55.5,
+      "activity": 118,
+      "co2": 834,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700485575",
+      "temperature": 20.6,
+      "humidity": 56,
+      "activity": 47,
+      "co2": 812,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700489775",
+      "temperature": 21.1,
+      "humidity": 58.5,
+      "activity": 374,
+      "co2": 994,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700508982",
+      "temperature": 20.6,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 570,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700512581",
+      "temperature": 20.5,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 533,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700513181",
+      "temperature": 20.5,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 533,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700513782",
+      "temperature": 20.5,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 528,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700514382",
+      "temperature": 20.5,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 524,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700514981",
+      "temperature": 20.5,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 516,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700515582",
+      "temperature": 20.5,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 515,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700516182",
+      "temperature": 20.4,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 511,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700516782",
+      "temperature": 20.4,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 507,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700517381",
+      "temperature": 20.4,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 504,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700517982",
+      "temperature": 20.4,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 501,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700518582",
+      "temperature": 20.4,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 499,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700519181",
+      "temperature": 20.4,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 495,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700519782",
+      "temperature": 20.4,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 500,
+      "pressure": 995.5
+    }
+  ],
+  "B212": [
+    {
+      "date": "1700484987",
+      "temperature": 18.6,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 696,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700485587",
+      "temperature": 18.6,
+      "humidity": 60,
+      "activity": 75,
+      "co2": 742,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700489787",
+      "temperature": 19.5,
+      "humidity": 62.5,
+      "activity": 73,
+      "co2": 1265,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700508995",
+      "temperature": 18.9,
+      "humidity": 62.5,
+      "activity": 0,
+      "co2": 670,
+      "pressure": 995
+    },
+    {
+      "date": "1700510195",
+      "temperature": 18.8,
+      "humidity": 62,
+      "activity": 0,
+      "co2": 620,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700512595",
+      "temperature": 18.7,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 547,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700513195",
+      "temperature": 18.6,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 542,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700513796",
+      "temperature": 18.6,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 524,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700514395",
+      "temperature": 18.5,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 513,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700514995",
+      "temperature": 18.5,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 508,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700515596",
+      "temperature": 18.5,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 498,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700516196",
+      "temperature": 18.4,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 499,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700516795",
+      "temperature": 18.4,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 490,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700517395",
+      "temperature": 18.4,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 484,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700517996",
+      "temperature": 18.3,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 481,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700518595",
+      "temperature": 18.3,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 475,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700519195",
+      "temperature": 18.3,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 473,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700519796",
+      "temperature": 18.3,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 468,
+      "pressure": 995.5
+    }
+  ],
+  "B113": [
+    {
+      "date": "1700484991",
+      "temperature": 20.2,
+      "humidity": 63.5,
+      "activity": 0,
+      "co2": 2071,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700485591",
+      "temperature": 20.1,
+      "humidity": 63.5,
+      "activity": 0,
+      "co2": 2001,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700489791",
+      "temperature": 20.4,
+      "humidity": 64.5,
+      "activity": 60,
+      "co2": 2110,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700509000",
+      "temperature": 19.8,
+      "humidity": 65,
+      "activity": 0,
+      "co2": 1601,
+      "pressure": 994.6
+    },
+    {
+      "date": "1700510200",
+      "temperature": 19.7,
+      "humidity": 65,
+      "activity": 0,
+      "co2": 1547,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700512600",
+      "temperature": 19.6,
+      "humidity": 64.5,
+      "activity": 0,
+      "co2": 1459,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700513200",
+      "temperature": 19.6,
+      "humidity": 64.5,
+      "activity": 0,
+      "co2": 1431,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700513799",
+      "temperature": 19.6,
+      "humidity": 64.5,
+      "activity": 0,
+      "co2": 1420,
+      "pressure": 995
+    },
+    {
+      "date": "1700514400",
+      "temperature": 19.6,
+      "humidity": 64,
+      "activity": 0,
+      "co2": 1386,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700515000",
+      "temperature": 19.6,
+      "humidity": 64,
+      "activity": 0,
+      "co2": 1368,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700515600",
+      "temperature": 19.5,
+      "humidity": 64,
+      "activity": 0,
+      "co2": 1347,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700516200",
+      "temperature": 19.5,
+      "humidity": 64,
+      "activity": 0,
+      "co2": 1325,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700516800",
+      "temperature": 19.5,
+      "humidity": 64,
+      "activity": 0,
+      "co2": 1296,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700517400",
+      "temperature": 19.5,
+      "humidity": 64,
+      "activity": 0,
+      "co2": 1283,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700517999",
+      "temperature": 19.5,
+      "humidity": 63.5,
+      "activity": 0,
+      "co2": 1268,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700518600",
+      "temperature": 19.5,
+      "humidity": 63.5,
+      "activity": 0,
+      "co2": 1239,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700519200",
+      "temperature": 19.5,
+      "humidity": 63.5,
+      "activity": 0,
+      "co2": 1232,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700519800",
+      "temperature": 19.4,
+      "humidity": 63.5,
+      "activity": 0,
+      "co2": 1221,
+      "pressure": 995.2
+    },
+    { "date": "1700568390", "co2": 1455 }
+  ],
+  "B217": [
+    {
+      "date": "1700484991",
+      "temperature": 20.1,
+      "humidity": 52.5,
+      "activity": 0,
+      "co2": 661,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700485591",
+      "temperature": 20.1,
+      "humidity": 52.5,
+      "activity": 0,
+      "co2": 662,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700489791",
+      "temperature": 20.2,
+      "humidity": 53.5,
+      "activity": 0,
+      "co2": 690,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700509000",
+      "temperature": 20.2,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 683,
+      "pressure": 994.6
+    },
+    {
+      "date": "1700510199",
+      "temperature": 20.2,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 667,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700512599",
+      "temperature": 20.1,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 632,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700513200",
+      "temperature": 20.1,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 620,
+      "pressure": 995
+    },
+    {
+      "date": "1700513800",
+      "temperature": 20.1,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 611,
+      "pressure": 995
+    },
+    {
+      "date": "1700514399",
+      "temperature": 20.1,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 605,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700514999",
+      "temperature": 20.1,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 594,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700515600",
+      "temperature": 20,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 587,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700516199",
+      "temperature": 20,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 586,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700516799",
+      "temperature": 20,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 582,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700517400",
+      "temperature": 20,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 575,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700518000",
+      "temperature": 20,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 571,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700518599",
+      "temperature": 20,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 564,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700519199",
+      "temperature": 20,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 566,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700519800",
+      "temperature": 19.9,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 559,
+      "pressure": 995.2
+    },
+    { "date": "1700568389", "co2": 944 }
+  ],
+  "E106": [
+    {
+      "date": "1700484992",
+      "temperature": 21.5,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 752,
+      "pressure": 996
+    },
+    {
+      "date": "1700485591",
+      "temperature": 21.4,
+      "humidity": 55,
+      "activity": 18,
+      "co2": 734,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700489791",
+      "temperature": 21.9,
+      "humidity": 58.5,
+      "activity": 281,
+      "co2": 1270,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700509000",
+      "temperature": 21.1,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 642,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700510201",
+      "temperature": 21,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 620,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700512600",
+      "temperature": 20.9,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 584,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700513200",
+      "temperature": 20.9,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 577,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700513800",
+      "temperature": 20.9,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 567,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700514400",
+      "temperature": 20.9,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 562,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700515000",
+      "temperature": 20.9,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 552,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700515600",
+      "temperature": 20.8,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 546,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700516200",
+      "temperature": 20.8,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 542,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700516800",
+      "temperature": 20.8,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 533,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700517400",
+      "temperature": 20.8,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 530,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700518000",
+      "temperature": 20.8,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 521,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700518600",
+      "temperature": 20.8,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 521,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700519200",
+      "temperature": 20.8,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 513,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700519800",
+      "temperature": 20.7,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 513,
+      "pressure": 995.7
+    }
+  ],
+  "B103": [
+    {
+      "date": "1700484999",
+      "temperature": 22.6,
+      "humidity": 53.5,
+      "activity": 22,
+      "co2": 3384,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700485598",
+      "temperature": 22.6,
+      "humidity": 54,
+      "activity": 89,
+      "co2": 3428,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700489798",
+      "temperature": 23.7,
+      "humidity": 57.5,
+      "activity": 163,
+      "co2": 4256,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700509007",
+      "temperature": 21.1,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 1953,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700510207",
+      "temperature": 21.1,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 1947,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700512607",
+      "temperature": 21.1,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 1941,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700513207",
+      "temperature": 21.1,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 1939,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700513807",
+      "temperature": 21,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 1930,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700514407",
+      "temperature": 21,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 1929,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700515007",
+      "temperature": 21,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 1923,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700515607",
+      "temperature": 21,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 1930,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700516206",
+      "temperature": 21,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 1917,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700516806",
+      "temperature": 21,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 1915,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700517407",
+      "temperature": 20.9,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 1913,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700518007",
+      "temperature": 20.9,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 1909,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700518607",
+      "temperature": 20.9,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 1901,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700519207",
+      "temperature": 20.9,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 1911,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700519807",
+      "temperature": 20.9,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 1899,
+      "pressure": 995.8
+    },
+    { "date": "1700568396", "co2": 3612 }
+  ],
+  "B201": [
+    {
+      "date": "1700485022",
+      "temperature": 20.4,
+      "humidity": 60.5,
+      "activity": 287,
+      "co2": 1580,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700485622",
+      "temperature": 20.5,
+      "humidity": 60.5,
+      "activity": 241,
+      "co2": 1666,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700489822",
+      "temperature": 20.6,
+      "humidity": 61,
+      "activity": 289,
+      "co2": 1370,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700508429",
+      "temperature": 20,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 848,
+      "pressure": 994.7
+    },
+    {
+      "date": "1700509029",
+      "temperature": 20.1,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 825,
+      "pressure": 994.6
+    },
+    {
+      "date": "1700510229",
+      "temperature": 20,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 788,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700512629",
+      "temperature": 19.9,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 715,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700513229",
+      "temperature": 19.9,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 698,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700513830",
+      "temperature": 19.9,
+      "humidity": 59.5,
+      "activity": 0,
+      "co2": 677,
+      "pressure": 995
+    },
+    {
+      "date": "1700514429",
+      "temperature": 19.9,
+      "humidity": 59.5,
+      "activity": 0,
+      "co2": 657,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700515029",
+      "temperature": 19.9,
+      "humidity": 59.5,
+      "activity": 0,
+      "co2": 648,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700515629",
+      "temperature": 19.8,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 633,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700516229",
+      "temperature": 19.9,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 621,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700516829",
+      "temperature": 19.8,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 618,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700517429",
+      "temperature": 19.8,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 603,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700518030",
+      "temperature": 19.8,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 602,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700518629",
+      "temperature": 19.8,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 597,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700519229",
+      "temperature": 19.8,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 590,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700519829",
+      "temperature": 19.8,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 582,
+      "pressure": 995.2
+    }
+  ],
+  "Foyer-personnels": [
+    {
+      "date": "1700485023",
+      "temperature": 20.6,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 974,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700485624",
+      "temperature": 20.6,
+      "humidity": 56,
+      "activity": 34,
+      "co2": 964,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700489824",
+      "temperature": 20.7,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 941,
+      "pressure": 994.6
+    },
+    {
+      "date": "1700508430",
+      "temperature": 20.3,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 688,
+      "pressure": 994.5
+    },
+    {
+      "date": "1700509030",
+      "temperature": 20.3,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 678,
+      "pressure": 994.4
+    },
+    {
+      "date": "1700510231",
+      "temperature": 20.2,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 662,
+      "pressure": 994.7
+    },
+    {
+      "date": "1700512630",
+      "temperature": 20.1,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 615,
+      "pressure": 994.7
+    },
+    {
+      "date": "1700513230",
+      "temperature": 20.1,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 609,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700513831",
+      "temperature": 20.1,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 591,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700514431",
+      "temperature": 20.1,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 587,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700515030",
+      "temperature": 20,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 573,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700515631",
+      "temperature": 20,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 571,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700516231",
+      "temperature": 20,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 566,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700516831",
+      "temperature": 20,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 559,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700517430",
+      "temperature": 20,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 552,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700518031",
+      "temperature": 19.9,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 543,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700518631",
+      "temperature": 19.9,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 546,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700519230",
+      "temperature": 19.9,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 536,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700519830",
+      "temperature": 19.9,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 529,
+      "pressure": 995
+    },
+    { "date": "1700568422", "co2": 843 }
+  ],
+  "E102": [
+    {
+      "date": "1700485026",
+      "temperature": 22.3,
+      "humidity": 55,
+      "activity": 492,
+      "co2": 1173,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700485626",
+      "temperature": 22.4,
+      "humidity": 56,
+      "activity": 426,
+      "co2": 1245,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700489826",
+      "temperature": 22.9,
+      "humidity": 58,
+      "activity": 255,
+      "co2": 1555,
+      "pressure": 994.6
+    },
+    {
+      "date": "1700508435",
+      "temperature": 22.2,
+      "humidity": 53,
+      "activity": 0,
+      "co2": 624,
+      "pressure": 994.5
+    },
+    {
+      "date": "1700509035",
+      "temperature": 22.1,
+      "humidity": 53,
+      "activity": 0,
+      "co2": 602,
+      "pressure": 994.5
+    },
+    {
+      "date": "1700512635",
+      "temperature": 21.7,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 504,
+      "pressure": 994.7
+    },
+    {
+      "date": "1700513235",
+      "temperature": 21.6,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 490,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700513835",
+      "temperature": 21.6,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 486,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700514434",
+      "temperature": 21.5,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 479,
+      "pressure": 995
+    },
+    {
+      "date": "1700515035",
+      "temperature": 21.5,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 474,
+      "pressure": 995
+    },
+    {
+      "date": "1700515635",
+      "temperature": 21.4,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 470,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700516235",
+      "temperature": 21.4,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 462,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700516834",
+      "temperature": 21.3,
+      "humidity": 51,
+      "activity": 0,
+      "co2": 463,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700517435",
+      "temperature": 21.3,
+      "humidity": 51,
+      "activity": 0,
+      "co2": 458,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700518035",
+      "temperature": 21.3,
+      "humidity": 51,
+      "activity": 0,
+      "co2": 455,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700518634",
+      "temperature": 21.3,
+      "humidity": 51,
+      "activity": 0,
+      "co2": 460,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700519235",
+      "temperature": 21.2,
+      "humidity": 51,
+      "activity": 0,
+      "co2": 453,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700519835",
+      "temperature": 21.2,
+      "humidity": 50.5,
+      "activity": 0,
+      "co2": 452,
+      "pressure": 995.1
+    },
+    { "date": "1700568424", "co2": 862 }
+  ],
+  "amphi1": [
+    {
+      "date": "1700485046",
+      "temperature": 20.6,
+      "humidity": 57.5,
+      "activity": 7,
+      "co2": 529,
+      "pressure": 996.3
+    },
+    {
+      "date": "1700489847",
+      "temperature": 19.9,
+      "humidity": 59.5,
+      "activity": 0,
+      "co2": 507,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700508455",
+      "temperature": 19,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 450,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700509056",
+      "temperature": 19,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 446,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700510255",
+      "temperature": 19,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 442,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700512655",
+      "temperature": 18.9,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 444,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700513256",
+      "temperature": 18.8,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 440,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700513856",
+      "temperature": 18.8,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 441,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700514455",
+      "temperature": 18.8,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 442,
+      "pressure": 996
+    },
+    {
+      "date": "1700515055",
+      "temperature": 18.8,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 440,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700515656",
+      "temperature": 18.7,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 437,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700516255",
+      "temperature": 18.7,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 440,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700516855",
+      "temperature": 18.7,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 440,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700517455",
+      "temperature": 18.7,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 437,
+      "pressure": 996.2
+    },
+    {
+      "date": "1700518056",
+      "temperature": 18.7,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 441,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700518655",
+      "temperature": 18.7,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 438,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700519255",
+      "temperature": 18.6,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 436,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700519856",
+      "temperature": 18.6,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 437,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700520456",
+      "temperature": 18.6,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 432,
+      "pressure": 996.1
+    }
+  ],
+  "E208": [
+    {
+      "date": "1700485047",
+      "temperature": 19.7,
+      "humidity": 58,
+      "activity": 376,
+      "co2": 721,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700489847",
+      "temperature": 19.9,
+      "humidity": 59.5,
+      "activity": 1,
+      "co2": 890,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700508456",
+      "temperature": 19.6,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 541,
+      "pressure": 994.7
+    },
+    {
+      "date": "1700509056",
+      "temperature": 19.6,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 539,
+      "pressure": 994.7
+    },
+    {
+      "date": "1700510256",
+      "temperature": 19.6,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 526,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700512656",
+      "temperature": 19.5,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 506,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700513256",
+      "temperature": 19.6,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 507,
+      "pressure": 995
+    },
+    {
+      "date": "1700513856",
+      "temperature": 19.5,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 503,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700514456",
+      "temperature": 19.5,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 505,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700515056",
+      "temperature": 19.5,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 502,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700515656",
+      "temperature": 19.5,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 494,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700516256",
+      "temperature": 19.5,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 493,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700516856",
+      "temperature": 19.5,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 491,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700517456",
+      "temperature": 19.5,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 491,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700518056",
+      "temperature": 19.5,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 490,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700518656",
+      "temperature": 19.5,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 489,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700519256",
+      "temperature": 19.5,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 482,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700519856",
+      "temperature": 19.4,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 485,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700520456",
+      "temperature": 19.5,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 479,
+      "pressure": 995.3
+    }
+  ],
+  "hall-entr\u00e9e-principale": [
+    {
+      "date": "1700485059",
+      "temperature": 20.5,
+      "humidity": 59,
+      "activity": 65,
+      "co2": 603,
+      "pressure": 996.8
+    },
+    {
+      "date": "1700488659",
+      "temperature": 20.5,
+      "humidity": 59,
+      "activity": 40,
+      "co2": 618,
+      "pressure": 996.2
+    },
+    {
+      "date": "1700489259",
+      "temperature": 20.5,
+      "humidity": 59,
+      "activity": 27,
+      "co2": 658,
+      "pressure": 996.2
+    },
+    {
+      "date": "1700489858",
+      "temperature": 20.6,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 644,
+      "pressure": 996
+    },
+    {
+      "date": "1700508466",
+      "temperature": 20.6,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 468,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700509066",
+      "temperature": 20.6,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 472,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700510266",
+      "temperature": 20.6,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 478,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700512666",
+      "temperature": 20.5,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 483,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700513266",
+      "temperature": 20.6,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 484,
+      "pressure": 996.2
+    },
+    {
+      "date": "1700513866",
+      "temperature": 20.5,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 490,
+      "pressure": 996.3
+    },
+    {
+      "date": "1700514466",
+      "temperature": 20.5,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 487,
+      "pressure": 996.4
+    },
+    {
+      "date": "1700515066",
+      "temperature": 20.5,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 488,
+      "pressure": 996.4
+    },
+    {
+      "date": "1700515666",
+      "temperature": 20.5,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 494,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700516267",
+      "temperature": 20.5,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 489,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700516866",
+      "temperature": 20.5,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 491,
+      "pressure": 996.6
+    },
+    {
+      "date": "1700517466",
+      "temperature": 20.5,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 495,
+      "pressure": 996.6
+    },
+    {
+      "date": "1700518066",
+      "temperature": 20.5,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 494,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700518666",
+      "temperature": 20.5,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 497,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700519266",
+      "temperature": 20.5,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 497,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700519866",
+      "temperature": 20.4,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 498,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700520466",
+      "temperature": 20.4,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 499,
+      "pressure": 996.5
+    }
+  ],
+  "E206": [
+    {
+      "date": "1700485077",
+      "temperature": 22.5,
+      "humidity": 51,
+      "activity": 0,
+      "co2": 596,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700489278",
+      "temperature": 23,
+      "humidity": 54.5,
+      "activity": 95,
+      "co2": 1191,
+      "pressure": 994.6
+    },
+    {
+      "date": "1700489878",
+      "temperature": 23.1,
+      "humidity": 54.5,
+      "activity": 97,
+      "co2": 1215,
+      "pressure": 994.5
+    },
+    {
+      "date": "1700508485",
+      "temperature": 21.9,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 506,
+      "pressure": 994.3
+    },
+    {
+      "date": "1700509085",
+      "temperature": 21.8,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 489,
+      "pressure": 994.3
+    },
+    {
+      "date": "1700510285",
+      "temperature": 21.8,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 470,
+      "pressure": 994.5
+    },
+    {
+      "date": "1700512685",
+      "temperature": 21.6,
+      "humidity": 51,
+      "activity": 0,
+      "co2": 444,
+      "pressure": 994.5
+    },
+    {
+      "date": "1700513285",
+      "temperature": 21.5,
+      "humidity": 50.5,
+      "activity": 0,
+      "co2": 447,
+      "pressure": 994.6
+    },
+    {
+      "date": "1700513885",
+      "temperature": 21.5,
+      "humidity": 50.5,
+      "activity": 0,
+      "co2": 438,
+      "pressure": 994.7
+    },
+    {
+      "date": "1700514485",
+      "temperature": 21.4,
+      "humidity": 50,
+      "activity": 0,
+      "co2": 440,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700515085",
+      "temperature": 21.4,
+      "humidity": 50,
+      "activity": 0,
+      "co2": 435,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700515685",
+      "temperature": 21.4,
+      "humidity": 49.5,
+      "activity": 0,
+      "co2": 432,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700516285",
+      "temperature": 21.4,
+      "humidity": 49.5,
+      "activity": 0,
+      "co2": 428,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700516885",
+      "temperature": 21.3,
+      "humidity": 49.5,
+      "activity": 0,
+      "co2": 429,
+      "pressure": 995
+    },
+    {
+      "date": "1700517485",
+      "temperature": 21.3,
+      "humidity": 49,
+      "activity": 0,
+      "co2": 427,
+      "pressure": 995
+    },
+    {
+      "date": "1700518085",
+      "temperature": 21.3,
+      "humidity": 49,
+      "activity": 0,
+      "co2": 431,
+      "pressure": 995
+    },
+    {
+      "date": "1700518685",
+      "temperature": 21.3,
+      "humidity": 49,
+      "activity": 0,
+      "co2": 428,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700519285",
+      "temperature": 21.3,
+      "humidity": 49,
+      "activity": 0,
+      "co2": 427,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700519885",
+      "temperature": 21.2,
+      "humidity": 49,
+      "activity": 0,
+      "co2": 425,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700520485",
+      "temperature": 21.2,
+      "humidity": 48.5,
+      "activity": 0,
+      "co2": 426,
+      "pressure": 994.9
+    }
+  ],
+  "B112": [
+    {
+      "date": "1700485077",
+      "temperature": 19.9,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 475,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700488677",
+      "temperature": 20,
+      "humidity": 55.5,
+      "activity": 0
+    },
+    {
+      "date": "1700489277",
+      "temperature": 20,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 466,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700489877",
+      "temperature": 20,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 462,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700508486",
+      "temperature": 19.6,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 439,
+      "pressure": 994.7
+    },
+    {
+      "date": "1700509086",
+      "temperature": 19.5,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 438,
+      "pressure": 994.7
+    },
+    {
+      "date": "1700510286",
+      "temperature": 19.5,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 431,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700512686",
+      "temperature": 19.3,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 434,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700513286",
+      "temperature": 19.3,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 430,
+      "pressure": 995
+    },
+    {
+      "date": "1700513885",
+      "temperature": 19.3,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 437,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700514486",
+      "temperature": 19.2,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 430,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700515086",
+      "temperature": 19.2,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 430,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700515686",
+      "temperature": 19.2,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 428,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700516286",
+      "temperature": 19.2,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 430,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700516886",
+      "temperature": 19.2,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 431,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700517486",
+      "temperature": 19.2,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 429,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700518085",
+      "temperature": 19.2,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 425,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700518686",
+      "temperature": 19.2,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 426,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700519286",
+      "temperature": 19.2,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 426,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700519886",
+      "temperature": 19.2,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 428,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700520485",
+      "temperature": 19.2,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 426,
+      "pressure": 995.3
+    }
+  ],
+  "B003": [
+    {
+      "date": "1700485202",
+      "temperature": 22.2,
+      "humidity": 55,
+      "activity": 197,
+      "co2": 1472,
+      "pressure": 996.2
+    },
+    {
+      "date": "1700489401",
+      "temperature": 21.9,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 1269,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700508610",
+      "temperature": 21.8,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 819,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700512810",
+      "temperature": 21.4,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 715,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700513410",
+      "temperature": 21.3,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 694,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700514011",
+      "temperature": 21.3,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 684,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700514610",
+      "temperature": 21.3,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 672,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700515210",
+      "temperature": 21.2,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 658,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700515811",
+      "temperature": 21.2,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 648,
+      "pressure": 996
+    },
+    {
+      "date": "1700516410",
+      "temperature": 21.1,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 641,
+      "pressure": 996
+    },
+    {
+      "date": "1700517010",
+      "temperature": 21.1,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 627,
+      "pressure": 996
+    },
+    {
+      "date": "1700517610",
+      "temperature": 21.1,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 617,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700518210",
+      "temperature": 21,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 611,
+      "pressure": 996
+    },
+    {
+      "date": "1700518810",
+      "temperature": 21,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 607,
+      "pressure": 996
+    },
+    {
+      "date": "1700519410",
+      "temperature": 21,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 601,
+      "pressure": 996
+    },
+    {
+      "date": "1700520011",
+      "temperature": 20.9,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 589,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700520610",
+      "temperature": 20.9,
+      "humidity": 53.5,
+      "activity": 0,
+      "co2": 581,
+      "pressure": 996
+    }
+  ],
+  "B108": [
+    {
+      "date": "1700485286",
+      "temperature": 20.1,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 1685,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700488885",
+      "temperature": 20.1,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 1800,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700489486",
+      "temperature": 20.1,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 1876,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700508694",
+      "temperature": 20.1,
+      "humidity": 63,
+      "activity": 0,
+      "co2": 1887,
+      "pressure": 995
+    },
+    {
+      "date": "1700512894",
+      "temperature": 20,
+      "humidity": 62.5,
+      "activity": 0,
+      "co2": 1697,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700513494",
+      "temperature": 19.9,
+      "humidity": 62,
+      "activity": 0,
+      "co2": 1671,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700514094",
+      "temperature": 19.9,
+      "humidity": 62,
+      "activity": 0,
+      "co2": 1647,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700514694",
+      "temperature": 19.9,
+      "humidity": 62,
+      "activity": 0,
+      "co2": 1624,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700515294",
+      "temperature": 19.9,
+      "humidity": 62,
+      "activity": 0,
+      "co2": 1607,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700515894",
+      "temperature": 19.9,
+      "humidity": 62,
+      "activity": 0,
+      "co2": 1580,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700516494",
+      "temperature": 19.8,
+      "humidity": 62,
+      "activity": 0,
+      "co2": 1559,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700517094",
+      "temperature": 19.8,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 1547,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700517693",
+      "temperature": 19.8,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 1526,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700518294",
+      "temperature": 19.8,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 1514,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700518894",
+      "temperature": 19.8,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 1491,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700519494",
+      "temperature": 19.8,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 1477,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700520094",
+      "temperature": 19.8,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 1473,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700520694",
+      "temperature": 19.7,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 1449,
+      "pressure": 995.6
+    }
+  ],
+  "C004": [
+    {
+      "date": "1700485393",
+      "temperature": 24,
+      "humidity": 47.5,
+      "activity": 0,
+      "co2": 540,
+      "pressure": 996.4
+    },
+    {
+      "date": "1700488993",
+      "temperature": 24.5,
+      "humidity": 50,
+      "activity": 135,
+      "co2": 1210,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700489594",
+      "temperature": 24.6,
+      "humidity": 50,
+      "activity": 43,
+      "co2": 1258,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700508802",
+      "temperature": 24.7,
+      "humidity": 48.5,
+      "activity": 0,
+      "co2": 822,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700512402",
+      "temperature": 24.6,
+      "humidity": 47.5,
+      "activity": 0,
+      "co2": 753,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700513002",
+      "temperature": 24.6,
+      "humidity": 47.5,
+      "activity": 0,
+      "co2": 742,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700513601",
+      "temperature": 24.6,
+      "humidity": 47.5,
+      "activity": 0,
+      "co2": 734,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700514202",
+      "temperature": 24.6,
+      "humidity": 47.5,
+      "activity": 0,
+      "co2": 717,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700514802",
+      "temperature": 24.6,
+      "humidity": 47,
+      "activity": 0,
+      "co2": 711,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700515401",
+      "temperature": 24.6,
+      "humidity": 47,
+      "activity": 0,
+      "co2": 699,
+      "pressure": 996
+    },
+    {
+      "date": "1700516001",
+      "temperature": 24.6,
+      "humidity": 47,
+      "activity": 0,
+      "co2": 693,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700516602",
+      "temperature": 24.6,
+      "humidity": 47,
+      "activity": 0,
+      "co2": 685,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700517202",
+      "temperature": 24.6,
+      "humidity": 46.5,
+      "activity": 0,
+      "co2": 677,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700517801",
+      "temperature": 24.5,
+      "humidity": 46.5,
+      "activity": 0,
+      "co2": 669,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700518402",
+      "temperature": 24.5,
+      "humidity": 46.5,
+      "activity": 0,
+      "co2": 665,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700519002",
+      "temperature": 24.5,
+      "humidity": 46.5,
+      "activity": 0,
+      "co2": 662,
+      "pressure": 996
+    },
+    {
+      "date": "1700519602",
+      "temperature": 24.5,
+      "humidity": 46.5,
+      "activity": 0,
+      "co2": 655,
+      "pressure": 996
+    },
+    {
+      "date": "1700520201",
+      "temperature": 24.5,
+      "humidity": 46.5,
+      "activity": 0,
+      "co2": 639,
+      "pressure": 996
+    }
+  ],
+  "C006": [
+    {
+      "date": "1700485412",
+      "temperature": 25.7,
+      "humidity": 39,
+      "activity": 0,
+      "co2": 468,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700489011",
+      "temperature": 25.7,
+      "humidity": 39,
+      "activity": 0,
+      "co2": 455,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700489612",
+      "temperature": 25.7,
+      "humidity": 39.5,
+      "activity": 0,
+      "co2": 455,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700508820",
+      "temperature": 25.6,
+      "humidity": 40.5,
+      "activity": 0,
+      "co2": 418,
+      "pressure": 995
+    },
+    {
+      "date": "1700512420",
+      "temperature": 25.5,
+      "humidity": 40.5,
+      "activity": 0,
+      "co2": 416,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700513021",
+      "temperature": 25.5,
+      "humidity": 40.5,
+      "activity": 0,
+      "co2": 421,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700513620",
+      "temperature": 25.5,
+      "humidity": 40.5,
+      "activity": 0,
+      "co2": 417,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700514220",
+      "temperature": 25.5,
+      "humidity": 40.5,
+      "activity": 0,
+      "co2": 420,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700514820",
+      "temperature": 25.5,
+      "humidity": 40.5,
+      "activity": 0,
+      "co2": 415,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700515420",
+      "temperature": 25.5,
+      "humidity": 40.5,
+      "activity": 0,
+      "co2": 414,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700516020",
+      "temperature": 25.4,
+      "humidity": 40.5,
+      "activity": 0,
+      "co2": 414,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700516620",
+      "temperature": 25.4,
+      "humidity": 40,
+      "activity": 0,
+      "co2": 414,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700517219",
+      "temperature": 25.4,
+      "humidity": 40,
+      "activity": 0,
+      "co2": 414,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700517820",
+      "temperature": 25.4,
+      "humidity": 40,
+      "activity": 0,
+      "co2": 418,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700518420",
+      "temperature": 25.4,
+      "humidity": 40,
+      "activity": 0,
+      "co2": 415,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700519020",
+      "temperature": 25.4,
+      "humidity": 40,
+      "activity": 0,
+      "co2": 414,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700519620",
+      "temperature": 25.4,
+      "humidity": 40,
+      "activity": 0,
+      "co2": 417,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700520220",
+      "temperature": 25.4,
+      "humidity": 40,
+      "activity": 0,
+      "co2": 414,
+      "pressure": 995.5
+    }
+  ],
+  "E006": [
+    {
+      "date": "1700485422",
+      "temperature": 20,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 464,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700489022",
+      "temperature": 20,
+      "humidity": 59.5,
+      "activity": 0,
+      "co2": 446,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700489622",
+      "temperature": 20,
+      "humidity": 59.5,
+      "activity": 0,
+      "co2": 446,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700508831",
+      "temperature": 19.7,
+      "humidity": 59.5,
+      "activity": 0,
+      "co2": 441,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700512431",
+      "temperature": 19.7,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 435,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700513031",
+      "temperature": 19.7,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 439,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700513630",
+      "temperature": 19.7,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 438,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700514231",
+      "temperature": 19.7,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 434,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700514831",
+      "temperature": 19.7,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 437,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700515431",
+      "temperature": 19.7,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 430,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700516030",
+      "temperature": 19.7,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 435,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700516631",
+      "temperature": 19.7,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 430,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700517231",
+      "temperature": 19.7,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 434,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700517830",
+      "temperature": 19.7,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 432,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700518431",
+      "temperature": 19.7,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 433,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700519031",
+      "temperature": 19.7,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 429,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700519631",
+      "temperature": 19.7,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 428,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700520230",
+      "temperature": 19.7,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 425,
+      "pressure": 995.5
+    }
+  ],
+  "B202": [
+    {
+      "date": "1700485442",
+      "temperature": 19.8,
+      "humidity": 58,
+      "activity": 39,
+      "co2": 1258,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700489041",
+      "temperature": 20,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 1344,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700489640",
+      "temperature": 20,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 1300,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700508849",
+      "temperature": 19.7,
+      "humidity": 63,
+      "activity": 0,
+      "co2": 1065,
+      "pressure": 995
+    },
+    {
+      "date": "1700512449",
+      "temperature": 19.5,
+      "humidity": 62.5,
+      "activity": 0,
+      "co2": 984,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700513049",
+      "temperature": 19.5,
+      "humidity": 62.5,
+      "activity": 0,
+      "co2": 964,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700513649",
+      "temperature": 19.5,
+      "humidity": 62.5,
+      "activity": 0,
+      "co2": 949,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700514249",
+      "temperature": 19.5,
+      "humidity": 62.5,
+      "activity": 0,
+      "co2": 941,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700514849",
+      "temperature": 19.5,
+      "humidity": 62.5,
+      "activity": 0,
+      "co2": 927,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700515449",
+      "temperature": 19.5,
+      "humidity": 62.5,
+      "activity": 0,
+      "co2": 928,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700516049",
+      "temperature": 19.4,
+      "humidity": 62,
+      "activity": 0,
+      "co2": 914,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700516649",
+      "temperature": 19.4,
+      "humidity": 62,
+      "activity": 0,
+      "co2": 904,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700517249",
+      "temperature": 19.4,
+      "humidity": 62,
+      "activity": 0,
+      "co2": 897,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700517849",
+      "temperature": 19.4,
+      "humidity": 62,
+      "activity": 0,
+      "co2": 896,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700518448",
+      "temperature": 19.4,
+      "humidity": 62,
+      "activity": 0,
+      "co2": 881,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700519049",
+      "temperature": 19.4,
+      "humidity": 62,
+      "activity": 0,
+      "co2": 885,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700519649",
+      "temperature": 19.3,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 875,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700520249",
+      "temperature": 19.3,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 867,
+      "pressure": 995.7
+    }
+  ],
+  "E004": [
+    {
+      "date": "1700485443",
+      "temperature": 21,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 606,
+      "pressure": 996.7
+    },
+    {
+      "date": "1700489043",
+      "temperature": 20.8,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 555,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700489643",
+      "temperature": 20.7,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 539,
+      "pressure": 996
+    },
+    {
+      "date": "1700508851",
+      "temperature": 20.1,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 451,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700512452",
+      "temperature": 20,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 448,
+      "pressure": 996
+    },
+    {
+      "date": "1700513051",
+      "temperature": 20,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 452,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700513651",
+      "temperature": 20,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 445,
+      "pressure": 996.2
+    },
+    {
+      "date": "1700514252",
+      "temperature": 20,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 447,
+      "pressure": 996.3
+    },
+    {
+      "date": "1700514851",
+      "temperature": 20,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 444,
+      "pressure": 996.3
+    },
+    {
+      "date": "1700515451",
+      "temperature": 19.9,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 440,
+      "pressure": 996.4
+    },
+    {
+      "date": "1700516051",
+      "temperature": 19.9,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 442,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700516652",
+      "temperature": 19.9,
+      "humidity": 53.5,
+      "activity": 0,
+      "co2": 449,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700517251",
+      "temperature": 19.9,
+      "humidity": 53.5,
+      "activity": 0,
+      "co2": 448,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700517851",
+      "temperature": 19.9,
+      "humidity": 53.5,
+      "activity": 0,
+      "co2": 448,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700518452",
+      "temperature": 19.9,
+      "humidity": 53.5,
+      "activity": 0,
+      "co2": 448,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700519051",
+      "temperature": 19.9,
+      "humidity": 53,
+      "activity": 0,
+      "co2": 446,
+      "pressure": 996.4
+    },
+    {
+      "date": "1700519651",
+      "temperature": 19.9,
+      "humidity": 53,
+      "activity": 0,
+      "co2": 446,
+      "pressure": 996.4
+    },
+    {
+      "date": "1700520251",
+      "temperature": 19.9,
+      "humidity": 53,
+      "activity": 0,
+      "co2": 445,
+      "pressure": 996.4
+    }
+  ],
+  "E001": [
+    {
+      "date": "1700485451",
+      "temperature": 20.2,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 559,
+      "pressure": 996.8
+    },
+    {
+      "date": "1700489051",
+      "temperature": 21.5,
+      "humidity": 68.5,
+      "activity": 322,
+      "co2": 1993,
+      "pressure": 996.3
+    },
+    {
+      "date": "1700489651",
+      "temperature": 21.7,
+      "humidity": 69,
+      "activity": 327,
+      "co2": 2174,
+      "pressure": 996.2
+    },
+    {
+      "date": "1700508858",
+      "temperature": 20,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 450,
+      "pressure": 996
+    },
+    {
+      "date": "1700512458",
+      "temperature": 19.8,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 434,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700513058",
+      "temperature": 19.8,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 434,
+      "pressure": 996.2
+    },
+    {
+      "date": "1700513659",
+      "temperature": 19.8,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 435,
+      "pressure": 996.3
+    },
+    {
+      "date": "1700514259",
+      "temperature": 19.7,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 433,
+      "pressure": 996.4
+    },
+    {
+      "date": "1700514858",
+      "temperature": 19.7,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 437,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700515458",
+      "temperature": 19.7,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 432,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700516059",
+      "temperature": 19.7,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 433,
+      "pressure": 996.6
+    },
+    {
+      "date": "1700516658",
+      "temperature": 19.7,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 433,
+      "pressure": 996.6
+    },
+    {
+      "date": "1700517258",
+      "temperature": 19.6,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 435,
+      "pressure": 996.6
+    },
+    {
+      "date": "1700517859",
+      "temperature": 19.6,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 434,
+      "pressure": 996.6
+    },
+    {
+      "date": "1700518459",
+      "temperature": 19.7,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 437,
+      "pressure": 996.6
+    },
+    {
+      "date": "1700519058",
+      "temperature": 19.6,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 432,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700519658",
+      "temperature": 19.6,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 432,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700520259",
+      "temperature": 19.6,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 432,
+      "pressure": 996.5
+    }
+  ],
+  "Serveurs": [
+    {
+      "date": "1700485467",
+      "temperature": 22.9,
+      "humidity": 48,
+      "activity": 0,
+      "co2": 570,
+      "pressure": 996
+    },
+    {
+      "date": "1700489067",
+      "temperature": 22.6,
+      "humidity": 40.5,
+      "activity": 0,
+      "co2": 569,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700489667",
+      "temperature": 22.6,
+      "humidity": 44.5,
+      "activity": 0,
+      "co2": 569,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700508876",
+      "temperature": 23.1,
+      "humidity": 44,
+      "activity": 0,
+      "co2": 499,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700512476",
+      "temperature": 22.8,
+      "humidity": 44,
+      "activity": 0,
+      "co2": 470,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700513076",
+      "temperature": 22.8,
+      "humidity": 42,
+      "activity": 0,
+      "co2": 469,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700513675",
+      "temperature": 23,
+      "humidity": 46,
+      "activity": 0,
+      "co2": 463,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700514276",
+      "temperature": 22.8,
+      "humidity": 39.5,
+      "activity": 0,
+      "co2": 463,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700514876",
+      "temperature": 22.7,
+      "humidity": 39.5,
+      "activity": 0,
+      "co2": 459,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700515475",
+      "temperature": 22.7,
+      "humidity": 45,
+      "activity": 0,
+      "co2": 464,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700516076",
+      "temperature": 22.9,
+      "humidity": 43,
+      "activity": 0,
+      "co2": 458,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700516676",
+      "temperature": 22.9,
+      "humidity": 43,
+      "activity": 0,
+      "co2": 457,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700517276",
+      "temperature": 22.7,
+      "humidity": 40,
+      "activity": 0,
+      "co2": 454,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700517875",
+      "temperature": 22.6,
+      "humidity": 40,
+      "activity": 0,
+      "co2": 451,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700518476",
+      "temperature": 22.6,
+      "humidity": 44,
+      "activity": 0,
+      "co2": 445,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700519076",
+      "temperature": 22.8,
+      "humidity": 45,
+      "activity": 0,
+      "co2": 448,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700519675",
+      "temperature": 22.6,
+      "humidity": 39,
+      "activity": 0,
+      "co2": 449,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700520276",
+      "temperature": 22.5,
+      "humidity": 42.5,
+      "activity": 0,
+      "co2": 443,
+      "pressure": 995.6
+    }
+  ],
+  "B106": [
+    {
+      "date": "1700485471",
+      "temperature": 21.1,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 1310,
+      "pressure": 996
+    },
+    {
+      "date": "1700489071",
+      "temperature": 20.9,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 1128,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700489670",
+      "temperature": 20.9,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 1104,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700508879",
+      "temperature": 20.4,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 833,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700512480",
+      "temperature": 20.4,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 802,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700513079",
+      "temperature": 20.4,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 796,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700513680",
+      "temperature": 20.4,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 785,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700514280",
+      "temperature": 20.3,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 790,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700514879",
+      "temperature": 20.3,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 771,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700515479",
+      "temperature": 20.3,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 772,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700516080",
+      "temperature": 20.3,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 766,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700516680",
+      "temperature": 20.3,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 756,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700517279",
+      "temperature": 20.3,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 747,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700517880",
+      "temperature": 20.3,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 748,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700518480",
+      "temperature": 20.3,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 741,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700519079",
+      "temperature": 20.2,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 735,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700519679",
+      "temperature": 20.2,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 732,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700520280",
+      "temperature": 20.2,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 725,
+      "pressure": 995.8
+    }
+  ],
+  "E003": [
+    {
+      "date": "1700485477",
+      "temperature": 21.2,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 548,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700489079",
+      "temperature": 22.2,
+      "humidity": 62.5,
+      "activity": 291,
+      "co2": 1791,
+      "pressure": 996
+    },
+    {
+      "date": "1700489679",
+      "temperature": 22.4,
+      "humidity": 63,
+      "activity": 322,
+      "co2": 1961,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700508886",
+      "temperature": 20.6,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 460,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700513086",
+      "temperature": 20.4,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 451,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700513686",
+      "temperature": 20.4,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 445,
+      "pressure": 996
+    },
+    {
+      "date": "1700514287",
+      "temperature": 20.4,
+      "humidity": 53.5,
+      "activity": 0,
+      "co2": 447,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700514886",
+      "temperature": 20.4,
+      "humidity": 53,
+      "activity": 0,
+      "co2": 446,
+      "pressure": 996.1
+    },
+    {
+      "date": "1700515486",
+      "temperature": 20.4,
+      "humidity": 53,
+      "activity": 0,
+      "co2": 444,
+      "pressure": 996.2
+    },
+    {
+      "date": "1700516086",
+      "temperature": 20.3,
+      "humidity": 53,
+      "activity": 0,
+      "co2": 444,
+      "pressure": 996.3
+    },
+    {
+      "date": "1700516686",
+      "temperature": 20.3,
+      "humidity": 52.5,
+      "activity": 0,
+      "co2": 451,
+      "pressure": 996.3
+    },
+    {
+      "date": "1700517286",
+      "temperature": 20.3,
+      "humidity": 52.5,
+      "activity": 0,
+      "co2": 444,
+      "pressure": 996.3
+    },
+    {
+      "date": "1700517886",
+      "temperature": 20.3,
+      "humidity": 52.5,
+      "activity": 0,
+      "co2": 443,
+      "pressure": 996.3
+    },
+    {
+      "date": "1700518486",
+      "temperature": 20.3,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 447,
+      "pressure": 996.3
+    },
+    {
+      "date": "1700519086",
+      "temperature": 20.3,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 446,
+      "pressure": 996.2
+    },
+    {
+      "date": "1700519686",
+      "temperature": 20.3,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 442,
+      "pressure": 996.2
+    },
+    {
+      "date": "1700520286",
+      "temperature": 20.3,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 442,
+      "pressure": 996.2
+    }
+  ],
+  "B234": [
+    {
+      "date": "1700485497",
+      "temperature": 22.1,
+      "humidity": 48,
+      "activity": 0,
+      "co2": 960,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700489096",
+      "temperature": 22.2,
+      "humidity": 49.5,
+      "activity": 0,
+      "co2": 960,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700489697",
+      "temperature": 22.2,
+      "humidity": 49.5,
+      "activity": 0,
+      "co2": 945,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700508904",
+      "temperature": 22.1,
+      "humidity": 52.5,
+      "activity": 0,
+      "co2": 938,
+      "pressure": 994.5
+    },
+    {
+      "date": "1700512505",
+      "temperature": 22.1,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 876,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700513104",
+      "temperature": 22.1,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 864,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700513705",
+      "temperature": 22.1,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 850,
+      "pressure": 995
+    },
+    {
+      "date": "1700514305",
+      "temperature": 22.1,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 839,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700514905",
+      "temperature": 22.1,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 825,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700515504",
+      "temperature": 22.1,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 816,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700516105",
+      "temperature": 22.1,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 802,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700516705",
+      "temperature": 22.1,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 797,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700517304",
+      "temperature": 22.1,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 794,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700517905",
+      "temperature": 22.1,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 784,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700518505",
+      "temperature": 22.1,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 765,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700519105",
+      "temperature": 22.1,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 761,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700519704",
+      "temperature": 22.1,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 760,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700520305",
+      "temperature": 22.1,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 751,
+      "pressure": 995.2
+    }
+  ],
+  "E209": [
+    {
+      "date": "1700485527",
+      "temperature": 19,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 476,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700489127",
+      "temperature": 19.1,
+      "humidity": 59,
+      "activity": 0
+    },
+    {
+      "date": "1700489727",
+      "temperature": 19.1,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 454,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700508935",
+      "temperature": 19,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 463,
+      "pressure": 994.7
+    },
+    {
+      "date": "1700512534",
+      "temperature": 18.9,
+      "humidity": 59.5,
+      "activity": 0,
+      "co2": 445,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700513135",
+      "temperature": 18.9,
+      "humidity": 59.5,
+      "activity": 0,
+      "co2": 444,
+      "pressure": 995
+    },
+    {
+      "date": "1700513735",
+      "temperature": 18.9,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 441,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700514335",
+      "temperature": 18.9,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 442,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700514935",
+      "temperature": 18.9,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 446,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700515535",
+      "temperature": 18.9,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 444,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700516135",
+      "temperature": 18.9,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 439,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700516734",
+      "temperature": 18.9,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 441,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700517335",
+      "temperature": 18.9,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 439,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700517935",
+      "temperature": 18.9,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 434,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700518535",
+      "temperature": 18.9,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 443,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700519134",
+      "temperature": 18.9,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 438,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700519735",
+      "temperature": 18.9,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 434,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700520335",
+      "temperature": 18.9,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 435,
+      "pressure": 995.3
+    }
+  ],
+  "E105": [
+    {
+      "date": "1700488723",
+      "temperature": 20.9,
+      "humidity": 60,
+      "activity": 293,
+      "co2": 1269,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700512732",
+      "temperature": 20.5,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 657,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700513331",
+      "temperature": 20.4,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 641,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700513932",
+      "temperature": 20.4,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 626,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700514532",
+      "temperature": 20.4,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 618,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700515131",
+      "temperature": 20.4,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 604,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700515732",
+      "temperature": 20.4,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 596,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700516332",
+      "temperature": 20.4,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 587,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700516931",
+      "temperature": 20.4,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 578,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700517531",
+      "temperature": 20.4,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 564,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700518132",
+      "temperature": 20.4,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 563,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700518732",
+      "temperature": 20.3,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 557,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700519331",
+      "temperature": 20.3,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 551,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700519932",
+      "temperature": 20.3,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 549,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700520532",
+      "temperature": 20.3,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 542,
+      "pressure": 995.5
+    }
+  ],
+  "Salle-conseil": [
+    {
+      "date": "1700488737",
+      "temperature": 21.1,
+      "humidity": 53.5,
+      "activity": 0,
+      "co2": 772,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700489336",
+      "temperature": 21.1,
+      "humidity": 53.5,
+      "activity": 0,
+      "co2": 767,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700512745",
+      "temperature": 19.9,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 475,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700513345",
+      "temperature": 19.8,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 472,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700513945",
+      "temperature": 19.8,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 467,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700514545",
+      "temperature": 19.8,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 462,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700515745",
+      "temperature": 19.7,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 460,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700516345",
+      "temperature": 19.7,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 457,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700516945",
+      "temperature": 19.6,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 456,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700517545",
+      "temperature": 19.6,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 454,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700518145",
+      "temperature": 19.6,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 453,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700518745",
+      "temperature": 19.5,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 449,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700519345",
+      "temperature": 19.5,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 452,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700519945",
+      "temperature": 19.5,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 452,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700520545",
+      "temperature": 19.4,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 452,
+      "pressure": 995.7
+    }
+  ],
+  "B109": [
+    {
+      "date": "1700488737",
+      "temperature": 20.3,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 700,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700489338",
+      "temperature": 20.3,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 691,
+      "pressure": 995
+    },
+    {
+      "date": "1700512746",
+      "temperature": 19.9,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 564,
+      "pressure": 995
+    },
+    {
+      "date": "1700513347",
+      "temperature": 19.9,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 560,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700513946",
+      "temperature": 19.9,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 564,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700514546",
+      "temperature": 19.8,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 561,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700515146",
+      "temperature": 19.8,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 557,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700515746",
+      "temperature": 19.8,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 561,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700516346",
+      "temperature": 19.8,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 550,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700516946",
+      "temperature": 19.8,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 552,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700517547",
+      "temperature": 19.8,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 550,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700518146",
+      "temperature": 19.7,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 551,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700518746",
+      "temperature": 19.7,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 556,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700519346",
+      "temperature": 19.7,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 553,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700519946",
+      "temperature": 19.7,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 557,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700520546",
+      "temperature": 19.7,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 549,
+      "pressure": 995.4
+    }
+  ],
+  "E100": [
+    {
+      "date": "1700488737",
+      "temperature": 23.6,
+      "humidity": 47.5,
+      "activity": 0,
+      "co2": 741,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700489338",
+      "temperature": 23.7,
+      "humidity": 48.5,
+      "activity": 1,
+      "co2": 758,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700512746",
+      "temperature": 23.7,
+      "humidity": 46.5,
+      "activity": 0,
+      "co2": 611,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700513345",
+      "temperature": 23.8,
+      "humidity": 48,
+      "activity": 0,
+      "co2": 600,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700513945",
+      "temperature": 23.7,
+      "humidity": 48,
+      "activity": 0,
+      "co2": 586,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700514546",
+      "temperature": 23.6,
+      "humidity": 47.5,
+      "activity": 0,
+      "co2": 576,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700515745",
+      "temperature": 23.7,
+      "humidity": 47.5,
+      "activity": 0,
+      "co2": 548,
+      "pressure": 996
+    },
+    {
+      "date": "1700516345",
+      "temperature": 23.7,
+      "humidity": 47.5,
+      "activity": 0,
+      "co2": 536,
+      "pressure": 996
+    },
+    {
+      "date": "1700516946",
+      "temperature": 23.6,
+      "humidity": 47,
+      "activity": 0,
+      "co2": 524,
+      "pressure": 996
+    },
+    {
+      "date": "1700517546",
+      "temperature": 23.8,
+      "humidity": 46,
+      "activity": 0,
+      "co2": 517,
+      "pressure": 996
+    },
+    {
+      "date": "1700518145",
+      "temperature": 23.8,
+      "humidity": 47,
+      "activity": 0,
+      "co2": 511,
+      "pressure": 996
+    },
+    {
+      "date": "1700518746",
+      "temperature": 23.4,
+      "humidity": 46.5,
+      "activity": 0,
+      "co2": 502,
+      "pressure": 996
+    },
+    {
+      "date": "1700519945",
+      "temperature": 23.8,
+      "humidity": 46.5,
+      "activity": 0,
+      "co2": 494,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700520545",
+      "temperature": 23.6,
+      "humidity": 46.5,
+      "activity": 0,
+      "co2": 486,
+      "pressure": 995.9
+    }
+  ],
+  "B110": [
+    {
+      "date": "1700488738",
+      "temperature": 21.1,
+      "humidity": 57,
+      "activity": 3,
+      "co2": 1340,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700489339",
+      "temperature": 21.2,
+      "humidity": 57,
+      "activity": 11,
+      "co2": 1340,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700512746",
+      "temperature": 20.1,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 636,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700513346",
+      "temperature": 20.1,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 625,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700513946",
+      "temperature": 20.1,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 618,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700514546",
+      "temperature": 20.1,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 601,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700515146",
+      "temperature": 20,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 593,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700515746",
+      "temperature": 20,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 591,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700516346",
+      "temperature": 20,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 577,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700516945",
+      "temperature": 19.9,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 565,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700517546",
+      "temperature": 19.9,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 561,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700518146",
+      "temperature": 19.9,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 560,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700518745",
+      "temperature": 19.9,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 548,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700519346",
+      "temperature": 19.9,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 549,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700519946",
+      "temperature": 19.8,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 542,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700520546",
+      "temperature": 19.8,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 541,
+      "pressure": 995.9
+    }
+  ],
+  "E101": [
+    {
+      "date": "1700488738",
+      "temperature": 22,
+      "humidity": 56.5,
+      "activity": 157,
+      "co2": 968,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700489338",
+      "temperature": 22,
+      "humidity": 56.5,
+      "activity": 15,
+      "co2": 972,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700512745",
+      "temperature": 20.9,
+      "humidity": 53.5,
+      "activity": 0,
+      "co2": 480,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700513345",
+      "temperature": 20.9,
+      "humidity": 53.5,
+      "activity": 0,
+      "co2": 468,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700513946",
+      "temperature": 20.9,
+      "humidity": 53,
+      "activity": 0,
+      "co2": 467,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700514546",
+      "temperature": 20.8,
+      "humidity": 53,
+      "activity": 0,
+      "co2": 465,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700515145",
+      "temperature": 20.8,
+      "humidity": 52.5,
+      "activity": 0,
+      "co2": 460,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700515745",
+      "temperature": 20.8,
+      "humidity": 52.5,
+      "activity": 0,
+      "co2": 454,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700516345",
+      "temperature": 20.8,
+      "humidity": 52.5,
+      "activity": 0,
+      "co2": 453,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700516945",
+      "temperature": 20.8,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 451,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700517545",
+      "temperature": 20.7,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 450,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700518146",
+      "temperature": 20.7,
+      "humidity": 52,
+      "activity": 0,
+      "co2": 455,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700518745",
+      "temperature": 20.7,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 446,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700519345",
+      "temperature": 20.7,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 452,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700519945",
+      "temperature": 20.7,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 439,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700520546",
+      "temperature": 20.7,
+      "humidity": 51.5,
+      "activity": 0,
+      "co2": 447,
+      "pressure": 995.7
+    }
+  ],
+  "B111": [
+    {
+      "date": "1700488740",
+      "temperature": 20.8,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 1027,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700489340",
+      "temperature": 20.8,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 1002,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700512749",
+      "temperature": 19.9,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 528,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700513348",
+      "temperature": 19.9,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 522,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700513948",
+      "temperature": 19.8,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 523,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700514548",
+      "temperature": 19.8,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 512,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700515148",
+      "temperature": 19.8,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 501,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700515748",
+      "temperature": 19.8,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 502,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700516348",
+      "temperature": 19.8,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 506,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700516949",
+      "temperature": 19.7,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 500,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700517549",
+      "temperature": 19.7,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 497,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700518148",
+      "temperature": 19.7,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 490,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700518748",
+      "temperature": 19.7,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 481,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700519348",
+      "temperature": 19.7,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 482,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700519948",
+      "temperature": 19.7,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 484,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700520548",
+      "temperature": 19.7,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 482,
+      "pressure": 995.8
+    }
+  ],
+  "E007": [
+    {
+      "date": "1700488755",
+      "temperature": 20.7,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 548,
+      "pressure": 996.2
+    },
+    {
+      "date": "1700489354",
+      "temperature": 20.7,
+      "humidity": 57.5,
+      "activity": 0,
+      "co2": 538,
+      "pressure": 996.2
+    },
+    {
+      "date": "1700508563",
+      "temperature": 20,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 441,
+      "pressure": 996
+    },
+    {
+      "date": "1700512764",
+      "temperature": 19.9,
+      "humidity": 57,
+      "activity": 0,
+      "co2": 432,
+      "pressure": 996.2
+    },
+    {
+      "date": "1700513363",
+      "temperature": 19.9,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 431,
+      "pressure": 996.3
+    },
+    {
+      "date": "1700513963",
+      "temperature": 19.8,
+      "humidity": 56.5,
+      "activity": 0,
+      "co2": 434,
+      "pressure": 996.4
+    },
+    {
+      "date": "1700514563",
+      "temperature": 19.8,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 434,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700515163",
+      "temperature": 19.8,
+      "humidity": 56,
+      "activity": 0,
+      "co2": 435,
+      "pressure": 996.4
+    },
+    {
+      "date": "1700515763",
+      "temperature": 19.8,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 434,
+      "pressure": 996.6
+    },
+    {
+      "date": "1700516363",
+      "temperature": 19.8,
+      "humidity": 55.5,
+      "activity": 0,
+      "co2": 432,
+      "pressure": 996.6
+    },
+    {
+      "date": "1700516963",
+      "temperature": 19.8,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 431,
+      "pressure": 996.6
+    },
+    {
+      "date": "1700517563",
+      "temperature": 19.8,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 431,
+      "pressure": 996.7
+    },
+    {
+      "date": "1700518163",
+      "temperature": 19.8,
+      "humidity": 55,
+      "activity": 0,
+      "co2": 433,
+      "pressure": 996.6
+    },
+    {
+      "date": "1700518763",
+      "temperature": 19.8,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 433,
+      "pressure": 996.6
+    },
+    {
+      "date": "1700519363",
+      "temperature": 19.8,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 430,
+      "pressure": 996.6
+    },
+    {
+      "date": "1700519963",
+      "temperature": 19.8,
+      "humidity": 54.5,
+      "activity": 0,
+      "co2": 429,
+      "pressure": 996.5
+    },
+    {
+      "date": "1700520563",
+      "temperature": 19.7,
+      "humidity": 54,
+      "activity": 0,
+      "co2": 429,
+      "pressure": 996.5
+    }
+  ],
+  "E104": [
+    {
+      "date": "1700488769",
+      "temperature": 20.8,
+      "humidity": 62.5,
+      "activity": 371,
+      "co2": 1487,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700489369",
+      "temperature": 21,
+      "humidity": 62.5,
+      "activity": 224,
+      "co2": 1557,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700508578",
+      "temperature": 20.4,
+      "humidity": 59.5,
+      "activity": 0,
+      "co2": 816,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700512778",
+      "temperature": 20.2,
+      "humidity": 59.5,
+      "activity": 0,
+      "co2": 712,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700513377",
+      "temperature": 20.1,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 697,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700513978",
+      "temperature": 20.1,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 684,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700514578",
+      "temperature": 20.1,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 675,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700515177",
+      "temperature": 20.1,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 665,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700515777",
+      "temperature": 20,
+      "humidity": 59,
+      "activity": 0,
+      "co2": 652,
+      "pressure": 996
+    },
+    {
+      "date": "1700516378",
+      "temperature": 20,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 641,
+      "pressure": 996
+    },
+    {
+      "date": "1700516978",
+      "temperature": 20,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 629,
+      "pressure": 996
+    },
+    {
+      "date": "1700517577",
+      "temperature": 20,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 624,
+      "pressure": 996
+    },
+    {
+      "date": "1700518177",
+      "temperature": 20,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 613,
+      "pressure": 996
+    },
+    {
+      "date": "1700518778",
+      "temperature": 19.9,
+      "humidity": 58.5,
+      "activity": 0,
+      "co2": 606,
+      "pressure": 996
+    },
+    {
+      "date": "1700519377",
+      "temperature": 19.9,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 601,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700519977",
+      "temperature": 19.9,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 593,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700520578",
+      "temperature": 19.9,
+      "humidity": 58,
+      "activity": 0,
+      "co2": 585,
+      "pressure": 996
+    }
+  ],
+  "B203": [
+    {
+      "date": "1700488771",
+      "temperature": 21.9,
+      "humidity": 62.5,
+      "activity": 68,
+      "co2": 2132,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700489371",
+      "temperature": 22,
+      "humidity": 63,
+      "activity": 68,
+      "co2": 2245,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700508580",
+      "temperature": 21,
+      "humidity": 62,
+      "activity": 0,
+      "co2": 1516,
+      "pressure": 994.6
+    },
+    {
+      "date": "1700512780",
+      "temperature": 20.7,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 1276,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700513380",
+      "temperature": 20.6,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 1239,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700513980",
+      "temperature": 20.6,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 1206,
+      "pressure": 995
+    },
+    {
+      "date": "1700514579",
+      "temperature": 20.5,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 1180,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700515180",
+      "temperature": 20.5,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 1160,
+      "pressure": 995.1
+    },
+    {
+      "date": "1700515780",
+      "temperature": 20.5,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 1145,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700516379",
+      "temperature": 20.4,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 1127,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700516980",
+      "temperature": 20.4,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 1102,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700517580",
+      "temperature": 20.4,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 1088,
+      "pressure": 995.3
+    },
+    {
+      "date": "1700518180",
+      "temperature": 20.3,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 1078,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700518779",
+      "temperature": 20.3,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 1068,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700519380",
+      "temperature": 20.3,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 1049,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700519980",
+      "temperature": 20.2,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 1024,
+      "pressure": 995.2
+    },
+    {
+      "date": "1700520579",
+      "temperature": 20.2,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 1018,
+      "pressure": 995.2
+    }
+  ],
+  "Local-velo": [
+    {
+      "date": "1700512718",
+      "temperature": 12,
+      "humidity": 89.5,
+      "activity": 0,
+      "co2": 436,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700513318",
+      "temperature": 11.8,
+      "humidity": 89,
+      "activity": 1,
+      "co2": 438,
+      "pressure": 995.4
+    },
+    {
+      "date": "1700513918",
+      "temperature": 11.6,
+      "humidity": 88.5,
+      "activity": 0,
+      "co2": 436,
+      "pressure": 995.5
+    },
+    {
+      "date": "1700514518",
+      "temperature": 11.4,
+      "humidity": 89,
+      "activity": 0,
+      "co2": 436,
+      "pressure": 995.6
+    },
+    {
+      "date": "1700515119",
+      "temperature": 11.3,
+      "humidity": 89.5,
+      "activity": 0,
+      "co2": 435,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700515718",
+      "temperature": 11.2,
+      "humidity": 90,
+      "activity": 0,
+      "co2": 436,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700516318",
+      "temperature": 11.1,
+      "humidity": 90,
+      "activity": 0,
+      "co2": 434,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700516918",
+      "temperature": 11.1,
+      "humidity": 90,
+      "activity": 0,
+      "co2": 440,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700517519",
+      "temperature": 11.2,
+      "humidity": 89.5,
+      "activity": 0,
+      "co2": 443,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700518118",
+      "temperature": 11.2,
+      "humidity": 89.5,
+      "activity": 0,
+      "co2": 439,
+      "pressure": 995.9
+    },
+    {
+      "date": "1700518718",
+      "temperature": 11.1,
+      "humidity": 89.5,
+      "activity": 0,
+      "co2": 437,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700519319",
+      "temperature": 11,
+      "humidity": 89,
+      "activity": 0,
+      "co2": 436,
+      "pressure": 995.8
+    },
+    {
+      "date": "1700519919",
+      "temperature": 10.8,
+      "humidity": 89,
+      "activity": 0,
+      "co2": 432,
+      "pressure": 995.7
+    },
+    {
+      "date": "1700520518",
+      "temperature": 10.6,
+      "humidity": 90,
+      "activity": 0,
+      "co2": 435,
+      "pressure": 995.8
+    }
+  ],
+  "E210": [
+    {
+      "date": "1700512727",
+      "temperature": 17.9,
+      "humidity": 62,
+      "activity": 0,
+      "co2": 457,
+      "pressure": 994.5
+    },
+    {
+      "date": "1700513326",
+      "temperature": 17.9,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 450,
+      "pressure": 994.6
+    },
+    {
+      "date": "1700513926",
+      "temperature": 17.9,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 451,
+      "pressure": 994.6
+    },
+    {
+      "date": "1700514527",
+      "temperature": 17.9,
+      "humidity": 61.5,
+      "activity": 0,
+      "co2": 455,
+      "pressure": 994.7
+    },
+    {
+      "date": "1700515127",
+      "temperature": 17.9,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 450,
+      "pressure": 994.7
+    },
+    {
+      "date": "1700515726",
+      "temperature": 17.8,
+      "humidity": 61,
+      "activity": 0,
+      "co2": 448,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700516326",
+      "temperature": 17.8,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 452,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700516927",
+      "temperature": 17.8,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 447,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700517526",
+      "temperature": 17.8,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 447,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700518126",
+      "temperature": 17.8,
+      "humidity": 60.5,
+      "activity": 0,
+      "co2": 448,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700518726",
+      "temperature": 17.8,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 445,
+      "pressure": 994.9
+    },
+    {
+      "date": "1700519327",
+      "temperature": 17.8,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 444,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700519926",
+      "temperature": 17.7,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 441,
+      "pressure": 994.8
+    },
+    {
+      "date": "1700520526",
+      "temperature": 17.7,
+      "humidity": 60,
+      "activity": 0,
+      "co2": 445,
+      "pressure": 994.8
+    }
+  ]
+}

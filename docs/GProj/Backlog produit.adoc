@@ -1,0 +1,285 @@
+= Backlog produit
+:toc-title: Sommaire
+:toc: auto
+:toclevels: 2
+
+*Date :* 10/11/2023 +
+*Par :* Équipe 11 : _AL MASRI Marwan, BABELA Guychel, KRILL Maxence, NICHELE Angelo_
+
+== I. Must
+
+=== A. Gestionnaire de produits
+
+==== Description
+En tant que gestionnaire de produits, je veux pouvoir ajouter, modifier et supprimer des produits du catalogue, y compris des images, des descriptions et des prix, pour maintenir le catalogue à jour.
+
+==== Complexité
+Haute
+
+==== Critères d'acceptabilité
+- Le gestionnaire doit pouvoir ajouter un produit avec succès.
+- Le formulaire d'ajout doit inclure des champs obligatoires pour le nom, la description, le prix, et une image.
+- Le gestionnaire doit pouvoir modifier les informations d'un produit existant.
+- Les modifications doivent être immédiatement visibles dans le catalogue en ligne.
+- Le gestionnaire doit pouvoir supprimer un produit.
+- Une confirmation doit être demandée avant la suppression.
+
+==== Lien
+https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/issues/2[Issue #2]
+
+=== B. Ajout au panier
+
+==== Description
+En tant que client, je veux pouvoir ajouter des produits à mon panier, ajuster les quantités et voir le total de mon panier avant de passer à la caisse.
+
+==== Complexité
+Basse
+
+==== Critères d'acceptabilité
+- Ajout simple et confirmation visuelle.
+- Possibilité d'ajuster les quantités avec mise à jour instantanée.
+- Affichage clair du total du panier.
+- uppression avec confirmation pour éviter les erreurs.
+- Indication claire des options de paiement.
+- Sécurisation des informations et transactions du panier.
+
+==== Lien
+https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/issues/3[Issue #3]
+
+=== C. Passage de commande
+
+==== Description
+En tant que client, je veux pouvoir passer une commande en fournissant mes coordonnées de livraison et mes informations de paiement en toute sécurité.
+
+==== Complexité
+Moyenne
+
+==== Critères d'acceptabilité
+- Les clients peuvent passer une commande de manière fluide et intuitive.
+- Possibilité de fournir et de modifier facilement les coordonnées de livraison.
+- Fourniture sécurisée des informations de paiement.
+- Prise en charge de différentes méthodes de paiement (carte de crédit, PayPal, …).
+- Affichage d'un récapitulatif clair de la commande avant la confirmation.
+- Confirmation visuelle immédiate après la soumission de la commande.
+- Les clients reçoivent une notification de confirmation par e-mail.
+- Sécurisation complète des informations personnelles et de paiement.
+
+==== Lien
+https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/issues/5[Issue #5]
+
+=== D. Affichage des produits
+
+==== Description
+En tant que client, je veux pouvoir consulter l'ensemble des produits pour pouvoir visualiser le catalogue de Disguise'Hub.
+
+==== Complexité
+Haute
+
+==== Critères d'acceptabilité
+- Les clients peuvent passer une commande de manière fluide et intuitive.
+- Possibilité de fournir et de modifier facilement les coordonnées de livraison.
+- Fourniture sécurisée des informations de paiement.
+- Prise en charge de différentes méthodes de paiement (carte de crédit, PayPal, …).
+- Affichage d'un récapitulatif clair de la commande avant la confirmation.
+- Confirmation visuelle immédiate après la soumission de la commande.
+- Les clients reçoivent une notification de confirmation par e-mail.
+Sécurisation complète des informations personnelles et de paiement.
+
+==== Lien
+https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/issues/6[Issue #6]
+
+== II. Should
+
+=== A. Gestionnaire de commandes
+
+==== Description
+En tant que gestionnaire de commandes, je veux pouvoir voir la liste des commandes en attente, marquer les commandes comme expédiées et informer les clients lorsque leur commande est en cours de traitement.
+
+==== Complexité
+Basse
+
+==== Critères d'acceptabilité
+- Le gestionnaire peut accéder à une liste ordonnée des commandes en attente.
+- Possibilité de marquer une commande comme expédiée avec confirmation.
+- Les clients sont automatiquement informés lorsqu'une commande est expédiée.
+- Les changements de statut des commandes sont mis à jour en temps réel.
+- Le gestionnaire peut gérer les exceptions (produit manquant, adresse incorrecte) avec notification au client.
+- Accès sécurisé aux fonctionnalités de gestion des commandes.
+
+==== Lien
+https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/issues/7[Issue #7]
+
+=== B. Recherche de produits
+
+==== Description
+En tant que client, je veux pouvoir rechercher des déguisements par catégorie, par thème ou par taille pour trouver facilement le costume que je veux.
+
+==== Complexité
+Haute
+
+==== Critères d'acceptabilité
+- Le gestionnaire doit pouvoir ajouter un produit avec succès.
+- Le formulaire d'ajout doit inclure des champs obligatoires pour le nom, la description, le prix, et une image.
+- Le gestionnaire doit pouvoir modifier les informations d'un produit existant.
+- Les modifications doivent être immédiatement visibles dans le catalogue en ligne.
+- Le gestionnaire doit pouvoir supprimer un produit.
+- Une confirmation doit être demandée avant la suppression.
+
+
+==== Lien
+https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/issues/8[Issue #8]
+
+
+=== C. Avis et évaluations
+
+==== Description
+En tant que client, je veux pouvoir laisser des avis et des évaluations sur les produits que j'ai achetés pour aider les autres clients à prendre des décisions d'achat éclairées.
+
+==== Complexité
+Moyenne
+
+==== Critères d'acceptabilité
+- Les clients peuvent laisser des avis sur les produits.
+- Système d'évaluation par étoiles pour chaque produit.
+- Possibilité d'ajouter des commentaires détaillés avec les avis.
+- Implémentation d'un processus de modération des avis pour éviter les contenus inappropriés.
+- Affichage clair des avis sur les pages produit.
+- Historique complet des avis pour chaque produit.
+
+==== Lien
+https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/issues/9[Issue #9]
+
+=== D. Détails du produit
+
+==== Description
+En tant que client, je veux pouvoir consulter la fiche détaillée d’un produit pour connaître ses caractéristiques, son prix, ses avis et ses options de personnalisation.
+
+==== Complexité
+Basse
+
+==== Critères d'acceptabilité
+- Mise en place d'une page produit détaillée accessible depuis la liste des produits.
+- Les photos des produits sont de haute résolution pour permettre une visualisation détaillée.
+- Des descriptions créatives et informatives pour chaque produit.
+- Description approfondie.
+- Possibilité de choisir la taille et la couleur du produit sur la page détaillée.
+- Les informations de choix de taille et de couleur sont clairement indiquées.
+
+==== Lien
+https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/issues/[Issue #10]
+
+=== E. Création et connexion au compte
+
+==== Description
+En tant que client, je veux pouvoir créer un compte et m'y connecter pour passer une commande, voir mes commandes passées, leurs suivis, gérer mes informations, et laisser des avis sur les produits commandés.
+
+==== Complexité
+Haute
+
+==== Critères d'acceptabilité
+- Mise en place d'un processus simple pour créer un compte utilisateur.
+- Les utilisateurs doivent fournir des informations minimales nécessaires pour la création du compte (nom, adresse e-mail, mot de passe, …).
+- Validation en temps réel des informations saisies par l'utilisateur.
+- Les utilisateurs peuvent se connecter avec leur compte existant.
+- Option de réinitialisation de mot de passe pour les utilisateurs qui l'oublient.
+- Envoi d'un e-mail de confirmation lors de la création du compte.
+- Mise en place de mesures de sécurité pour protéger les informations des utilisateurs.
+
+==== Lien
+https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/issues/11[Issue #11]
+
+=== F. Gestion du profil client
+
+==== Description
+En tant que client, je veux pouvoir modifier mes informations personnelles afin de garder le contrôle sur mes données.
+
+==== Complexité
+Basse
+
+==== Critères d'acceptabilité
+- Création d'une section dédiée dans le compte utilisateur pour la gestion du profil.
+- Les utilisateurs peuvent mettre à jour leurs informations personnelles (adresse, …)
+- Possibilité d'ajouter, de modifier et de supprimer des adresses de livraison.
+- Affichage de l'historique des commandes passées par l'utilisateur.
+- Option pour les utilisateurs de changer leur mot de passe.
+- Envoi d'un e-mail de confirmation pour des modifications sensibles comme la modification d'adresse.
+- Mise en place de mesures de sécurité pour protéger les informations du profil utilisateur.
+
+==== Lien
+https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/issues/12[Issue #12]
+
+== III. Could
+
+=== A. Suivi de commande
+
+==== Description
+En tant que client, je veux pouvoir suivre l'état de ma commande pour consulter sa progression.
+
+==== Complexité
+Basse
+
+==== Critères d'acceptabilité
+- Les clients peuvent accéder au suivi de commande depuis leur compte.
+- Affichage en temps réel de l'état de la commande et des mises à jour de livraison.
+- Historique complet des statuts de la commande visible.
+- Les clients reçoivent des notifications de livraison.
+- Le suivi de commande doit être accessible depuis différents dispositifs.
+- Les informations de suivi de commande sont sécurisées.
+
+==== Lien
+https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/issues/13[Issue #13]
+
+== IV. Will
+
+=== A. Guide de taille intéractif
+
+==== Description
+En tant que client, je veux pouvoir avoir un guide des tailles des produits pour commander le bon article à la bonne taille.
+
+==== Complexité
+Moyenne
+
+==== Critères d'acceptabilité
+- Mise en place d'un outil interactif accessible depuis les pages produits.
+- Les utilisateurs peuvent saisir leurs mesures pour obtenir des recommandations de taille.
+- Des illustrations visuelles pour montrer où et comment prendre les mesures.
+- L'outil fournit des suggestions de taille basées sur les mesures saisies.
+
+==== Lien
+https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/issues/14[Issue #14]
+
+=== B. Liste des favoris
+
+==== Description
+En tant que client, je veux pouvoir ajouter un article en favori pour le garder en mémoire lors d'un futur panier.
+
+==== Complexité
+Basse
+
+==== Critères d'acceptabilité
+- Les utilisateurs peuvent créer une liste de favoris depuis la page produit.
+- Possibilité d'ajouter des produits à la liste de favoris.
+- Les utilisateurs peuvent retirer des produits de leur liste de favoris.
+- Les utilisateurs peuvent accéder rapidement à leur liste de favoris depuis leur compte.
+- Option pour les utilisateurs de recevoir des notifications sur les promotions ou les baisses de prix des produits enregistrés dans leurs favoris.
+
+==== Lien
+https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/issues/15[Issue #15]
+
+=== C. Newsletter
+
+==== Description
+En tant que client, je veux pouvoir ajouter un article en favori pour le garder en mémoire lors d'un futur panier.
+
+==== Complexité
+Basse
+
+==== Critères d'acceptabilité
+- Les utilisateurs peuvent créer une liste de favoris depuis la page produit.
+- Possibilité d'ajouter des produits à la liste de favoris.
+- Les utilisateurs peuvent retirer des produits de leur liste de favoris.
+- Les utilisateurs peuvent accéder rapidement à leur liste de favoris depuis leur compte.
+- Option pour les utilisateurs de recevoir des notifications sur les promotions ou les baisses de prix des produits enregistrés dans leurs favoris.
+
+==== Lien
+https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/issues/16[Issue #16]

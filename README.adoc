@@ -45,6 +45,7 @@ toc::[]
 == Equipe
 
 *Ce projet est réalisé par le groupe 11, composé de :*
+*Ce projet est réalisé par le groupe 11, composé de :*
 
 - https://github.com/marwanizo[AL MASRI Marwan] _(MOA de SigmaPrime)_
 - https://github.com/Guychelove[BABELA Guychel]

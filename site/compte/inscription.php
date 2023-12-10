@@ -2,9 +2,9 @@
     <head>
         <title>Inscription - Disguise'Hub</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="/~saephp11/css/general.css">
-        <link rel="stylesheet" type="text/css" href="/~saephp11/css/connexion.css">
-        <script type="text/javascript" src="/~saephp11/include/fontawesome.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/general.css">
+        <link rel="stylesheet" type="text/css" href="../css/connexion.css">
+        <script type="text/javascript" src="../include/fontawesome.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -16,6 +16,79 @@
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
 
                 <h1>Inscription</h1>
+
+                <?php
+                    // Si l'utilisateur est déjà connecté
+                    if (isset($_SESSION["connexion"])) {
+                        header("Location: ./");
+
+                    // Si le formulaire a été envoyé
+                    } else if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                        if (isset($_POST["prenom"]) && isset($_POST["nom"]) && isset($_POST["genre"]) && isset($_POST["email"]) && isset($_POST["mdp"])) {
+
+                            require_once("../include/connect.inc.php");
+
+                            $prenom = $_POST["prenom"];
+                            $nom = $_POST["nom"];
+                            $genre = $_POST["genre"];
+                            $email = $_POST["email"];
+                            $mdp = $_POST["mdp"];
+                            $sql = "SELECT * FROM Client WHERE mailClient = :email";
+                            $req = $conn -> prepare($sql);
+                            $req -> execute(["email" => $email]);
+
+                            // Si compte déjà existant
+                            if($req && $req->rowCount() != 0) {
+                                echo "<div class='msg erreur'>Compte déjà existant</div>";
+
+                            } else {
+                                // Si email invalide
+                                if (!preg_match("/^[\w\-.]+@([\w-]+\.)+[\w-]{2,4}$/", $email)) {
+                                    echo "<div class='msg erreur'>Email invalide</div>";
+                                
+                                // Si mot de passe invalide
+                                } else if (!preg_match("/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,}/", $mdp)) {
+                                    echo "<div class='msg erreur'>Mot de passe invalide</div>";
+
+                                } else {
+                                    // Vérification du captcha
+                                    $captchaResponse = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . urlencode("6LcVtiYpAAAAAN67ABYjhvYyA5km1oeqcsLgamlt") .  "&response=" . urlencode($_POST["g-recaptcha-response"])), true);
+                                    
+                                    // Création du compte
+                                    if(isset($_POST["g-recaptcha-response"]) && $captchaResponse["success"]) {
+                                        $mdp = password_hash($mdp, PASSWORD_DEFAULT);
+                                        $sql = "INSERT INTO Client (nomClient, prenomClient, mailClient, civiliteClient, mdpClient) VALUES (:nom, :prenom, :email, :genre, :mdp)";
+                                        $req = $conn->prepare($sql);
+                                        $succes = $req->execute([
+                                            "nom" => htmlspecialchars($nom),
+                                            "prenom" => htmlspecialchars($prenom),
+                                            "email" => htmlspecialchars($email),
+                                            "genre" => htmlspecialchars($genre),
+                                            "mdp" => $mdp
+                                        ]);
+
+                                        // Si création réussie
+                                        if ($succes) {
+                                            header("Location: ./connexion.php?inscription=1");
+                                        
+                                        // Si création échouée
+                                        } else {
+                                            echo "<div class='msg erreur'>Erreur lors de la création du compte</div>";
+                                        }
+                                    
+                                    // Si captcha invalide
+                                    } else {
+                                        echo "<div class='msg erreur'>Captcha invalide</div>";
+                                    }
+                                }
+                            }
+                        
+                        // Si tous les champs ne sont pas remplis
+                        } else {
+                            echo "<div class='msg erreur'>Veuillez remplir tous les champs</div>";
+                        }
+                    }
+                ?>
 
                 <label for="prenom">Prénom</label>
                 <input type="text" name="prenom" id="prenom" autocomplete="given-name" required>

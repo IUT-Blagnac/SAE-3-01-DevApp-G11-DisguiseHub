@@ -22,6 +22,24 @@ form h1 {
     text-align: center;
 }
 
+form .msg {
+    width: 100%;
+    max-width: 300px;
+    color: #FFFFFF;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+}
+
+form .msg.erreur {
+    background-color: #FF0000BF;
+}
+
+form .msg.succes {
+    background-color: #20A000BF;
+}
+
 form input, form select, form textarea {
     margin-bottom: 15px;
 }

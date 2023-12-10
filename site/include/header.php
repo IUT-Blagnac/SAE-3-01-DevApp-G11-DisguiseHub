@@ -1,21 +1,21 @@
 <header>
     <div class="logo">
         <div class="left">
-            <a class="icon" href="recherche.php">
+            <a class="icon" href="/~saephp11/recherche.php">
                 <i class="fa-solid fa-magnifying-glass fa-2x"></i>
             </a>
         </div>
         <a class="logo" href="/~saephp11/">
-            <img src="img/logo.png" alt="Disguise'Hub">
+            <img src="/~saephp11/img/logo.png" alt="Disguise'Hub">
             <div>
                 <h1>Disguise'Hub</h1>
             </div>
         </a>
         <div class="right">
-            <a class="icon" href="panier.php">
+            <a class="icon" href="/~saephp11/panier.php">
                 <i class="fa-regular fa-cart-shopping fa-2x"></i>
             </a>
-            <a class="icon" href="compte">
+            <a class="icon" href="/~saephp11/compte">
                 <i class="fa-solid fa-user fa-2x"></i>
             </a>
         </div>

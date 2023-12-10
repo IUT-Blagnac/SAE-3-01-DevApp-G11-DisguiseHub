@@ -33,9 +33,6 @@ build/
 /bin1/
 java/build/**
 
-# Site
-site/**
-
 # IOT fichiers de configuration/données
 iot/python/*
 !iot/python/main.py

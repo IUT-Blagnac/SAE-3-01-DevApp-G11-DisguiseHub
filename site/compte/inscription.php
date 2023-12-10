@@ -57,7 +57,7 @@
                                     // Création du compte
                                     if(isset($_POST["g-recaptcha-response"]) && $captchaResponse["success"]) {
                                         $mdp = password_hash($mdp, PASSWORD_DEFAULT);
-                                        $sql = "INSERT INTO Client (nomClient, prenomClient, mailClient, civiliteClient, mdpClient) VALUES (:nom, :prenom, :email, :genre, :mdp)";
+                                        $sql = "INSERT INTO Client (nomClient, prenomClient, mailClient, sexeClient, mdpClient) VALUES (:nom, :prenom, :email, :genre, :mdp)";
                                         $req = $conn->prepare($sql);
                                         $succes = $req->execute([
                                             "nom" => htmlspecialchars($nom),

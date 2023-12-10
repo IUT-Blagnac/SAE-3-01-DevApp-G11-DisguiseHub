@@ -3,7 +3,7 @@
 <head>
     <title>Paiement PayPal - Disguise'Hub</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../css/paypal.css">
+    <link rel="stylesheet" type="text/css" href="../css/compte/paiement/paypal.css">
     <script type="text/javascript" src="../include/fontawesome.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="apple-touch-icon" sizes="144x144" href="https://www.paypalobjects.com/webstatic/icon/pp144.png" />

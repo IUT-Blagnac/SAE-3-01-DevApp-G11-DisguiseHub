@@ -24,13 +24,14 @@
                     
                     // Si le formulaire a été envoyé
                     } else if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                        if (isset($_POST["email"]) && isset($_POST["mdp"])) {
 
-                            // Vérification du captcha
-                            $captchaResponse = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . urlencode("6LcVtiYpAAAAAN67ABYjhvYyA5km1oeqcsLgamlt") .  "&response=" . urlencode($_POST["g-recaptcha-response"])), true);
+                        // Vérification du captcha
+                        $captchaResponse = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . urlencode("6LcVtiYpAAAAAN67ABYjhvYyA5km1oeqcsLgamlt") .  "&response=" . urlencode($_POST["g-recaptcha-response"])), true);
+                        
+                        if(isset($_POST["g-recaptcha-response"]) && $captchaResponse["success"]) {
                             
-                            // Connexion au compte
-                            if(isset($_POST["g-recaptcha-response"]) && $captchaResponse["success"]) {
+                            // Vérification des champs
+                            if (isset($_POST["email"]) && isset($_POST["mdp"])) {
 
                                 require_once("../include/connect.inc.php");
 
@@ -40,7 +41,7 @@
                                 $req = $conn -> prepare($sql);
                                 $req -> execute(["email" => $email]);
 
-                                // Si un seul compte est associé à l'adresse email
+                                // Si compte trouvé
                                 if($req && $req->rowCount() == 1) {
                                     $user = $req -> fetch();
 
@@ -71,8 +72,14 @@
                         }
                     
                     // Si l'utilisateur vient de s'inscrire
-                    } else if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["inscription"])) {
-                        echo "<div class='msg succes'>Inscription réussie</div>";
+                    } else if ($_SERVER["REQUEST_METHOD"] === "GET") {
+                        if (isset($_GET["inscription"])) {
+                            echo "<div class='msg succes'>Inscription réussie</div>";
+                        } else if (isset($_GET["deconnexion"])) {
+                            echo "<div class='msg succes'>Déconnexion réussie</div>";
+                        } else if (isset($_GET["mdpoublie"])) {
+                            echo "<div class='msg succes'>Mot de passe modifié</div>";
+                        }
                     }
                 ?>
     
@@ -81,6 +88,7 @@
     
                 <label for="mdp">Mot de passe</label>
                 <input type="password" name="mdp" id="mdp" autocomplete="current-password" required>
+                <a class="mdpoublie" href="mdpoublie.php">Mot de passe oublié ?</a>
     
                 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
                 <div class="g-recaptcha" data-sitekey="6LcVtiYpAAAAABGS6Bzi7lBAusEvDUgaLCcQgaKT" data-callback="captcha" data-expired-callback="captchaExpired"></div>

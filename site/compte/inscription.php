@@ -24,68 +24,83 @@
 
                     // Si le formulaire a été envoyé
                     } else if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                        if (isset($_POST["prenom"]) && isset($_POST["nom"]) && isset($_POST["genre"]) && isset($_POST["email"]) && isset($_POST["mdp"])) {
 
-                            require_once("../include/connect.inc.php");
-
-                            $prenom = $_POST["prenom"];
-                            $nom = $_POST["nom"];
-                            $genre = $_POST["genre"];
-                            $email = $_POST["email"];
-                            $mdp = $_POST["mdp"];
-                            $sql = "SELECT * FROM Client WHERE mailClient = :email";
-                            $req = $conn -> prepare($sql);
-                            $req -> execute(["email" => $email]);
-
-                            // Si compte déjà existant
-                            if($req && $req->rowCount() != 0) {
-                                echo "<div class='msg erreur'>Compte déjà existant</div>";
-
-                            } else {
-                                // Si email invalide
-                                if (!preg_match("/^[\w\-.]+@([\w-]+\.)+[\w-]{2,4}$/", $email)) {
-                                    echo "<div class='msg erreur'>Email invalide</div>";
-                                
-                                // Si mot de passe invalide
-                                } else if (!preg_match("/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,}/", $mdp)) {
-                                    echo "<div class='msg erreur'>Mot de passe invalide</div>";
-
-                                } else {
-                                    // Vérification du captcha
-                                    $captchaResponse = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . urlencode("6LcVtiYpAAAAAN67ABYjhvYyA5km1oeqcsLgamlt") .  "&response=" . urlencode($_POST["g-recaptcha-response"])), true);
+                        // Vérification du captcha
+                        $captchaResponse = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . urlencode("6LcVtiYpAAAAAN67ABYjhvYyA5km1oeqcsLgamlt") .  "&response=" . urlencode($_POST["g-recaptcha-response"])), true);
                                     
+                        if(isset($_POST["g-recaptcha-response"]) && $captchaResponse["success"]) {
+                            
+                            // Vérification des champs
+                            if (isset($_POST["prenom"]) && isset($_POST["nom"]) && isset($_POST["genre"]) && isset($_POST["dtn"]) && isset($_POST["email"]) && isset($_POST["tel"]) && isset($_POST["mdp"])) {
+
+                                require_once("../include/connect.inc.php");
+
+                                $prenom = $_POST["prenom"];
+                                $nom = $_POST["nom"];
+                                $genre = $_POST["genre"];
+                                $dtn = $_POST["dtn"];
+                                $email = $_POST["email"];
+                                $tel = $_POST["tel"];
+                                $mdp = $_POST["mdp"];
+                                
+                                $sql = "SELECT * FROM Client WHERE mailClient = :email";
+                                $req = $conn -> prepare($sql);
+                                $req -> execute(["email" => $email]);
+
+                                // Si compte déjà existant
+                                if($req && $req->rowCount() != 0) {
+                                    echo "<div class='msg erreur'>Compte déjà existant</div>";
+
+                                // Si compte inexistant
+                                } else {
+
+                                    // Si email invalide
+                                    if (!preg_match("/^[\w\-.]+@([\w-]+\.)+[\w-]{2,4}$/", $email)) {
+                                        echo "<div class='msg erreur'>Email invalide</div>";
+                                    
+                                    // Si mot de passe invalide
+                                    } else if (!preg_match("/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,}/", $mdp)) {
+                                        echo "<div class='msg erreur'>Mot de passe invalide</div>";
+
+                                    // Si date de naissance invalide
+                                    } else if (strtotime($_POST["dtn"]) > strtotime(date("Y-m-d"))) {
+                                        echo "<div class='msg erreur'>Date de naissance invalide</div>";
+
                                     // Création du compte
-                                    if(isset($_POST["g-recaptcha-response"]) && $captchaResponse["success"]) {
+                                    } else {
                                         $mdp = password_hash($mdp, PASSWORD_DEFAULT);
-                                        $sql = "INSERT INTO Client (nomClient, prenomClient, mailClient, sexeClient, mdpClient) VALUES (:nom, :prenom, :email, :genre, :mdp)";
+                                        
+                                        $sql = "INSERT INTO Client (prenomClient, nomClient, genreClient, dateNaissanceClient, mailClient, telClient, mdpClient) VALUES (:prenom, :nom, :genre, :dtn, :email, :tel, :mdp)";
                                         $req = $conn->prepare($sql);
                                         $succes = $req->execute([
-                                            "nom" => htmlspecialchars($nom),
                                             "prenom" => htmlspecialchars($prenom),
-                                            "email" => htmlspecialchars($email),
+                                            "nom" => htmlspecialchars($nom),
                                             "genre" => htmlspecialchars($genre),
+                                            "dtn" => htmlspecialchars($dtn),
+                                            "email" => htmlspecialchars($email),
+                                            "tel" => htmlspecialchars($tel),
                                             "mdp" => $mdp
                                         ]);
 
                                         // Si création réussie
                                         if ($succes) {
-                                            header("Location: ./connexion.php?inscription=1");
+                                            header("Location: ./connexion.php?inscription");
                                         
                                         // Si création échouée
                                         } else {
                                             echo "<div class='msg erreur'>Erreur lors de la création du compte</div>";
                                         }
-                                    
-                                    // Si captcha invalide
-                                    } else {
-                                        echo "<div class='msg erreur'>Captcha invalide</div>";
                                     }
                                 }
+
+                            // Si tous les champs ne sont pas remplis
+                            } else {
+                                echo "<div class='msg erreur'>Veuillez remplir tous les champs</div>";
                             }
                         
-                        // Si tous les champs ne sont pas remplis
+                        // Si captcha invalide
                         } else {
-                            echo "<div class='msg erreur'>Veuillez remplir tous les champs</div>";
+                            echo "<div class='msg erreur'>Captcha invalide</div>";
                         }
                     }
                 ?>
@@ -97,74 +112,159 @@
                 <input type="text" name="nom" id="nom" autocomplete="family-name" required>
 
                 <label for="genre">Genre</label>
-                <select id="genre" name="genre">
-                    <option disabled selected></option>
-                    <option>Homme</option>
-                    <option>Femme</option>
-                    <option disabled></option>
-                    <option>Agender</option>
-                    <option>Androgyne</option>
-                    <option>Androgynes</option>
-                    <option>Babela</option>
-                    <option>Bigender</option>
-                    <option>Blagnac</option>
-                    <option>Cis</option>
-                    <option>Cis Femme</option>
-                    <option>Cis Homme</option>
-                    <option>Cis Man</option>
-                    <option>Cis Woman</option>
-                    <option>Cisgenre</option>
-                    <option>Cisgender Female</option>
-                    <option>Cisgender Male</option>
-                    <option>Double esprit</option>
-                    <option>Femme cisgenre</option>
-                    <option>Femme trans</option>
-                    <option>Femme trans*</option>
-                    <option>Femme transgenre</option>
-                    <option>Femme transsexuelle</option>
-                    <option>Genre fluide</option>
-                    <option>Genre non conformiste</option>
-                    <option>Hélicoptère d'attaque</option>
-                    <option>Homme cisgenre</option>
-                    <option>Homme trans</option>
-                    <option>Homme trans*</option>
-                    <option>Homme transgenre</option>
-                    <option>Homme transsexuel</option>
-                    <option>Homme à Femme</option>
-                    <option>Intersexe</option>
-                    <option>Les crêpes de Marwan</option>
-                    <option>MTF</option>
-                    <option>Neutrois</option>
-                    <option>Ni l'un ni l'autre</option>
-                    <option>Non-binaire</option>
-                    <option>Pangender</option>
-                    <option>Personne trans</option>
-                    <option>Personne transgenre</option>
-                    <option>Personne transgenre</option>
-                    <option>Questionnement sur le genre</option>
-                    <option>Trans</option>
-                    <option>Trans*</option>
-                    <option>Trans Femme</option>
-                    <option>Trans* Femme</option>
-                    <option>Trans Homme</option>
-                    <option>Trans* Homme</option>
-                    <option>Transgender Female</option>
-                    <option>Transgender Male</option>
-                    <option>Transféminin</option>
-                    <option>Transmasculin</option>
-                    <option>Transsexuel</option>
-                    <option>Transsexuel Femme</option>
-                    <option>Transsexuel Homme</option>
-                    <option>Transgenre</option>
-                    <option>Transgenre</option>
-                    <option>Transgender Female</option>
-                    <option>Transgender Male</option>
-                    <option disabled></option>
-                    <option>Autre</option>
-                </select>
+                <div class="sexe">
+                    <select id="genre" name="genre" onchange="autre(this.options[this.selectedIndex].value)" required>
+                        <option disabled selected></option>
+                        <option>Homme</option>
+                        <option>Femme</option>
+                        <option disabled></option>
+                        <option>Agender</option>
+                        <option>Androgyne</option>
+                        <option>Androgynes</option>
+                        <option>Babela</option>
+                        <option>Bigender</option>
+                        <option>Blagnac</option>
+                        <option>Cis</option>
+                        <option>Cis Femme</option>
+                        <option>Cis Homme</option>
+                        <option>Cis Man</option>
+                        <option>Cis Woman</option>
+                        <option>Cisgenre</option>
+                        <option>Cisgender Female</option>
+                        <option>Cisgender Male</option>
+                        <option>Double esprit</option>
+                        <option>Femme cisgenre</option>
+                        <option>Femme trans</option>
+                        <option>Femme trans*</option>
+                        <option>Femme transgenre</option>
+                        <option>Femme transsexuelle</option>
+                        <option>Genre fluide</option>
+                        <option>Genre non conformiste</option>
+                        <option>Hélicoptère d'attaque</option>
+                        <option>Homme cisgenre</option>
+                        <option>Homme trans</option>
+                        <option>Homme trans*</option>
+                        <option>Homme transgenre</option>
+                        <option>Homme transsexuel</option>
+                        <option>Homme à Femme</option>
+                        <option>Intersexe</option>
+                        <option>Les crêpes de Marwan</option>
+                        <option>MTF</option>
+                        <option>Neutrois</option>
+                        <option>Ni l'un ni l'autre</option>
+                        <option>Non-binaire</option>
+                        <option>Pangender</option>
+                        <option>Personne trans</option>
+                        <option>Personne transgenre</option>
+                        <option>Personne transgenre</option>
+                        <option>Questionnement sur le genre</option>
+                        <option>Trans</option>
+                        <option>Trans*</option>
+                        <option>Trans Femme</option>
+                        <option>Trans* Femme</option>
+                        <option>Trans Homme</option>
+                        <option>Trans* Homme</option>
+                        <option>Transgender Female</option>
+                        <option>Transgender Male</option>
+                        <option>Transféminin</option>
+                        <option>Transmasculin</option>
+                        <option>Transsexuel</option>
+                        <option>Transsexuel Femme</option>
+                        <option>Transsexuel Homme</option>
+                        <option>Transgenre</option>
+                        <option>Transgenre</option>
+                        <option>Transgender Female</option>
+                        <option>Transgender Male</option>
+                        <option disabled></option>
+                        <option>Autre</option>
+                    </select>
+                </div>
+
+                <script type="text/javascript">
+                    function autre(sexe){
+                        if (sexe == "Autre") {
+                            document.querySelector(".sexe").innerHTML = "<input type='text' name='genre' id='genreautre' autocomplete='sex' required>";
+                            document.getElementById("genreautre").focus();
+                            document.getElementById("genreautre").addEventListener("focusout", (event) => {
+                                if (document.getElementById("genreautre").value != "") return;
+                                document.querySelector(".sexe").innerHTML = `<select id="genre" name="genre" onchange="autre(this.options[this.selectedIndex].value)" required>
+                                    <option disabled selected></option>
+                                    <option>Homme</option>
+                                    <option>Femme</option>
+                                    <option disabled></option>
+                                    <option>Agender</option>
+                                    <option>Androgyne</option>
+                                    <option>Androgynes</option>
+                                    <option>Babela</option>
+                                    <option>Bigender</option>
+                                    <option>Blagnac</option>
+                                    <option>Cis</option>
+                                    <option>Cis Femme</option>
+                                    <option>Cis Homme</option>
+                                    <option>Cis Man</option>
+                                    <option>Cis Woman</option>
+                                    <option>Cisgenre</option>
+                                    <option>Cisgender Female</option>
+                                    <option>Cisgender Male</option>
+                                    <option>Double esprit</option>
+                                    <option>Femme cisgenre</option>
+                                    <option>Femme trans</option>
+                                    <option>Femme trans*</option>
+                                    <option>Femme transgenre</option>
+                                    <option>Femme transsexuelle</option>
+                                    <option>Genre fluide</option>
+                                    <option>Genre non conformiste</option>
+                                    <option>Hélicoptère d'attaque</option>
+                                    <option>Homme cisgenre</option>
+                                    <option>Homme trans</option>
+                                    <option>Homme trans*</option>
+                                    <option>Homme transgenre</option>
+                                    <option>Homme transsexuel</option>
+                                    <option>Homme à Femme</option>
+                                    <option>Intersexe</option>
+                                    <option>Les crêpes de Marwan</option>
+                                    <option>MTF</option>
+                                    <option>Neutrois</option>
+                                    <option>Ni l'un ni l'autre</option>
+                                    <option>Non-binaire</option>
+                                    <option>Pangender</option>
+                                    <option>Personne trans</option>
+                                    <option>Personne transgenre</option>
+                                    <option>Personne transgenre</option>
+                                    <option>Questionnement sur le genre</option>
+                                    <option>Trans</option>
+                                    <option>Trans*</option>
+                                    <option>Trans Femme</option>
+                                    <option>Trans* Femme</option>
+                                    <option>Trans Homme</option>
+                                    <option>Trans* Homme</option>
+                                    <option>Transgender Female</option>
+                                    <option>Transgender Male</option>
+                                    <option>Transféminin</option>
+                                    <option>Transmasculin</option>
+                                    <option>Transsexuel</option>
+                                    <option>Transsexuel Femme</option>
+                                    <option>Transsexuel Homme</option>
+                                    <option>Transgenre</option>
+                                    <option>Transgenre</option>
+                                    <option>Transgender Female</option>
+                                    <option>Transgender Male</option>
+                                    <option disabled></option>
+                                    <option>Autre</option>
+                                </select>`;
+                            });
+                        }
+                    }
+                </script>
+
+                <label for="dtn">Date de naissance</label>
+                <input type="date" name="dtn" id="dtn" max="<?php echo date('Y-m-d'); ?>" autocomplete="bday" required>
 
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" autocomplete="email" required>
+
+                <label for="email">Téléphone</label>
+                <input type="tel" name="tel" id="tel" autocomplete="tel" oninput="this.value = this.value.replace(/[^0-9+.-]/g, '')" required>
 
                 <label for="mdp">Mot de passe</label>
                 <input type="password" name="mdp" id="mdp" autocomplete="new-password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,}" required>

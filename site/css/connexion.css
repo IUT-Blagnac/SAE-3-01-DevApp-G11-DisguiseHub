@@ -93,8 +93,30 @@ form a {
     transition: color 0.3s;
 }
 
+form a.mdpoublie {
+    font-size: 12px;
+    width: 100%;
+    max-width: 300px;
+    text-align: right;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
 form a:hover {
     color: var(--secondary-color);
+}
+
+form .sexe {
+    width: 100%;
+    max-width: 300px;
+}
+
+form p {
+    width: 100%;
+    max-width: 300px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    font-size: 14px;
 }
 
 div.image {

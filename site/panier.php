@@ -13,7 +13,7 @@
 
     <?php
     // Vérifiez si le formulaire est soumis
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $productId = $_POST['id'];
         $quantity = $_POST['amount'];

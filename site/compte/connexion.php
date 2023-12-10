@@ -2,13 +2,13 @@
     <head>
         <title>Connexion - Disguise'Hub</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="/~saephp11/css/general.css">
-        <link rel="stylesheet" type="text/css" href="/~saephp11/css/connexion.css">
-        <script type="text/javascript" src="/~saephp11/include/fontawesome.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/general.css">
+        <link rel="stylesheet" type="text/css" href="../css/connexion.css">
+        <script type="text/javascript" src="../include/fontawesome.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        
+
         <?php include("../include/header.php"); ?>
 
         <div class="content">
@@ -16,6 +16,65 @@
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
     
                 <h1>Connexion</h1>
+
+                <?php
+                    // Si l'utilisateur est déjà connecté
+                    if (isset($_SESSION["connexion"])) {
+                        header("Location: ./");
+                    
+                    // Si le formulaire a été envoyé
+                    } else if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                        if (isset($_POST["email"]) && isset($_POST["mdp"])) {
+
+                            // Vérification du captcha
+                            $captchaResponse = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . urlencode("6LcVtiYpAAAAAN67ABYjhvYyA5km1oeqcsLgamlt") .  "&response=" . urlencode($_POST["g-recaptcha-response"])), true);
+                            
+                            // Connexion au compte
+                            if(isset($_POST["g-recaptcha-response"]) && $captchaResponse["success"]) {
+
+                                require_once("../include/connect.inc.php");
+
+                                $email = $_POST["email"];
+                                $mdp = $_POST["mdp"];
+                                $sql = "SELECT mdpClient FROM Client WHERE mailClient = :email";
+                                $req = $conn -> prepare($sql);
+                                $req -> execute(["email" => $email]);
+
+                                // Si un seul compte est associé à l'adresse email
+                                if($req && $req->rowCount() == 1) {
+                                    $user = $req -> fetch();
+
+                                    // Si le mot de passe est correct
+                                    if (password_verify($mdp, $user["mdpClient"])) {
+                                        session_start();
+                                        $_SESSION["connexion"] = $email;
+                                        header("Location: ./");
+
+                                    // Si le mot de passe est incorrect
+                                    } else {
+                                        echo "<div class='msg erreur'>Mot de passe incorrect</div>";
+                                    }
+                                
+                                // Si aucun compte n'est associé à l'adresse email
+                                } else if ($req && $req->rowCount() == 0) {
+                                    echo "<div class='msg erreur'>Adresse email inconnue</div>";
+                                
+                                // Si plusieurs comptes sont associés à l'adresse email (ce qui ne devrait pas être possible)
+                                } else {
+                                    echo "<div class='msg erreur'>Une erreur est survenue</div>";
+                                }
+                            
+                            // Si captcha invalide
+                            } else {
+                                echo "<div class='msg erreur'>Captcha invalide</div>";
+                            }
+                        }
+                    
+                    // Si l'utilisateur vient de s'inscrire
+                    } else if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["inscription"])) {
+                        echo "<div class='msg succes'>Inscription réussie</div>";
+                    }
+                ?>
     
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" autocomplete="email" required>

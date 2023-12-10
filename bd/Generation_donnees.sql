@@ -100,7 +100,7 @@ INSERT INTO Client (numCB, nomClient, prenomClient, adresseClient, mailClient, c
 -- Insertion des produits
 INSERT INTO Produit (idCategorie, nomProduit, descProduit, prixProduit, qteProduit, tailleProduit, couleurProduit) VALUES 
   (2, 'Pere Noël' , 'Déguisement du pere noël', 50.99, 50, 'S', 'rouge et blanc'),
-  (2, 'Pere Noël' , 'Déguisement du pere noël', 50.99, 50, 'Homme', 'rouge et blanc'),
+  (2, 'Pere Noël' , 'Déguisement du pere noël', 50.99, 50, 'M', 'rouge et blanc'),
   (2, 'Pere Noël' , 'Déguisement du pere noël', 50.99, 50, 'L', 'rouge et blanc'),
   (2, 'Pere Noël' , 'Déguisement du pere noël', 50.99, 50, 'XL', 'rouge et blanc'),
   (2, 'Pere Noël' , 'Déguisement du pere noël', 50.99, 50, 'XXL', 'rouge et blanc'),

@@ -17,7 +17,7 @@
         <p>Nous sommes entrain de travailler sur ces pages.</p>
         <h1>STAY TUNED</h1>
         <div class="subscribe-container">
-        <form id="subscribeForm" action="http://192.168.227.76/~saephp11/subscribe.php" method="post">
+        <form id="subscribeForm" action="./subscribe.php" method="post">
     <button type="submit">Subscribe</button>
 </form>
 

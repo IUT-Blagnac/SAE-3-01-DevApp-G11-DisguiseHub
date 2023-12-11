@@ -3,15 +3,15 @@
 <head>
     <title>Disguise'Hub</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../css/general.css">
-    <link rel="stylesheet" type="text/css" href="../css/compte/paiement/index.css">
-    <script type="text/javascript" src="../include/fontawesome.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../css/general.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/compte/commandes/paiement/index.css">
+    <script type="text/javascript" src="../../../include/fontawesome.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
 
-    <?php include("./include/header.php"); ?>
+    <?php include("../../../include/header.php"); ?>
 
     <div class="Paiement">
 
@@ -73,7 +73,8 @@
             </div>
     </div>
 
-    <?php include("./include/footer.php"); ?>
+    <?php include("../../../include/footer.php"); ?>
+
     <script>
         document.getElementsByName("numCarte")[0].addEventListener("input", function() {
 

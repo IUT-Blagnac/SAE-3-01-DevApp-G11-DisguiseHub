@@ -369,7 +369,7 @@ INSERT INTO Commander (refProduit, idCommande, qteCommandee) VALUES
  (100038, 3, 1);
 
 
- -- Insertion dans Avis
+-- Insertion dans Avis
 INSERT INTO Avis (refProduit, idClient, commentaire, note) VALUES
   (100000, 1, 'Produit impeccable', 5),
   (100021, 43, 'Troué !!', 1),

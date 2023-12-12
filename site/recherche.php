@@ -13,23 +13,30 @@
     <?php include("./include/header.php"); ?>
 
     <main class="produits">
-            <div class="produit_header">
-                <div class="title">Votre recherche : <?php echo $_GET['recherche'] ?></div>
-                <div class="input_trie">
-                    <form>
-                        <select name="choix" id="optPrix" class="slct" value="Trier par" onchange="window.location.href='produit.php?recherche=<?php echo htmlspecialchars($_GET['recherche'], ENT_QUOTES, 'UTF-8'); ?>&tri='+this.value">
-                            <option value="ASC" <?php if (!isset($_GET['tri']) || ($_GET['tri'] == 'ASC' && ctype_alnum($_GET['tri']))) {
+        <div class="produit_header">
+            <?php
+            // Vérifie si la clé 'recherche' existe dans le tableau $_GET
+            if (isset($_GET['recherche'])) {
+                $recherche = $_GET['recherche'];
+                echo '<div class="title">Votre recherche : ' . htmlspecialchars($recherche, ENT_QUOTES, 'UTF-8') . '</div>';
+            } else {
+                echo '<div class="title">Votre recherche : Aucune recherche spécifiée</div>';
+                $recherche = ''; // Valeur par défaut si 'recherche' n'est pas défini
+            }
+            ?>
+            <div class="input_trie">
+                <form>
+                    <select name="choix" id="optPrix" class="slct" value="Trier par" onchange="window.location.href='produit.php?recherche=<?php echo htmlspecialchars($recherche, ENT_QUOTES, 'UTF-8'); ?>&tri='+this.value">
+                        <option value="ASC" <?php if (!isset($_GET['tri']) || ($_GET['tri'] == 'ASC' && ctype_alnum($_GET['tri']))) {
+                                                echo 'selected';
+                                            } ?>>Prix croissant</option>
+                        <option value="DESC" <?php if (!isset($_GET['tri'])) {
+                                                    echo '';
+                                                } else if ($_GET['tri'] == 'DESC' && ctype_alnum($_GET['tri'])) {
                                                     echo 'selected';
-                                                } ?>>Prix croissant</option>
-                            <option value="DESC" <?php if (!isset($_GET['tri'])) {
-                                                        echo '';
-                                                    } else if ($_GET['tri'] == 'DESC' && ctype_alnum($_GET['tri'])) {
-                                                        echo 'selected';
-                                                    } ?>>Prix décroissant</option>
-                        </select>
-
-                    </form>
-                </div>
+                                                } ?>>Prix décroissant</option>
+                    </select>
+                </form>
             </div>
             <div class="product_container">
 
@@ -230,12 +237,12 @@
                 }
 
                 $i = 0; // compteur de produits
-                $prix=null;
+                $prix = null;
                 while (($leProduit = oci_fetch_assoc($lesProduits)) != false) {
-                    if($leProduit['PRIXPROMO']!=NULL){
-                        $prix = $leProduit['PRIXPROMO']."€ /!\ PROMOTION /!\ ";
-                    }else{
-                        $prix = $leProduit['PRIXPRODUIT']."€";
+                    if ($leProduit['PRIXPROMO'] != NULL) {
+                        $prix = $leProduit['PRIXPROMO'] . "€ /!\ PROMOTION /!\ ";
+                    } else {
+                        $prix = $leProduit['PRIXPRODUIT'] . "€";
                     }
                     $i++;
 
@@ -279,7 +286,7 @@
                                         <button class="modal-close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg></button>
                                     </div>
                                     <div class="left">
-                                        <img src="/~saephp11/uploads/' . $leProduit['IDPRODUIT'].'.png">
+                                        <img src="/~saephp11/uploads/' . $leProduit['IDPRODUIT'] . '.png">
                                     </div>
                                     <div class="right">
                                         <div class="title">' . $leProduit['NOMPRODUIT'] . '</div>
@@ -310,34 +317,34 @@
                     ';
                 }
 
-                
+
                 ?>
             </div>
 
-        </main>
+    </main>
 
-        <?php include "../include/footer.php"; ?>
+    <?php include "../include/footer.php"; ?>
 
-        <script>
-            var btnOpen = document.querySelectorAll('.modal-open');
+    <script>
+        var btnOpen = document.querySelectorAll('.modal-open');
 
-            btnOpen.forEach(function(btn) {
-                btn.addEventListener('click', () => {
-                    console.log('Open Modal');
+        btnOpen.forEach(function(btn) {
+            btn.addEventListener('click', () => {
+                console.log('Open Modal');
 
-                    var modal = btn.getAttribute('data-modal');
-                    document.getElementById(modal).classList.add('visible');
-                });
+                var modal = btn.getAttribute('data-modal');
+                document.getElementById(modal).classList.add('visible');
             });
+        });
 
-            var closeBtn = document.querySelectorAll('.modal-close');
+        var closeBtn = document.querySelectorAll('.modal-close');
 
-            closeBtn.forEach(function(btn) {
-                btn.addEventListener('click', () => {
-                    var modal = btn.closest('.modal').classList.remove('visible');
-                });
+        closeBtn.forEach(function(btn) {
+            btn.addEventListener('click', () => {
+                var modal = btn.closest('.modal').classList.remove('visible');
             });
-        </script>
+        });
+    </script>
 
     <?php include("./include/footer.php"); ?>
 

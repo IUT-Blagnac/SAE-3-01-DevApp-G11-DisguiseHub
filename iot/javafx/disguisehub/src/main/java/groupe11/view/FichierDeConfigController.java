@@ -103,7 +103,7 @@ public class FichierDeConfigController {
     private Button reinitialiserButton;
 
     private String host;
-    private String port;
+    private int port;
     private String topic;
     private String fichierData;
     private String fichierAlerte;
@@ -182,7 +182,7 @@ public class FichierDeConfigController {
     @FXML
     private void validerButton() {
         host = hostTextField.getText().trim();
-        port = portTextField.getText().trim();
+        port = entierDeString(portTextField.getText().trim());
         topic = topicTextField.getText().trim();
         fichierData = fichierDataTextField.getText().trim();
         fichierAlerte = fichierAlerteTextField.getText().trim();

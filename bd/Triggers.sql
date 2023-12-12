@@ -2,9 +2,9 @@ CREATE TRIGGER check_dateExpCB
 BEFORE INSERT ON Cartebleue
 FOR EACH ROW
 BEGIN
-    IF NEW.dateExpCB <> DATE_FORMAT(NEW.dateExpCB, '%d/%m/%Y') THEN
+    IF NEW.dateExpCB <> DATE_FORMAT(NEW.dateExpCB, '%Y-%m-%d') THEN
         SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'La date d''expiration de la carte bleue doit être au format DD/MM/YYYY.';
+        SET MESSAGE_TEXT = 'La date d''expiration de la carte bleue doit être au format YYYY/MM/DD.';
     END IF;
 END;
 //
@@ -13,9 +13,9 @@ CREATE TRIGGER check_dateNaissanceClient
 BEFORE INSERT ON Client
 FOR EACH ROW
 BEGIN
-    IF NEW.dateNaissanceClient <> DATE_FORMAT(NEW.dateNaissanceClient, '%d/%m/%Y') THEN
+    IF NEW.dateNaissanceClient <> DATE_FORMAT(NEW.dateNaissanceClient, '%Y-%m-%d') THEN
         SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'La date de naissance du client doit être au format DD/MM/YYYY.';
+        SET MESSAGE_TEXT = 'La date de naissance du client doit être au format YYYY/MM/DD.';
     END IF;
 END;
 //
@@ -35,9 +35,9 @@ CREATE TRIGGER check_dateCommande
 BEFORE INSERT ON Commande
 FOR EACH ROW
 BEGIN
-    IF NEW.dateCommande <> DATE_FORMAT(NEW.dateCommande, '%d/%m/%Y') THEN
+    IF NEW.dateCommande <> DATE_FORMAT(NEW.dateCommande, '%Y-%m-%d') THEN
         SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'La date de commande doit être au format DD/MM/YYYY.';
+        SET MESSAGE_TEXT = 'La date de commande doit être au format YYYY/MM/DD.';
     END IF;
 END;
 //

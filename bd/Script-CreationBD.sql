@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS Commander;
 DROP TABLE IF EXISTS Commande;
 DROP TABLE IF EXISTS ProduitCompose;
 DROP TABLE IF EXISTS ProduitApparente;
+DROP TABLE IF EXISTS Image;
 DROP TABLE IF EXISTS Produit;
 DROP TABLE IF EXISTS Categorie;
 DROP TABLE IF EXISTS Client;
@@ -15,14 +16,15 @@ DROP TABLE IF EXISTS Cartebleue;
 
 CREATE TABLE Cartebleue (
     numCB CHAR(16),
-    nomSurCB VARCHAR(30),
-    dateExpCB VARCHAR(7),
-    codeSecuriteCB DECIMAL(4),
+    nomSurCB VARCHAR(30) NOT NULL,
+    dateExpCB VARCHAR(7) NOT NULL,
+    codeSecuriteCB DECIMAL(4) NOT NULL,
     PRIMARY KEY (numCB)
 ) Engine=InnoDB;
 
 CREATE TABLE Paypal (
     idPaypal INT AUTO_INCREMENT,
+    UNIQUE (mailPaypal),
     PRIMARY KEY (idPaypal)
 ) Engine=InnoDB;
 
@@ -48,22 +50,18 @@ CREATE TABLE Client (
     nomClient VARCHAR(30),
     prenomClient VARCHAR(30),
     adresseClient TEXT,
-    mailClient TEXT,
+    mailClient VARCHAR(100) NOT NULL,
     codePostalClient DECIMAL(5),
     villeClient VARCHAR(50),
     civiliteClient VARCHAR(50),
     dateNaissanceClient DATE,
-    telClient CHAR(10),
+    telClient CHAR(10) NOT NULL,
     mdpClient VARCHAR(50),
     PRIMARY KEY (idClient),
     UNIQUE (mailClient),
     UNIQUE (telClient),
     FOREIGN KEY (numCB) REFERENCES Cartebleue(numCB)
 ) Engine=InnoDB;
-
-INSERT INTO Client (numCB, nomClient, prenomClient, adresseClient, mailClient, codePostalClient, villeClient, civiliteClient, dateNaissanceClient, telClient, mdpClient) VALUES ('1234567891234567', 'DUPONT', 'Jean', '1 rue de la Paix', '    ', 75000, 'Paris', 'Monsieur', STR_TO_DATE('24-May-2005', '%d-%M-%Y'), '0123456789', '123456');
-INSERT INTO Client (numCB, nomClient, prenomClient, adresseClient, mailClient, codePostalClient, villeClient, civiliteClient, dateNaissanceClient, telClient, mdpClient) VALUES ('1234567891234567', 'DUPONT', 'Jean', '1 rue de la Paix', '  ', 75000, 'Paris', 'Monsieur', STR_TO_DATE('24-May-2005', '%d-%M-%Y'), '0123456729', '123456');
-
 
 CREATE TABLE Categorie (
     idCategorie INT AUTO_INCREMENT,
@@ -88,7 +86,7 @@ CREATE TABLE Produit (
 
 CREATE TABLE Image (
     refProduit INT,
-    imageProduit TEXT,
+    imageProduit VARCHAR(255),
     PRIMARY KEY (refProduit, imageProduit),
     FOREIGN KEY (refProduit) REFERENCES Produit(refProduit)
 ) Engine=InnoDB;
@@ -112,9 +110,9 @@ CREATE TABLE Commande (
     idCommande INT AUTO_INCREMENT,
     idClient INT,
     idPaiement INT,
-    dateCommande DATE,
+    dateCommande DATE NOT NULL,
     fraisLivraison DECIMAL(6,2),
-    adrLivraison TEXT,
+    adrLivraison TEXT NOT NULL,
     codePostalLivraison DECIMAL(5),
     statutCommande VARCHAR(50),
     PRIMARY KEY (idCommande),
@@ -137,7 +135,7 @@ CREATE TABLE Avis (
     refProduit INT,
     idClient INT,
     commentaire TEXT,
-    note DECIMAL(1),
+    note DECIMAL(1) NOT NULL,
     PRIMARY KEY (idAvis),
     FOREIGN KEY (idAvisPere) REFERENCES Avis(idAvis),
     FOREIGN KEY (refProduit) REFERENCES Produit(refProduit),
@@ -164,4 +162,4 @@ CREATE TABLE CategTaille (
 ) Engine=InnoDB;
 
 ALTER TABLE Produit AUTO_INCREMENT = 100000;
-ALTER TABLE Commande AUTO_INCREMENT = 1;
+

@@ -5,9 +5,8 @@ import java.io.IOException;
 import java.util.Map;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
-import java.util.Arrays;
 import java.util.List;
-import java.util.List;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import groupe11.control.DisguiseHubApp;
@@ -21,6 +20,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import java.io.File;
 
 public class FichierDeConfigController {
     private FichierDeConfig fichierDeConfig;
@@ -138,7 +138,7 @@ public class FichierDeConfigController {
                 e.consume();
             }
         });
-
+        initFromConfigFile();
     }
 
     public void displayDialog() {
@@ -291,6 +291,76 @@ public class FichierDeConfigController {
             yaml.dump(collecteConfig, writer);
             yaml.dump(alerteConfig, writer);
             System.out.println("La configuration a été écrite dans le fichier YAML avec succès.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void initFromConfigFile() {
+        String configFilePath = "iot/python/config.yaml";
+
+        try {
+            Yaml yaml = new Yaml();
+            Map<String, Object> config = yaml.load(new FileInputStream(new File(configFilePath)));
+
+            // Extraction des données de la section connection
+            Map<String, Object> connection = (Map<String, Object>) config.get("connection");
+            hostTextField.setText(String.valueOf(connection.get("host")));
+            portTextField.setText(String.valueOf(connection.get("port")));
+            topicTextField.setText(String.valueOf(connection.get("topic")));
+
+            // Extraction des données de la section ecriture
+            Map<String, Object> ecriture = (Map<String, Object>) config.get("ecriture");
+            Map<String, Object> fichiers = (Map<String, Object>) ecriture.get("fichiers");
+            fichierDataTextField.setText(String.valueOf(fichiers.get("data")));
+            fichierAlerteTextField.setText(String.valueOf(fichiers.get("alerte")));
+            intervalleTextField.setText(String.valueOf(ecriture.get("intervale")));
+
+            // Extraction des données de la section collecte
+            List<String> collecteList = (List<String>) config.get("collecte");
+            if (collecteList.contains("temperature")) {
+                this.temperatureCheckBox.setSelected(true);
+            }
+            if (collecteList.contains("co2")) {
+                this.co2CheckBox.setSelected(true);
+            }
+            if (collecteList.contains("humiditty")) {
+                this.humidityCheckBox.setSelected(true);
+            }
+            if (collecteList.contains("illumination")) {
+                this.illuminationCheckBox.setSelected(true);
+            }
+            if (collecteList.contains("infrared")) {
+                this.infraredCheckBox.setSelected(true);
+            }
+            if (collecteList.contains("activity")) {
+                this.activityCheckBox.setSelected(true);
+            }
+            if (collecteList.contains("tvoc")) {
+                this.tvocCheckBox.setSelected(true);
+            }
+            if (collecteList.contains("pressure")) {
+                this.pressureCheckBox.setSelected(true);
+            }
+            if (collecteList.contains("infared_and_visible")) {
+                this.infrared_and_visibleCheckBox.setSelected(true);
+            }
+
+            // Extraction des données de la section alerte
+            Map<String, Map<String, Double>> alerte = (Map<String, Map<String, Double>>) config.get("alerte");
+            Map<String, Double> co2Alerte = alerte.get("co2");
+            co2MinTextField.setText(String.valueOf(co2Alerte.get("min")));
+            co2MaxTextField.setText(String.valueOf(co2Alerte.get("max")));
+            Map<String, Double> pressureAlerte = alerte.get("co2");
+            pressureMinTextField.setText(String.valueOf(pressureAlerte.get("min")));
+            pressureMaxTextField.setText(String.valueOf(pressureAlerte.get("max")));
+            Map<String, Double> humidityAlerte = alerte.get("co2");
+            humidityMinTextField.setText(String.valueOf(humidityAlerte.get("min")));
+            humidityMaxTextField.setText(String.valueOf(humidityAlerte.get("max")));
+            Map<String, Double> temperatureAlerte = alerte.get("co2");
+            temperatureMinTextField.setText(String.valueOf(temperatureAlerte.get("min")));
+            temperatureMaxTextField.setText(String.valueOf(temperatureAlerte.get("max")));
+
         } catch (IOException e) {
             e.printStackTrace();
         }

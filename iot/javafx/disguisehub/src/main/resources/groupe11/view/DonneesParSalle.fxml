@@ -102,7 +102,7 @@
             <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="800.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <LineChart fx:id="co2Chart" title="CO2">
+            <LineChart fx:id="chartCO2" title="CO2">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -110,7 +110,7 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </LineChart>
-            <LineChart fx:id="humidityChart" title="humidity" GridPane.columnIndex="1">
+            <LineChart fx:id="chartHumidity" title="humidity" GridPane.columnIndex="1">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -118,7 +118,7 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </LineChart>
-            <LineChart fx:id="pressureChart" title="pressure" GridPane.columnIndex="2">
+            <LineChart fx:id="chartPression" title="pressure" GridPane.columnIndex="2">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -126,7 +126,7 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </LineChart>
-            <LineChart fx:id="temperatureChart" title="temperature" GridPane.rowIndex="1">
+            <LineChart fx:id="chartTemp" title="temperature" GridPane.rowIndex="1">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -134,7 +134,7 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </LineChart>
-            <LineChart fx:id="activityChart" title="activity" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <LineChart fx:id="chartAct" title="activity" GridPane.columnIndex="1" GridPane.rowIndex="1">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -142,7 +142,7 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </LineChart>
-            <LineChart fx:id="illuminationChart" title="illumination" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <LineChart fx:id="chartIllumi" title="illumination" GridPane.columnIndex="2" GridPane.rowIndex="1">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -150,7 +150,7 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </LineChart>
-            <LineChart fx:id="infraredChart" title="infrared" GridPane.rowIndex="2">
+            <LineChart fx:id="chartIfrared" title="infrared" GridPane.rowIndex="2">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -158,7 +158,7 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </LineChart>
-            <LineChart fx:id="tvocChart" title="tvoc" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <LineChart fx:id="chartTVOC" title="tvoc" GridPane.columnIndex="1" GridPane.rowIndex="2">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -166,7 +166,7 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </LineChart>
-            <LineChart fx:id="infrared_and_visibleChart" title="infrared_and_visible" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <LineChart fx:id="chartIfraredand" title="infrared_and_visible" GridPane.columnIndex="2" GridPane.rowIndex="2">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>

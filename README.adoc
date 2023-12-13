@@ -58,11 +58,7 @@ toc::[]
 
 Dans une vision stratégique, la société Disguise'Hub nous a sollicité pour la réalisation d'un site internet d'e-commerce pour renforcer sa présence sur le marché du déguisement. Cette décision a été motivée par plusieurs facteurs, notamment l'évolution des comportements d'achat des consommateurs vers le numérique, la nécessité de gagner en visibilité et en notoriété en ligne, ainsi que l'opportunité de conquérir de nouvelles parts de marché à l'échelle mondiale.
 
-=== Dépôt initial
-
-Ce dépôt initial a été créé pour que tous les groupes de 2ème année aient les mêmes informations de départ.
-
-Vous y trouverez des fichiers qui peuvent être supprimés s'ils ne vous sont pas utiles :
+=== Organisation du dépôt
 
 - `.gitignore` => un fichier minimaliste des éléments à ne pas pousser en général sur vos dépôts (utiliser la commande `git add -f` pour forcer l'ajout d'un fichier Jar qui ne bougera plus, pour archive par exemple).
 - `.github` => le répertoire qui contient des éléments de gestion de projet :
@@ -136,7 +132,7 @@ _En cours de réalisation..._
 
 == Gestion de projet & Qualité
 
-- *Version courante :* {baseURL}/releases/tag/v1.0.0[v6.0]
+- *Version courante :* {baseURL}/releases/tag/v6.0[v6.0]
 - *Documentation technique :* _En cours de réalisation..._
 - *Documentation utilisateur :* _En cours de réalisation..._
 - *User stories :* https://github.com/orgs/IUT-Blagnac/projects/143[Projet GitHub]

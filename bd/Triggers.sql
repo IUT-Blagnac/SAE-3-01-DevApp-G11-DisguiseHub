@@ -80,25 +80,27 @@ CREATE TRIGGER check_qteStock
 BEFORE INSERT ON Commander
 FOR EACH ROW
 BEGIN
-    DECLARE v_qteProduit DECIMAL(4),
+    DECLARE v_qteProduit DECIMAL(4);
 
-    SELECT qteProduit INTO v_qteProduit
-    FROM Produit
-    WHERE refProduit = NEW.refProduit;
-
-    IF NEW.qteCommandee > v_qteProduit THEN
+    SELECT qteProduit INTO v_qteProduit FROM Produit WHERE refProduit = NEW.refProduit;
+    
+    IF NEW.qteCommandee <= 0 THEN
         SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'La quantité commandée ne peut pas être supérieure à la quantité en stock.';
+        SET MESSAGE_TEXT = 'La quantité commandée doit être supérieure à 0.';
+    ELSE
+        IF NEW.qteCommandee > v_qteProduit THEN
+            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La quantité commandée ne peut pas être supérieure à la quantité en stock.';
+        END IF;
     END IF;
 END;
 //
 
 
-CREATE TRIGGER after_insert_commander
+CREATE TRIGGER maj_qteProduit
 AFTER INSERT ON Commander
 FOR EACH ROW
 BEGIN
-    DECLARE v_qteActuelle DECIMAL(4),
+    DECLARE v_qteActuelle DECIMAL(4);
 
     SELECT qteProduit INTO v_qteActuelle
     FROM Produit
@@ -109,4 +111,3 @@ BEGIN
     WHERE refProduit = NEW.refProduit;
 END;
 //
-

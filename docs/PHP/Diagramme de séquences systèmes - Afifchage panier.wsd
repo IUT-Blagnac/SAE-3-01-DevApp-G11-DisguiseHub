@@ -1,0 +1,16 @@
+@startuml Diagramme de séquence - Affichage panier
+title Diagramme de séquence - Affichage panier
+hide footbox
+
+actor "Utilisateur" as u
+participant "Site web" as w
+participant "Base de données" as d
+
+u -> w: Affichage ("cart" avec ID et quantités)
+w -> d: Récupération des informations produits
+d --> w: Envoi des informations produits (nom, prix, ...)
+w -> w: Vérification des stocks
+w -> w: Calcul du prix total
+w --> u: Affichage du panier
+
+@enduml

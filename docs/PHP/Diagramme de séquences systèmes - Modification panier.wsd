@@ -1,0 +1,16 @@
+@startuml Diagramme de séquence - Modification Panier
+title Diagramme de séquence - Modification panier
+hide footbox
+
+actor "Utilisateur" as u
+participant "Site web" as w
+participant "Cookie" as c
+
+u -> w: Modification quantité produit
+w -> c: Récupération du cookie
+c --> w: Cookie
+w -> c: Changement de la quantité du produit
+c --> w: Cookie
+w --> u: Actualisation du panier
+
+@enduml

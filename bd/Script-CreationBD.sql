@@ -123,7 +123,7 @@ CREATE TABLE Commande (
 CREATE TABLE Commander (
     refProduit INT,
     idCommande INT,
-    qteCommandee DECIMAL,
+    qteCommandee INT,
     PRIMARY KEY (refProduit, idCommande),
     FOREIGN KEY (refProduit) REFERENCES Produit(refProduit),
     FOREIGN KEY (idCommande) REFERENCES Commande(idCommande)
@@ -162,4 +162,4 @@ CREATE TABLE CategTaille (
 ) Engine=InnoDB;
 
 ALTER TABLE Produit AUTO_INCREMENT = 100000;
-
+ALTER TABLE Avis AUTO_INCREMENT = 1;

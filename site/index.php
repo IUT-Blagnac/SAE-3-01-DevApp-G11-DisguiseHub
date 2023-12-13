@@ -28,8 +28,9 @@
                 echo "<div class='category-container'>
                         <a href='recherche.php?cat=" . $cat["idCategorie"] . "'>
                             <img class='category-image' src='./img/" . $cat["nomCategorie"] . ".jpg' alt='Image " . $cat["nomCategorie"] . "' />
+                            <p class='category-name'>" . strtoupper($cat["nomCategorie"]) . "</p>
                         </a>
-                        <p>" . $cat["nomCategorie"] . "</p>
+                       
                       </div>";
             }
 
@@ -46,13 +47,22 @@
                 $productReq = $conn->prepare($productStatement);
                 $productReq->execute();
 
+                
                 while ($product = $productReq->fetch()) {
-                    echo "<div class='product-container'>
-                            <p class='product-name'>" . $product["nomProduit"] . "</p>
-                            <p class='product-description'>" . $product["descProduit"] . "</p>
-                            <p class='product-price'>" . $product["prixProduit"] . " €</p>
-                          </div>";
+                
+                    $imageId = $product["refProduit"] - 100000;
+                    
+                    echo "<a href='details_produit.php?id=" . $product["refProduit"] . "' class='product-link'>
+                            <div class='product-container'>
+                            <img class='product-image' src='https://picsum.photos/360/360?image=" . $imageId . "' alt='Image " . $product["nomProduit"] . "' />
+                                <p class='product-name'>" . $product["nomProduit"] . "</p>
+                                <p class='product-description'>" . $product["descProduit"] . "</p>
+                                <p class='product-price'>" . $product["prixProduit"] . " €</p>
+                            </div>
+                          </a>";
                 }
+                
+                
 
                 
                 $productReq->closeCursor();

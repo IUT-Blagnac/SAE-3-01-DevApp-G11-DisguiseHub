@@ -80,7 +80,7 @@ CREATE TRIGGER check_qteStock
 BEFORE INSERT ON Commander
 FOR EACH ROW
 BEGIN
-    DECLARE v_qteProduit Produit.qteProduit%TYPE;
+    DECLARE v_qteProduit DECIMAL(4),
 
     SELECT qteProduit INTO v_qteProduit
     FROM Produit
@@ -92,3 +92,21 @@ BEGIN
     END IF;
 END;
 //
+
+
+CREATE TRIGGER after_insert_commander
+AFTER INSERT ON Commander
+FOR EACH ROW
+BEGIN
+    DECLARE v_qteActuelle DECIMAL(4),
+
+    SELECT qteProduit INTO v_qteActuelle
+    FROM Produit
+    WHERE refProduit = NEW.refProduit;
+
+    UPDATE Produit
+    SET qteProduit = v_qteActuelle - NEW.qteCommandee
+    WHERE refProduit = NEW.refProduit;
+END;
+//
+

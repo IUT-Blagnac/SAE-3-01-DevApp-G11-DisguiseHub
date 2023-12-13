@@ -37,6 +37,7 @@
 
                                 $email = $_POST["email"];
                                 $mdp = $_POST["mdp"];
+                                
                                 $sql = "SELECT mdpClient FROM Client WHERE mailClient = :email";
                                 $req = $conn -> prepare($sql);
                                 $req -> execute(["email" => $email]);

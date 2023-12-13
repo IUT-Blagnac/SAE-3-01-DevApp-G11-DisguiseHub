@@ -289,13 +289,13 @@
                             document.querySelector("span.majuscule").classList.remove("ok");
                         }
 
-                        if(document.getElementById("mdp").value.match(/[0-9]/g)) {
+                        if(document.getElementById("mdp").value.match(/(?=.*\d)/g)) {
                             document.querySelector("span.chiffre").classList.add("ok");
                         } else {
                             document.querySelector("span.chiffre").classList.remove("ok");
                         }
 
-                        if(document.getElementById("mdp").value.match(/[!@#$%^&*_=+-]/g)) {
+                        if(document.getElementById("mdp").value.match(/(?=.*\W)/g)) {
                             document.querySelector("span.special").classList.add("ok");
                         } else {
                             document.querySelector("span.special").classList.remove("ok");

@@ -55,7 +55,7 @@
 
                                 // Si aucun compte trouvé
                                 if($req && $req->rowCount() == 0) {
-                                    echo "<div class='msg erreur'>Aucun compte trouvé, rééssayez</div>";
+                                    echo "<div class='msg erreur'>Aucun compte trouvé, réessayez</div>";
 
                                 // Si plusieurs comptes trouvés
                                 } else if ($req && $req->rowCount() > 1) {
@@ -147,13 +147,13 @@
                             document.querySelector("span.majuscule").classList.remove("ok");
                         }
 
-                        if(document.getElementById("mdp").value.match(/[0-9]/g)) {
+                        if(document.getElementById("mdp").value.match(/(?=.*\d)/g)) {
                             document.querySelector("span.chiffre").classList.add("ok");
                         } else {
                             document.querySelector("span.chiffre").classList.remove("ok");
                         }
 
-                        if(document.getElementById("mdp").value.match(/[!@#$%^&*_=+-]/g)) {
+                        if(document.getElementById("mdp").value.match(/(?=.*\W)/g)) {
                             document.querySelector("span.special").classList.add("ok");
                         } else {
                             document.querySelector("span.special").classList.remove("ok");

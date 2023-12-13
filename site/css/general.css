@@ -203,7 +203,7 @@ input:not(.ignore):invalid, select:not(.ignore):invalid, textarea:not(.ignore):i
     color: var(--tertiary-color);
 }
 
-button:not(.ignore) {
+button:not(.ignore), a.button {
     background-color: var(--secondary-color);
     border-radius: 10px;
     border: none;
@@ -213,14 +213,17 @@ button:not(.ignore) {
     width: 100%;
     max-width: 300px;
     cursor: pointer;
+    text-decoration: none;
+    text-align: center;
     transition: background-color 0.3s;
 }
 
-button:not(.ignore):hover {
+button:not(.ignore):hover, a.button:hover {
     background-color: var(--primary-color);
 }
 
-button:not(.ignore):disabled {
+button:not(.ignore):disabled, a.button.disable {
     background-color: #757575;
     cursor: not-allowed;
+    pointer-events: none;
 }

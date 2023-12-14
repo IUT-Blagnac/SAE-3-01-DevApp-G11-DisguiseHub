@@ -1,46 +1,64 @@
-DELIMITER //
-CREATE PROCEDURE PasserCommande 
-  (
-    p_idClient Client.nomClient%TYPE,
-    p_idPaiement Paiement.idPaiement%TYPE,
-    p_dateCommande Commande.dateCommande%TYPE,
-    p_fraisLivraison Commande.fraisLivraison%TYPE,
-    p_adrLivraison Commande.adrLivraison%TYPE,
-    p_codePostalLivraison Commande.codePostalLivraison%TYPE,
-    p_statutCommande Commande.statutCommande%TYPE,
-    p_refProduit Produit.refProduit%TYPE,
-  )
-IS 
-    v_refProduit Produit.refProduit%TYPE;
-    v_idCommande Commande.idCommande%TYPE;
-    v_qteCommandee DECIMAL;
-    flag DECIMAL;
+CREATE PROCEDURE PasserCommande(
+    IN p_idClient INT,
+    IN p_refProduit INT,
+    IN p_qteCommandee INT,
+    IN p_idPaiement INT,
+    IN p_adrLivraison TEXT,
+    IN p_codePostalLivraison DECIMAL(5),
+    IN p_fraisLivraison DECIMAL(6,2)
+)
 BEGIN
-    SELECT refProduit INTO v_refProduit FROM Produit WHERE refProduit = p_refProduit;
-    SELECT idCommande INTO v_idCommande FROM Commande WHERE idClient = p_idClient;
-    SELECT qteCommandee INTO v_qteCommandee FROM Commander WHERE refProduit = p_refProduit AND idCommande = v_idCommande;
-    IF v_refProduit IS NULL THEN
-        flag := 1;
-    ELSEIF v_idCommande IS NULL THEN
-        flag := 2;
-    ELSEIF v_qteCommandee IS NULL THEN
-        flag := 3;
+    DECLARE v_qteProduit DECIMAL(4);
+
+    SELECT qteProduit INTO v_qteProduit
+    FROM Produit
+    WHERE refProduit = p_refProduit;
+
+    IF v_qteProduit IS NULL THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Le produit spécifié n''existe pas.';
     ELSE
-        flag := 0;
-    END IF;
-    CASE flag
-        WHEN 1 THEN
-            INSERT INTO Produit (refProduit) VALUES (p_refProduit);
-        WHEN 2 THEN
-            INSERT INTO Commande (idClient, idPaiement, dateCommande, fraisLivraison, adrLivraison, codePostalLivraison, statutCommande) VALUES (p_idClient, p_idPaiement, p_dateCommande, p_fraisLivraison, p_adrLivraison, p_codePostalLivraison, p_statutCommande);
-        WHEN 3 THEN
-            INSERT INTO Commander (refProduit, idCommande, qteCommandee) VALUES (p_refProduit, p_idCommande, 1);
+        IF p_qteCommandee <= 0 THEN
+            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La quantité commandée doit être supérieure à 0.';
         ELSE
-            UPDATE Commander SET qteCommandee = qteCommandee + 1 WHERE refProduit = p_refProduit AND idCommande = p_idCommande;
-    END CASE;
+            IF p_qteCommandee > v_qteProduit THEN
+                SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La quantité commandée ne peut pas être supérieure à la quantité en stock.';
+            ELSE
+                INSERT INTO Commande (idClient, idPaiement, dateCommande, fraisLivraison, adrLivraison, codePostalLivraison, statutCommande)
+                VALUES (p_idClient, p_idPaiement, NOW(), p_fraisLivraison, p_adrLivraison, p_codePostalLivraison, 'En cours de préparation');
 
-   
+                SET @lastCommandeId = LAST_INSERT_ID();
 
-  
-END //
-DELIMITER ;
+                INSERT INTO Commander (refProduit, idCommande, qteCommandee)
+                VALUES (p_refProduit, @lastCommandeId, p_qteCommandee);
+
+            END IF;
+        END IF;
+    END IF;
+END;
+//
+
+
+CREATE PROCEDURE MettreAJourPrixProduit(
+    IN p_refProduit INT,
+    IN p_nouveauPrix DECIMAL(6,2)
+)
+BEGIN
+    DECLARE v_qteProduit DECIMAL(4);
+
+    SELECT qteProduit INTO v_qteProduit
+    FROM Produit
+    WHERE refProduit = p_refProduit;
+
+    IF v_qteProduit IS NULL THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Le produit spécifié n''existe pas.';
+    ELSE
+        IF p_nouveauPrix <= 0 THEN
+            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Le nouveau prix doit être supérieur à 0.';
+        ELSE
+            UPDATE Produit
+            SET prixProduit = p_nouveauPrix
+            WHERE refProduit = p_refProduit;
+        END IF;
+    END IF;
+END;
+//

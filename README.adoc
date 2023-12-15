@@ -100,8 +100,8 @@ Dans une vision stratégique, la société Disguise'Hub nous a sollicité pour l
 ** link:docs/BD/Livrable-Cr%C3%A9ation-SAE_3.01-Grp_11.pdf[Livrable Création et Insertion]
 ** link:docs/BD/Livrable-Triggers_Proc%C3%A9dures-SAE_3.01-Grp_11.pdf[Livrable Triggers et Procédures]
 - *Communication*
-** link:docs/Communication/Sprint%203%20-%20ODJ%20+%20CR%20+%20Analyse.pdf[ODJ + CR + Analyse - Sprint 3]
-** link:docs/Communication/Sprint%204%20-%20ODJ%20+%20CR%20+%20Analyse.pdf[ODJ + CR + Analyse - Sprint 4]
+** link:docs/Communication/Sprint%205%20-%20ODJ%20%2B%20CR%20%2B%20ANALYSE.pdf[ODJ + CR + Analyse - Sprint 3]
+** link:docs/Communication/Sprint%206%20-%20ODJ%20%2B%20CR%20%2B%20ANALYSE.pdf[ODJ + CR + Analyse - Sprint 4]
 ** link:docs/Communication/Sprint%207%20-%20ODJ%20%2B%20CR%20%2B%20ANALYSE.pdf[ODJ + CR + Analyse - Sprint 6]
 - *GProj*
 ** link:docs/GProj/Backlog%20produit.adoc[Backlog produit]

@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    min-height: calc(100% - 330px);
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    min-height: calc(100% - 330px);
+    padding: 20px;
+}
+
+#recherche {
+    margin-bottom: 15px;
+}
+
+button {
+    border-radius: 10px;
+    border: 2px solid #757575;
+    width: 100%;
+    min-height: 45px;
+    max-width: 300px;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+}
+

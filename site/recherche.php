@@ -3,9 +3,9 @@
 <head>
     <title>Disguise'Hub</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="/~saephp11/css/general.css">
-    <link rel="stylesheet" type="text/css" href="/~saephp11/css/recherche.css">
-    <script type="text/javascript" src="/~saephp11/include/fontawesome.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/general.css">
+    <link rel="stylesheet" type="text/css" href="./css/recherche.css">
+    <script type="text/javascript" src="./include/fontawesome.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
@@ -14,40 +14,44 @@
 
     <?php include("./include/header.php"); ?>
 
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <input type="text" name="recherche" id="recherche" required>
-            <button type="submit">Search</button>
-        </form>
+        <div class="content">
+            <h1>Recherche</h1>
+            <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <input type="text" name="recherche" required>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
 
-    <?php
-
-    // Vérifier si le formulaire de recherche a été soumis
-    if ($_SERVER["PHP_SELF"] == "GET") {
-        // Récupérer la valeur de la barre de recherche
-        $recherche = $_POST["recherche"];
-
-        // Échapper les caractères spéciaux pour éviter les injections SQL
-        $recherche = htmlspecialchars($recherche);
-
-        // Requête SQL pour rechercher le produit dans la base de données
-        $requete = "SELECT * FROM produits WHERE nom_produit LIKE ':$recherche'";
-        $resultat = $conn->query($requete);
-        $resultat->execute(["recherche" => $recherche]);
-
-        // Vérifier s'il y a des résultats
-        if ($resultat->num_rows > 0) {
-            // Afficher les résultats
-            echo "<h2>Résultats de la recherche pour '$recherche'</h2>";
-
-            while ($row = $resultat->fetch_assoc()) {
-                echo "<p>Nom du produit : " . $row["nom_produit"] . "</p>";
-                echo "<p>Description : " . $row["description"] . "</p>";
-                echo "<hr>";
-            }
-        }
+   <?php
+   
+    if (isset($_GET["recherche"])) {
+         $recherche = $_GET["recherche"];
+         $statement = "SELECT * FROM Produit WHERE nomProduit LIKE '%" . $recherche . "%'";
+         $req = $conn->prepare($statement);
+         $req->execute();
+         
+         if ($req->rowCount() > 0) {
+              echo "<div class='products'>";
+              while ($product = $req->fetch()) {
+                $imageId = $product["refProduit"] - 100000;
+                echo "<a href='details_produit.php?id=" . $product["refProduit"] . "' class='product-link'>
+                            <div class='product-container'>
+                             <img class='product-image' src='https://picsum.photos/360/360?image=" . $imageId . "' alt='Image " . $product["nomProduit"] . "' />
+                             <p class='product-name'>" . $product["nomProduit"] . "</p>
+                             <p class='product-description'>" . $product["descProduit"] . "</p>
+                             <p class='product-price'>" . $product["prixProduit"] . " €</p>
+                             <p class='product-size'>" . $product["tailleProduit"] . " </p>
+                            </div>
+                      </a>";
+              }
+              echo "</div>";
+         } else {
+              echo "<div class='no-results'>
+                      <p>Aucun résultat pour votre recherche.</p>
+                 </div>";
+         }
     }
-
-    ?>
+   ?>
     <?php include("./include/footer.php"); ?>
 
 </body>

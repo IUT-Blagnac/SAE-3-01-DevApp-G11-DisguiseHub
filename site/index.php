@@ -19,7 +19,7 @@
         <div class="categories">
             <?php
             $statement = "SELECT * FROM Categorie WHERE idCategoriePere IS NULL";
-            require_once("../include/connect.inc.php");
+            require_once("./include/connect.inc.php");
 
             $req = $conn->prepare($statement);
             $req->execute();
@@ -38,9 +38,8 @@
             ?>
         </div>
 
-        <!-- Gestionnaire de produits -->
         <div class="product-manager">
-            <h2>Gestionnaire de Produits</h2>
+            <h2>Catalogue de produits</h2>
             <div class="products">
                 <?php
                 $productStatement = "SELECT * FROM Produit";
@@ -49,21 +48,21 @@
 
                 
                 while ($product = $productReq->fetch()) {
-                
-                    $imageId = $product["refProduit"] - 100000;
+
+                    $sql = "SELECT * FROM Image WHERE refProduit = :produit";
+                    $req = $conn -> prepare($sql);
+                    $req -> execute(["produit" => $product["refProduit"]]);
+                    $image = $req -> fetch()["imageProduit"];
                     
-                    echo "<a href='details_produit.php?id=" . $product["refProduit"] . "' class='product-link'>
+                    echo "<a href='produit.php?id=" . $product["refProduit"] . "' class='product-link'>
                             <div class='product-container'>
-                            <img class='product-image' src='https://picsum.photos/360/360?image=" . $imageId . "' alt='Image " . $product["nomProduit"] . "' />
+                            <img class='product-image' src='" . $image . "' alt='Image " . $product["nomProduit"] . "' />
                                 <p class='product-name'>" . $product["nomProduit"] . "</p>
                                 <p class='product-description'>" . $product["descProduit"] . "</p>
                                 <p class='product-price'>" . $product["prixProduit"] . " €</p>
                             </div>
                           </a>";
                 }
-                
-                
-
                 
                 $productReq->closeCursor();
                 ?>

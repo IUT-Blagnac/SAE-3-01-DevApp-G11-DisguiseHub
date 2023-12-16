@@ -3,9 +3,9 @@
 <head>
     <title>Panier - Disguise'Hub</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/general.css">
-    <link rel="stylesheet" type="text/css" href="css/panier.css">
-    <script type="text/javascript" src="include/fontawesome.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/general.css">
+    <link rel="stylesheet" type="text/css" href="./css/panier.css">
+    <script type="text/javascript" src="./include/fontawesome.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -25,7 +25,7 @@
         // PENSER A SUPPRIMER CECI LORSQUE PAGES PRODUITS SERONT FAITES
     ?>
 
-    <?php include("include/header.php"); ?>
+    <?php include("./include/header.php"); ?>
 
     <?php
         $cartedit = false;
@@ -56,11 +56,20 @@
                     unset($cart[$id]);
                 } else {
                     $product = $req -> fetch();
-                    if ($product["qteProduit"] >= $cart[$id] + 1) {
-                        $cart[$id]++;
+                    if (!isset($cart[$id])) {
+                        $futurquantite = 1;
+                    } else {
+                        $futurquantite = $cart[$id] + 1;
+                    }
+                    if ($product["qteProduit"] >= $futurquantite) {
+                        if (!isset($cart[$id])) {
+                            $cart[$id] = 1;
+                        } else {
+                            $cart[$id]++;
+                        }
                     } else {
                         if (isset($_POST["commander"])) {
-                            header("Location: /product.php?id=" . $id . "&erreur=Produit+en+rupture+de+stock");
+                            header("Location: produit.php?id=" . $id . "&erreur=Produit+en+rupture+de+stock");
                             exit();
                         } else {
                             echo "<script>alert('Ajout impossible, le produit \"" . $product["nomProduit"] . "\" est en rupture de stock.')</script>";
@@ -107,7 +116,7 @@
             }
 
             if (isset($_POST["commander"])) {
-                header("Location: /product.php?id=$id");
+                header("Location: produit.php?id=$id");
                 exit();
             }
 
@@ -265,7 +274,7 @@
         
     </div>
 
-    <?php include("include/footer.php"); ?>
+    <?php include("./include/footer.php"); ?>
 
 </body>
 

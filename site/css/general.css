@@ -225,5 +225,22 @@ button:not(.ignore):hover, a.button:hover {
 button:not(.ignore):disabled, a.button.disable {
     background-color: #757575;
     cursor: not-allowed;
-    pointer-events: none;
+}
+
+/* TABLEAU */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr.head {
+    background-color: var(--secondary-color);
+    color: #FFFFFF;
+}
+
+td {
+    text-align: center;
+    border: 1px solid #000000;
+    padding: 5px 10px;
 }

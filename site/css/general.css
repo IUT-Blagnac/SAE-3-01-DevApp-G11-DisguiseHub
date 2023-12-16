@@ -204,6 +204,7 @@ input:not(.ignore):invalid, select:not(.ignore):invalid, textarea:not(.ignore):i
 }
 
 button:not(.ignore), a.button {
+    display: block;
     background-color: var(--secondary-color);
     border-radius: 10px;
     border: none;

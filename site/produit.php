@@ -40,20 +40,6 @@
                         document.title = '" . $produit["nomProduit"] . " - Disguise\'Hub'
                     </script>";
 
-                    /* A RETIRER QUAND LA TABLE ASSOPRODUITCATEG SERA REMPLIE */
-                    $sql = "SELECT * FROM Categorie WHERE idCategorie = :cat";
-                    $req = $conn -> prepare($sql);
-                    $req -> execute(["cat" => $produit["idCategorie"]]);
-                    $categorie = $req -> fetch();
-
-                    if (isset($categorie["idCategoriePere"])) {
-                        $sql = "SELECT * FROM Categorie WHERE idCategorie = :cat";
-                        $req = $conn -> prepare($sql);
-                        $req -> execute(["cat" => $categorie["idCategoriePere"]]);
-                        $categoriePere = $req -> fetch();
-                    }
-                    /* A RETIRER QUAND LA TABLE ASSOPRODUITCATEG SERA REMPLIE */
-
                     $sql = "SELECT * FROM AssoProduitCateg WHERE refProduit = :ref";
                     $req = $conn -> prepare($sql);
                     $req -> execute(["ref" => $_GET["id"]]);
@@ -75,15 +61,6 @@
                         $req -> execute(["ref" => $_GET["id"]]);
                         $moyenne = round($req -> fetch()["moyenne"]);
                     }
-
-                    /* A RETIRER QUAND LA TABLE ASSOPRODUITCATEG SERA REMPLIE */
-                    echo "<div class='categoriesold'>";
-                        if (isset($categoriePere)) {
-                            echo "<span>></span><a href='./categorie.php?id=" . $categoriePere["idCategorie"] . "'>" . $categoriePere["nomCategorie"] . "</a>";
-                        }
-                        echo "<span>></span><a href='./categorie.php?id=" . $categorie["idCategorie"] . "'>" . $categorie["nomCategorie"] . "</a><span>></span><a href='produit.php?id=" . $produit["refProduit"] . "'>" . $produit["nomProduit"] . "</a>
-                    </div>";
-                    /* A RETIRER QUAND LA TABLE ASSOPRODUITCATEG SERA REMPLIE */
 
                     echo "<div class='produit'>
                         <div class='images'>";
@@ -132,17 +109,21 @@
                                     <td>" . $produit["tailleProduit"] . "</td>
                                     <td>" . $produit["couleurProduit"] . "</td>
                                 </tr>
-                            </table>
-                            <span class='prix'>" . number_format($produit["prixProduit"], 2, ",", " ") . " €</span>
-                            <form action='panier.php' method='POST'>
-                                <input type='hidden' name='id' value='" . $produit["refProduit"] . "'>
-                                <input type='hidden' name='amount' value='1'>";
-                                if ($produit["qteProduit"] != 0) {
-                                    echo "<button type='submit' name='commander'>Ajouter au panier (" . $produit["qteProduit"] . " en stock)</button>";
+                            </table>";
+                            if ($produit["qteProduit"] != 0) {
+                                if (isset($_COOKIE["cart"]) && !empty(json_decode($_COOKIE["cart"], true)) && isset((json_decode($_COOKIE["cart"], true))[$produit["refProduit"]])) {
+                                    echo "<a class='button' href='panier.php'>Dans le panier</a>";
                                 } else {
-                                    echo "<button type='submit' name='commander' disabled>Rupture de stock</button>";
+                                    echo "<form action='panier.php' method='POST'>
+                                        <input type='hidden' name='id' value='" . $produit["refProduit"] . "'>
+                                        <input type='hidden' name='amount' value='1'>
+                                        <button type='submit' name='commander'>Ajouter au panier (" . $produit["qteProduit"] . " en stock)</button>
+                                    </form>";
                                 }
-                            echo "</form>
+                            } else {
+                                echo "<button type='submit' name='commander' disabled>Rupture de stock</button>";
+                            }
+                            echo "<span class='prix'>" . number_format($produit["prixProduit"], 2, ",", " ") . " €</span>
                         </div>
                     </div>
                     

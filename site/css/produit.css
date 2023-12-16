@@ -18,20 +18,6 @@ div.content h1 {
     font-size: 2rem;
 }
 
-/* A RETIRER QUAND LA TABLE ASSOPRODUITCATEG SERA REMPLIE */
-div.categoriesold {
-    display: flex;
-    gap: 5px;
-}
-div.categoriesold span {
-    color: #00000080;
-}
-div.categoriesold a {
-    text-decoration: none;
-    color: var(--tertiary-color);
-}
-/* A RETIRER QUAND LA TABLE ASSOPRODUITCATEG SERA REMPLIE */
-
 i.color {
     color: var(--secondary-color);
 }
@@ -86,7 +72,7 @@ div.details p {
     margin: 15px 0;
 }
 
-div.details button {
+div.details button, div.details a.button {
     margin-top: 10px;
     min-width: 100%;
 }

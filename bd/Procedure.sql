@@ -62,3 +62,13 @@ BEGIN
     END IF;
 END;
 //
+
+CREATE PROCEDURE AjouterProduitsSoldes(
+    IN p_reduc DECIMAL(5,2) -- Exemple : 0,20 pour 20%
+)
+BEGIN
+    UPDATE Produit
+    SET prixProduit = prixProduit * (1 - p_reduc), -- Avec l'exemple, le prix sera réduit de 20% (prixProduit * (1 - 0,20 = 0,80))
+        idCategorie = 1
+    WHERE idCategorie <> 1; 
+END //

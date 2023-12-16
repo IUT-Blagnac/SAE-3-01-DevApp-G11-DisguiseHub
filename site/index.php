@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <title>Disguise'Hub</title>
     <meta charset="utf-8">
@@ -7,8 +8,9 @@
     <link rel="stylesheet" type="text/css" href="./css/index.css">
     <script type="text/javascript" src="./include/fontawesome.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
 </head>
+
 <body>
     <?php include("./include/header.php"); ?>
     <div class="home-page">
@@ -41,17 +43,18 @@
         <!-- Gestionnaire de produits -->
         <div class="product-manager">
             <h2>Gestionnaire de Produits</h2>
+            <br><br><br>
             <div class="products">
                 <?php
                 $productStatement = "SELECT * FROM Produit";
                 $productReq = $conn->prepare($productStatement);
                 $productReq->execute();
 
-                
+
                 while ($product = $productReq->fetch()) {
-                
+
                     $imageId = $product["refProduit"] - 100000;
-                    
+
                     echo "<a href='details_produit.php?id=" . $product["refProduit"] . "' class='product-link'>
                             <div class='product-container'>
                             <img class='product-image' src='https://picsum.photos/360/360?image=" . $imageId . "' alt='Image " . $product["nomProduit"] . "' />
@@ -61,10 +64,10 @@
                             </div>
                           </a>";
                 }
-                
-                
 
-                
+
+
+
                 $productReq->closeCursor();
                 ?>
             </div>
@@ -73,4 +76,5 @@
     <br>
     <?php include("./include/footer.php"); ?>
 </body>
+
 </html>

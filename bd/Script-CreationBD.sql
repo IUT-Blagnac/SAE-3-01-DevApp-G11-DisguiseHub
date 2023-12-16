@@ -161,5 +161,14 @@ CREATE TABLE CategTaille (
     FOREIGN KEY (refProduit) REFERENCES Produit(refProduit)
 ) Engine=InnoDB;
 
+CREATE TABLE ImageAvis (
+    idImageAvis INT AUTO_INCREMENT,
+    idAvis INT,
+    imageAvis VARCHAR(255),
+    PRIMARY KEY (idImageAvis),
+    FOREIGN KEY (idAvis) REFERENCES Avis(idAvis)
+) Engine=InnoDB;
+
+
 ALTER TABLE Produit AUTO_INCREMENT = 100000;
 ALTER TABLE Avis AUTO_INCREMENT = 1;

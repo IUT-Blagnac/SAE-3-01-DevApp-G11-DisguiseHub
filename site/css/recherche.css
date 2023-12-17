@@ -59,8 +59,8 @@ button {
 }
 
 .product-image {
-    width: 100%;
-    height: auto;
+    width: 10%;
+    height: 10px;
 }
 
 .product-name,
@@ -71,5 +71,5 @@ button {
 
 .no-results {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }

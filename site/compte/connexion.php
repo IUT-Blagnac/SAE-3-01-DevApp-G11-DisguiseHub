@@ -38,7 +38,7 @@
                                 $email = $_POST["email"];
                                 $mdp = $_POST["mdp"];
                                 
-                                $sql = "SELECT mdpClient FROM Client WHERE mailClient = :email";
+                                $sql = "SELECT idClient, mdpClient FROM Client WHERE mailClient = :email";
                                 $req = $conn -> prepare($sql);
                                 $req -> execute(["email" => $email]);
 
@@ -49,7 +49,7 @@
                                     // Si le mot de passe est correct
                                     if (password_verify($mdp, $user["mdpClient"])) {
                                         session_start();
-                                        $_SESSION["connexion"] = $email;
+                                        $_SESSION["connexion"] = $user["idClient"];
                                         header("Location: ./");
 
                                     // Si le mot de passe est incorrect

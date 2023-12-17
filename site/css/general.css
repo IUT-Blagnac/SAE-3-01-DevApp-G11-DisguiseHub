@@ -128,6 +128,12 @@ header div.sousmenu a.sous-categorie:hover {
     background-color: #00000080;
 }
 
+@media screen and (max-width: 600px) {
+    header div.logo h1 {
+        display: none;
+    }
+}
+
 /* FOOTER */
 
 footer {

@@ -101,14 +101,22 @@
                                 echo "</div>
                             <p>" . $produit["descProduit"] . "</p>
                             <table>
-                                <tr class='head'>
-                                    <td>Taille</td>
-                                    <td>Couleur</td>
-                                </tr>
-                                <tr>
-                                    <td>" . $produit["tailleProduit"] . "</td>
-                                    <td>" . $produit["couleurProduit"] . "</td>
-                                </tr>
+                                <tr class='head'>";
+                                if (isset($produit["tailleProduit"])) {
+                                    echo "<td>Taille</td>";
+                                }
+                                if (isset($produit["couleurProduit"])) {
+                                    echo "<td>Couleur</td>";
+                                }
+                                echo "</tr>
+                                <tr>";
+                                    if (isset($produit["tailleProduit"])) {
+                                        echo "<td>" . $produit["tailleProduit"] . "</td>";
+                                    }
+                                    if (isset($produit["couleurProduit"])) {
+                                        echo "<td>" . $produit["couleurProduit"] . "</td>";
+                                    }
+                                echo "</tr>
                             </table>";
                             if ($produit["qteProduit"] != 0) {
                                 if (isset($_COOKIE["cart"]) && !empty(json_decode($_COOKIE["cart"], true)) && isset((json_decode($_COOKIE["cart"], true))[$produit["refProduit"]])) {

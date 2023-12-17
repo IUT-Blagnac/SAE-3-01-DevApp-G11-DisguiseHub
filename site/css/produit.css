@@ -1,0 +1,127 @@
+div.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100% - 330px);
+    padding: 20px;
+    gap: 5px;
+}
+
+div.content > div {
+    display: flex;
+    width: 100%;
+    padding: 10px 0;
+}
+
+div.content h1 {
+    font-size: 2rem;
+}
+
+i.color {
+    color: var(--secondary-color);
+}
+
+div.produit {
+    display: flex;
+    gap: 25px;
+}
+
+div.details {
+    position: relative;
+    width: 100%;
+}
+
+div.categories {
+    margin: 5px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+div.categories span {
+    padding: 5px 10px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+div.categories span a {
+    text-decoration: none;
+    color: #000000;
+}
+
+div.details span.prix {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px;
+    background-color: var(--secondary-color);
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+
+div.details td {
+    width: 50%;
+}
+
+div.details p {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--tertiary-color);
+    min-height: 5lh;
+    margin: 15px 0;
+}
+
+div.details button, div.details a.button {
+    margin-top: 10px;
+    min-width: 100%;
+}
+
+div.avis {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+div.avis div.avi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--tertiary-color);
+    color: #FFFFFF;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+div.avi div.texte {
+    width: 100%;
+}
+
+div.avi div.client {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+div.avi h4 {
+    margin-top: 10px;
+}
+
+div.avi img {
+    height: 150px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    div.produit {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    div.avi {
+        flex-direction: column;
+    }
+}

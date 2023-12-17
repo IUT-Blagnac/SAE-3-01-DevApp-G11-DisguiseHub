@@ -3,29 +3,15 @@
 <head>
     <title>Panier - Disguise'Hub</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/general.css">
-    <link rel="stylesheet" type="text/css" href="css/panier.css">
-    <script type="text/javascript" src="include/fontawesome.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/general.css">
+    <link rel="stylesheet" type="text/css" href="./css/panier.css">
+    <script type="text/javascript" src="./include/fontawesome.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
 
-    <?php
-        // TEMPORAIRE : Création cookie panier factice
-        if (empty($_COOKIE['cart'])) {
-            $cart = array(
-                "100000" => 1,
-                "100001" => 53,
-                "100002" => 3,
-                "198" => 4
-            );
-            setcookie('cart', json_encode($cart), time() + (86400 * 30), '/');
-        }
-        // PENSER A SUPPRIMER CECI LORSQUE PAGES PRODUITS SERONT FAITES
-    ?>
-
-    <?php include("include/header.php"); ?>
+    <?php include("./include/header.php"); ?>
 
     <?php
         $cartedit = false;
@@ -33,13 +19,50 @@
         // Vérifiez si le formulaire est soumis
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-            $id = $_POST["id"];
-            $amount = $_POST["amount"];
-
             $cart = [];
             if (isset($_COOKIE["cart"])) {
                 $cart = json_decode($_COOKIE["cart"], true);
             }
+
+            if (isset($_POST["creercommande"])) {
+                if (!isset($_SESSION["connexion"])) {
+                    header("Location: compte.php");
+                    exit();
+                }
+                if (empty($cart)) {
+                    header("Location: panier.php");
+                    exit();
+                }
+                foreach ($cart as $id => $amount) {
+
+                    $sql = "SELECT * FROM Produit WHERE refProduit = :ref";
+                    $req = $conn -> prepare($sql);
+                    $req -> execute(["ref" => $id]);
+                    $product = $req -> fetch();
+
+                    if ($product["qteProduit"] < $amount) {
+                        header("Location: panier.php?erreur=Un+ou+plusieurs+produits+sont+en+rupture+de+stock");
+                        exit();
+                    }
+
+                }
+
+                $sql = "SELECT * FROM Client WHERE idClient = :id";
+
+                $sql = "INSERT INTO Commande (idClient, dateCommande, fraisLivraison, adrLivraison, villeCommande, codePostalLivraison, paysCommande, statutCommande) VALUES (:idClient, :dateCommande, 4.99, :adresseCommande, :villeCommande, :codePostalCommande, :paysCommande, 'En attente de paiement')";
+                $req = $conn -> prepare($sql);
+                $req -> execute([
+                    "idClient" => $_SESSION["connexion"],
+                    "dateCommande" => date("Y-m-d"),
+                    "adresseCommande" => $_POST["adresse"],
+                    "villeCommande" => $_POST["ville"],
+                    "codePostalCommande" => $_POST["codePostal"],
+                    "paysCommande" => $_POST["pays"]
+                ]);
+            }
+
+            $id = $_POST["id"];
+            $amount = $_POST["amount"];
 
             $sql = "SELECT * FROM Produit WHERE refProduit = :ref";
             $req = $conn -> prepare($sql);
@@ -56,11 +79,20 @@
                     unset($cart[$id]);
                 } else {
                     $product = $req -> fetch();
-                    if ($product["qteProduit"] >= $cart[$id] + 1) {
-                        $cart[$id]++;
+                    if (!isset($cart[$id])) {
+                        $futurquantite = 1;
+                    } else {
+                        $futurquantite = $cart[$id] + 1;
+                    }
+                    if ($product["qteProduit"] >= $futurquantite) {
+                        if (!isset($cart[$id])) {
+                            $cart[$id] = 1;
+                        } else {
+                            $cart[$id]++;
+                        }
                     } else {
                         if (isset($_POST["commander"])) {
-                            header("Location: /product.php?id=" . $id . "&erreur=Produit+en+rupture+de+stock");
+                            header("Location: produit.php?id=" . $id . "&erreur=Produit+en+rupture+de+stock");
                             exit();
                         } else {
                             echo "<script>alert('Ajout impossible, le produit \"" . $product["nomProduit"] . "\" est en rupture de stock.')</script>";
@@ -107,7 +139,7 @@
             }
 
             if (isset($_POST["commander"])) {
-                header("Location: /product.php?id=$id");
+                header("Location: produit.php?id=$id");
                 exit();
             }
 
@@ -129,8 +161,13 @@
                     $cart = json_decode($_COOKIE["cart"], true);
                 }
 
+                // Démarrage session
+                session_start();
+
                 // Panier trouvé et non vide
                 if (isset($cart) && !empty($cart)) {
+
+                    $valide = true;
 
                     echo "<table>
                         <tr class='head'>
@@ -154,6 +191,9 @@
                             
                             // Cas d'erreurs
                             if ($req && $req->rowCount() != 1) {
+
+                                $valide = false;
+
                                 echo "<td class='erreur' colspan='5'>
                                     <div>
                                         <input type='hidden' name='id' value='" . $id . "'>
@@ -169,12 +209,15 @@
                                     </div>
                                 </td>";
 
-                                // Produit trouvé
+                            // Produit trouvé
                             } else {
                                 $product = $req -> fetch();
 
                                 // Rupture de stock
                                 if ($product["qteProduit"] < $amount) {
+
+                                    $valide = false;
+                                    
                                     echo "<td class='erreur' colspan='5'>
                                         <div>
                                             <input type='hidden' name='id' value='" . $id . "'>
@@ -229,13 +272,13 @@
 
                     echo "<div class='commande'>
                         <div class='prix'>
-                            <p>Total :</p>
+                            <p>Total : <span>(hors frais de port)</span></p>
                             <a>" . number_format($total, 2, ",", " ") . " €</a>
                         </div>";
 
                     // Utilisateur non connecté
                     if (!isset($_SESSION["connexion"])) {
-                            echo "<a class='button' href='/~saephp11/compte'>Se connecter pour commander</a>";
+                        echo "<a class='button' href='compte'>Se connecter pour commander</a>";
 
                     // Utilisateur connecté (formulaire de commande)
                     } else {
@@ -250,10 +293,14 @@
                             <input type='number name='codePostal' autocomplete='postal-code' required>
                     
                             <label class='subtitle'>Pays</label>
-                            <input type='text' name='pays' autocomplete='country-name' required>
+                            <input type='text' name='pays' autocomplete='country-name' required>";
                             
-                            <button type='submit' name='commander'>Commander</button>
-                        </form>";
+                            if($valide) {
+                                echo "<button type='submit' name='creercommande'>Commander</button>";
+                            } else {
+                                echo "<button type='submit' name='creercommande' disabled>Commander</button>";
+                            }
+                        echo "</form>";
                     }
 
                 } else {
@@ -265,7 +312,7 @@
         
     </div>
 
-    <?php include("include/footer.php"); ?>
+    <?php include("./include/footer.php"); ?>
 
 </body>
 

@@ -13,6 +13,7 @@ DROP TABLE IF EXISTS Paiement;
 DROP TABLE IF EXISTS VirementBancaire;
 DROP TABLE IF EXISTS Paypal;
 DROP TABLE IF EXISTS Cartebleue;
+DROP TABLE IF EXISTS ImageAvis;
 
 CREATE TABLE Cartebleue (
     numCB CHAR(16),
@@ -81,6 +82,14 @@ CREATE TABLE Produit (
     tailleProduit VARCHAR(3),
     couleurProduit VARCHAR(40),
     PRIMARY KEY (refProduit),
+    FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie)
+) Engine=InnoDB;
+
+CREATE TABLE AssoProduitCateg (
+    refProduit INT,
+    idCategorie INT,
+    PRIMARY KEY (refProduit, idCategorie),
+    FOREIGN KEY (refProduit) REFERENCES Produit(refProduit),
     FOREIGN KEY (idCategorie) REFERENCES Categorie(idCategorie)
 ) Engine=InnoDB;
 
@@ -161,5 +170,17 @@ CREATE TABLE CategTaille (
     FOREIGN KEY (refProduit) REFERENCES Produit(refProduit)
 ) Engine=InnoDB;
 
+CREATE TABLE ImageAvis (
+    idImageAvis INT AUTO_INCREMENT,
+    idAvis INT,
+    imageAvis VARCHAR(255),
+    PRIMARY KEY (idImageAvis),
+    FOREIGN KEY (idAvis) REFERENCES Avis(idAvis)
+) Engine=InnoDB;
+
+
 ALTER TABLE Produit AUTO_INCREMENT = 100000;
 ALTER TABLE Avis AUTO_INCREMENT = 1;
+
+ALTER TABLE Avis 
+ADD imageAvis VARCHAR(255);

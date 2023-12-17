@@ -1,7 +1,7 @@
 <header>
     <div class="logo">
         <div class="left">
-            <a class="icon" href="/~saephp11/recherche.php">
+            <a class="icon" href="/~saephp11/guychel/recherche.php">
                 <i class="fa-solid fa-magnifying-glass fa-2x"></i>
             </a>
         </div>

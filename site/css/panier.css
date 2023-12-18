@@ -43,6 +43,13 @@ div.commande div.prix a {
     color: #FFFFFF;
 }
 
+div.commande div.prix span {
+    margin-top: 5px;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.7rem;
+}
+
 div.commande input, div.commande label {
     min-width: 100%;
     margin: 5px 0;
@@ -59,24 +66,12 @@ div.content h1 {
     text-align: center;
 }
 
-tr.head {
-    background-color: var(--secondary-color);
-    color: #FFFFFF;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td {
-    text-align: center;
-    border: 1px solid #000000;
-    padding: 5px 10px;
-}
-
 td button {
     padding: 5px 8px;
+}
+
+td button i {
+    color: #000000;
 }
 
 td.erreur {
@@ -101,4 +96,14 @@ button {
     font: inherit;
     cursor: pointer;
     outline: inherit;
+}
+
+@media screen and (max-width: 600px) {
+    div.content {
+        flex-direction: column;
+    }
+
+    div.content div {
+        width: 100%;
+    }
 }

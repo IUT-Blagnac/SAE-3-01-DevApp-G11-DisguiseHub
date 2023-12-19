@@ -25,8 +25,8 @@ BEGIN
             IF p_qteCommandee > v_qteProduit THEN
                 SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'La quantité commandée ne peut pas être supérieure à la quantité en stock.';
             ELSE
-                INSERT INTO Commande (idClient, idPaiement, dateCommande, fraisLivraison, adrLivraison, villeLivraison, codePostalLivraison, paysCommande, statutCommande)
-                VALUES (p_idClient, p_idPaiement, NOW(), p_fraisLivraison, p_adrLivraison, p_villeLivraison, p_codePostalLivraison, p_paysCommande, 'En attente de paiement');
+                INSERT INTO Commande (idClient, idPaiement, fraisLivraison, dateCommande, adrLivraison, villeLivraison, codePostalLivraison, paysCommande, statutCommande)
+                VALUES (p_idClient, p_idPaiement, NOW(), ROUND(RAND() * (10 - 3) + 3 + 0.99, 2), p_adrLivraison, p_villeLivraison, p_codePostalLivraison, p_paysCommande, 'En attente de paiement');
 
                 SET @lastCommandeId = LAST_INSERT_ID();
 

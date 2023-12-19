@@ -135,7 +135,9 @@ BEGIN
     INTO v_qteCommandee
     FROM Commander
     WHERE idCommande = NEW.idCommande;
-
-    SET NEW.montantTotal = (v_prixProduit * v_qteCommandee) + v_fraisLivraison;
+    
+    UPDATE Commande
+    SET montantTotal = (v_prixProduit * v_qteCommandee) + v_fraisLivraison
+    WHERE idCommande = NEW.idCommande;
 END;
 

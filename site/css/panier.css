@@ -1,10 +1,7 @@
 div.content {
-    display: flex;
     align-items: flex-start;
     justify-content: center;
     gap: 20px;
-    min-height: calc(100% - 330px);
-    padding: 20px;
 }
 
 div.content div {

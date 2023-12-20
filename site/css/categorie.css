@@ -1,10 +1,7 @@
 div.content {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: calc(100% - 330px);
-    padding: 20px;
 }
 
 div.content a.categoriepere {

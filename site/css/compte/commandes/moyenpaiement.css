@@ -1,9 +1,7 @@
 div.content {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
-    min-height: calc(100% - 330px);
     width: 100%;
     max-width: 500px;
     margin: 0 auto;

@@ -36,15 +36,14 @@
     <?php
     if (isset($_GET["recherche"])) {
         $recherche = $_GET["recherche"];
-        $categorie = $_GET["tri"]; // Use "tri" instead of "choix"
-        // Use a prepared statement to prevent SQL injection
+        $categorie = $_GET["tri"]; // ASC, DESC, PERT
         if ($categorie === "PERT") {
             $statement = "SELECT * FROM Produit WHERE nomProduit LIKE :recherche;";
         } else {
             $statement = "SELECT * FROM Produit WHERE nomProduit LIKE :recherche ORDER BY prixProduit " . $categorie . ";";
         }
         $req = $conn->prepare($statement);
-        $req->bindValue(':recherche', '%' . $recherche . '%', PDO::PARAM_STR); // Bind the parameter to prevent SQL injection
+        $req->bindValue(':recherche', '%' . $recherche . '%', PDO::PARAM_STR);
         $req->execute();
 
 

@@ -11,6 +11,7 @@
 
     <body>
         <?php include("../../include/header.php"); ?>
+        
 
         <div class="content">
             <h1>Choisissez votre moyen de paiement</h1>

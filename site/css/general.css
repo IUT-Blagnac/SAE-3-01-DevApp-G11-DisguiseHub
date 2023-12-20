@@ -251,3 +251,11 @@ td {
     border: 1px solid #000000;
     padding: 5px 10px;
 }
+
+/* DIV CONTENT */
+
+div.content {
+    display: flex;
+    min-height: calc(100% - 330px);
+    padding: 20px;
+}

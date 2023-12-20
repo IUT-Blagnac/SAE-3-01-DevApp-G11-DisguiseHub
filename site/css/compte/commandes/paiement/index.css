@@ -1,10 +1,7 @@
 div.paiement {
-    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: stretch;
-    min-height: calc(100% - 330px);
-    width: 100%;
 }
 
 form {

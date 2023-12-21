@@ -7,7 +7,7 @@ if (isset($_POST['payer'])) {
     } else if ($paiement == "paypal") {
         header("Location: paiement/paypal.php");
     } else if ($paiement == "virement") {
-        header("Location: virement.php");
+        header("Location: paiement/virement.php");
     }
 }
 ?>

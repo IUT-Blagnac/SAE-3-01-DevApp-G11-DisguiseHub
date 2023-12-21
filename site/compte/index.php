@@ -1,35 +1,47 @@
 <html>
-    <head>
-        <title>Disguise'Hub</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="../css/general.css">
-        <link rel="stylesheet" type="text/css" href="../css/compte/menuCompte.css">
-        <link rel="stylesheet" type="text/css" href="../css/compte/compte.css">
-        <script type="text/javascript" src="../include/fontawesome.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
 
-        <?php
-            if (isset($_GET["deconnexion"])) {
-                session_start();
-                session_destroy();
-                header("location: ../");
-                exit;
-            }
-        ?>
-        
-        <?php include("../include/header.php"); ?>
+<head>
+    <title>Mon compte - Disguise'Hub</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../css/general.css">
+    <link rel="stylesheet" type="text/css" href="../css/compte/menuCompte.css">
+    <script type="text/javascript" src="../include/fontawesome.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
-        <div class="content">
-            <?php include("../include/menuCompte.php"); ?>
+<body>
 
-            <div>
-                <h2>Mon compte</h2>
-            </div>
+    <?php
+    session_start();
+    if (!isset($_SESSION["connexion"])) {
+        header("location: connexion.php");
+        exit;
+    }
+    if (isset($_GET["deconnexion"])) {
+        session_destroy();
+        header("location: ../");
+        exit;
+    }
+    if (isset($_GET["sesouvenir"])) {
+        setcookie("sesouvenir", "", time() - 3600);
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit;
+    }
+    ?>
+
+    <?php include("../include/header.php"); ?>
+
+    <div class="content">
+        <?php include("../include/menuCompte.php"); ?>
+
+        <div>
+            <h2>Mon compte</h2>
+            <p>Page en construction...</p>
         </div>
+    </div>
 
-        <?php include("../include/footer.php"); ?>
+    <?php include("../include/footer.php"); ?>
 
-    </body>
+</body>
+
 </html>

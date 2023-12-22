@@ -25,3 +25,20 @@
         <a href="/~saephp11/magm.php">Réalisé par MAGM</a>
     </div>
 </footer>
+
+<script>
+    var liens = document.querySelectorAll("a");
+    
+    for (var i = 0; i < liens.length; i++) {
+        if (!liens[i].href) continue;
+        if (window.location.href.includes("/~saephp11/angelo")) {
+            liens[i].href = liens[i].href.replace("/~saephp11/", "/~saephp11/angelo/");
+        } else if (window.location.href.includes("/~saephp11/guychel")) {
+            liens[i].href = liens[i].href.replace("/~saephp11/", "/~saephp11/guychel/");
+        } else if (window.location.href.includes("/~saephp11/marwan")) {
+            liens[i].href = liens[i].href.replace("/~saephp11/", "/~saephp11/marwan/");
+        } else if (window.location.href.includes("/~saephp11/maxence")) {
+            liens[i].href = liens[i].href.replace("/~saephp11/", "/~saephp11/maxence/");
+        }
+    }
+</script>

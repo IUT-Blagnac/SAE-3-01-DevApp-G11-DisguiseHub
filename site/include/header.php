@@ -18,36 +18,34 @@
             </a>
         </div>
     </div>
-    <div class="menu">
-        <?php
-            $statement = "SELECT * FROM Categorie WHERE idCategoriePere IS NULL";
-            require_once("connect.inc.php");
+    <div class="menu"><?php
+        $sql = "SELECT * FROM Categorie WHERE idCategoriePere IS NULL";
+        require_once("connect.inc.php");
 
-            $req = $conn -> prepare($statement);
-            $req -> execute();
+        $req = $conn -> prepare($sql);
+        $req -> execute();
 
-            while ($cat = $req -> fetch()) {
-                echo "<div class='item'>
-                    <a class='categorie' href='categorie.php?id=" . $cat["idCategorie"] . "'>" . $cat["nomCategorie"] . "</a>";
-                    
-                    $statement2 = "SELECT * FROM Categorie WHERE idCategoriePere = " . $cat["idCategorie"];
-                    $req2 = $conn -> prepare($statement2);
-                    $req2 -> execute();
-                    
-                    if($req2 && $req2->rowCount() > 0) {
-                        echo "<div class='sousmenu'>";
-                        while ($cat2 = $req2 -> fetch()) {
-                            echo "<a class='sous-categorie' href='categorie.php?id=" . $cat2["idCategorie"] . "'>" . $cat2["nomCategorie"] . "</a>";
-                        }
-                        echo "</div>";
+        while ($cat = $req -> fetch()) {
+            echo "<div class='item'>
+                <a class='categorie'>" . $cat["nomCategorie"] . "</a>";
+                
+                $sql = "SELECT * FROM Categorie WHERE idCategoriePere = " . $cat["idCategorie"];
+                $req2 = $conn -> prepare($sql);
+                $req2 -> execute();
+                
+                if($req2 && $req2->rowCount() > 0) {
+                    echo "<div class='sousmenu'>";
+                    while ($cat2 = $req2 -> fetch()) {
+                        echo "<a class='sous-categorie' href='/~saephp11/categorie.php?id=" . $cat2["idCategorie"] . "'>" . $cat2["nomCategorie"] . "</a>";
                     }
-
-                    $req2 -> closeCursor();
-
                     echo "</div>";
-            }
+                }
+
+                $req2 -> closeCursor();
+
+                echo "</div>";
+        }
             
-            $req -> closeCursor();
-        ?>
-    </div>
+        $req -> closeCursor();
+    ?></div>
 </header>

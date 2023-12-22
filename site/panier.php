@@ -11,6 +11,8 @@
 
 <body>
 
+    <?php session_start(); ?>
+
     <?php include("./include/header.php"); ?>
 
     <?php
@@ -162,8 +164,7 @@
                 }
 
                 // Démarrage session
-                session_start();
-
+                
                 // Panier trouvé et non vide
                 if (isset($cart) && !empty($cart)) {
 

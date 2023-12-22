@@ -13,6 +13,8 @@
 
 <body>
     <?php include("./include/header.php"); ?>
+
+
     <div class="home-page">
         <h1>Bienvenue sur Disguise'Hub</h1>
         <br><br><br>
@@ -52,10 +54,10 @@
                 while ($product = $productReq->fetch()) {
 
                     $sql = "SELECT * FROM Image WHERE refProduit = :produit";
-                    $req = $conn -> prepare($sql);
-                    $req -> execute(["produit" => $product["refProduit"]]);
-                    $image = $req -> fetch()["imageProduit"];
-                    
+                    $req = $conn->prepare($sql);
+                    $req->execute(["produit" => $product["refProduit"]]);
+                    $image = $req->fetch()["imageProduit"];
+
                     echo "<a href='produit.php?id=" . $product["refProduit"] . "' class='product-link'>
                             <div class='product-container'>
                             <img class='product-image' src='" . $image . "' alt='Image " . $product["nomProduit"] . "' />

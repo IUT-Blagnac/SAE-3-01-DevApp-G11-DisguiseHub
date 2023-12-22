@@ -1,35 +1,57 @@
 <html>
-    <head>
-        <title>Disguise'Hub</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="../css/general.css">
-        <link rel="stylesheet" type="text/css" href="../css/compte/menuCompte.css">
-        <link rel="stylesheet" type="text/css" href="../css/compte/compte.css">
-        <script type="text/javascript" src="../include/fontawesome.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
+<head>
+    <title>Mon compte - Disguise'Hub</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../css/general.css">
+    <link rel="stylesheet" type="text/css" href="../css/compte/menuCompte.css">
+    <link rel="stylesheet" type="text/css" href="../css/compte/modification_informations.css">
+    <script type="text/javascript" src="../include/fontawesome.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
-        <?php
-            if (isset($_GET["deconnexion"])) {
-                session_start();
-                session_destroy();
-                header("location: ../");
-                exit;
-            }
-        ?>
-        
-        <?php include("../include/header.php"); ?>
+<body>
 
-        <div class="content">
-            <?php include("../include/menuCompte.php"); ?>
+    <?php
+    session_start();
+    if (!isset($_SESSION["connexion"])) {
+        header("location: connexion.php");
+        exit;
+    }
+    if (isset($_GET["deconnexion"])) {
+        session_destroy();
+        header("location: ../");
+        exit;
+    }
+    if (isset($_GET["sesouvenir"])) {
+        setcookie("sesouvenir", "", time() - 3600);
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit;
+    }
+    ?>
 
-            <div>
-                <h2>Mon compte</h2>
+    <?php include("../include/header.php"); ?>
+
+    <div class="content">
+        <?php include("../include/menuCompte.php"); ?>
+
+        <div class="compte_content">
+            <h1>Bonjour</h1> <br>
+            <div class="box">
+                <p>Vous pouvez consulter l'historique de vos demandes et gérer vos données personnelles dans votre compte client. Choisissez un des liens dans le menu de gauche pour accéder aux informations ou les modifier</p>
+            </div>
+            <br><br><br>
+            <div class="centrer">
+                <h2>Pour accéder à mon panier : </h2><br><br>
+                <a href="../panier.php"><button class="button">Mon panier</button></a><br><br><br>
+                <h2>Pour accéder à mes commandes : </h2><br><br>
+                <a href="../commandes/index.php"><button class="button">Mes commandes</button></a><br>
             </div>
         </div>
+    </div>
 
-        <?php include("../include/footer.php"); ?>
 
-    </body>
+    <?php include("../include/footer.php"); ?>
+
+</body>
+
 </html>

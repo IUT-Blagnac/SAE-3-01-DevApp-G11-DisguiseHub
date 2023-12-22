@@ -15,7 +15,7 @@
 
 <nav>
     <?php
-        echo "<h3>" . $user["prenomClient"] . " " . $user["nomClient"] . "</h3>";
+    echo "<h3>" . $user["prenomClient"] . " " . $user["nomClient"] . "</h3>";
     ?>
     <div>
         <a href="/~saephp11/compte/">🏠 Mon compte</a>

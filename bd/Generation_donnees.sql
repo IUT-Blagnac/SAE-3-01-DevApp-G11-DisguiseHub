@@ -780,3 +780,25 @@ INSERT INTO Avis (idAvisPere, commentaire) VALUES
   (36, 'Nous regrettons que le produit n''ait pas répondu à vos attentes. Veuillez nous contacter pour discuter des solutions possibles.'),
   (37, 'Nous nous excusons pour les dommages pendant la livraison. Veuillez nous contacter pour résoudre ce problème.');
 
+
+INSERT INTO VirementBancaire (Destinataire, IBAN, BIC, Montant, DateVirement) VALUES
+  ('Nichele Angelo', 'FR76 3000 4000 0312 3456 7890 143', 'BNPAFRPH394', 120.99, STR_TO_DATE('2023-12-22', '%Y-%m-%d')),
+  (
+    'Alice Dupont', 'FR76 3000 4000 0312 3456 7890 144', 'BNPAFRPH395', 150.50, STR_TO_DATE('2023-12-23', '%Y-%m-%d')
+  ),
+  (
+    'Bob Martin', 'FR76 3000 4000 0312 3456 7890 145', 'BNPAFRPH396', 200.75, STR_TO_DATE('2023-12-24', '%Y-%m-%d')
+  ),
+  (
+    'Claire Smith', 'FR76 3000 4000 0312 3456 7890 146', 'BNPAFRPH397', 80.30, STR_TO_DATE('2023-12-25', '%Y-%m-%d')
+  ),
+  (
+    'David Johnson', 'FR76 3000 4000 0312 3456 7890 147', 'BNPAFRPH398', 180.25, STR_TO_DATE('2023-12-26', '%Y-%m-%d')
+  ),
+  (
+    'Emma Garcia', 'FR76 3000 4000 0312 3456 7890 148', 'BNPAFRPH399', 95.60, STR_TO_DATE('2023-12-27', '%Y-%m-%d')
+  ),
+  (
+    'Frank Rodriguez', 'FR76 3000 4000 0312 3456 7890 149', 'BNPAFRPH400', 120.99, STR_TO_DATE('2023-12-28', '%Y-%m-%d')
+  );
+

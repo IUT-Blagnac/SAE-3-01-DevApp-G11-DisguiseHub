@@ -15,7 +15,7 @@ if (!isset($_SESSION["connexion"])) {
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../../css/general.css">
     <link rel="stylesheet" type="text/css" href="../../css/compte/menuCompte.css">
-    <link rel="stylesheet" type="text/css" href="../../css/informations.css">
+    <link rel="stylesheet" type="text/css" href="../css/compte/informations.css">
     <script type="text/javascript" src="../../include/fontawesome.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -27,7 +27,7 @@ if (!isset($_SESSION["connexion"])) {
         <?php include("../../include/menuCompte.php"); ?>
 
         <div class="informations-container">
-            <h2>Mes informations</h2><br><br>
+            <h2>Mes informations</h2><br>
 
             <?php
             require_once("../../include/connect.inc.php");
@@ -41,42 +41,74 @@ if (!isset($_SESSION["connexion"])) {
 
             <form method="post" action="modification_informations.php">
                 <?php if (!empty($row['nomClient'])) : ?>
-                    <label>Nom : <?php echo $row['nomClient']; ?></label><br><br>
+                    <label>
+                        <div class="label_titre">Nom : </div><br>
+                        <div class="label_valeur"><?php echo $row['nomClient']; ?></div>
+                    </label><br><br>
                 <?php endif; ?>
 
                 <?php if (!empty($row['prenomClient'])) : ?>
-                    <label>Prénom : <?php echo $row['prenomClient']; ?></label><br><br>
+                    <label>
+                        <div class=" label_titre">Prénom : </div><br>
+                        <div class="label_valeur"><?php echo $row['prenomClient']; ?></div>
+                    </label><br><br>
                 <?php endif; ?>
 
                 <?php if (!empty($row['telClient'])) : ?>
-                    <label>Téléphone : <?php echo $row['telClient']; ?></label><br><br>
+                    <label>
+                        <div class="label_titre">Téléphone : </div><br>
+                        <div class="label_valeur"><?php echo $row['telClient']; ?></div>
+                    </label><br><br>
                 <?php endif; ?>
 
                 <?php if (!empty($row['adresseClient'])) : ?>
-                    <label>Adresse : <?php echo $row['adresseClient']; ?></label><br><br>
+                    <label>
+                        <div class="label_titre">Adresse : </div><br>
+                        <div class="label_valeur"><?php echo $row['adresseClient']; ?></div>
+                    </label><br><br>
                 <?php endif; ?>
 
                 <?php if (!empty($row['codePostalClient'])) : ?>
-                    <label>Code postal : <?php echo $row['codePostalClient']; ?></label><br><br>
+                    <label>
+                        <div class="label_titre">Code postal : </div><br>
+                        <div class="label_valeur"><?php echo $row['codePostalClient']; ?></div>
+                    </label><br><br>
                 <?php endif; ?>
 
                 <?php if (!empty($row['villeClient'])) : ?>
-                    <label>Ville : <?php echo $row['villeClient']; ?></label><br><br>
+                    <label>
+                        <div class="label_titre">Ville : </div><br>
+                        <div class="label_valeur"><?php echo $row['villeClient']; ?></div>
+                    </label><br><br>
                 <?php endif; ?>
 
                 <?php if (!empty($row['dateNaissanceClient'])) : ?>
-                    <label>Date de naissance : <?php echo $row['dateNaissanceClient']; ?></label><br><br>
+                    <label>
+                        <div class="label_titre">Date de naissance : </div><br>
+                        <div class="label_valeur"><?php echo $row['dateNaissanceClient']; ?></div>
+                    </label><br><br>
                 <?php endif; ?>
 
                 <?php if (!empty($row['mailClient'])) : ?>
-                    <label>Email : <?php echo $row['mailClient']; ?></label><br><br>
+                    <label>
+                        <div class="label_titre">Email : </div><br>
+                        <div class="label_valeur"><?php echo $row['mailClient']; ?></div>
+                    </label><br><br>
                 <?php endif; ?>
 
                 <?php if (!empty($row['numCB'])) : ?>
-                    <label>Carte Bleue : <?php echo $row['numCB']; ?></label><br><br>
+                    <label>
+                        <div class="label_titre">Carte Bleue : </div><br>
+                        <div class="label_valeur"><?php echo $row['numCB']; ?></div>
+                    </label><br><br>
                 <?php endif; ?>
 
                 <input type="submit" name="modifier_informations" value="Modifier">
+
+            </form>
+            <form method="post" action="modification_mdp.php">
+                <input type="submit" name="changer_mot_de_passe" value="Changer de mot de passe">
+                <br>
             </form>
 
         </div>

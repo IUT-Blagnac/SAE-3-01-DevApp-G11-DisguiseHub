@@ -180,67 +180,98 @@ footer div.copyright a {
 /* FORMULAIRE */
 
 label:not(.ignore) {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 5px;
-  text-align: left;
-  width: 100%;
-  max-width: 300px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-align: left;
+    width: 100%;
+    max-width: 300px;
 }
 
-input:not(.ignore),
-select:not(.ignore),
-textarea:not(.ignore) {
-  border-radius: 10px;
-  border: 2px solid #757575;
-  width: 100%;
-  min-height: 45px;
-  max-width: 300px;
-  padding: 10px;
+input:not(.ignore), select:not(.ignore), textarea:not(.ignore) {
+    border-radius: 10px;
+    border: 2px solid #757575;
+    width: 100%;
+    min-height: 45px;
+    max-width: 300px;
+    padding: 10px;
 }
 
-input:not(.ignore):focus,
-select:not(.ignore):focus,
-textarea:not(.ignore):focus {
-  border: 2px solid var(--secondary-color);
-  outline: none;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
+input:not(.ignore):focus, select:not(.ignore):focus, textarea:not(.ignore):focus {
+    border: 2px solid var(--secondary-color);
+    outline: none;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
 }
 
-input:not(.ignore):invalid,
-select:not(.ignore):invalid,
-textarea:not(.ignore):invalid {
-  color: var(--tertiary-color);
+input:not(.ignore):invalid, select:not(.ignore):invalid, textarea:not(.ignore):invalid {
+    color: var(--tertiary-color);
 }
 
-button:not(.ignore),
-a.button {
-  display: block;
-  background-color: var(--secondary-color);
-  border-radius: 10px;
-  border: none;
-  color: #ffffff;
-  font-size: 16px;
-  padding: 10px;
-  width: 100%;
-  max-width: 300px;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  transition: background-color 0.3s;
+button:not(.ignore), a.button {
+    display: block;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-button:not(.ignore):hover,
-a.button:hover {
-  background-color: var(--primary-color);
+button:not(.ignore):hover, a.button:hover {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
 }
 
-button:not(.ignore):disabled,
-a.button.disable {
-  background-color: #757575;
-  cursor: not-allowed;
+button:not(.ignore):active:not(:disabled), a.button:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+button:not(.ignore):disabled, a.button.disable {
+    background-color: #757575;
+    cursor: not-allowed;
+}
+
+label.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+  
+label.checkbox:hover svg {
+    background-color: #DE6E22BF;
+}
+  
+label.checkbox input[type="checkbox"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+label.checkbox input[type="checkbox"]:checked + svg {
+    background-color: var(--secondary-color);
+    stroke-dashoffset: 0;
+}
+
+label.checkbox svg {
+    border: 2px solid var(--secondary-color);
+    stroke: #F9F9F9;
+    stroke-dasharray: 25;
+    stroke-dashoffset: 25;
+    stroke-linecap: round;
+    stroke-width: 3px;
+    border-radius: 3px;
+    fill: none;
+    transition: background-color 0.4s, stroke-dashoffset 0.6s;
 }
 
 /* TABLEAU */
@@ -264,7 +295,19 @@ td {
 /* DIV CONTENT */
 
 div.content {
-  display: flex;
-  min-height: calc(100% - 330px);
-  padding: 20px;
+    display: flex;
+    min-height: calc(100% - 330px);
+    padding: 20px;
+}
+
+/* LIEN */
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    transition: 0.3s;
+}
+
+a:hover {
+    color: var(--primary-color);
 }

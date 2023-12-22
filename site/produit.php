@@ -92,10 +92,10 @@
                                             $req = $conn -> prepare($sql);
                                             $req -> execute(["cat" => $categorie["idCategoriePere"]]);
                                             $categoriePere = $req -> fetch();
-                                            echo "<a href='./categorie.php?id=" . $categoriePere["idCategorie"] . "'>" . $categoriePere["nomCategorie"] . "</a> > ";
+                                            echo "<a href='/~saephp11/categorie.php?id=" . $categoriePere["idCategorie"] . "'>" . $categoriePere["nomCategorie"] . "</a> > ";
                                         }
 
-                                        echo "<a href='./categorie.php?id=" . $categorie["idCategorie"] . "'>" . $categorie["nomCategorie"] . "</a>
+                                        echo "<a href='/~saephp11/categorie.php?id=" . $categorie["idCategorie"] . "'>" . $categorie["nomCategorie"] . "</a>
                                     </span>";
                                 }
                                 echo "</div>
@@ -120,7 +120,7 @@
                             </table>";
                             if ($produit["qteProduit"] != 0) {
                                 if (isset($_COOKIE["cart"]) && !empty(json_decode($_COOKIE["cart"], true)) && isset((json_decode($_COOKIE["cart"], true))[$produit["refProduit"]])) {
-                                    echo "<a class='button' href='panier.php'>Dans le panier</a>";
+                                    echo "<a class='button' href='/~saephp11/panier.php'>Dans le panier</a>";
                                 } else {
                                     echo "<form action='panier.php' method='POST'>
                                         <input type='hidden' name='id' value='" . $produit["refProduit"] . "'>

@@ -27,9 +27,15 @@
                     </div>
                     <?php
                         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                            if(!isset($_POST["prix"])) {
+                            if(isset($_POST["id"])) {
+                                $sql = "SELECT * FROM Commande WHERE idCommande = :id";
+                                require_once("../../../include/connect.inc.php");
+                                $req = $conn->prepare($sql);
+                                $req->execute(["id" => $_POST["id"]]);
+                                $row = $req->fetch();
+                                $prix = number_format($row["montantTotal"], 2, ",", " ");
                                 echo "<div class='prix'>
-                                    <button class='btnprix'>" . $_POST["prix"] . " EUR</button>
+                                    <button class='btnprix'>" . $prix . " EUR</button>
                                 </div>";
                             }
                         }
@@ -42,11 +48,15 @@
                     <h2>Payer avec PayPal</h2>
                     <?php
                         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                            if(!isset($_POST["prix"])) {
+                            if(isset($_POST["id"])) {
                                 echo "<p>Vous vous doutez bien que ce n'est pas le vrai PayPal, hein ?</p>
-                                <form action=" . htmlspecialchars($_SERVER["PHP_SELF"]) . " method='POST'>
-                                    <button class='btnpayer' name='paypal'>Payer " . $_POST["prix"] . " €</button>
+                                <form action='./' method='POST'>
+                                    <input type='hidden' name='id' value='" . $_POST["id"] . "'>
+                                    <button class='btnpayer' name='paypal'>Payer " . $prix . " €</button>
                                 </form>";
+                            } else {
+                                echo "<p>Désolé, une erreur s'est produite. Merci de réessayer ultérieusement.</p>
+                                <button class='btnpayer' onclick='javascript:window.history.back();'>Revenir en arrière</button>";
                             }
                         } else {
                             echo "<p>Désolé, une erreur s'est produite. Merci de réessayer ultérieusement.</p>

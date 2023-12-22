@@ -48,7 +48,7 @@
                         $req -> execute(["id" => $categorie["idCategoriePere"]]);
                         $categoriePere = $req -> fetch();
 
-                        echo "<a class='categoriepere' href='./categorie.php?id=" . $categoriePere["idCategorie"] . "'>" . $categoriePere["nomCategorie"] . "</a>";
+                        echo "<a class='categoriepere' href='/~saephp11/categorie.php?id=" . $categoriePere["idCategorie"] . "'>" . $categoriePere["nomCategorie"] . "</a>";
                     }
 
                     echo "<div class='articles'>";
@@ -68,7 +68,7 @@
                             $req = $conn -> prepare($sql);
                             $req -> execute(["id" => $article["refProduit"]]);
                             
-                            echo "<a class='article' href='./produit.php?id=" . $produit["refProduit"] . "'>";
+                            echo "<a class='article' href='/~saephp11/produit.php?id=" . $produit["refProduit"] . "'>";
                             
                             if ($req && $req->rowCount() > 0) {
                                 $image = $req -> fetch();

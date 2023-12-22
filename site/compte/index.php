@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <title>Mon compte - Disguise'Hub</title>
     <meta charset="utf-8">

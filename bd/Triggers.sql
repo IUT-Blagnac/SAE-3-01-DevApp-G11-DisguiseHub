@@ -111,3 +111,33 @@ BEGIN
     WHERE refProduit = NEW.refProduit;
 END;
 //
+
+
+CREATE TRIGGER calcul_montantTotal
+BEFORE INSERT ON Commander
+FOR EACH ROW
+BEGIN
+    DECLARE v_prixProduit DECIMAL(6, 2);
+    DECLARE v_qteCommandee INT;
+    DECLARE v_fraisLivraison DECIMAL(6, 2);
+
+    SELECT prixProduit
+    INTO v_prixProduit
+    FROM Produit
+    WHERE refProduit = NEW.refProduit;
+
+    SELECT fraisLivraison
+    INTO v_fraisLivraison
+    FROM Commande
+    WHERE idCommande = NEW.idCommande;
+
+    SELECT qteCommandee
+    INTO v_qteCommandee
+    FROM Commander
+    WHERE idCommande = NEW.idCommande;
+    
+    UPDATE Commande
+    SET montantTotal = (v_prixProduit * v_qteCommandee) + v_fraisLivraison
+    WHERE idCommande = NEW.idCommande;
+END;
+

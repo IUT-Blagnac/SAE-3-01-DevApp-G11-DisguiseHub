@@ -4,6 +4,12 @@ div.paiement {
     align-items: stretch;
 }
 
+div.virement {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
 form {
     display: flex;
     flex-direction: column;

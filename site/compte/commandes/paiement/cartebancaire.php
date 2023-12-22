@@ -58,8 +58,14 @@
 
     $stmt = $conn->prepare($sql);
     $succes = $stmt->execute(["numCarte" => htmlspecialchars($numCarte)]);
+
+    if ($succes) {
+        echo "Paiement effectué avec succès.";
+    } else {
+        echo "Erreur lors du paiement : " . $stmt->errorInfo()[2];
     }
 
+    }
     ?>
 
     <div class="Paiement">
@@ -92,6 +98,7 @@
         document.getElementsByName("numCarte")[0].addEventListener("input", function() {
 
             this.value = this.value.replace(/[^0-9]/g, "");
+         
 
         });
     </script>

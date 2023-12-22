@@ -17,19 +17,22 @@ if (isset($_POST['payer'])) {
 <head>
     <title>Paiement - Disguise'Hub</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../../css/general.css">
-    <link rel="stylesheet" type="text/css" href="../../css/compte/commandes/paiement/moyenpaiement.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/general.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/compte/commandes/paiement/moyenpaiement.css">
     <script type="text/javascript" src="../../include/fontawesome.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <?php include("../../include/header.php"); ?>
+    <?php include("../../../include/header.php"); ?>
 
 
     <div class="content">
-        <h1>Choisissez votre moyen de paiement</h1>
+
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+            <h1>Choisissez votre moyen de paiement</h1>
+
             <div class="input">
                 <input type="radio" class="ignore" id="cb" name="paiement" value="cb" required>
                 <label for="cb">
@@ -55,7 +58,7 @@ if (isset($_POST['payer'])) {
         </form>
     </div>
 
-    <?php include("../../include/footer.php"); ?>
+    <?php include("../../../include/footer.php"); ?>
 
 
 </body>

@@ -2,16 +2,16 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="./css/general.css">
-    <link rel="stylesheet" href="./css/admin/ajoutproduit.css"> 
-    <script type="text/javascript" src="./include/fontawesome.js"></script>
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/admin/ajoutproduit.css"> 
+    <script type="text/javascript" src="../include/fontawesome.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajout Produit - Disguise'Hub</title>
 </head>
 
 <body>
 
-    <?php include("include/header.php"); ?>
+    <?php include("../include/header.php"); ?>
 
     <div class="content">
 
@@ -19,7 +19,6 @@
             <h1>Ajout de Produit</h1>
 
             <?php
-            require_once("./include/connect.inc.php");
 
             if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["Valider"])) {
                 // Récupérer les valeurs du formulaire
@@ -111,7 +110,7 @@
 
     </div>
 
-    <?php include("include/footer.php"); ?>
+    <?php include("../include/footer.php"); ?>
 
 </body>
 

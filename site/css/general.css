@@ -302,12 +302,12 @@ div.content {
 
 /* LIEN */
 
-a {
+a:link {
     text-decoration: none;
     color: var(--secondary-color);
     transition: 0.3s;
 }
 
-a:hover {
+a:link:hover {
     color: var(--primary-color);
 }

@@ -13,29 +13,27 @@ if (!isset($_SESSION["connexion"])) {
 <head>
     <title>Mes informations - Disguise'Hub</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../../css/general.css">
-    <link rel="stylesheet" type="text/css" href="../../css/compte/menuCompte.css">
+    <link rel="stylesheet" type="text/css" href="../css/general.css">
+    <link rel="stylesheet" type="text/css" href="../css/compte/menuCompte.css">
     <link rel="stylesheet" type="text/css" href="../css/compte/informations.css">
-    <script type="text/javascript" src="../../include/fontawesome.js"></script>
+    <script type="text/javascript" src="../include/fontawesome.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <?php include("../../include/header.php"); ?>
+    <?php include("../include/header.php"); ?>
 
     <div class="content">
-        <?php include("../../include/menuCompte.php"); ?>
+        <?php include("../include/menuCompte.php"); ?>
 
         <div class="informations-container">
             <h2>Mes informations</h2><br>
 
             <?php
-            require_once("../../include/connect.inc.php");
-
-            $sql = "SELECT * FROM Client WHERE idClient = :id";
-            $req = $conn->prepare($sql);
-            $req->execute(["id" => $_SESSION["connexion"]]);
-            $row = $req->fetch();
+                $sql = "SELECT * FROM Client WHERE idClient = :id";
+                $req = $conn->prepare($sql);
+                $req->execute(["id" => $_SESSION["connexion"]]);
+                $row = $req->fetch();
             ?>
 
 
@@ -114,7 +112,7 @@ if (!isset($_SESSION["connexion"])) {
         </div>
     </div>
 
-    <?php include("../../include/footer.php"); ?>
+    <?php include("../include/footer.php"); ?>
 </body>
 
 </html>

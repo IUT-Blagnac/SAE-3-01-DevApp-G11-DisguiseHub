@@ -95,7 +95,7 @@ button {
     outline: inherit;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1050px) {
     div.content {
         flex-direction: column;
     }

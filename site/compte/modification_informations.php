@@ -11,21 +11,20 @@ if (!isset($_SESSION["connexion"])) {
 <head>
     <title>Modification des informations - Disguise'Hub</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../../css/general.css">
-    <link rel="stylesheet" type="text/css" href="../../css/compte/menuCompte.css">
+    <link rel="stylesheet" type="text/css" href="../css/general.css">
+    <link rel="stylesheet" type="text/css" href="../css/compte/menuCompte.css">
     <link rel="stylesheet" type="text/css" href="../css/compte/modification_informations.css">
-    <script type="text/javascript" src="../../include/fontawesome.js"></script>
+    <script type="text/javascript" src="../include/fontawesome.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <?php include("../../include/header.php"); ?>
+    <?php include("../include/header.php"); ?>
 
     <div class="content">
-        <?php include("../../include/menuCompte.php"); ?>
+        <?php include("../include/menuCompte.php"); ?>
 
         <?php
-        require_once("../../include/connect.inc.php");
 
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["modifier_informations"])) {
             if (
@@ -165,7 +164,7 @@ if (!isset($_SESSION["connexion"])) {
         </div>
     </div>
 
-    <?php include("../../include/footer.php"); ?>
+    <?php include("../include/footer.php"); ?>
 </body>
 
 </html>

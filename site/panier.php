@@ -244,14 +244,14 @@
                                         <input type='hidden' name='id' value='" . $id . "'>
                                         <a>" . $product["nomProduit"] . "</a>
                                     </td>
-                                    <td class='couleur'><a>" . $product["couleurProduit"] . "</a></td>
-                                    <td class='taille'><a>" . $product["tailleProduit"] . "</a></td>
-                                    <td class='prix'><a>" . number_format($product["prixProduit"], 2, ",", " ") . " €</a></td>
+                                    <td class='couleur'>" . $product["couleurProduit"] . "</td>
+                                    <td class='taille'>" . $product["tailleProduit"] . "</td>
+                                    <td class='prix'>" . number_format($product["prixProduit"], 2, ",", " ") . " €</td>
                                     <td class='quantite'>
                                         <input type='hidden' name='amount' value='" . $amount . "'>
                                         <button type='submit' name='moins' class='ignore'>
                                             <i class='fa-regular fa-circle-minus'></i>
-                                        </button><a>" . $amount . "</a>";
+                                        </button>" . $amount . "";
                                         if ($product["qteProduit"] >= $amount + 1) {
                                             echo "<button type='submit' name='plus' class='ignore'>
                                                 <i class='fa-regular fa-circle-plus'></i>

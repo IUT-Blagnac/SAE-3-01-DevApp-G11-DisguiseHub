@@ -7,6 +7,10 @@
     <script type="text/javascript" src="../include/fontawesome.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajout Produit - Disguise'Hub</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/~saephp11/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/~saephp11/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/~saephp11/img/favicon/favicon-16x16.png">
+    <meta name="theme-color" content="#DE6E22">
 </head>
 
 <body>
@@ -84,7 +88,6 @@
                         </script>';
                 }
             }
-            ?>
             ?>
 
             <form method="post" enctype="multipart/form-data">

@@ -29,7 +29,7 @@
                 echo "<a href='/~saephp11/compte/?sesouvenir'>❌ Ne plus se souvenir</a>";
             }
             if ($user["isAdmin"] == true) {
-                echo "<a href='/~saephp11/compte/admin'>🔧 Administration</a>";
+                echo "<a href='/~saephp11/admin'>🔧 Administration</a>";
             }
         ?>
     </div>

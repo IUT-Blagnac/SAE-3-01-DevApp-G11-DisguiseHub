@@ -1,76 +1,130 @@
 <html>
 
 <head>
-    <title>Disguise'Hub</title>
+    <title>Paiement virement - Disguise'Hub</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/~saephp11/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/~saephp11/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/~saephp11/img/favicon/favicon-16x16.png">
+    <meta name="theme-color" content="#DE6E22">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../../../css/general.css">
-    <link rel="stylesheet" type="text/css" href="../../../css/compte/commandes/paiement/index.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/compte/commandes/paiement/cartebleue-virement.css">
     <script type="text/javascript" src="../../../include/fontawesome.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
+    <?php
+        session_start();
+    ?>
 
     <?php include("../../../include/header.php"); ?>
 
-    <?php
-    if (isset($_POST["valider"])) {
-        $destinataire = $_POST["nom"];
-        $iban = $_POST["iban"];
-        $bic = $_POST["bic"];
-        $montant = $_POST["montant"];
-        $dateVirement = $_POST["dateVirement"];
+    <div class="content">
 
-        // Insérer le virement dans la base de données
-        $sql = "INSERT INTO VirementBancaire (destinataire, iban, bic, montant, dateVirement) VALUES (:destinataire, :iban, :bic, :montant, :dateVirement)";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute(["destinataire" => htmlspecialchars($destinataire), "iban" => htmlspecialchars($iban), "bic" => htmlspecialchars($bic), "montant" => htmlspecialchars($montant), "dateVirement" => htmlspecialchars($dateVirement)]);
+        <?php
+            if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                if (isset($_POST["payer"])) {
+                    $destinataire = $_POST["nom"];
+                    $iban = $_POST["iban"];
+                    $bic = $_POST["bic"];
 
-        if ($stmt) {
-            echo "Virement enregistré avec succès.";
-        } else {
-            echo "Erreur lors de l'enregistrement du virement : " . $stmt->errorInfo()[2];
-        }
-    }
+                    // Obtenir la commande
+                    $sqlGetCommande = "SELECT * FROM Commande WHERE idCommande = :id AND idClient = :idClient AND idPaiement IS NULL";
+                    $stmtGetCommande = $conn->prepare($sqlGetCommande);
+                    $stmtGetCommande->execute([
+                        "id" => htmlspecialchars($_POST["id"]),
+                        "idClient" => htmlspecialchars($_SESSION["connexion"])
+                    ]);
+                    $rowCommande = $stmtGetCommande->fetch();
 
-    ?>
+                    if ($stmtGetCommande->rowCount() != 1) {
+                        echo "<h2>Erreur</h2>
+                        <p>Une erreur s'est produite lors du paiement. Aucun débit n'a été effectué.</p>
+                        <a class='button' href='/~saephp11/compte/commandes'>Retourner à la liste des commandes</a>";
+                    } else {
+                        // Insérer le virement dans la base de données
+                        $sql = "INSERT INTO VirementBancaire (destinataire, iban, bic, montant, dateVirement) VALUES (:destinataire, :iban, :bic, :montant, :dateVirement)";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->execute([
+                            "destinataire" => htmlspecialchars($destinataire),
+                            "iban" => htmlspecialchars($iban),
+                            "bic" => htmlspecialchars($bic),
+                            "montant" => $rowCommande["montantTotal"],
+                            "dateVirement" => date("Y-m-d")
+                        ]);
+                        $idVirement = $conn->lastInsertId();
+        
+                        // Insérer paiement
+                        $sql = "INSERT INTO Paiement (idVirement) VALUES (:idVirement)";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->execute([
+                            "idVirement" => $idVirement
+                        ]);
+                        $idPaiement = $conn->lastInsertId();
 
-    <div class="virement">
+                        // Ajout du paiement à la commande
+                        $sql = "UPDATE Commande SET idPaiement = :idPaiement, statutCommande = :statut WHERE idCommande = :id";
+                        $req = $conn->prepare($sql);
+                        $req->execute([
+                            "idPaiement" => $idPaiement,
+                            "statut" => "En cours de préparation",
+                            "id" => $_POST["id"]]);
+                        header("Location: ./?succes=" . $_POST["id"]);
+                        exit();
+                    }
+                } else if (isset($_POST["id"]) && isset($_SESSION["connexion"])) {
+                    $sql = "SELECT * FROM Commande WHERE idCommande = :id AND idClient = :idClient AND idPaiement IS NULL";
+                    $req = $conn->prepare($sql);
+                    $req->execute([
+                        "id" => htmlspecialchars($_POST["id"]),
+                        "idClient" => htmlspecialchars($_SESSION["connexion"])
+                    ]);
+                    if ($req->rowCount() != 1) {
+                        echo "<h2>Erreur</h2>
+                        <p>Une erreur s'est produite.</p>
+                        <a class='button' href='/~saephp11/compte/commandes'>Retourner à la liste des commandes</a>";
+                    } else {
+                        $row = $req->fetch();
+                        $sql = "SELECT numCB FROM Client WHERE idClient = :idClient";
+                        $req = $conn->prepare($sql);
+                        $req->execute(["idClient" => htmlspecialchars($_SESSION["connexion"])]);
+                        $cb = $req->fetch()["numCB"];
+                        echo "<h2>Paiement Virement - Commande " . $row["idCommande"] . "</h2>
+                        
+                        <form action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='POST'>
+                            <input type='hidden' name='id' value='" . $_POST["id"] . "'>
 
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                            <label>Nom</label>
+                            <input type='text' name='nom' required>
+                
+                            <label>IBAN</label>
+                            <input type='text' minlength='16' maxlength='33' name='iban' pattern='[A-Z0-9]+' required>
 
-            <h1>Virement bancaire</h1>
-
-            <label for="nom">Destinataire</label>
-            <input type="text" id="nom" name="nom" required>
-
-            <label for="iban">IBAN</label>
-            <input type="text" minlength="16" maxlength="33" id="iban" name="iban" pattern="[A-Z0-9]+" required>
-
-            <label for="bic">BIC</label>
-            <input type="text" id="bic" name="bic" pattern="[A-Z0-9]+" required>
-
-            <label for="montant">Montant</label>
-            <input type="text" id="montant" name="montant" pattern="\d+(\.\d{2})?" required step="0.01" />
-
-            <label for="dateVirement">Date de virement</label>
-            <input type="text" name="dateVirement" placeholder="YYYY-MM-DD" required>
-
-            <button type="submit" name="valider" value="Valider">valider</button>
-        </form>
+                            <label>BIC</label>
+                            <input type='text' name='bic' pattern='[A-Z0-9]+' required>
+                
+                            <button type='submit' name='payer'>Payer " . number_format($row["montantTotal"], 2, ",", " ") . " €</button>
+                            <a class='button' href='/~saephp11/compte/commandes/detail.php?id=" . $_POST["id"] . "'>Annuler</a>
+                
+                        </form>";
+                    }
+                } else {
+                    echo "<h2>Erreur</h2>
+                    <p>Une erreur s'est produite.</p>
+                    <a class='button' href='/~saephp11/compte/commandes'>Retourner à la liste des commandes</a>";
+                }
+            } else {
+                echo "<h2>Erreur</h2>
+                <p>Une erreur s'est produite.</p>
+                <a class='button' href='/~saephp11/compte/commandes'>Retourner à la liste des commandes</a>";
+            }
+        ?>
 
     </div>
 
-    < <?php include("../../../include/footer.php"); ?> 
-    <script>
-        document.getElementsByName("montant")[0].addEventListener("input", function() {
+    <?php include("../../../include/footer.php"); ?>
 
-        this.value = this.value.replace(/[^0-9\.]/g, "");
-        this.value = this.value.replace(/(\..*)\./g, "$1");
-
-        });
-
-    </script>
 </body>
 
 </html>

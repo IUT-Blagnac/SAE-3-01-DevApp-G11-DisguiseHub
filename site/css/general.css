@@ -1,180 +1,180 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  --primary-color: #7e3307;
-  --secondary-color: #de6e22;
-  --tertiary-color: #08111e;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    --primary-color: #7E3307;
+    --secondary-color: #DE6E22;
+    --tertiary-color: #08111E;
 }
 
 /* HEADER */
 
 header {
-  width: 100%;
-  z-index: 100;
+    width: 100%;
+    z-index: 100;
 }
 
 header div {
-  display: flex;
-  align-items: center;
-  width: 100%;
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
 header div.logo {
-  background-color: var(--primary-color);
+    background-color: var(--primary-color);
 }
 
 header div.logo a.logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
 header img {
-  height: 40px;
-  margin: 16px;
-  display: inline;
+    height: 40px;
+    margin: 16px;
+    display: inline;
 }
 
 header h1 {
-  color: #ffffff;
-  font-size: 2rem;
-  font-weight: 800;
-  margin-left: 10px;
-  text-transform: uppercase;
-  display: inline;
-  white-space: nowrap;
+    color: #FFFFFF;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-left: 10px;
+    text-transform: uppercase;
+    display: inline;
+    white-space: nowrap;
 }
 
 header div.logo div.left {
-  position: relative;
-  left: 20px;
-  justify-content: flex-start;
+    position: relative;
+    left: 20px;
+    justify-content: flex-start;
 }
 
 header div.logo div.right {
-  position: relative;
-  right: 20px;
-  justify-content: flex-end;
+    position: relative;
+    right: 20px;
+    justify-content: flex-end;
 }
 
 header div.logo div.left a.icon {
-  margin-right: 15px;
+    margin-right: 15px;
 }
 
 header div.logo div.right a.icon {
-  margin-left: 15px;
+    margin-left: 15px;
 }
 
 header div.logo a.icon {
-  text-decoration: none;
-  color: #ffffff !important;
+    text-decoration: none;
+    color: #FFFFFF !important;
 }
 
 header div.menu {
-  background-color: var(--secondary-color);
-  flex-wrap: nowrap;
-  justify-content: space-around;
+    background-color: var(--secondary-color);
+    flex-wrap: nowrap;
+    justify-content: space-around;
 }
 
 header div.menu div.item {
-  width: 100%;
-  display: block;
-  text-align: center;
+    width: 100%;
+    display: block;
+    text-align: center;
 }
 
 header div.menu div.item a.categorie {
-  display: block;
-  width: 100%;
-  padding: 10px 10px;
-  text-align: center;
-  font-size: 1rem;
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 600;
+    display: block;
+    width: 100%;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
 }
 
 header div.menu div.item:hover {
-  background-color: #08111e1a;
-  cursor: pointer;
+    background-color: #08111e1a;
+    cursor: pointer;
 }
 
 header div.menu div.item:hover div.sousmenu {
-  display: flex;
+    display: flex;
 }
 
 header div.sousmenu {
-  background-color: var(--tertiary-color);
-  display: none;
-  position: absolute;
-  left: 0;
-  width: 100%;
-  z-index: 101;
+    background-color: var(--tertiary-color);
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 101;
 }
 
 header div.sousmenu a.sous-categorie {
-  width: 100%;
-  text-align: left;
-  padding: 15px 40px;
-  font-size: 1rem;
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 500;
+    width: 100%;
+    text-align: left;
+    padding: 15px 40px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
 }
 
 header div.sousmenu a.sous-categorie:hover {
-  background-color: #00000080;
+    background-color: #00000080;
 }
 
 @media screen and (max-width: 600px) {
-  header div.logo h1 {
-    display: none;
-  }
+    header div.logo h1 {
+        display: none;
+    }
 }
 
 /* FOOTER */
 
 footer {
-  color: #ffffff;
-  z-index: 100;
+    color: #ffffff;
+    z-index: 100;
 }
 
 footer div.liens {
-  background-color: var(--tertiary-color);
-  padding: 15px;
-  display: flex;
+    background-color: var(--tertiary-color);
+    padding: 15px;
+    display: flex;
 }
 
 footer div.liens div {
-  width: calc(100% / 3);
-  display: flex;
-  flex-direction: column;
+    width: calc(100% / 3);
+    display: flex;
+    flex-direction: column;
 }
 
 footer div.liens div a {
-  font-size: 1rem;
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 400;
-  padding: 2px 0;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 400;
+    padding: 2px 0;
 }
 
 footer div.copyright {
-  background-color: var(--primary-color);
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
+    background-color: var(--primary-color);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
 }
 
 footer div.copyright a {
-  text-align: right;
-  font-size: 1rem;
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 400;
-  padding: 2px 0;
+    text-align: right;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 400;
+    padding: 2px 0;
 }
 
 /* FORMULAIRE */
@@ -214,7 +214,7 @@ button:not(.ignore), a.button {
     background-color: var(--secondary-color);
     border-radius: 10px;
     border: none;
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     font-size: 16px;
     padding: 10px;
     width: 100%;
@@ -227,7 +227,7 @@ button:not(.ignore), a.button {
 
 button:not(.ignore):hover, a.button:hover {
     background-color: var(--primary-color);
-    color: #FFFFFF;
+    color: #FFFFFF !important;
 }
 
 button:not(.ignore):active:not(:disabled), a.button:active:not(:disabled) {
@@ -272,6 +272,16 @@ label.checkbox svg {
     border-radius: 3px;
     fill: none;
     transition: background-color 0.4s, stroke-dashoffset 0.6s;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 /* TABLEAU */

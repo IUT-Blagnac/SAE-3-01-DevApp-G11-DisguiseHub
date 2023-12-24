@@ -2,6 +2,10 @@
 
     <head>
         <title>Paiement - Disguise'Hub</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/~saephp11/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/~saephp11/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/~saephp11/img/favicon/favicon-16x16.png">
+    <meta name="theme-color" content="#DE6E22">
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../../../css/general.css">
         <link rel="stylesheet" type="text/css" href="../../../css/compte/commandes/paiement/index.css">
@@ -20,65 +24,45 @@
         <div class="content">
 
             <?php
-                if ($_SERVER["REQUEST_METHOD"] === "POST") {
-                    $sql = "SELECT * FROM Commande WHERE idCommande = :id";
+                if (isset($_GET["succes"])) {
+                    $sql = "SELECT * FROM Commande WHERE idCommande = :id AND idPaiement IS NOT NULL";
                     $req = $conn->prepare($sql);
-                    $req->execute(["id" => $_POST["id"]]);
+                    $req->execute(["id" => $_GET["succes"]]);
                     $row = $req->fetch();
-                    
-                    if ($req->rowCount() != 1 || $row["idClient"] != $_SESSION["connexion"] || $row["idPaiement"]) {
+                    if ($req->rowCount() != 1 || $row["idClient"] != $_SESSION["connexion"]) {
                         echo "<h2>Erreur</h2>
                         <p>Une erreur s'est produite.</p>
                         <a class='button' href='/~saephp11/compte/commandes'>Retourner à la liste des commandes</a>";
                     } else {
-                        if (isset($_POST["carte"])) {
-                            $sql = "INSERT INTO Paiement (numCB) VALUES (:numCB)";
-                            $req = $conn->prepare($sql);
-                            $req->execute(["numCB" => $_POST["numCB"]]);
-                            $idPaiement = $conn->lastInsertId();
-                        } else if (isset($_POST["paypal"])) {
-                            $sql = "SELECT * FROM Paypal";
-                            $req = $conn->prepare($sql);
-                            $req->execute();
-                            $idPaypal = $req->rowCount() + 1;
-
-                            $sql = "INSERT INTO Paypal (idPaypal) VALUES (:idPaypal)";
-                            $req = $conn->prepare($sql);
-                            $req->execute(["idPaypal" => $idPaypal]);
-
-                            $sql = "INSERT INTO Paiement (idPaypal) VALUES (:idPaypal)";
-                            $req = $conn->prepare($sql);
-                            $req->execute(["idPaypal" => $idPaypal]);
-                            $idPaiement = $conn->lastInsertId();
-                        } else if (isset($_POST["virement"])) {
-                            $sql = "INSERT INTO Paiement (idVirement) VALUES (:idVirement)";
-                            $req = $conn->prepare($sql);
-                            $req->execute(["idVirement" => 1]);
-                            $idPaiement = $conn->lastInsertId();
-                        } else {
-                            echo "<h2>Erreur</h2>
-                            <p>Une erreur s'est produite.</p>
-                            <a class='button' href='/~saephp11/compte/commandes'>Retourner à la liste des commandes</a>";
-                        }
-                        if (isset($idPaiement)) {
-                            $sql = "UPDATE Commande SET idPaiement = :idPaiement WHERE idCommande = :id";
-                            $req = $conn->prepare($sql);
-                            $req->execute(["idPaiement" => $idPaiement, "id" => $_POST["id"]]);
-                            echo "<h2>Paiement effectué</h2>
-                            <p>Votre paiement a bien été effectué.</p>
-                            <a class='button' href='/~saephp11/compte/commandes'>Retourner à la liste des commandes</a>";
-                        }
+                        echo "<h2>Paiement effectué</h2>
+                        <p>Votre paiement a bien été effectué.</p>
+                        <table>
+                            <tr class='head'>
+                                <td>ID</td>
+                                <td>Montant</td>
+                                <td>Facture</td>
+                            </tr>
+                            <tr>
+                                <td>" . $row["idCommande"] . "</td>
+                                <td>" . number_format($row["montantTotal"], 2, ",", " ") . " €</td>
+                                <td><a href='/~saephp11/compte/commandes/detail.php?id=" . $row["idCommande"] . "'><i class='fas fa-file-invoice'></i> Ma facture</a></td>
+                            </tr>
+                        </table>
+                        <a class='button' href='/~saephp11/compte/commandes'>Retourner à la liste des commandes</a>";
                     }
-                } else if (!isset($_GET["id"])) {
+                } else if (!isset($_GET["id"]) || !isset($_SESSION["connexion"])) {
                     echo "<h2>Erreur</h2>
                     <p>Une erreur s'est produite.</p>
                     <a class='button' href='/~saephp11/compte/commandes'>Retourner à la liste des commandes</a>";
                 } else {
-                    $sql = "SELECT * FROM Commande WHERE idCommande = :id";
+                    $sql = "SELECT * FROM Commande WHERE idCommande = :id AND idClient = :idClient AND idPaiement IS NULL";
                     $req = $conn->prepare($sql);
-                    $req->execute(["id" => $_GET["id"]]);
+                    $req->execute([
+                        "id" => $_GET["id"],
+                        "idClient" => $_SESSION["connexion"]
+                    ]);
                     $row = $req->fetch();
-                    if ($row["idClient"] != $_SESSION["connexion"] || $row["idPaiement"] || $req->rowCount() != 1) {
+                    if ($req->rowCount() != 1) {
                         echo "<h2>Erreur</h2>
                         <p>Une erreur s'est produite.</p>
                         <a class='button' href='/~saephp11/compte/commandes'>Retourner à la liste des commandes</a>";
@@ -95,7 +79,7 @@
                             <tr>
                                 <td>" . $row["idCommande"] . "</td>
                                 <td>" . number_format($row["montantTotal"], 2, ",", " ") . " €</td>
-                                <td><a href='/~saephp11/compte/commandes/facture.php?id=" . $row["idCommande"] . "'><i class='fas fa-file-invoice'></i> Ma facture</a></td>
+                                <td><a href='/~saephp11/compte/commandes/detail.php?id=" . $row["idCommande"] . "'><i class='fas fa-file-invoice'></i> Ma facture</a></td>
                             </tr>
                         </table>
                         

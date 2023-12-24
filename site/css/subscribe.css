@@ -25,7 +25,7 @@ h1 {
     margin-bottom: 15px;
 }
 
-p {
+div.content p {
     font-size: 1rem;
     color: #666;
     margin-bottom: 25px;

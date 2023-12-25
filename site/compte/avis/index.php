@@ -67,8 +67,8 @@
                                         <p>" . $reponse . "</p>";
                                     }
                                     echo "<div class='buttons'>
-                                        <a class='button' href='edit.php?id=" . $produit["refProduit"] . "'>Modifier</a>
-                                        <a class='button' href='edit.php?id=" . $produit["refProduit"] . "&supprimer'>Supprimer</a>
+                                        <a class='button' href='/~saephp11/compte/avis/edit.php?id=" . $produit["refProduit"] . "'>Modifier</a>
+                                        <a class='button' href='/~saephp11/compte/avis/edit.php?id=" . $produit["refProduit"] . "&supprimer'>Supprimer</a>
                                     </div>
                                 </div>";
                                 if (isset($avi["imageAvis"])) {

@@ -30,7 +30,9 @@
             <div>
                 <h2>Mes avis</h2>
                 <div class="avis">
+                    <p>En cours...</p>
                 <?php
+                /*
                     $sql = "SELECT * FROM Avis WHERE idClient = :id ORDER BY idAvis DESC";
                     $avis = $conn->prepare($sql);
                     $avis->execute(["id" => $_SESSION["connexion"]]);
@@ -67,8 +69,8 @@
                                         <p>" . $reponse . "</p>";
                                     }
                                     echo "<div class='buttons'>
-                                        <a class='button' href='edit.php?id=" . $produit["refProduit"] . "'>Modifier</a>
-                                        <a class='button' href='edit.php?id=" . $produit["refProduit"] . "&supprimer'>Supprimer</a>
+                                        <a class='button' href='/~saephp11/compte/avis/edit.php?id=" . $produit["refProduit"] . "'>Modifier</a>
+                                        <a class='button' href='/~saephp11/compte/avis/edit.php?id=" . $produit["refProduit"] . "&supprimer'>Supprimer</a>
                                     </div>
                                 </div>";
                                 if (isset($avi["imageAvis"])) {
@@ -77,9 +79,11 @@
                             echo "</div>";
                         }
                     }
+                    */
                 ?>
                 </div>
                 <?php
+                /*
                     $sql = "SELECT DISTINCT * FROM Produit P, Commander Co, Commande C
                     WHERE P.refProduit = Co.refProduit
                     AND Co.idCommande = C.idCommande
@@ -101,6 +105,7 @@
                             <button type='submit'>Ajouter un avis</button>
                         </form>";
                     }
+                    */
                 ?>
             </div>
         </div>

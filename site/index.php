@@ -34,7 +34,7 @@
 
             while ($cat = $req->fetch()) {
                 echo "<div class='category-container'>
-                        <a href='recherche.php?cat=" . $cat["idCategorie"] . "'>
+                        <a href='/~saephp11/recherche.php?cat=" . $cat["idCategorie"] . "'>
                             <img class='category-image' src='./img/" . $cat["nomCategorie"] . ".jpg' alt='Image " . $cat["nomCategorie"] . "' />
                             <p class='category-name'>" . strtoupper($cat["nomCategorie"]) . "</p>
                         </a>
@@ -62,7 +62,7 @@
                     $req->execute(["produit" => $product["refProduit"]]);
                     $image = $req->fetch()["imageProduit"];
 
-                    echo "<a href='produit.php?id=" . $product["refProduit"] . "' class='product-link'>
+                    echo "<a href='/~saephp11/produit.php?id=" . $product["refProduit"] . "' class='product-link'>
                             <div class='product-container'>
                             <img class='product-image' src='" . $image . "' alt='Image " . $product["nomProduit"] . "' />
                                 <p class='product-name'>" . $product["nomProduit"] . "</p>

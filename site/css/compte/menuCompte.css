@@ -44,6 +44,11 @@ nav a {
     border-radius: 5px;
 }
 
+nav i {
+    width: 20px;
+    padding-right: 20px;
+}
+
 nav a:hover, nav a.active, nav a:focus {
     background-color: #FFFFFF;
     color: var(--primary-color) !important;

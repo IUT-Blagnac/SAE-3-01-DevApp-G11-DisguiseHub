@@ -332,7 +332,7 @@
                 </script>
 
                 <button type="submit" disabled>S'inscrire</button>
-                <a href="connexion.php">J'ai déjà un compte</a>
+                <a href="/~saephp11/compte/connexion.php">J'ai déjà un compte</a>
 
             </form>
 

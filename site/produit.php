@@ -144,6 +144,7 @@
                             echo "<h2>Avis</h2>
                             <p>Aucun avis pour ce produit.</p>";
                         } else {
+                            echo "<h2>Avis (" . count($avis) . ")</h2>";
                             foreach ($avis as $avi) {
                                 $sql = "SELECT nomClient, prenomClient FROM Client WHERE idClient = :id";
                                 $req = $conn -> prepare($sql);
@@ -157,8 +158,7 @@
                                     $reponse = $req -> fetch()["commentaire"];
                                 }
 
-                                echo "<h2>Avis (" . count($avis) . ")</h2>
-                                <div class='avi'>
+                                echo "<div class='avi'>
                                     <div class='texte'>
                                         <div class='client'>
                                             <div class='note'>";

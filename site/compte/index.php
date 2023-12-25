@@ -46,9 +46,9 @@
             <br><br><br>
             <div class="centrer">
                 <h2>Pour accéder à mon panier : </h2><br><br>
-                <a href="../panier.php"><button class="button">Mon panier</button></a><br><br><br>
+                <a href="/~saephp11/panier.php"><button class="button">Mon panier</button></a><br><br><br>
                 <h2>Pour accéder à mes commandes : </h2><br><br>
-                <a href="../compte/commandes/index.php"><button class="button">Mes commandes</button></a><br>
+                <a href="/~saephp11/compte/commandes/index.php"><button class="button">Mes commandes</button></a><br>
             </div>
         </div>
     </div>

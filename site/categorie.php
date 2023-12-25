@@ -32,11 +32,11 @@
                 if ($req && $req->rowCount() > 1) {
                     echo "<h1>Erreur</h1>
                     <p>Plusieurs correspondaces ont été trouvées pour la catégorie \"" . $_GET["id"] . "\".</p>
-                    <a href='./' class='button'>Retour à l'accueil</a>";
+                    <a href='/~saephp11/' class='button'>Retour à l'accueil</a>";
                 } else if ($req && $req->rowCount() == 0) {
                     echo "<h1>Catégorie introuvable</h1>
                     <p>La catégorie \"" . $_GET["id"] . "\" n'existe pas.</p>
-                    <a href='./' class='button'>Retour à l'accueil</a>";
+                    <a href='/~saephp11/' class='button'>Retour à l'accueil</a>";
                 } else {
                     $categorie = $req -> fetch();
 

@@ -190,7 +190,7 @@
                 </script>
 
                 <button type="submit" disabled>Modifier mon mot de passe</button>
-                <a href="connexion.php">Annuler</a>
+                <a href="/~saephp11/compte/connexion.php">Annuler</a>
 
             </form>
 

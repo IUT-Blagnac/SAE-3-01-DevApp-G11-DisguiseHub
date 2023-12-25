@@ -55,7 +55,7 @@
             echo "<div class='products'>";
             while ($product = $req->fetch()) {
                 $imageId = $product["refProduit"] - 100000;
-                echo "<a href='produit.php?id=" . $product["refProduit"] . "' class='product-link'>
+                echo "<a href='/~saephp11/produit.php?id=" . $product["refProduit"] . "' class='product-link'>
                             <div class='product-container'>
                              <img class='product-image' src='https://picsum.photos/360/360?image=" . $imageId . "' alt='Image " . $product["nomProduit"] . "' />
                              <p class='product-name'>" . $product["nomProduit"] . "</p>

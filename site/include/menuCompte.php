@@ -21,7 +21,7 @@
         <a href="/~saephp11/compte/">🏠 Mon compte</a>
         <a href="/~saephp11/compte/commandes">📦 Mes commandes</a>
         <a href="/~saephp11/compte/informations.php">📝 Mes informations</a>
-        <a href="/~saephp11/compte/avis.php">✍️ Mes avis</a>
+        <a href="/~saephp11/compte/avis">✍️ Mes avis</a>
         <a href="/~saephp11/compte/favoris.php">❤️ Mes favoris</a>
         <a href="/~saephp11/compte/?deconnexion" style="margin-top: 20px;">🔒 Déconnexion</a>
         <?php

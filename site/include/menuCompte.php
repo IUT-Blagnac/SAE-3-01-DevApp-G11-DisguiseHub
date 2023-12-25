@@ -18,18 +18,18 @@
     echo "<h3>" . $user["prenomClient"] . " " . $user["nomClient"] . "</h3>";
     ?>
     <div>
-        <a href="/~saephp11/compte/">🏠 Mon compte</a>
-        <a href="/~saephp11/compte/commandes">📦 Mes commandes</a>
-        <a href="/~saephp11/compte/informations.php">📝 Mes informations</a>
-        <a href="/~saephp11/compte/avis.php">✍️ Mes avis</a>
-        <a href="/~saephp11/compte/favoris.php">❤️ Mes favoris</a>
-        <a href="/~saephp11/compte/?deconnexion" style="margin-top: 20px;">🔒 Déconnexion</a>
+        <a href="/~saephp11/compte/"><i class="fa-solid fa-house"></i> Mon compte</a>
+        <a href="/~saephp11/compte/commandes"><i class="fa-solid fa-box"></i> Mes commandes</a>
+        <a href="/~saephp11/compte/informations.php"><i class="fa-solid fa-pen-to-square"></i> Mes informations</a>
+        <a href="/~saephp11/compte/avis"><i class='fas fa-star'></i> Mes avis</a>
+        <a href="/~saephp11/compte/favoris.php"><i class="fa-solid fa-heart"></i> Mes favoris</a>
+        <a href="/~saephp11/compte/?deconnexion" style="margin-top: 20px;"><i class="fa-solid fa-right-from-bracket"></i> Déconnexion</a>
         <?php
             if (isset($_COOKIE["sesouvenir"])) {
-                echo "<a href='/~saephp11/compte/?sesouvenir'>❌ Ne plus se souvenir</a>";
+                echo "<a href='/~saephp11/compte/?sesouvenir'><i class='fa-solid fa-face-dotted'></i> Ne plus se souvenir</a>";
             }
             if ($user["isAdmin"] == true) {
-                echo "<a href='/~saephp11/admin'>🔧 Administration</a>";
+                echo "<a href='/~saephp11/admin'><i class='fa-solid fa-hammer'></i> Administration</a>";
             }
         ?>
     </div>

@@ -32,11 +32,11 @@
                 if ($req && $req->rowCount() > 1) {
                     echo "<h1>Erreur</h1>
                     <p>Plusieurs correspondaces ont été trouvées pour le produit \"" . $_GET["id"] . "\".</p>
-                    <a href='./' class='button'>Retour à l'accueil</a>";
+                    <a href='/~saephp11/' class='button'>Retour à l'accueil</a>";
                 } else if ($req && $req->rowCount() == 0) {
                     echo "<h1>Produit introuvable</h1>
                     <p>Le produit \"" . $_GET["id"] . "\" n'existe pas.</p>
-                    <a href='./' class='button'>Retour à l'accueil</a>";
+                    <a href='/~saephp11/' class='button'>Retour à l'accueil</a>";
                 } else {
                     $produit = $req -> fetch();
 
@@ -144,6 +144,7 @@
                             echo "<h2>Avis</h2>
                             <p>Aucun avis pour ce produit.</p>";
                         } else {
+                            echo "<h2>Avis (" . count($avis) . ")</h2>";
                             foreach ($avis as $avi) {
                                 $sql = "SELECT nomClient, prenomClient FROM Client WHERE idClient = :id";
                                 $req = $conn -> prepare($sql);
@@ -157,8 +158,7 @@
                                     $reponse = $req -> fetch()["commentaire"];
                                 }
 
-                                echo "<h2>Avis (" . count($avis) . ")</h2>
-                                <div class='avi'>
+                                echo "<div class='avi'>
                                     <div class='texte'>
                                         <div class='client'>
                                             <div class='note'>";

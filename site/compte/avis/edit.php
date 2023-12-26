@@ -8,7 +8,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../../css/general.css">
         <link rel="stylesheet" type="text/css" href="../../css/compte/menuCompte.css">
-        <link rel="stylesheet" type="text/css" href="../../css/compte/avis/index.css">
+        <link rel="stylesheet" type="text/css" href="../../css/compte/avis/edit.css">
         <script type="text/javascript" src="../../include/fontawesome.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -28,84 +28,110 @@
             <?php include("../../include/menuCompte.php"); ?>
 
             <div>
-                <h2>Mes avis</h2>
-                <div class="avis">
-                    <p>En cours...</p>
                 <?php
-                /*
-                    $sql = "SELECT * FROM Avis WHERE idClient = :id ORDER BY idAvis DESC";
-                    $avis = $conn->prepare($sql);
-                    $avis->execute(["id" => $_SESSION["connexion"]]);
-
-                    if ($avis->rowCount() == 0) {
-                        echo "<p>Vous n'avez pas laissé d'avis.</p>";
-                    } else {
-                        while ($avi = $avis->fetch()) {
-                            $sql = "SELECT * FROM Produit WHERE refProduit = :id";
-                            $req = $conn->prepare($sql);
-                            $req->execute(["id" => $avi["refProduit"]]);
-                            $produit = $req->fetch();
-                            $sql = "SELECT * FROM Avis WHERE idAvisPere = :id";
-                            $req = $conn->prepare($sql);
-                            $req->execute(["id" => $avi["idAvis"]]);
-                            $reponse = $req->fetch()["commentaire"];
-
-                            echo "<div class='avi'>
-                                <div class='texte'>
-                                    <div class='client'>
-                                        <div class='note'>";
-                                            for ($i = 0; $i < $avi["note"]; $i++) {
-                                                echo "<i class='fas fa-star color'></i>";
-                                            }
-                                            for ($i = 0; $i < 5 - $avi["note"]; $i++) {
-                                                echo "<i class='fas fa-star'></i>";
-                                            }
-                                        echo "</div>
-                                        <h3><a href='/~saephp11/produit.php?id=" . $produit["refProduit"] . "'>" . $produit["nomProduit"] . "</a></h3>
-                                    </div>
-                                    <p>" . $avi["commentaire"] . "</p>";
-                                    if (isset($reponse)) {
-                                        echo "<h4>Disguise'Hub</h4>
-                                        <p>" . $reponse . "</p>";
-                                    }
-                                    echo "<div class='buttons'>
-                                        <a class='button' href='/~saephp11/compte/avis/edit.php?id=" . $produit["refProduit"] . "'>Modifier</a>
-                                        <a class='button' href='/~saephp11/compte/avis/edit.php?id=" . $produit["refProduit"] . "&supprimer'>Supprimer</a>
-                                    </div>
-                                </div>";
-                                if (isset($avi["imageAvis"])) {
-                                    echo "<img src='" . $avi["imageAvis"] . "' alt='Photo de l'avis " . $avi["idAvis"] . "'>";
-                                }
-                            echo "</div>";
-                        }
-                    }
-                    */
-                ?>
-                </div>
-                <?php
-                /*
-                    $sql = "SELECT DISTINCT * FROM Produit P, Commander Co, Commande C
+                    $sql = "SELECT DISTINCT P.refProduit FROM Produit P, Commander Co, Commande C
                     WHERE P.refProduit = Co.refProduit
                     AND Co.idCommande = C.idCommande
                     AND C.idClient = :id
-                    AND P.refProduit NOT IN (
-                        SELECT refProduit FROM Avis A
-                        WHERE A.idClient = C.idClient
-                    )";
+                    AND P.refProduit = :produit";
                     $req = $conn->prepare($sql);
-                    $req->execute(["id" => $_SESSION["connexion"]]);
-                    if ($req->rowCount() != 0) {
-                        echo "<form action='edit.php' method='GET'>
-                            <select name='id' required>
-                                <option value='' selected disabled>Choisissez un produit</option>";
-                                while ($produit = $req->fetch()) {
-                                    echo "<option value='" . $produit["refProduit"] . "'>" . $produit["nomProduit"] . "</option>";
-                                }
-                            echo "</select>
-                            <button type='submit'>Ajouter un avis</button>
-                        </form>";
+                    $req->execute([
+                        "id" => $_SESSION["connexion"],
+                        "produit" => $_GET["id"]
+                    ]);
+                    if ($req->rowCount() == 0) {
+                        echo "<h2>Erreur</h2>
+                        <p>Vous ne pouvez pas laisser d'avis sur un produit que vous n'avez pas acheté.</p>
+                        <a class='button' href='/~saephp11/compte/avis'>Retour</a>";
+                    } else if ($req->rowCount() != 1) {
+                        echo $req->rowCount();
+                        echo "<h2>Erreur</h2>
+                        <p>Une erreur est survenue.</p>
+                        <a class='button' href='/~saephp11/compte/avis'>Retour</a>";
+                    } else {
+                        $sql = "SELECT DISTINCT P.refProduit FROM Produit P, Commander Co, Commande C
+                        WHERE P.refProduit = Co.refProduit
+                        AND Co.idCommande = C.idCommande
+                        AND C.idClient = :id
+                        AND P.refProduit = :produit
+                        AND P.refProduit NOT IN (
+                            SELECT refProduit FROM Avis A
+                            WHERE A.idClient = C.idClient
+                        )";
+                        $req = $conn->prepare($sql);
+                        $req->execute([
+                            "id" => $_SESSION["connexion"],
+                            "produit" => $_GET["id"]
+                        ]);
+                        if (isset($_GET["supprimer"])) {
+                            $status = "supprimer";
+                            echo "<h2>Supprimer un avis</h2>";
+                        } else if ($req->rowCount() == 0) {
+                            $status = "modifier";
+                            echo "<h2>Modifier un avis</h2>";
+                        } else {
+                            $status = "ajouter";
+                            echo "<h2>Ajouter un avis</h2>";
+                        }
+                        $sql = "SELECT * FROM Produit WHERE refProduit = :id";
+                        $req = $conn->prepare($sql);
+                        $req->execute(["id" => $_GET["id"]]);
+                        $produit = $req->fetch();
+                        $sql = "SELECT * FROM Avis WHERE idClient = :id AND refProduit = :produit";
+                        $req = $conn->prepare($sql);
+                        $req->execute([
+                            "id" => $_SESSION["connexion"],
+                            "produit" => $_GET["id"]
+                        ]);
+                        $avi = $req->fetch();
+
+                        echo "<div class='avis'>
+                            <form class='avi' action='edit.php' method='POST' enctype='multipart/form-data'>
+                                <div>
+                                    <div class='inputs'>
+                                        <div class='note'>
+                                            <label for='note'>Note :</label>
+                                            <select name='note' required>
+                                                <option selected disabled></option>";
+                                                for ($i = 1; $i <= 5; $i++) {
+                                                    echo "<option value='" . $i . "' " . (isset($avi["note"]) ? "selected" : "") . ">";
+                                                    for ($j = 0; $j < $i; $j++) {
+                                                        echo "⭐";
+                                                    }
+                                                    echo "</option>";
+                                                }
+                                            echo "</select>
+                                        </div>
+                                        <div class='texte'>
+                                            <label for='commentaire'>Commentaire :</label>
+                                            <textarea name='commentaire' value='" . $avi["note"] . "' required>" . $avi["commentaire"] . "</textarea>
+                                        </div>
+                                    </div>
+                                    <div class='image'>";
+                                        if (isset($avi["imageAvis"])) {
+                                            echo "<img src='" . $avi["imageAvis"] . "' alt='Votre image d'avis'>";
+                                        }
+                                        echo "<label>
+                                            <input type='file' name='image' style='display: none;' id='image' accept='image/*'>";
+                                            if (isset($avi["imageAvis"])) {
+                                                echo "<i class='fa fa-cloud-upload'></i> Mettre à jour l'image";
+                                            } else {
+                                                echo "<i class='fa fa-cloud-upload'></i> Ajouter une image";
+                                            }
+                                        echo "</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a class='button retour' href='/~saephp11/compte/avis'>Retour</a>";
+                                    if ($status == "modifier") {
+                                        echo "<a class='button supprimer' href='/~saephp11/compte/avis/edit.php?id=" . $_GET["id"] . "&supprimer'>Supprimer</a>";
+                                    }
+                                    echo "<button type='submit'>Valider</button>
+                                </div>
+                            </form>";
+                            require_once("../../include/apercuProduit.php");
+                        echo "</div>";
                     }
-                    */
                 ?>
             </div>
         </div>

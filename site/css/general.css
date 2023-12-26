@@ -274,14 +274,21 @@ label.checkbox svg {
     transition: background-color 0.4s, stroke-dashoffset 0.6s;
 }
 
-input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+input::-webkit-outer-spin-button:not(.ignore), input::-webkit-inner-spin-button:not(.ignore) {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type=number] {
+input[type="number"]:not(.ignore) {
   -moz-appearance: textfield;
   appearance: textfield;
+}
+
+textarea:not(.ignore) {
+    resize: none;
+    min-height: 5lh;
+    max-height: 5lh;
+    field-sizing: content;
 }
 
 /* TABLEAU */
@@ -334,10 +341,12 @@ a.produit {
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    gap: 5px;
     color: #000000; 
     position: relative;
     text-align: center;
-    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -372,19 +381,28 @@ a.produit img {
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
 }
 
 a.produit h3 {
     font-weight: bold;
-    margin-bottom: 10px;
+    font-size: 1.3rem;
+    transition: color 0.3s;
 }
 
-a.produit p {
-    margin-bottom: 10px;
+a.produit div {
+    display: flex;
+    gap: 5px;
 }
 
-a.produit span {
-    color: #e44d26;
+a.produit span:not(.prix) {
+    color: #000000;
+    padding: 3px 7px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+a.produit span.prix {
+    color: var(--secondary-color);
     font-weight: bold;
 }

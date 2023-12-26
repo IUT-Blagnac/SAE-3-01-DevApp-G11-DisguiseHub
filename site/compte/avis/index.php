@@ -80,7 +80,7 @@
                 ?>
                 </div>
                 <?php
-                    $sql = "SELECT DISTINCT * FROM Produit P, Commander Co, Commande C
+                    $sql = "SELECT DISTINCT P.refProduit, P.nomProduit FROM Produit P, Commander Co, Commande C
                     WHERE P.refProduit = Co.refProduit
                     AND Co.idCommande = C.idCommande
                     AND C.idClient = :id

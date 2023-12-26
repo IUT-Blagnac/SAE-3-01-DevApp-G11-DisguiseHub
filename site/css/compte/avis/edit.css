@@ -1,0 +1,123 @@
+div.avis {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+}
+
+form.avi {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--tertiary-color);
+    color: #FFFFFF;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+form.avi > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+form.avi div > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div.inputs {
+    width: 100%;
+}
+
+div.image {
+    gap: 10px;
+    min-width: 200px;
+}
+
+div.image label {
+    cursor: pointer;
+}
+
+div.image label {
+    text-align: center;
+}
+
+form.avi div.texte {
+    width: 100%;
+}
+
+form.avi div.client {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+form.avi h4 {
+    margin-top: 10px;
+}
+
+form.avi img {
+    height: 150px;
+    border-radius: 10px;
+}
+
+i.color {
+    color: var(--secondary-color);
+}
+
+div.buttons {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+div.buttons a.button {
+    max-width: none;
+}
+
+form select, form textarea {
+    max-width: none !important;
+    margin-bottom: 10px;
+}
+
+a.retour {
+    background-color: var(--primary-color);
+}
+
+a.retour:hover {
+    background-color: #4B2915;
+}
+
+a.supprimer {
+    background-color: #BD0000;
+}
+
+a.supprimer:hover {
+    background-color: #750000;
+}
+
+@media screen and (max-width: 600px) {
+    div.produit {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form.avi {
+        flex-direction: column;
+    }
+    
+    form {
+        flex-direction: column;
+    }
+
+    form select {
+        max-width: 300px !important;
+    }
+}

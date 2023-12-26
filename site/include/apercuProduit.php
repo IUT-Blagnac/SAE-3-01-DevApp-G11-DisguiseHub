@@ -9,17 +9,14 @@
             echo "<img src='" . $image["imageProduit"] . "' alt='" . $produit["nomProduit"] . "' />";
         }
         echo "<h3>" . $produit["nomProduit"] . "</h3>
-        <p>";
-        if (isset($produit["tailleProduit"])) {
-            echo $produit["tailleProduit"];
-        }
-        if (isset($produit["tailleProduit"]) && isset($produit["couleurProduit"])) {
-            echo " - ";
-        }
-        if (isset($produit["couleurProduit"])) {
-            echo $produit["couleurProduit"];
-        }
-        echo "</p>
+        <div>";
+            if (isset($produit["tailleProduit"])) {
+                echo "<span>" . $produit["tailleProduit"] . "</span>";
+            }
+            if (isset($produit["couleurProduit"])) {
+                echo "<span>" . $produit["couleurProduit"] . "</span>";
+            }
+        echo "</div>
         <span class='prix'>" . number_format($produit["prixProduit"], 2, ",", " ") . " €</span>
     </a>";
 ?>

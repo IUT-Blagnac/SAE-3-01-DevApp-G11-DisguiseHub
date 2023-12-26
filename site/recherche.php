@@ -53,23 +53,14 @@
 
         if ($req->rowCount() > 0) {
             echo "<div class='products'>";
-            while ($product = $req->fetch()) {
-                $imageId = $product["refProduit"] - 100000;
-                echo "<a href='/~saephp11/produit.php?id=" . $product["refProduit"] . "' class='product-link'>
-                            <div class='product-container'>
-                             <img class='product-image' src='https://picsum.photos/360/360?image=" . $imageId . "' alt='Image " . $product["nomProduit"] . "' />
-                             <p class='product-name'>" . $product["nomProduit"] . "</p>
-                             <p class='product-description'>" . $product["descProduit"] . "</p>
-                             <p class='product-price'>" . $product["prixProduit"] . " €</p>
-                             <p class='product-size'>" . $product["tailleProduit"] . " </p>
-                            </div>
-                      </a>";
-            }
+                while ($produit = $req->fetch()) {
+                    require("./include/apercuProduit.php");
+                }
             echo "</div>";
         } else {
             echo "<div class='no-results'>
-                      <p>Aucun résultat pour votre recherche.</p>
-                 </div>";
+                <p>Aucun résultat pour votre recherche.</p>
+            </div>";
         }
     }
     ?>

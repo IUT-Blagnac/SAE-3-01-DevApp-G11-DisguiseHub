@@ -347,6 +347,7 @@ a.produit {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-decoration: none;
     gap: 5px;
     color: #000000;
@@ -393,6 +394,7 @@ a.produit img {
 }
 
 a.produit h3 {
+    width: 100%;
     font-size: 1.3rem;
     font-weight: bold;
     text-align: left;
@@ -400,8 +402,8 @@ a.produit h3 {
 }
 
 a.produit div {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 5px;
 }

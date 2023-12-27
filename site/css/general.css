@@ -92,7 +92,7 @@ header div.menu div.item a.categorie {
     text-align: center;
     font-size: 1rem;
     text-decoration: none;
-    color: #ffffff;
+    color: #FFFFFF;
     font-weight: 600;
 }
 
@@ -120,7 +120,7 @@ header div.sousmenu a.sous-categorie {
     padding: 15px 40px;
     font-size: 1rem;
     text-decoration: none;
-    color: #ffffff;
+    color: #FFFFFF;
     font-weight: 500;
 }
 
@@ -137,7 +137,7 @@ header div.sousmenu a.sous-categorie:hover {
 /* FOOTER */
 
 footer {
-    color: #ffffff;
+    color: #FFFFFF;
     z-index: 100;
 }
 
@@ -156,9 +156,13 @@ footer div.liens div {
 footer div.liens div a {
     font-size: 1rem;
     text-decoration: none;
-    color: #ffffff;
+    color: #FFFFFF;
     font-weight: 400;
     padding: 2px 0;
+}
+
+footer div.liens div a:hover {
+    color: #AAAAAA;
 }
 
 footer div.copyright {
@@ -172,9 +176,13 @@ footer div.copyright a {
     text-align: right;
     font-size: 1rem;
     text-decoration: none;
-    color: #ffffff;
+    color: #FFFFFF;
     font-weight: 400;
     padding: 2px 0;
+}
+
+footer div.copyright a:hover {
+    color: #FFFFFF;
 }
 
 /* FORMULAIRE */
@@ -274,14 +282,21 @@ label.checkbox svg {
     transition: background-color 0.4s, stroke-dashoffset 0.6s;
 }
 
-input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+input::-webkit-outer-spin-button:not(.ignore), input::-webkit-inner-spin-button:not(.ignore) {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type=number] {
+input[type="number"]:not(.ignore) {
   -moz-appearance: textfield;
   appearance: textfield;
+}
+
+textarea:not(.ignore) {
+    resize: none;
+    min-height: 5lh;
+    max-height: 5lh;
+    field-sizing: content;
 }
 
 /* TABLEAU */
@@ -293,7 +308,7 @@ table {
 
 tr.head {
   background-color: var(--secondary-color);
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 td {
@@ -324,4 +339,107 @@ a:link:hover {
 
 a:visited {
     color: var(--secondary-color);
+}
+
+/* APERCU PRODUIT */
+
+a.produit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-decoration: none;
+    gap: 5px;
+    color: #000000;
+    position: relative;
+    min-width: 275px;
+    max-width: 275px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+a.produit:hover {
+    color: var(--secondary-color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+a.produit::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+a.produit:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+a.produit img {
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+a.produit h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: left;
+    transition: color 0.3s;
+}
+
+a.produit div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+a.produit span:not(.prix):not(.solde) {
+    color: #000000;
+    padding: 3px 6px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+a.produit span.prix {
+    position: relative;
+    font-size: 0.8rem;
+    padding: 4px 6px;
+    background-color: var(--secondary-color);
+    color: #FFFFFF;
+    border-radius: 5px;
+    transform-origin: bottom right;
+    transition: transform 0.3s;
+}
+
+a.produit:hover span.prix {
+    transform: scale(1.1);
+}
+
+a.produit span.prix span.solde {
+    position: absolute;
+    top: -17px;
+    right: 0;
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    text-decoration: line-through;
+    transform-origin: bottom right;
+    transition: transform 0.3s;
+}
+
+a.produit:hover span.prix span.solde {
+    transform: scale(0.8);
 }

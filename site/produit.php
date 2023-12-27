@@ -66,13 +66,15 @@
                         $moyenne = round($req -> fetch()["moyenne"]);
                     }
 
-                    echo "<div class='produit'>
-                        <div class='images'>";
-                            foreach ($images as $image) {
-                                echo "<img src='" . $image["imageProduit"] . "' alt='" . $produit["nomProduit"] . "'>";
-                            }
-                        echo "</div>
-                        <div class='details'>";
+                    echo "<div class='produit'>";
+                        if (count($images) != 0) {
+                            echo "<div class='images'>";
+                                foreach ($images as $image) {
+                                    echo "<img src='" . $image["imageProduit"] . "' alt='" . $produit["nomProduit"] . "'>";
+                                }
+                            echo "</div>";
+                        }
+                        echo "<div class='details'>";
                             if (isset($moyenne)) {
                                 for ($i = 0; $i < $moyenne; $i++) {
                                     echo "<i class='fas fa-star color'></i>";

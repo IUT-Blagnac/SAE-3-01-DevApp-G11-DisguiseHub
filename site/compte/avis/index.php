@@ -46,7 +46,7 @@
                             $sql = "SELECT * FROM Avis WHERE idAvisPere = :id";
                             $req = $conn->prepare($sql);
                             $req->execute(["id" => $avi["idAvis"]]);
-                            $reponse = $req->fetch()["commentaire"];
+                            $reponse = $req->fetch();
 
                             echo "<div class='avi'>
                                 <div class='texte'>
@@ -62,9 +62,9 @@
                                         <h3><a href='/~saephp11/produit.php?id=" . $produit["refProduit"] . "'>" . $produit["nomProduit"] . "</a></h3>
                                     </div>
                                     <p>" . $avi["commentaire"] . "</p>";
-                                    if (isset($reponse)) {
+                                    if (isset($reponse["commentaire"])) {
                                         echo "<h4>Disguise'Hub</h4>
-                                        <p>" . $reponse . "</p>";
+                                        <p>" . $reponse["commentaire"] . "</p>";
                                     }
                                     echo "<div class='buttons'>
                                         <a class='button' href='/~saephp11/compte/avis/edit.php?id=" . $produit["refProduit"] . "'>Modifier</a>

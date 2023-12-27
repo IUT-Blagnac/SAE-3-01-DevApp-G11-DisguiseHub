@@ -14,15 +14,111 @@
     </head>
     <body>
 
+        <?php include("../../include/header.php"); ?>
+
         <?php
             session_start();
             if(!isset($_SESSION["connexion"])) {
-                header("location: ../connexion.php");
+                header("Location: ../connexion.php");
+                exit;
+            }
+            if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                $sql = "SELECT DISTINCT P.refProduit FROM Produit P, Commander Co, Commande C
+                WHERE P.refProduit = Co.refProduit
+                AND Co.idCommande = C.idCommande
+                AND C.idClient = :id
+                AND P.refProduit = :produit";
+                $req = $conn->prepare($sql);
+                $req->execute([
+                    "id" => htmlspecialchars($_SESSION["connexion"]),
+                    "produit" => htmlspecialchars($_POST["id"])
+                ]);
+                $avi = $req->fetch();
+                if ($req->rowCount() == 0) {
+                    header("Location: ../avis");
+                    exit;
+                }
+                $sql = "SELECT * FROM Avis WHERE refProduit = :produit AND idClient = :id";
+                $req = $conn->prepare($sql);
+                $req->execute([
+                    "produit" => htmlspecialchars($_POST["id"]),
+                    "id" => htmlspecialchars($_SESSION["connexion"])
+                ]);
+                $avi = $req->fetch();
+                if ($req->rowCount() != 1) {
+                    $sql = "INSERT INTO Avis (idClient, refProduit, note, commentaire)
+                    VALUES (:idClient, :refProduit, :note, :commentaire)";
+                    $req = $conn->prepare($sql);
+                    $req->execute([
+                        "idClient" => htmlspecialchars($_SESSION["connexion"]),
+                        "refProduit" => htmlspecialchars($_POST["id"]),
+                        "note" => htmlspecialchars($_POST["note"]),
+                        "commentaire" => htmlspecialchars($_POST["commentaire"])
+                    ]);
+                } else {
+                    if (isset($_POST["supprimer"])) {
+                        $sql = "DELETE FROM Avis WHERE idClient = :id AND refProduit = :produit";
+                        $req = $conn->prepare($sql);
+                        $req->execute([
+                            "id" => htmlspecialchars($_SESSION["connexion"]),
+                            "produit" => htmlspecialchars($_POST["id"])
+                        ]);
+                        header("Location: ../avis");
+                        exit;
+                    }
+                    $sql = "UPDATE Avis SET note = :note, commentaire = :commentaire WHERE idClient = :id AND refProduit = :produit";
+                    $req = $conn->prepare($sql);
+                    $req->execute([
+                        "note" => htmlspecialchars($_POST["note"]),
+                        "commentaire" => htmlspecialchars($_POST["commentaire"]),
+                        "id" => htmlspecialchars($_SESSION["connexion"]),
+                        "produit" => htmlspecialchars($_POST["id"])
+                    ]);
+                }
+                if (isset($_FILES["image"]) && $_FILES["image"]["error"] == 0) {
+                    $sql = "SELECT * FROM Avis WHERE idAvis = :id";
+                    $req = $conn->prepare($sql);
+                    $req->execute(["id" => $_POST["id"]]);
+                    $avi = $req->fetch();
+                    $target_dir = "/home/saephp11/public_html/img/avis/";
+                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+                    $uploadOk = 1;
+                    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                    $check = getimagesize($_FILES["image"]["tmp_name"]);
+                    if ($check !== false) {
+                        $uploadOk = true;
+                    } else {
+                        $uploadOk = false;
+                    }
+                    if (file_exists($target_file)) {
+                        $uploadOk = false;
+                    }
+                    if ($_FILES["image"]["size"] > 500000) {
+                        $uploadOk = false;
+                    }
+                    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+                        $uploadOk = false;
+                    }
+                    if (!$uploadOk) {
+                        echo "<script>alert('Une erreur est survenue lors de l'envoi de l'image.')</script>";
+                    } else {
+                        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                            $sql = "UPDATE Avis SET imageAvis = :image WHERE idClient = :id AND refProduit = :produit";
+                            $req = $conn->prepare($sql);
+                            $req->execute([
+                                "image" => "/~saephp11/img/avis/" . htmlspecialchars($_FILES["image"]["name"]),
+                                "id" => htmlspecialchars($_SESSION["connexion"]),
+                                "produit" => htmlspecialchars($_POST["id"])
+                            ]);
+                        } else {
+                            echo "<script>alert('Une erreur est survenue lors de l'envoi de l'image.')</script>";
+                        }
+                    }
+                }
+                header("Location: ../avis");
                 exit;
             }
         ?>
-        
-        <?php include("../../include/header.php"); ?>
 
         <div class="content">
             <?php include("../../include/menuCompte.php"); ?>
@@ -87,39 +183,68 @@
 
                         echo "<div class='avis'>
                             <form class='avi' action='edit.php' method='POST' enctype='multipart/form-data'>
-                                <div>
+                                <input type='hidden' name='id' value='" . $_GET["id"] . "'>";
+                                if (isset($_GET["supprimer"])) {
+                                    echo "<input type='hidden' name='supprimer' value='1'>";
+                                }
+                                echo "<div>
                                     <div class='inputs'>
                                         <div class='note'>
-                                            <label for='note'>Note :</label>
-                                            <select name='note' required>
-                                                <option selected disabled></option>";
-                                                for ($i = 1; $i <= 5; $i++) {
-                                                    echo "<option value='" . $i . "' " . (isset($avi["note"]) ? "selected" : "") . ">";
-                                                    for ($j = 0; $j < $i; $j++) {
-                                                        echo "⭐";
-                                                    }
-                                                    echo "</option>";
+                                            <label for='note'>Note :</label>";
+                                            if (isset($_GET["supprimer"])) {
+                                                echo "<input type='text' name='note' value='";
+                                                for ($i = 0; $i < $avi["note"]; $i++) {
+                                                    echo "⭐";
                                                 }
-                                            echo "</select>
-                                        </div>
+                                                echo "' readonly required>";
+                                            } else {
+                                                echo "<select name='note' required " . ((isset($_GET["supprimer"] )) ? "disabled" : "") . ">
+                                                    <option selected disabled></option>";
+                                                    for ($i = 1; $i <= 5; $i++) {
+                                                        echo "<option value='" . $i . "' " . (($avi["note"] == $i) ? "selected" : "") . ">";
+                                                        for ($j = 0; $j < $i; $j++) {
+                                                            echo "⭐";
+                                                        }
+                                                        echo "</option>";
+                                                    }
+                                                echo "</select>";
+                                            }
+                                        echo "</div>
                                         <div class='texte'>
                                             <label for='commentaire'>Commentaire :</label>
-                                            <textarea name='commentaire' value='" . $avi["note"] . "' required>" . $avi["commentaire"] . "</textarea>
+                                            <textarea name='commentaire' " . ((isset($_GET["supprimer"] )) ? "readonly" : "") . " required>" . ((isset($avi["commentaire"]) ? $avi["commentaire"] : "")) . "</textarea>
                                         </div>
                                     </div>
-                                    <div class='image'>";
+                                    <div class='image' " . ((isset($_GET["supprimer"] )) ? "style='min-width: 0;''" : "") . " >";
                                         if (isset($avi["imageAvis"])) {
-                                            echo "<img src='" . $avi["imageAvis"] . "' alt='Votre image d'avis'>";
+                                            echo "<img id='image' src='" . $avi["imageAvis"] . "' alt='Votre image d'avis'>";
                                         }
-                                        echo "<label>
-                                            <input type='file' name='image' style='display: none;' id='image' accept='image/*'>";
-                                            if (isset($avi["imageAvis"])) {
-                                                echo "<i class='fa fa-cloud-upload'></i> Mettre à jour l'image";
-                                            } else {
-                                                echo "<i class='fa fa-cloud-upload'></i> Ajouter une image";
-                                            }
-                                        echo "</label>
-                                    </div>
+                                        if (!isset($_GET["supprimer"])) {
+                                            echo "<label>
+                                                <input type='file' name='image' style='display: none;' id='inputimage' accept='image/*'>";
+                                                if (isset($avi["imageAvis"])) {
+                                                    echo "<i class='fa fa-cloud-upload'></i> Mettre à jour l'image";
+                                                } else {
+                                                    echo "<i class='fa fa-cloud-upload'></i> Ajouter une image";
+                                                }
+                                                // TODO: Image ne fonctionne pas
+                                                echo "<script>
+                                                    document.getElementById('inputimage').onchange = function(this) {
+                                                        alert('test');
+                                                        if (!document.getElementById('image')) {
+                                                            var image = document.createElement('img');
+                                                            image.id = 'image';
+                                                            image.alt = 'Votre image d'avis';
+                                                            document.getElementsByClassName('image')[0].appendChild(image);
+                                                        }
+                                                        if (this.files[0]) {
+                                                            document.getElementById('image').src = URL.createObjectURL(this.files[0]);
+                                                        }
+                                                    };
+                                                </script>
+                                            </label>";
+                                        }
+                                    echo "</div>
                                 </div>
                                 <div>
                                     <a class='button retour' href='/~saephp11/compte/avis'>Retour</a>";

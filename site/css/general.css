@@ -339,18 +339,19 @@ a.produit {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     text-decoration: none;
     gap: 5px;
-    color: #000000; 
+    color: #000000;
     position: relative;
-    text-align: center;
-    min-width: 300px;
-    max-width: 300px;
-    padding: 15px;
+    min-width: 275px;
+    max-width: 275px;
+    padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 a.produit:hover {
@@ -359,21 +360,21 @@ a.produit:hover {
 }
 
 a.produit::before {
-    content: ""; 
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px; 
-    background-color: var(--secondary-color); 
-    transform: scaleX(0); 
-    transform-origin: right; 
-    transition: transform 0.3s ease; 
+    height: 2px;
+    background-color: var(--secondary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
 }
 
 a.produit:hover::before {
-    transform: scaleX(1); 
-    transform-origin: left; 
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 a.produit img {
@@ -384,25 +385,53 @@ a.produit img {
 }
 
 a.produit h3 {
-    font-weight: bold;
     font-size: 1.3rem;
+    font-weight: bold;
+    text-align: left;
     transition: color 0.3s;
 }
 
 a.produit div {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 5px;
 }
 
-a.produit span:not(.prix) {
+a.produit span:not(.prix):not(.solde) {
     color: #000000;
-    padding: 3px 7px;
+    padding: 3px 6px;
     border: 2px solid #000000;
     border-radius: 5px;
     font-size: 0.8rem;
 }
 
 a.produit span.prix {
+    position: relative;
+    font-size: 0.8rem;
+    padding: 4px 6px;
+    background-color: var(--secondary-color);
+    color: #FFFFFF;
+    border-radius: 5px;
+    transform-origin: bottom right;
+    transition: transform 0.3s;
+}
+
+a.produit:hover span.prix {
+    transform: scale(1.1);
+}
+
+a.produit span.prix span.solde {
+    position: absolute;
+    top: -17px;
+    right: 0;
+    font-size: 0.8rem;
     color: var(--secondary-color);
-    font-weight: bold;
+    text-decoration: line-through;
+    transform-origin: bottom right;
+    transition: transform 0.3s;
+}
+
+a.produit:hover span.prix span.solde {
+    transform: scale(0.8);
 }

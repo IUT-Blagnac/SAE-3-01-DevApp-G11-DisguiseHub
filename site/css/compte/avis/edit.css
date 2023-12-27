@@ -82,7 +82,7 @@ div.buttons a.button {
     max-width: none;
 }
 
-form select, form textarea {
+form select, form textarea, form input {
     max-width: none !important;
     margin-bottom: 10px;
 }

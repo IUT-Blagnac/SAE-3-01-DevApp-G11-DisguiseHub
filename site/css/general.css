@@ -181,6 +181,10 @@ footer div.copyright a {
     padding: 2px 0;
 }
 
+footer div.copyright a:hover {
+    color: #FFFFFF;
+}
+
 /* FORMULAIRE */
 
 label:not(.ignore) {

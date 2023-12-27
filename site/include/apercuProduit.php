@@ -15,7 +15,10 @@
                     echo "<span>" . $produit["tailleProduit"] . "</span>";
                 }
                 if (isset($produit["couleurProduit"])) {
-                    echo "<span>" . $produit["couleurProduit"] . "</span>";
+                    $couleurs = explode(" & ", $produit["couleurProduit"]);
+                    foreach ($couleurs as $couleur) {
+                        echo "<span>" . $couleur . "</span>";
+                    }
                 }
             echo "</div>";
             if (isset($produit["prixSolde"])) {

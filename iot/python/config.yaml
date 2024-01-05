@@ -1,0 +1,28 @@
+connection:
+  host: chirpstack.iut-blagnac.fr
+  port: 1883
+  topic: AM107/by-room/+/data
+ecriture:
+  fichiers:
+    data: data
+    alerte: alerte
+  intervale: 10
+collecte:
+  - temperature
+  - activity
+  - co2
+  - pressure
+  - humidity
+alerte:
+  co2:
+    min: 0.0
+    max: 25.0
+  humidity:
+    min: 10.0
+    max: 35.0
+  pressure:
+    min: 800.0
+    max: 1500.0
+  temperature:
+    min: 5.0
+    max: 35.0

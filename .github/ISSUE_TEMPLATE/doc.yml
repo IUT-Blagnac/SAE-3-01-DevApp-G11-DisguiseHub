@@ -1,0 +1,19 @@
+name: 📄 Documentation
+description: Rédiger une documentation
+title: "📄 "
+labels: ["📄 Documentation"]
+body:
+  - type: textarea
+    id: about
+    attributes:
+      label: Description de la documentation
+      description: Décrivez la documentation que vous souhaitez.
+    validations:
+      required: true
+  - type: dropdown
+    id: application
+    attributes:
+      label: Cela concerne ?
+      options:
+        - Site e-commerce
+        - Application IOT

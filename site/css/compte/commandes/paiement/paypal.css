@@ -1,0 +1,212 @@
+* {
+    border: 0px;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    font-stretch: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    font-optical-sizing: inherit;
+    font-kerning: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 100%;
+    margin: 0px;
+    padding: 0px;
+    vertical-align: baseline;
+}
+
+body {
+    color: rgb(0, 20, 53);
+    font-family: "PayPal Open", "Helvetica Neue", HelveticaNeue, HelveticaNeue-Light, "Helvetica Neue Light", helvetica, arial, Roboto, sans-serif;
+    margin: 0px;
+}
+
+div.layout {
+    font-weight: 500;
+    margin: 0px auto;
+    max-width: 390px;
+    padding: 0px 18px;
+}
+
+div.header {
+    margin-bottom: 32px;
+    background: rgb(250, 248, 245);
+}
+
+div.header:before {
+    content: "";
+    display: block;
+    height: 54px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 100vw;
+    z-index: 0;
+    background: rgb(247, 245, 240);
+}
+
+@media (min-width: 699px) {
+    div.layout {
+        max-width: 780px;
+    }
+}
+
+header {
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 15px 0px;
+}
+
+div.logo {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    z-index: 1;
+    width: 33%;
+}
+
+div.prix {
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: right;
+    width: 33%;
+}
+
+button.btnprix {
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background-color: transparent;
+    border-width: 0px 0px 1px;
+    border-top-style: initial;
+    border-right-style: initial;
+    border-left-style: initial;
+    border-top-color: initial;
+    border-right-color: initial;
+    border-left-color: initial;
+    border-image: initial;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    color: rgb(0, 112, 224);
+    cursor: pointer;
+    display: flex;
+    font-size: 18px;
+    font-weight: 700;
+    outline: 0px;
+    padding: 1px;
+    position: relative;
+}
+
+button.btnprix:hover {
+    border-bottom: 1px solid rgb(0, 48, 135);
+    opacity: 1;
+    color: rgb(0, 48, 135);
+}
+
+div.content {
+    display: flex;
+    flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+div.payer {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+div.payer h2 {
+    color: rgb(0, 20, 53);
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.33;
+    margin-bottom: 12px;
+}
+
+@media (min-width: 365px) {
+    div.payer h2 {
+        font-size: 28px;
+    }
+}
+
+div.payer p {
+    color: rgb(0, 20, 53);
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.4;
+    margin-bottom: 24px;
+}
+
+button.btnpayer {
+    border-radius: 23px;
+    cursor: pointer;
+    height: 48px;
+    outline: none;
+    padding: 0px 7.5%;
+    text-align: center;
+    width: 100%;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgb(0, 48, 135);
+    border: 1px solid rgb(0, 48, 135);
+    color: rgb(255, 255, 255);
+    display: flex;
+    font-size: 18px;
+    font-weight: 700;
+    -webkit-box-pack: center;
+    justify-content: center;
+    line-height: 1.2;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+button.btnpayer:hover {
+    background-color: rgb(0, 112, 224);
+    border: 1px solid rgb(0, 112, 224);
+    text-decoration: unset;
+    cursor: pointer;
+}
+
+@media (min-width: 699px) {
+    div.info {
+        display: block;
+        margin: 0px 0px 0px 7px;
+        text-align: center;
+        width: 36%;
+    }
+}
+
+@media (min-width: 699px) {
+    div.info {
+        display: block;
+        margin: 0px 0px 0px 7px;
+        text-align: center;
+        width: 36%;
+    }
+}
+
+div.info h3 {
+    color: rgb(0, 20, 53);
+    font-size: 22px;
+    font-family: "PayPal Open", "Helvetica Neue", HelveticaNeue, HelveticaNeue-Light, "Helvetica Neue Light", helvetica, arial, Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 15px 0px 10px;
+}
+
+div.info p {
+    color: rgb(0, 20, 53);
+    font-size: 14px;
+    font-family: "PayPal Open", "Helvetica Neue", HelveticaNeue, HelveticaNeue-Light, "Helvetica Neue Light", helvetica, arial, Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 5px 0px;
+}

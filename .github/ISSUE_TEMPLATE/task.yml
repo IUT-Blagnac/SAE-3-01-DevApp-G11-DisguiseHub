@@ -1,0 +1,40 @@
+name: ☝️ Amélioration
+description: Suggérer une amélioration
+title: "☝️ "
+labels: ["☝️ Amélioration"]
+body:
+  - type: input
+    id: contact
+    attributes:
+      label: Coordonnées de contact
+      description: Comment pouvons-nous vous contacter si nous avons besoin de plus d'informations ?
+      placeholder: email@exemple.com
+    validations:
+      required: false
+  - type: dropdown
+    id: application
+    attributes:
+      label: Cela concerne ?
+      options:
+        - Site e-commerce
+        - Application IOT
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Quelle amélioration souhaiteriez-vous ?
+      description: Dites-nous également ce que vous attendiez qu'il se passe.
+      placeholder: Décrivez votre amélioration
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+        label: Confirmation
+        description: Merci de regarder les <a href="https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/issues">issues ouvertes et fermées</a> afin de ne pas créer des doublons.
+        options:
+          - label: J'ai regardé les issues ouvertes et fermées
+            required: true  
+          - label: J'accepte de suivre le Code de conduite de ce projet
+            required: true

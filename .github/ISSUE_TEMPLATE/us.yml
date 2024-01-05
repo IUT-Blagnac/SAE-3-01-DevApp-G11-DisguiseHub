@@ -1,13 +1,12 @@
-# JMB 2022 -- Taken from https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
-name: User Story
-description: Une User Story de l'application
-title: "[US]: "
-labels: ["us"]
+name: 💬 User Story
+description: Une user story de l'application
+title: "💬 "
+labels: ["💬 User story"]
 body:
   - type: input
     id: us
     attributes:
-      label: User Story
+      label: User story
       description: Description de la story
       placeholder: En tant que [Persona], je veux [feature], afin que [raison].
     validations:
@@ -15,31 +14,38 @@ body:
   - type: dropdown
     id: priority
     attributes:
-      label: Importance
-      description: Quelle est l'importance de cette US pour le client?
+      label: Priorité
+      description: Quelle est l'importance de cette user story pour le client ?
       options:
-        - Must (Default)
+        - Must
         - Should
         - Could
         - Will
+    validations:
+      required: true
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Complexité
+      description: Quelle est la complexité de cette user story pour les développeurs ?
+      options:
+        - Haute
+        - Moyenne
+        - Basse
     validations:
       required: true
   - type: textarea
     id: acceptation
     attributes:
       label: Critères d'acceptation
-      description: Comment sera évaluée la satisfaction de cette US, jeux de tests si disponibles, ....
-  - type: textarea
-    id: details
+      description: Comment sera évaluée la satisfaction de cette user story, jeux de tests si disponibles, ...
+  - type: dropdown
+    id: application
     attributes:
-      label: Détails
-      description: Donner des détails si possible.
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Tâches associées
-      description: Voici la liste des tâches associées à cette US (pourra évoluer plus tard) 
+      label: Application concernée
+      description: Quelle est l'application concernée par cette user story ?
       options:
-        - label: Écrire un test
-        - label: Coder
-        - label: Écrire la doc
+        - Site e-commerce
+        - Application IOT
+    validations:
+      required: true

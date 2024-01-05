@@ -1,0 +1,106 @@
+div.content {
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+}
+
+div.content div {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.panier {
+    width: 70%;
+}
+
+div.commande {
+    width: 30%;
+    border: 5px solid var(--secondary-color);
+    border-radius: 10px;
+}
+
+div.commande div.prix {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid var(--primary-color);
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+div.commande div.prix a {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: #FFFFFF;
+}
+
+div.commande div.prix span {
+    margin-top: 5px;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.7rem;
+}
+
+div.commande input, div.commande label {
+    min-width: 100%;
+    margin: 5px 0;
+}
+
+div.commande button, div.commande a.button {
+    margin-top: 10px;
+    min-width: 100%;
+}
+
+div.content h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+td button {
+    padding: 5px 8px;
+}
+
+td button i {
+    color: #000000;
+}
+
+td.erreur {
+    padding: 0;
+}
+
+td.erreur div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FF0000BF;
+    color: #FFFFFF;
+    position: relative;
+    padding: 5px 15px;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+@media screen and (max-width: 1050px) {
+    div.content {
+        flex-direction: column;
+    }
+
+    div.content div {
+        width: 100%;
+    }
+}

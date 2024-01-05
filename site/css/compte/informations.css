@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --primary-color: #7e3307;
+  --secondary-color: #de6e22;
+  --tertiary-color: #08111e;
+  background-color: #f5f5f5;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.informations-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2.informations-container {
+  color: var(--secondary-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2.mdp_content {
+  color: var(--secondary-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.label_titre {
+  font-size: 1.2rem;
+  font-weight: 650;
+  color: var(--secondary-color);
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.label_valeur {
+  font-size: 0.9rem;
+  font-weight: 380;
+  color: var(--tertiary-color);
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="submit"] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  min-height: 40px;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+input[type="submit"]:focus {
+  border: 1px solid var(--secondary-color);
+  outline: none;
+  transition: 0.3s;
+}
+
+form {
+  margin-top: 20px;
+}
+
+input[type="submit"] {
+  background-color: var(--secondary-color);
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 15px;
+  width: auto;
+  min-width: 150px;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--primary-color);
+}
+
+input[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+input[type="submit"] {
+  display: block;
+  margin: 0 auto;
+}
+
+input[type="password"] {
+  display: block;
+  margin: 0 auto;
+}
+
+.label_mdp {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--secondary-color);
+  margin-bottom: 5px;
+  display: inline-block;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .informations-container {
+    padding: 10px;
+  }
+}

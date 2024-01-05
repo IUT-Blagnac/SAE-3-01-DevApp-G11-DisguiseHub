@@ -1,6 +1,4 @@
-# JMB 2022 -- Adapted from https://gist.github.com/JonathanGawrych/32afe529fd519a7312df
-
-# Package Files #
+# Package Files
 *.jar
 *.war
 *.ear
@@ -34,3 +32,12 @@ bin/
 build/
 /bin1/
 java/build/**
+
+# IOT fichiers de configuration/données
+iot/python/*
+!iot/python/main.py
+
+# Faker
+vendor/*
+composer.lock
+composer.json

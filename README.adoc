@@ -29,53 +29,55 @@ ifdef::env-github[]
 endif::[]
 
 // /!\ A MODIFIER !!!
-:baseURL: https://github.com/IUT-Blagnac/sae3-01-template
+:baseURL: https://github.com/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub
 
 // Tags
 image:{baseURL}/actions/workflows/blank.yml/badge.svg[Bidon] 
 image:{baseURL}/actions/workflows/build.yml/badge.svg[Build] 
 image:{baseURL}/actions/workflows/tests.yml/badge.svg[Tests] 
 image:https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg[License: MPL-2.0, link="https://opensource.org/licenses/MPL-2.0"]
+image:https://app.codacy.com/project/badge/Grade/40bc1b9629034dd1a7c516631d189b95["Codacy code quality", link="https://app.codacy.com/gh/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade"]
 //---------------------------------------------------------------
 
-TIP: Pensez à mettre à jour les infos dans ce fichier pour que les badges pointent sur les résultats effectifs de vos intégrations continue ou sur la bonne licence logicielle.
-
-WARNING: Ce dépôt présente le projet à développer dans le cadre de la SAÉ 3.01 du BUT1 Informatique de l'IUT de Blagnac.
-
-Ce fichier `README.adoc` (dont vous lisez sûrement le rendu HTML automatiquement effectué par GitHUb), fait partie du dépôt initial cloné à partir du lien GitHub classroom qui vous a été donné en cours (https://classroom.github.com/a/fePVlfpN).
-Vous trouverez le dépôt "template" qui a servi de base ici : https://github.com/IUT-Blagnac/sae3-01-template. En complément du cours Moodle de la SAE 3.01 (cf. <<liensUtiles>>), ce dépôt template vous permet d'accéder à des exemples d'https://github.com/IUT-Blagnac/sae3-01-template/issues[issues], de https://github.com/IUT-Blagnac/sae3-01-template/releases[releases], ou d'autres artefacts à venir.
+WARNING: Ce dépôt présente le projet à développer dans le cadre de la SAÉ 3.01 du BUT2 Informatique de l'IUT de Blagnac.
 
 toc::[]
 
 == Equipe
 
-Projet est réalisé par::
+*Ce projet est réalisé par le groupe 11, composé de :*
 
-- https://github.com/janeDoe[Jane Doe]
-- https://github.com/johnSmith[John Smith]
-...
+- https://github.com/marwanizo[AL MASRI Marwan] _(MOA de SigmaPrime)_
+- https://github.com/Guychelove[BABELA Guychel]
+- https://github.com/Maxeuh[KRILL Maxence] _(MOE de MAGM)_
+- https://github.com/GeloSwift[NICHELE Angelo]
 
-Tuteur/tutrice enseignant(e) de l'équipe:: mailto:jean-michel.bruel@univ-tlse2.fr[JMB]
+*Tuteur/tutrice enseignant(e) de l'équipe :* mailto:jean-michel.bruel@univ-tlse2.fr[Jean-Michel Bruel]
 
 == Contexte général
 
-TIP: Cette partie de votre `README.adoc` peut être supprimée ou mise ailleurs.
+Dans une vision stratégique, la société Disguise'Hub nous a sollicité pour la réalisation d'un site internet d'e-commerce pour renforcer sa présence sur le marché du déguisement. Cette décision a été motivée par plusieurs facteurs, notamment l'évolution des comportements d'achat des consommateurs vers le numérique, la nécessité de gagner en visibilité et en notoriété en ligne, ainsi que l'opportunité de conquérir de nouvelles parts de marché à l'échelle mondiale.
 
-=== Dépôt initial
-
-Ce dépôt initial a été créé pour que tous les groupes de 2ème année aient les mêmes informations de départ.
-
-Vous y trouverez des fichiers qui peuvent être supprimés s'ils ne vous sont pas utiles :
+=== Organisation du dépôt
 
 - `.gitignore` => un fichier minimaliste des éléments à ne pas pousser en général sur vos dépôts (utiliser la commande `git add -f` pour forcer l'ajout d'un fichier Jar qui ne bougera plus, pour archive par exemple).
 - `.github` => le répertoire qui contient des éléments de gestion de projet :
 ** `workflows` => le repertoire qui contient les actions à lancer à chaque push sur votre repo. 
 *** `blank.yml` => un exemple bidon mais dont vous pourrez vérifier l’exécution correcte (1er tag)
 ** `ISSUE_TEMPLATE` => le repertoire qui contient quelques templates pour vos issues.
-*** `us.yml` => Exemple de template pour les User Stories
 *** `bug.yml` => Exemple de template pour les issues de bug report
-
-TIP: Adaptez ces fichiers à votre projet et à votre organisation. Et inspirez-vous en pour en ajouter.
+*** `doc.yml` => Exemple de template pour les issues concernant une documentation
+*** `new.yml` => Exemple de template pour les issues sur l'ajout d'une fonctionnalité
+*** `task.yml` => Exemple de template pour les issues d'amélioration
+*** `us.yml` => Exemple de template pour les User Stories
+- `bd` => Le répertoire qui contient les fichiers de création de la base de données ainsi que les fichiers Faker pour la remplir.
+- `docs` => Le répertoire qui contient les documentations demandées dans la SAÉ (cf <<docs>>).
+- `iot` => Le répertoire de l'application IOT.
+** `javafx` => Le répertoire qui contient les fichiers de l'application JavaFX (interface graphique de visualisation des données).
+** `python` => Le répertoire qui contient les fichiers de l'application Python (collecte de données).
+- `site` => Le site Disguise'Hub.
+** Détail de l'arborescence à venir _(en cours de réflexion)_
+- `README.adoc` => Ce fichier qui contient les informations de base sur ce GitHub
 
 [[liensUtiles]]
 === Liens utiles
@@ -84,35 +86,60 @@ TIP: Adaptez ces fichiers à votre projet et à votre organisation. Et inspirez-
 - Le dépôt https://github.com/IUT-Blagnac/sae3-01-template[template] qui sert de base à tous les dépôts étudiants.
 - Le lien https://classroom.github.com/a/OUF7gxEa[classroom] si besoin.
 
-TIP: Pensez à utiliser les salons Discord dédiés pour poser vos questions.
 
-== Réalisations 
+== Réalisations
 
-TIP: Mettez ici toutes les informations nécessaire à l'utilisation de votre dépôt (comment on installe votre application, où sont les docs, etc.)
+[[docs]]
+=== Documentations
+
+[options="header"]
+- *Base de données*
+** link:docs/BD/Diagramme%20de%20Classes%20Métiers.png[Diagramme de Classes Métiers]
+** link:docs/BD/Dictionnaire%20de%20données.pdf[Dictionnaire de données]
+** link:docs/BD/Livrable%20conception.pdf[Livrable Conception]
+** link:docs/BD/Livrable-Cr%C3%A9ation-SAE_3.01-Grp_11.pdf[Livrable Création et Insertion]
+** link:docs/BD/Livrable-Triggers_Proc%C3%A9dures-SAE_3.01-Grp_11.pdf[Livrable Triggers et Procédures]
+- *Communication*
+** link:docs/Communication/Sprint%205%20-%20ODJ%20%2B%20CR%20%2B%20ANALYSE.pdf[ODJ + CR + Analyse - Sprint 3]
+** link:docs/Communication/Sprint%206%20-%20ODJ%20%2B%20CR%20%2B%20ANALYSE.pdf[ODJ + CR + Analyse - Sprint 4]
+** link:docs/Communication/Sprint%207%20-%20ODJ%20%2B%20CR%20%2B%20ANALYSE.pdf[ODJ + CR + Analyse - Sprint 6]
+- *GProj*
+** link:docs/GProj/Backlog%20produit.adoc[Backlog produit]
+** link:docs/GProj/Diagramme%20de%20Cas%20d'Utilisation%20-%20Administration.png[Diagramme de Cas d'Utilisation - Administration]
+** link:docs/GProj/Diagramme%20de%20Cas%20d'Utilisation%20-%20Utilisateur.png[Diagramme de Cas d'Utilisation - Utilisateur]
+** link:docs/GProj/Diagramme%20de%20séquences%20systèmes%20-%20Application%20IOT.png[Diagramme de séquences systèmes - Application IOT]
+** link:docs/GProj/Diagramme%20de%20séquences%20systèmes%20-%20Base%20de%20données.png[Diagramme de séquences systèmes - Base de données]
+** link:docs/GProj/Diagramme%20de%20séquences%20systèmes%20-%20Général.png[Diagramme de séquences systèmes - Général]
+- *PHP*
+** link:docs/PHP/Schéma%20d'enchaînement%20des%20pages.png[Schéma d'enchaînement des pages]
+
+=== Installation
+
+==== Application IOT (Python)
+
+1. Téléchargez et installez Python si ce n'est pas déjà fait : https://www.python.org/downloads/
+2. Assurez-vous d'avoir installé les dépendances nécessaires avec la commande : `pip install pyyaml paho-mqtt`
+3. Téléchargez les fichiers link:iot/python/config.yaml[`config.yaml`] et link:iot/python/main.py[`main.py`] dans le répertoire link:iot/python[`iot/python`] du dépôt.
+4. Placez les 2 fichiers dans le même répertoire.
+5. Ouvrez un terminal dans le répertoire et lancez la commande : `python main.py`
+6. L'application est lancée, récolte les données du MQTT, et les stocke selon les paramètres du fichier de configuration (voir <<javafx>> pour visualiser et configurer l'application).
+
+[[javafx]]
+==== Application IOT (JavaFX)
+
+_En cours de réalisation..._
+
+==== Site
+
+_En cours de réalisation..._
 
 == Gestion de projet & Qualité
 
-Chaque sprint (semaine) vous devrez livrer une nouvelle version de votre application (release).
-Utilisez pour cela les fonctionnalités de GitHub pour les https://docs.github.com/en/repositories/releasing-projects-on-github[Releases].
+- *Version courante :* {baseURL}/releases/tag/v6.0[v6.0]
+- *Documentation technique :* _En cours de réalisation..._
+- *Documentation utilisateur :* _En cours de réalisation..._
+- *User stories :* https://github.com/orgs/IUT-Blagnac/projects/143[Projet GitHub]
+- *Tests unitaires et plans de test :* _En cours de réalisation..._
+- *Indicateurs de qualité du code (dette technique) :* https://app.codacy.com/gh/IUT-Blagnac/SAE-3-01-DevApp-G11-DisguiseHub/dashboard[Codacy]
 
-De plus ce fichier `README.adoc` devra être à jour des informations suivantes :
-
-- Version courante : https://github.com/IUT-Blagnac/sae3-01-template/releases/tag/v0.1.2[v0.1.2]
-- Lien vers la doc technique
-- Lien vers la doc utilisateur
-- Liste des (ou lien vers les) User Stories (ToDo/Ongoing/Done) et % restant
-- Tests unitaires et plans de test
-- Indicateurs de qualité du code (dette technique)
-- ... tout autre élément que vous jugerez utiles pour démontrer la qualité de votre application
-
-Voici un exemple d'évaluation :
-
-ifdef::env-github[]
-image:https://docs.google.com/spreadsheets/d/e/2PACX-1vTc3HJJ9iSI4aa2I9a567wX1AUEmgGrQsPl7tHGSAJ_Z-lzWXwYhlhcVIhh5vCJxoxHXYKjSLetP6NS/pubchart?oid=1850914734&amp;format=image[link=https://docs.google.com/spreadsheets/d/e/2PACX-1vTc3HJJ9iSI4aa2I9a567wX1AUEmgGrQsPl7tHGSAJ_Z-lzWXwYhlhcVIhh5vCJxoxHXYKjSLetP6NS/pubchart?oid=1850914734&amp;format=image]
-endif::[]
-
-ifndef::env-github[]
-++++
-<iframe width="786" height="430" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTc3HJJ9iSI4aa2I9a567wX1AUEmgGrQsPl7tHGSAJ_Z-lzWXwYhlhcVIhh5vCJxoxHXYKjSLetP6NS/pubchart?oid=1850914734&amp;format=image"></iframe>
-++++
-endif::[]
+image:https://docs.google.com/spreadsheets/d/e/2PACX-1vSACcYeKaH_ims3faegSLAFJ9s5_Kd9Fbyi4ODEb8BTN5OnUXWenVGhlVPo84yQDhTkTj3f9nXiluh1/pubchart?oid=1287010292&format=image[link=https://docs.google.com/spreadsheets/d/e/2PACX-1vSACcYeKaH_ims3faegSLAFJ9s5_Kd9Fbyi4ODEb8BTN5OnUXWenVGhlVPo84yQDhTkTj3f9nXiluh1/pubchart?oid=1287010292&format=image]

@@ -1,0 +1,45 @@
+@startuml Diagramme de séquence - Base de données
+title Diagramme de séquence - Base de données
+hide footbox
+
+actor Utilisateur as u
+participant "Site web" as w
+participant "Base de données" as b
+
+u -> w: Sélectionne un produit
+activate w
+w -> b: getProduct()
+activate b
+b --> w: product
+deactivate b
+w --> u: Affiche le produit
+deactivate w
+
+u -> w : Ajoute le produit au panier
+activate w
+w -> b: addPanier()
+activate b
+b --> w: panier
+deactivate b
+w --> u: Affiche la confirmation
+deactivate w
+
+u -> w: Affiche le contenu du panier
+activate w
+w -> b: getPanier()
+activate b
+b --> w: panier
+deactivate b
+w --> u: Affiche le contenu du panier
+deactivate w
+
+u -> w: Passer la commande
+activate w
+w -> b: confirmCommande()
+activate b
+b --> w: commande
+deactivate b
+w --> u: Affiche la confirmation de la commande
+deactivate w
+
+@enduml

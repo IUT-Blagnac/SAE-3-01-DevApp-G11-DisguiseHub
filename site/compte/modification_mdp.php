@@ -6,7 +6,7 @@ if (!isset($_SESSION["connexion"])) {
     exit;
 }
 
-require_once("../../include/connect.inc.php");
+require_once("../include/connect.inc.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["changer_mot_de_passe"])) {
     $oldPassword = isset($_POST["old_password"]) ? $_POST["old_password"] : "";

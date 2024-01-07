@@ -15,14 +15,14 @@ collecte:
   - humidity
 alerte:
   co2:
-    min: 0.0
-    max: 25.0
+    min: 300.0
+    max: 301.0
   humidity:
-    min: 10.0
-    max: 35.0
+    min: 20.0
+    max: 21.0
   pressure:
-    min: 800.0
-    max: 1500.0
+    min: 100.0
+    max: 120.0
   temperature:
     min: 5.0
-    max: 35.0
+    max: 12.0

@@ -190,7 +190,7 @@ Avant d'exécuter le code, assurez-vous d'avoir le fichier de configuration (*co
 
 Pour lancer le code, exécutez le script main.py.
 
-== VII. Exemple d'utilisation
+== VII. Exemple d'utilisation (étapes à suivre)
 [.text-justify]
 
 Voici un exemple d'utilisation du code Python :
@@ -201,7 +201,41 @@ Voici un exemple d'utilisation du code Python :
 4. Les éventuelles alertes seront détectées et enregistrées dans les fichiers d'alerte (*alerte.json*).
 5. Pour arrêter le programme, appuyez sur Ctrl+C.
 
-== VIII. Conclusion
+== VIII. Cas de tests
+[.text-justify]
+
+. Fichier de configuration config.yaml + 
++
+image::capture_config.png[width=200px, title="Capture d'écran du fichier de configuration"]
+
+. Cas de Test Nominal
+
+.. Lecture des Données +
++
+image::capture_lecture_données.png[width=550px, title="Capture d'écran du cas de test nominal montrant la lecture des données"]
+
+.. Écriture des Données dans le fichier data.json +
+(_nous avons utiliser l'extension "Prettier - Code Formatter" pour rendre le fichier plus lisible_) +
++
+image::capture_écriture_données.png[width=200px, title="Capture d'écran du cas de test nominal montrant l'écriture des données dans le fichier data.json"]
+
+. Fichier de configuration config.yaml pour détecter les alertes + 
++
+image::capture_alerte_config.png[width=200px, title="Capture d'écran du fichier de configuration pour détecter les alertes"]
+
+. Cas de Test d'Alerte +
+
+.. Détection d'une alerte +
++
+image::capture_détection_alerte.png[width=450px, title="Capture d'écran du cas de test d'alerte montrant la détection d'une alerte"]
+
+.. Écriture des Données dans le fichier alerte.json +
++
+image::capture_écriture_alerte.png[width=200px, title="Capture d'écran du cas de test d'alerte montrant l'écriture des données dans le fichier alerte.json"]
+
+
+
+== IX. Conclusion
 [.text-justify]
 
 Ce document technique a présenté les principaux aspects du code Python pour la gestion des données de capteurs. Le code offre une bonne solution pour collecter, traiter et enregistrer les données, tout en détectant les dépassements de seuils d'alerte. Sa modularité facilite la maintenance et les évolutions futures.

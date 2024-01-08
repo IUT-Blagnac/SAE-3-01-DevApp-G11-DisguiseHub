@@ -50,29 +50,15 @@
             <h2>Catalogue de produits</h2>
             <div class="products">
                 <?php
-                $productStatement = "SELECT * FROM Produit";
-                $productReq = $conn->prepare($productStatement);
-                $productReq->execute();
+                    $productStatement = "SELECT * FROM Produit";
+                    $productReq = $conn->prepare($productStatement);
+                    $productReq->execute();
 
+                    while ($produit = $productReq->fetch()) {
+                        require("./include/apercuProduit.php");
+                    }
 
-                while ($product = $productReq->fetch()) {
-
-                    $sql = "SELECT * FROM Image WHERE refProduit = :produit";
-                    $req = $conn->prepare($sql);
-                    $req->execute(["produit" => $product["refProduit"]]);
-                    $image = $req->fetch()["imageProduit"];
-
-                    echo "<a href='/~saephp11/produit.php?id=" . $product["refProduit"] . "' class='product-link'>
-                            <div class='product-container'>
-                            <img class='product-image' src='" . $image . "' alt='Image " . $product["nomProduit"] . "' />
-                                <p class='product-name'>" . $product["nomProduit"] . "</p>
-                                <p class='product-description'>" . $product["descProduit"] . "</p>
-                                <p class='product-price'>" . $product["prixProduit"] . " €</p>
-                            </div>
-                          </a>";
-                }
-
-                $productReq->closeCursor();
+                    $productReq->closeCursor();
                 ?>
             </div>
         </div>

@@ -47,7 +47,7 @@
         </div>
 
         <div class="product-manager">
-            <h2>Catalogue de produits</h2>
+            <h2>Catalogue de produits</h2><br>
             <div class="products">
                 <?php
                 $productStatement = "SELECT * FROM Produit";

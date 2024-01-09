@@ -1,6 +1,10 @@
 <html>
     <head>
-        <title>Inscription - Disguise'Hub</title>
+        <title>Mot de passe oublié - Disguise'Hub</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/~saephp11/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/~saephp11/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/~saephp11/img/favicon/favicon-16x16.png">
+    <meta name="theme-color" content="#DE6E22">
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../css/general.css">
         <link rel="stylesheet" type="text/css" href="../css/compte/connexion-inscription.css">
@@ -8,6 +12,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+
+        <?php
+            session_start();
+            // Si l'utilisateur est déjà connecté
+            if (isset($_SESSION["connexion"])) {
+                header("Location: ./");
+                exit();
+            }
+        ?>
         
         <?php include("../include/header.php"); ?>
 
@@ -19,12 +32,8 @@
                 <p>Afin de modifier votre mot de passe, veuillez entrez les informations de votre compte pour le retrouver. En cas d'erreur, aucune modification ne sera faite sur votre mot de passe.</p>
 
                 <?php
-                    // Si l'utilisateur est déjà connecté
-                    if (isset($_SESSION["connexion"])) {
-                        header("Location: ./");
-
                     // Si le formulaire a été envoyé
-                    } else if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                    if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                         // Vérification du captcha
                         $captchaResponse = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . urlencode("6LcVtiYpAAAAAN67ABYjhvYyA5km1oeqcsLgamlt") .  "&response=" . urlencode($_POST["g-recaptcha-response"])), true);
@@ -181,7 +190,7 @@
                 </script>
 
                 <button type="submit" disabled>Modifier mon mot de passe</button>
-                <a href="connexion.php">Annuler</a>
+                <a href="/~saephp11/compte/connexion.php">Annuler</a>
 
             </form>
 

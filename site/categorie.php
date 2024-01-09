@@ -2,6 +2,10 @@
 
 <head>
     <title>Catégorie - Disguise'Hub</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/~saephp11/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/~saephp11/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/~saephp11/img/favicon/favicon-16x16.png">
+    <meta name="theme-color" content="#DE6E22">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="./css/general.css">
     <link rel="stylesheet" type="text/css" href="./css/categorie.css">
@@ -28,11 +32,11 @@
                 if ($req && $req->rowCount() > 1) {
                     echo "<h1>Erreur</h1>
                     <p>Plusieurs correspondaces ont été trouvées pour la catégorie \"" . $_GET["id"] . "\".</p>
-                    <a href='./' class='button'>Retour à l'accueil</a>";
+                    <a href='/~saephp11/' class='button'>Retour à l'accueil</a>";
                 } else if ($req && $req->rowCount() == 0) {
                     echo "<h1>Catégorie introuvable</h1>
                     <p>La catégorie \"" . $_GET["id"] . "\" n'existe pas.</p>
-                    <a href='./' class='button'>Retour à l'accueil</a>";
+                    <a href='/~saephp11/' class='button'>Retour à l'accueil</a>";
                 } else {
                     $categorie = $req -> fetch();
 
@@ -48,7 +52,7 @@
                         $req -> execute(["id" => $categorie["idCategoriePere"]]);
                         $categoriePere = $req -> fetch();
 
-                        echo "<a class='categoriepere' href='./categorie.php?id=" . $categoriePere["idCategorie"] . "'>" . $categoriePere["nomCategorie"] . "</a>";
+                        echo "<a class='categoriepere' href='/~saephp11/categorie.php?id=" . $categoriePere["idCategorie"] . "'>" . $categoriePere["nomCategorie"] . "</a>";
                     }
 
                     echo "<div class='articles'>";
@@ -68,7 +72,7 @@
                             $req = $conn -> prepare($sql);
                             $req -> execute(["id" => $article["refProduit"]]);
                             
-                            echo "<a class='article' href='./produit.php?id=" . $produit["refProduit"] . "'>";
+                            echo "<a class='article' href='/~saephp11/produit.php?id=" . $produit["refProduit"] . "'>";
                             
                             if ($req && $req->rowCount() > 0) {
                                 $image = $req -> fetch();

@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --primary-color: #7e3307;
+  --secondary-color: #de6e22;
+  --tertiary-color: #08111e;
+  background-color: #f5f5f5;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.informations-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2.modif_info_content {
+  color: var(--secondary-color);
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+h2.compte_content {
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+label {
+  font-size: 1.2rem;
+  font-weight: 650;
+  color: var(--secondary-color);
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+}
+
+.compte_content.button,
+a.compte_content {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.compte_content.centrer {
+  text-align: center;
+}
+
+h1.compte_content {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.box {
+  display: inline-block;
+  padding: 10px;
+  background-color: rgba(200, 200, 200, 0.188);
+  border: 0.2px solid #000;
+}
+
+p.compte_content {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="submit"],
+input[type="date"] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+input[type="submit"]:focus,
+input[type="date"]:focus {
+  border: 1px solid var(--secondary-color);
+  outline: none;
+  transition: 0.3s;
+}
+
+input[type="submit"],
+input[type="button"] {
+  background-color: var(--secondary-color);
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 15px;
+  width: auto;
+  min-width: 150px;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: var(--primary-color);
+}
+
+input[type="submit"]:disabled,
+input[type="button"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+input[type="submit"],
+input[type="button"] {
+  display: block;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .informations-container {
+    padding: 10px;
+  }
+}

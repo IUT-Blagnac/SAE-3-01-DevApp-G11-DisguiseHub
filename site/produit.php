@@ -2,6 +2,10 @@
 
 <head>
     <title>Produit - Disguise'Hub</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/~saephp11/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/~saephp11/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/~saephp11/img/favicon/favicon-16x16.png">
+    <meta name="theme-color" content="#DE6E22">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="./css/general.css">
     <link rel="stylesheet" type="text/css" href="./css/produit.css">
@@ -28,11 +32,11 @@
                 if ($req && $req->rowCount() > 1) {
                     echo "<h1>Erreur</h1>
                     <p>Plusieurs correspondaces ont été trouvées pour le produit \"" . $_GET["id"] . "\".</p>
-                    <a href='./' class='button'>Retour à l'accueil</a>";
+                    <a href='/~saephp11/' class='button'>Retour à l'accueil</a>";
                 } else if ($req && $req->rowCount() == 0) {
                     echo "<h1>Produit introuvable</h1>
                     <p>Le produit \"" . $_GET["id"] . "\" n'existe pas.</p>
-                    <a href='./' class='button'>Retour à l'accueil</a>";
+                    <a href='/~saephp11/' class='button'>Retour à l'accueil</a>";
                 } else {
                     $produit = $req -> fetch();
 
@@ -92,10 +96,10 @@
                                             $req = $conn -> prepare($sql);
                                             $req -> execute(["cat" => $categorie["idCategoriePere"]]);
                                             $categoriePere = $req -> fetch();
-                                            echo "<a href='./categorie.php?id=" . $categoriePere["idCategorie"] . "'>" . $categoriePere["nomCategorie"] . "</a> > ";
+                                            echo "<a href='/~saephp11/categorie.php?id=" . $categoriePere["idCategorie"] . "'>" . $categoriePere["nomCategorie"] . "</a> > ";
                                         }
 
-                                        echo "<a href='./categorie.php?id=" . $categorie["idCategorie"] . "'>" . $categorie["nomCategorie"] . "</a>
+                                        echo "<a href='/~saephp11/categorie.php?id=" . $categorie["idCategorie"] . "'>" . $categorie["nomCategorie"] . "</a>
                                     </span>";
                                 }
                                 echo "</div>
@@ -120,7 +124,7 @@
                             </table>";
                             if ($produit["qteProduit"] != 0) {
                                 if (isset($_COOKIE["cart"]) && !empty(json_decode($_COOKIE["cart"], true)) && isset((json_decode($_COOKIE["cart"], true))[$produit["refProduit"]])) {
-                                    echo "<a class='button' href='panier.php'>Dans le panier</a>";
+                                    echo "<a class='button' href='/~saephp11/panier.php'>Dans le panier</a>";
                                 } else {
                                     echo "<form action='panier.php' method='POST'>
                                         <input type='hidden' name='id' value='" . $produit["refProduit"] . "'>
@@ -141,6 +145,7 @@
                             echo "<h2>Avis</h2>
                             <p>Aucun avis pour ce produit.</p>";
                         } else {
+                            echo "<h2>Avis (" . count($avis) . ")</h2>";
                             foreach ($avis as $avi) {
                                 $sql = "SELECT nomClient, prenomClient FROM Client WHERE idClient = :id";
                                 $req = $conn -> prepare($sql);
@@ -154,8 +159,7 @@
                                     $reponse = $req -> fetch()["commentaire"];
                                 }
 
-                                echo "<h2>Avis (" . count($avis) . ")</h2>
-                                <div class='avi'>
+                                echo "<div class='avi'>
                                     <div class='texte'>
                                         <div class='client'>
                                             <div class='note'>";

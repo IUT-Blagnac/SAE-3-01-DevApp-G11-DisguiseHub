@@ -1,6 +1,10 @@
 <html>
     <head>
         <title>Connexion - Disguise'Hub</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/~saephp11/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/~saephp11/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/~saephp11/img/favicon/favicon-16x16.png">
+    <meta name="theme-color" content="#DE6E22">
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="../css/general.css">
         <link rel="stylesheet" type="text/css" href="../css/compte/connexion-inscription.css">
@@ -18,12 +22,8 @@
                 <h1>Connexion</h1>
 
                 <?php
-                    // Si l'utilisateur est déjà connecté
-                    if (isset($_SESSION["connexion"])) {
-                        header("Location: ./");
-                    
                     // Si le formulaire a été envoyé
-                    } else if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                    if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                         // Vérification du captcha
                         $captchaResponse = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . urlencode("6LcVtiYpAAAAAN67ABYjhvYyA5km1oeqcsLgamlt") .  "&response=" . urlencode($_POST["g-recaptcha-response"])), true);
@@ -48,6 +48,15 @@
 
                                     // Si le mot de passe est correct
                                     if (password_verify($mdp, $user["mdpClient"])) {
+
+                                        // Si se souvenir de moi
+                                        if (isset($_POST["souvenir"])) {
+                                            setcookie("sesouvenir", $email, time() + 365*24*3600);
+                                        } else {
+                                            setcookie("sesouvenir", "", time() - 3600);
+                                        }
+
+                                        // Connexion et redirection
                                         session_start();
                                         $_SESSION["connexion"] = $user["idClient"];
                                         header("Location: ./");
@@ -85,11 +94,19 @@
                 ?>
     
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" autocomplete="email" required>
+                <input type="email" name="email" id="email" autocomplete="email" value="<?php if(isset($_COOKIE["sesouvenir"])) { echo $_COOKIE["sesouvenir"]; }?>" required>
     
                 <label for="mdp">Mot de passe</label>
                 <input type="password" name="mdp" id="mdp" autocomplete="current-password" required>
-                <a class="mdpoublie" href="mdpoublie.php">Mot de passe oublié ?</a>
+                <a class="mdpoublie" href="/~saephp11/mdpoublie.php">Mot de passe oublié ?</a>
+
+                <label class="checkbox">
+                    <input type="checkbox" name="souvenir" <?php if(isset($_COOKIE["sesouvenir"])) { echo "checked"; }?>>
+                    <svg width="20" height="20">
+                        <polyline points="12 5 6.5 10.5 4 8"></polyline>
+                    </svg>
+                    Se souvenir de moi
+                </label>
     
                 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
                 <div class="g-recaptcha" data-sitekey="6LcVtiYpAAAAABGS6Bzi7lBAusEvDUgaLCcQgaKT" data-callback="captcha" data-expired-callback="captchaExpired"></div>
@@ -105,7 +122,7 @@
                 </script>
     
                 <button type="submit" disabled>Se connecter</button>
-                <a href="inscription.php">Je n'ai pas encore de compte</a>
+                <a href="/~saephp11/compte/inscription.php">Je n'ai pas encore de compte</a>
     
             </form>
 

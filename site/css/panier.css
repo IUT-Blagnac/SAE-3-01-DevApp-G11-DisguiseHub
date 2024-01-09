@@ -1,10 +1,7 @@
 div.content {
-    display: flex;
     align-items: flex-start;
     justify-content: center;
     gap: 20px;
-    min-height: calc(100% - 330px);
-    padding: 20px;
 }
 
 div.content div {
@@ -98,7 +95,7 @@ button {
     outline: inherit;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1050px) {
     div.content {
         flex-direction: column;
     }

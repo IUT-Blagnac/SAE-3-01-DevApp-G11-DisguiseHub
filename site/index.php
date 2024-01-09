@@ -3,6 +3,10 @@
 
 <head>
     <title>Disguise'Hub</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/~saephp11/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/~saephp11/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/~saephp11/img/favicon/favicon-16x16.png">
+    <meta name="theme-color" content="#DE6E22">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="./css/general.css">
     <link rel="stylesheet" type="text/css" href="./css/index.css">
@@ -13,6 +17,8 @@
 
 <body>
     <?php include("./include/header.php"); ?>
+
+
     <div class="home-page">
         <h1>Bienvenue sur Disguise'Hub</h1>
         <br><br><br>
@@ -28,7 +34,7 @@
 
             while ($cat = $req->fetch()) {
                 echo "<div class='category-container'>
-                        <a href='recherche.php?cat=" . $cat["idCategorie"] . "'>
+                        <a href='/~saephp11/recherche.php?cat=" . $cat["idCategorie"] . "'>
                             <img class='category-image' src='./img/" . $cat["nomCategorie"] . ".jpg' alt='Image " . $cat["nomCategorie"] . "' />
                             <p class='category-name'>" . strtoupper($cat["nomCategorie"]) . "</p>
                         </a>
@@ -52,11 +58,11 @@
                 while ($product = $productReq->fetch()) {
 
                     $sql = "SELECT * FROM Image WHERE refProduit = :produit";
-                    $req = $conn -> prepare($sql);
-                    $req -> execute(["produit" => $product["refProduit"]]);
-                    $image = $req -> fetch()["imageProduit"];
-                    
-                    echo "<a href='produit.php?id=" . $product["refProduit"] . "' class='product-link'>
+                    $req = $conn->prepare($sql);
+                    $req->execute(["produit" => $product["refProduit"]]);
+                    $image = $req->fetch()["imageProduit"];
+
+                    echo "<a href='/~saephp11/produit.php?id=" . $product["refProduit"] . "' class='product-link'>
                             <div class='product-container'>
                             <img class='product-image' src='" . $image . "' alt='Image " . $product["nomProduit"] . "' />
                                 <p class='product-name'>" . $product["nomProduit"] . "</p>

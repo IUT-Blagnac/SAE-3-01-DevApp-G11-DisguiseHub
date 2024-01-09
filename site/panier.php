@@ -2,6 +2,10 @@
 
 <head>
     <title>Panier - Disguise'Hub</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/~saephp11/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/~saephp11/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/~saephp11/img/favicon/favicon-16x16.png">
+    <meta name="theme-color" content="#DE6E22">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="./css/general.css">
     <link rel="stylesheet" type="text/css" href="./css/panier.css">
@@ -11,6 +15,8 @@
 
 <body>
 
+    <?php session_start(); ?>
+
     <?php include("./include/header.php"); ?>
 
     <?php
@@ -18,18 +24,26 @@
 
         // Vérifiez si le formulaire est soumis
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
+            
             $cart = [];
             if (isset($_COOKIE["cart"])) {
                 $cart = json_decode($_COOKIE["cart"], true);
             }
 
+            echo "<script>console.log(" . json_encode($_POST) . ")</script>";
             if (isset($_POST["creercommande"])) {
                 if (!isset($_SESSION["connexion"])) {
-                    header("Location: compte.php");
+                    echo "<script>alert('Vous devez être connecté pour commander.')</script>";
+                    header("Location: compte");
                     exit();
                 }
                 if (empty($cart)) {
+                    echo "<script>alert('Votre panier est vide.')</script>";
+                    header("Location: panier.php");
+                    exit();
+                }
+                if (empty($_POST["adresse"]) || empty($_POST["ville"]) || empty($_POST["postal"]) || empty($_POST["pays"])) {
+                    echo "<script>alert('Veuillez remplir tous les champs.')</script>";
                     header("Location: panier.php");
                     exit();
                 }
@@ -40,8 +54,11 @@
                     $req -> execute(["ref" => $id]);
                     $product = $req -> fetch();
 
+                    $sql = "";
+
                     if ($product["qteProduit"] < $amount) {
-                        header("Location: panier.php?erreur=Un+ou+plusieurs+produits+sont+en+rupture+de+stock");
+                        echo "<script>alert('Le produit \"" . $product["nomProduit"] . "\" est en rupture de stock.')</script>";
+                        header("Location: panier.php");
                         exit();
                     }
 
@@ -49,16 +66,31 @@
 
                 $sql = "SELECT * FROM Client WHERE idClient = :id";
 
-                $sql = "INSERT INTO Commande (idClient, dateCommande, fraisLivraison, adrLivraison, villeCommande, codePostalLivraison, paysCommande, statutCommande) VALUES (:idClient, :dateCommande, 4.99, :adresseCommande, :villeCommande, :codePostalCommande, :paysCommande, 'En attente de paiement')";
+                $sql = "INSERT INTO Commande (idClient, dateCommande, fraisLivraison, adrLivraison, villeLivraison, codePostalLivraison, paysCommande) VALUES (:idClient, :dateCommande, 4.99, :adrLivraison, :villeLivraison, :codePostalLivraison, :paysCommande)";
                 $req = $conn -> prepare($sql);
                 $req -> execute([
                     "idClient" => $_SESSION["connexion"],
                     "dateCommande" => date("Y-m-d"),
-                    "adresseCommande" => $_POST["adresse"],
-                    "villeCommande" => $_POST["ville"],
-                    "codePostalCommande" => $_POST["codePostal"],
+                    "adrLivraison" => $_POST["adresse"],
+                    "villeLivraison" => $_POST["ville"],
+                    "codePostalLivraison" => $_POST["postal"],
                     "paysCommande" => $_POST["pays"]
                 ]);
+                $idCommande = $conn -> lastInsertId();
+
+                foreach ($cart as $id => $amount) {
+                    $sql = "INSERT INTO Commander (refProduit, idCommande, qteCommandee) VALUES (:refProduit, :idCommande, :qteCommandee)";
+                    $req = $conn -> prepare($sql);
+                    $req -> execute([
+                        "refProduit" => $id,
+                        "idCommande" => $idCommande,
+                        "qteCommandee" => $amount
+                    ]);
+                }
+
+                setcookie('cart', '', time() - 3600, '/');
+                header("Location: compte/commandes/detail.php?id=" . $idCommande . "&commande");
+                exit();
             }
 
             $id = $_POST["id"];
@@ -162,8 +194,7 @@
                 }
 
                 // Démarrage session
-                session_start();
-
+                
                 // Panier trouvé et non vide
                 if (isset($cart) && !empty($cart)) {
 
@@ -243,14 +274,14 @@
                                         <input type='hidden' name='id' value='" . $id . "'>
                                         <a>" . $product["nomProduit"] . "</a>
                                     </td>
-                                    <td class='couleur'><a>" . $product["couleurProduit"] . "</a></td>
-                                    <td class='taille'><a>" . $product["tailleProduit"] . "</a></td>
-                                    <td class='prix'><a>" . number_format($product["prixProduit"], 2, ",", " ") . " €</a></td>
+                                    <td class='couleur'>" . $product["couleurProduit"] . "</td>
+                                    <td class='taille'>" . $product["tailleProduit"] . "</td>
+                                    <td class='prix'>" . number_format($product["prixProduit"], 2, ",", " ") . " €</td>
                                     <td class='quantite'>
                                         <input type='hidden' name='amount' value='" . $amount . "'>
                                         <button type='submit' name='moins' class='ignore'>
                                             <i class='fa-regular fa-circle-minus'></i>
-                                        </button><a>" . $amount . "</a>";
+                                        </button>" . $amount . "";
                                         if ($product["qteProduit"] >= $amount + 1) {
                                             echo "<button type='submit' name='plus' class='ignore'>
                                                 <i class='fa-regular fa-circle-plus'></i>
@@ -278,27 +309,39 @@
 
                     // Utilisateur non connecté
                     if (!isset($_SESSION["connexion"])) {
-                        echo "<a class='button' href='compte'>Se connecter pour commander</a>";
+                        echo "<a class='button' href='/~saephp11/compte'>Se connecter pour commander</a>";
 
                     // Utilisateur connecté (formulaire de commande)
                     } else {
-                        echo "<form action='" . $_SERVER["PHP_SELF"] . "' method='POST'>
-                            <label class='subtitle'>Adresse</label>
-                            <input type='text' name='adresse' autocomplete='street-address' required>
-                    
-                            <label class='subtitle'>Ville</label>
-                            <input type='text' name='ville' autocomplete='address-level2' required>
+                        $sql = "SELECT * FROM Client WHERE idClient = :id";
+                        $req = $conn -> prepare($sql);
+                        $req -> execute(["id" => htmlspecialchars($_SESSION["connexion"])]);
 
-                            <label class='subtitle'>Code postal</label>
-                            <input type='number name='codePostal' autocomplete='postal-code' required>
+                        if ($req->rowCount() != 1) {
+                            echo "<script>alert('Une erreur est survenue.')</script>";
+                            header("Location: compte");
+                            exit();
+                        } else {
+                            $client = $req -> fetch();
+                        }
+
+                        echo "<form action='" . $_SERVER["PHP_SELF"] . "' method='POST'>
+                            <label>Adresse</label>
+                            <input type='text' name='adresse' autocomplete='street-address' value='" . $client["adresseClient"] . "' required>
                     
-                            <label class='subtitle'>Pays</label>
+                            <label>Ville</label>
+                            <input type='text' name='ville' autocomplete='address-level2' value='" . $client["villeClient"] . "' required>
+
+                            <label>Code postal</label>
+                            <input type='number' name='postal' autocomplete='postal-code' value='" . $client["codePostalClient"] . "' required>
+                    
+                            <label>Pays</label>
                             <input type='text' name='pays' autocomplete='country-name' required>";
                             
                             if($valide) {
                                 echo "<button type='submit' name='creercommande'>Commander</button>";
                             } else {
-                                echo "<button type='submit' name='creercommande' disabled>Commander</button>";
+                                echo "<button disabled>Commander</button>";
                             }
                         echo "</form>";
                     }

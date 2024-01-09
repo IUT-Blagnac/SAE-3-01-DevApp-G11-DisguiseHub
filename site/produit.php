@@ -126,6 +126,7 @@
                                         <input type='hidden' name='id' value='" . $produit["refProduit"] . "'>
                                         <input type='hidden' name='amount' value='1'>
                                         <button type='submit' name='commander'>Ajouter au panier (" . $produit["qteProduit"] . " en stock)</button>
+    
                                     </form>";
                                 }
                             } else {
@@ -175,11 +176,18 @@
                                     echo "</div>";
                                     if (isset($avi["imageAvis"])) {
                                         echo "<img src='" . $avi["imageAvis"] . "' alt='Photo de l'avis " . $avi["idAvis"] . "'>";
-                                    }
+                                    }   
                                 echo "</div>";
                             }
                         }
                     echo "</div>";
+                    echo "<div class=\"boutons-actions\">
+                    <a href='./admin/ajoutproduit.php' class='button'>Ajouter produit</a>
+                    <a href='./admin/modifierproduit.php?id=" . $produit["refProduit"] . "' class='button'>Modifier produit</a>
+                    <a href='./admin/supprimerproduit.php?id=" . $produit["refProduit"] . "' class='button'>Supprimer produit</a>
+
+                </div>";
+                
                 }
             }
         ?>

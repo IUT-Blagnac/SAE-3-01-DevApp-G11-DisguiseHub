@@ -4,8 +4,6 @@ Feature: Scenario
 
     Scenario: Hello World scenario
 
-        Given An empty basket
+        Given A initial website
 
-        And A product is added to the basket
-
-        Then The basket price is 16€
+        Then I see "hello world"

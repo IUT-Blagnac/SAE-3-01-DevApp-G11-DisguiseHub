@@ -1,0 +1,14 @@
+default:
+
+  extensions:
+    Behat\MinkExtension:
+      base_url: http://google.fr/
+      goutte: ~
+      selenium2:
+        wd_host: "http://localhost:4444/wd/hub"
+
+  suites:
+
+    default:
+
+      contexts: [FeatureContext, ProductsContext, WebContext]

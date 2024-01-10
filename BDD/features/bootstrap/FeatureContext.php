@@ -19,26 +19,17 @@ class FeatureContext implements Context
     }
 
     /**
-     * @Given An empty basket
+     * @Given A initial website
      */
-    public function anEmptyBasket()
+    public function anInitWebsite()
     {
         // TODO: Implement the step definition for an empty basket
     }
-
+    
     /**
-     * @Given A product is added to the basket
+     * @Then I see :arg1
      */
-    public function aProductIsAddedToTheBasket()
+    public function iSee($arg1)
     {
-        // TODO: Implement the step definition for adding a product to the basket
-    }
-
-    /**
-     * @Then The basket price is :arg1€
-     */
-    public function theBasketPriceIsEur($arg1)
-    {
-        // TODO: Implement the step definition for verifying the basket price
     }
 }

@@ -1,5 +1,11 @@
-Feature: Testing a PHP site
+Feature: Scenario
 
-  Scenario: Check the home page
-    Given I am on the homepage
-    Then I should see "Welcome to My PHP Site"
+    Permet de réaliser des Scenario
+
+    Scenario: Hello World scenario
+
+        Given An empty basket
+
+        And A product is added to the basket
+
+        Then The basket price is 16€

@@ -39,7 +39,7 @@ Ordinateur sous Windows ou OS équivalent.
 
 == III. Cas de test :
 === 1. Informations du client :
-==== 1.1 Compte client :
+==== 1.1 Connexion compte client :
 
 |====
 
@@ -57,8 +57,7 @@ Ordinateur sous Windows ou OS équivalent.
 ^|All_I_C.6 ^|Rentrer un mot de passe inadéquat (sans majuscule par exemple) ^|Blocage ! + pop-up. ^|aucune ^|OK
 ^|All_I_C.7 ^|Compléter les champs et ne pas cliquer sur le CAPTCHA. ^|Bouton "s'inscrire" est grisé + incapacité à cliquer dessus ^|aucune ^|OK
 ^|All_I_C.8 ^|Compléter les champs en étant bien valides + cliquer sur le CAPTCHA ^|Bouton "s'inscrire" est orangé + on peut cliquer dessus et s'inscrire sur le site ^|OK
-
-
+^|All_I_C.9 ^|Cliquer sur "J'ai déjà un compte" ^|Redirection vers la page de connexion ^|OK
 
 
 
@@ -74,10 +73,10 @@ Ordinateur sous Windows ou OS équivalent.
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_I_C.9 ^|Cliquer sur le bouton du bonhomme blanc en haut à droite du site. ^|La fenêtre de connexion au site s'ouvre.  ^|Avoir le site d'ouvert ^|OK
-^|All_I_C.10 ^|Remplir les champs, cliquer sur le CAPTCHA et cliquer sur "Se connecter" ^|Renvoie sur la page des informations du client ^|aucune ^|OK
-^|All_I_C.11 ^|Comme avec la création du compte client, si mauvaise saisie des différents champs et valider. ^|Blocage + pop-up. ^|aucune ^|OK
-^|All_I_C.12 ^|Remplir les champs, etc + cliquer sur la case "Se souvenir de moi" ^|Renvoie sur la page des informations du client mais en se déconnectant, l'adresse mail du client reste préremplie ^|aucune ^|OK
+^|All_I_C.10 ^|Cliquer sur le bouton du bonhomme blanc en haut à droite du site. ^|La fenêtre de connexion au site s'ouvre.  ^|Avoir le site d'ouvert ^|OK
+^|All_I_C.11 ^|Remplir les champs, cliquer sur le CAPTCHA et cliquer sur "Se connecter" ^|Renvoie sur la page des informations du client ^|aucune ^|OK
+^|All_I_C.12 ^|Comme avec la création du compte client, si mauvaise saisie des différents champs et valider. ^|Blocage + pop-up. ^|aucune ^|OK
+^|All_I_C.13 ^|Remplir les champs, etc + cliquer sur la case "Se souvenir de moi" ^|Renvoie sur la page des informations du client mais en se déconnectant, l'adresse mail du client reste préremplie ^|aucune ^|OK
 
 |====
 
@@ -90,32 +89,30 @@ Ordinateur sous Windows ou OS équivalent.
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_I_C.13 ^|Cliquer sur le bouton du bonhomme blanc en haut à droite du site. ^|Tous les clients s'affichent. ^|aucune ^|OK
-^|All_I_C.14 ^|Compléter le champ "Numéro" avec un numéro de client . ^|Affichage du client avec ce numéro. Le client est modifié. ^|aucune ^|OK
-^|All_I_C.15 ^|Compléter le champ "Nom" avec le nom d'un client ou juste ces premières lettres. ^|Affichage du ou des clients avec ce nom ou les lettres du début du nom. ^|aucune ^|OK
-^|All_I_C.16 ^|Compléter le champ "Prénom" avec le prénom d'un client ou juste ces premières lettres. ^|Affichage du ou des clients avec ce prénom ou les lettres du début du prénom. ^|aucune ^|OK
-^|All_I_C.17 ^|Saisir un numéro 1000. ^|Aucun affichage de clients. ^|aucune ^|OK
-^|All_I_C.18 ^|Saisir un prénom "It". ^|Aucun affichage de clients. ^|aucune ^|OK
-^|All_I_C.19 ^|Saisir un nom "Er". ^|Aucun affichage de clients. ^|aucune ^|OK
-
+^|All_I_C.14 ^|Cliquer sur le bouton du bonhomme blanc en haut à droite du site. ^|Tous les clients s'affichent. ^|aucune ^|OK
+^|All_I_C.15 ^|Compléter tous les champs avec les informations exactes du client, saississez le nouveau mot de passe + cliquer sur le CAPTCHA et Valider en cliquant sur "Modifier mon mot de passe"  . ^|Redirection vers la page de connexion avec le nouveau mot de passe ^|aucune ^|OK
+^|All_I_C.16 ^|Compléter tous les champs avec des informations pas cohérentes avec celles du client  ^|Redirection vers la page de mot de passe oublié avec un message d'erreur ^|aucune ^|OK
+^|All_I_C.17 ^|Cliquer sur le bouton "Annuler" ^|Redirection vers la page de connexion ^|aucune ^|OK
 
 |====
 
 
-==== 1.2 Gestion des comptes bancaires :
+==== 1.2 Compte client informations :
 
 
 |====
 
 >|Cas de test 4+|Test-01-02-01
->|Titre 4+|Consultation d'un compte
->|Objectif 4+| Vérifier qu'il est possible de consulter un compte
+>|Titre 4+|Mes informations
+>|Objectif 4+| Vérifier qu'il est possible de consulter et modifier mes informations
 
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_G_CB.1 ^|Cliquer sur le bouton "Comptes client". ^|La page des comptes du client s’affiche. ^|Un client actif est sélectionné ^|OK
-^|All_G_CB.2 ^|Sélectionner le bouton "Retour gestion clients". ^|La page de gestion des clients s'affichent et celle des comptes se ferme. ^|aucune ^|OK
+^|All_I_CCI.1 ^|Cliquer sur le bouton du bonhomme blanc en haut à droite du site. ^|Les différents éléments du compte client s'affichent (les commandes, les avis, les informations,...) ^|Le client doit être déjà connecté ^|OK
+^|All_I_CCI.2 ^|Sélectionner le bouton "Mes informations". ^|Toutes les informations concernant le client s'affichent + un bouton "Modifier" et un bouton "Changer de mot de passe". ^|aucune ^|OK
+^|All_I_CCI.3 ^|Cliquer sur le bouton "Modifier" ^|Le client peut modifier ses informations personnelles et enregistrer une carte bleue si il le souhaite ^|aucune ^|OK
+
 
 |====
 

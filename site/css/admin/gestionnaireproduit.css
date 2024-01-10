@@ -1,4 +1,24 @@
 
+.boutons-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 0;
+    width: 200px;
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #fff;
+    border-radius: 4px;
+    margin: 0 auto; 
+    display: block;
+}
+
+.button:hover {
+    background-color: #ffffff;
+}
 
 .gestionnaire-page {
     max-width: 1200px;
@@ -8,53 +28,6 @@
 .product-manager {
     margin-top: 20px;
     text-align: center; 
-}
-
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.product-link {
-    text-decoration: none;
-    color: #333;
-}
-
-.product-container {
-    border: 1px solid #ccc;
-    padding: 15px;
-    text-align: center;
-}
-
-.product-name {
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-.product-description {
-    margin-bottom: 10px;
-}
-
-.product-price {
-    color: #007bff;
-}
-
-.boutons-actions {
-    text-align: center; 
-    margin-top: 20px; 
-}
-.button {
-    display: inline-block;
-    padding: 10px 0; 
-    width: 200px; 
-    text-decoration: none;
-    background-color: #28a745;
-    color: #fff;
-    border-radius: 4px;
-}
-.button:hover {
-    background-color: #218838; 
 }
 
 
@@ -81,7 +54,7 @@
     margin: 4px;
     text-decoration: none;
     background-color: #e44d26;
-    color: #fff;
+    color: #000000;
     border: 1px solid #e44d26;
     border-radius: 4px;
 }

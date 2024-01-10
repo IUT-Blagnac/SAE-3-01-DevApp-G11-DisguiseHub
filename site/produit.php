@@ -185,12 +185,8 @@
                             }
                         }
                     echo "</div>";
-                    echo "<div class=\"boutons-actions\">
-                    <a href='./admin/ajoutproduit.php' class='button'>Ajouter produit</a>
-                    <a href='./admin/modifierproduit.php?id=" . $produit["refProduit"] . "' class='button'>Modifier produit</a>
-                    <a href='./admin/supprimerproduit.php?id=" . $produit["refProduit"] . "' class='button'>Supprimer produit</a>
-
-                </div>";
+                   
+         
                 
                 }
             }

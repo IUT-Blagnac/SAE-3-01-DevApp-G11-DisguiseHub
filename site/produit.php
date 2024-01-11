@@ -15,6 +15,10 @@
 
 <body>
 
+    <?php
+        session_start();
+    ?>
+
     <?php include("include/header.php"); ?>
 
     <div class="content">
@@ -66,13 +70,15 @@
                         $moyenne = round($req -> fetch()["moyenne"]);
                     }
 
-                    echo "<div class='produit'>
-                        <div class='images'>";
-                            foreach ($images as $image) {
-                                echo "<img src='" . $image["imageProduit"] . "' alt='" . $produit["nomProduit"] . "'>";
-                            }
-                        echo "</div>
-                        <div class='details'>";
+                    echo "<div class='produit'>";
+                        if (count($images) != 0) {
+                            echo "<div class='images'>";
+                                foreach ($images as $image) {
+                                    echo "<img src='" . $image["imageProduit"] . "' alt='" . $produit["nomProduit"] . "'>";
+                                }
+                            echo "</div>";
+                        }
+                        echo "<div class='details'>";
                             if (isset($moyenne)) {
                                 for ($i = 0; $i < $moyenne; $i++) {
                                     echo "<i class='fas fa-star color'></i>";
@@ -130,6 +136,7 @@
                                         <input type='hidden' name='id' value='" . $produit["refProduit"] . "'>
                                         <input type='hidden' name='amount' value='1'>
                                         <button type='submit' name='commander'>Ajouter au panier (" . $produit["qteProduit"] . " en stock)</button>
+    
                                     </form>";
                                 }
                             } else {
@@ -179,11 +186,42 @@
                                     echo "</div>";
                                     if (isset($avi["imageAvis"])) {
                                         echo "<img src='" . $avi["imageAvis"] . "' alt='Photo de l'avis " . $avi["idAvis"] . "'>";
-                                    }
+                                    }   
                                 echo "</div>";
                             }
                         }
+                        if (isset($_SESSION["connexion"])) {
+                            $sql = "SELECT DISTINCT P.refProduit FROM Produit P, Commander Co, Commande C
+                            WHERE P.refProduit = Co.refProduit
+                            AND Co.idCommande = C.idCommande
+                            AND C.idClient = :id
+                            AND P.refProduit = :produit";
+                            $req = $conn -> prepare($sql);
+                            $req -> execute([
+                                "id" => htmlspecialchars($_SESSION["connexion"]),
+                                "produit" => htmlspecialchars($_GET["id"])
+                            ]);
+                            if ($req -> rowCount() != 0) {
+                                $sql = "SELECT * FROM Avis WHERE idClient = :id AND refProduit = :produit";
+                                $req = $conn -> prepare($sql);
+                                $req -> execute([
+                                    "id" => htmlspecialchars($_SESSION["connexion"]),
+                                    "produit" => htmlspecialchars($_GET["id"])
+                                ]);
+                                if ($req -> rowCount() != 0) {
+                                    echo "<div class='buttons'>
+                                        <a class='button avis' href='/~saephp11/compte/avis/edit.php?id=" . $produit["refProduit"] . "'>Modifier mon avis</a>
+                                        <a class='button avis' href='/~saephp11/compte/avis/edit.php?id=" . $produit["refProduit"] . "&supprimer'>Supprimer mon avis</a>
+                                    </div>";
+                                } else {
+                                    echo "<a class='button avis' href='/~saephp11/compte/avis/edit.php?id=" . $produit["refProduit"] . "'>Laisser un avis</a>";
+                                }
+                            }
+                        }
                     echo "</div>";
+                   
+         
+                
                 }
             }
         ?>

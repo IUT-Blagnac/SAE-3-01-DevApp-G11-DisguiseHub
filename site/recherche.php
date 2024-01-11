@@ -40,36 +40,30 @@
     <?php
     if (isset($_GET["recherche"])) {
         $recherche = $_GET["recherche"];
+        echo "<script type='text/javascript'>
+            document.title = 'Recherche : " . $recherche . " - Disguise\'Hub'
+        </script>";
         $categorie = $_GET["tri"]; // ASC, DESC, PERT
-        if ($categorie === "PERT") {
-            $statement = "SELECT * FROM Produit WHERE nomProduit LIKE :recherche;";
+        if ($categorie === "ASC" || $categorie === "DESC") {
+            $statement = "SELECT * FROM Produit WHERE nomProduit LIKE :recherche ORDER BY prixProduit " . htmlspecialchars($categorie);
         } else {
-            $statement = "SELECT * FROM Produit WHERE nomProduit LIKE :recherche ORDER BY prixProduit " . $categorie . ";";
+            $statement = "SELECT * FROM Produit WHERE nomProduit LIKE :recherche";
         }
         $req = $conn->prepare($statement);
-        $req->bindValue(':recherche', '%' . $recherche . '%', PDO::PARAM_STR);
-        $req->execute();
+        $req->execute(["recherche" => '%' . htmlspecialchars($recherche) . '%']);
+        $produits = $req->fetchAll();
 
 
         if ($req->rowCount() > 0) {
             echo "<div class='products'>";
-            while ($product = $req->fetch()) {
-                $imageId = $product["refProduit"] - 100000;
-                echo "<a href='/~saephp11/produit.php?id=" . $product["refProduit"] . "' class='product-link'>
-                            <div class='product-container'>
-                             <img class='product-image' src='https://picsum.photos/360/360?image=" . $imageId . "' alt='Image " . $product["nomProduit"] . "' />
-                             <p class='product-name'>" . $product["nomProduit"] . "</p>
-                             <p class='product-description'>" . $product["descProduit"] . "</p>
-                             <p class='product-price'>" . $product["prixProduit"] . " €</p>
-                             <p class='product-size'>" . $product["tailleProduit"] . " </p>
-                            </div>
-                      </a>";
-            }
+                foreach ($produits as $produit) {
+                    require("./include/apercuProduit.php");
+                }
             echo "</div>";
         } else {
             echo "<div class='no-results'>
-                      <p>Aucun résultat pour votre recherche.</p>
-                 </div>";
+                <p>Aucun résultat pour votre recherche.</p>
+            </div>";
         }
     }
     ?>

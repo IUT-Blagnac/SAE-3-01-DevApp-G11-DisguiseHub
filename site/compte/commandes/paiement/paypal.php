@@ -23,6 +23,10 @@
             session_start();
             require_once("../../../include/connect.inc.php");
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if(isset($_POST["annuler"])) {
+                    header("Location: ../detail.php?id=" . $_POST["id"] . "&annuler");
+                    exit();
+                }
                 if(isset($_POST["payer"]) && isset($_POST["id"])) {
                     $sql = "SELECT * FROM Paypal";
                     $req = $conn->prepare($sql);
@@ -83,6 +87,7 @@
                                 <form action='" . $_SERVER["PHP_SELF"] . "' method='POST'>
                                     <input type='hidden' name='id' value='" . $_POST["id"] . "'>
                                     <button class='btnpayer' name='payer'>Payer " . $prix . " €</button>
+                                    <button class='btnpayer' name='annuler'>Annuler</button>
                                 </form>";
                             } else {
                                 echo "<p>Désolé, une erreur s'est produite. Merci de réessayer ultérieusement.</p>

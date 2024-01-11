@@ -34,11 +34,10 @@
 
             while ($cat = $req->fetch()) {
                 echo "<div class='category-container'>
-                        <a href='/~saephp11/recherche.php?cat=" . $cat["idCategorie"] . "'>
+                        <a href='/~saephp11/categorie.php?id=" . $cat["idCategorie"] . "'>
                             <img class='category-image' src='./img/" . $cat["nomCategorie"] . ".jpg' alt='Image " . $cat["nomCategorie"] . "' />
                             <p class='category-name'>" . strtoupper($cat["nomCategorie"]) . "</p>
                         </a>
-                       
                       </div>";
             }
 
@@ -50,29 +49,15 @@
             <h2>Catalogue de produits</h2><br>
             <div class="products">
                 <?php
-                $productStatement = "SELECT * FROM Produit";
-                $productReq = $conn->prepare($productStatement);
-                $productReq->execute();
+                    $productStatement = "SELECT * FROM Produit";
+                    $productReq = $conn->prepare($productStatement);
+                    $productReq->execute();
 
+                    while ($produit = $productReq->fetch()) {
+                        require("./include/apercuProduit.php");
+                    }
 
-                while ($product = $productReq->fetch()) {
-
-                    $sql = "SELECT * FROM Image WHERE refProduit = :produit";
-                    $req = $conn->prepare($sql);
-                    $req->execute(["produit" => $product["refProduit"]]);
-                    $image = $req->fetch()["imageProduit"];
-
-                    echo "<a href='/~saephp11/produit.php?id=" . $product["refProduit"] . "' class='product-link'>
-                            <div class='product-container'>
-                            <img class='product-image' src='" . $image . "' alt='Image " . $product["nomProduit"] . "' />
-                                <p class='product-name'>" . $product["nomProduit"] . "</p>
-                                <p class='product-description'>" . $product["descProduit"] . "</p>
-                                <p class='product-price'>" . $product["prixProduit"] . " €</p>
-                            </div>
-                          </a>";
-                }
-
-                $productReq->closeCursor();
+                    $productReq->closeCursor();
                 ?>
             </div>
         </div>

@@ -57,7 +57,11 @@
 
                     echo "<div class='articles'>";
                     
-                        $sql = "SELECT * FROM AssoProduitCateg WHERE idCategorie = :id";
+                        if (isset($categorie["idCategoriePere"])) {
+                            $sql = "SELECT * FROM AssoProduitCateg WHERE idCategorie = :id";
+                        } else {
+                            $sql = "SELECT * FROM AssoProduitCateg WHERE idCategorie IN (SELECT idCategorie FROM Categorie WHERE idCategoriePere = :id)";
+                        }
                         $req = $conn -> prepare($sql);
                         $req -> execute(["id" => $_GET["id"]]);
                         $articles = $req -> fetchAll();
@@ -68,21 +72,7 @@
                             $req -> execute(["id" => $article["refProduit"]]);
                             $produit = $req -> fetch();
 
-                            $sql = "SELECT * FROM Image WHERE refProduit = :id";
-                            $req = $conn -> prepare($sql);
-                            $req -> execute(["id" => $article["refProduit"]]);
-                            
-                            echo "<a class='article' href='/~saephp11/produit.php?id=" . $produit["refProduit"] . "'>";
-                            
-                            if ($req && $req->rowCount() > 0) {
-                                $image = $req -> fetch();
-                                echo "<img src='" . $image["imageProduit"] . "' alt='" . $produit["nomProduit"] . "'>";
-                            }
-
-                                echo "<h2>" . $produit["nomProduit"] . "</h2>
-                                <p>" . $produit["tailleProduit"] . " - " . $produit["couleurProduit"] . "</p>
-                                <span>" . $produit["prixProduit"] . "€</span>
-                            </a>";
+                            require("./include/apercuProduit.php");
                         }
                     echo "</div>";
                 }

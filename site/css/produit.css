@@ -112,6 +112,15 @@ div.avi img {
     border-radius: 10px;
 }
 
+div.avis div.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+a.button.avis {
+    max-width: none;
+}
+
 @media screen and (max-width: 600px) {
     div.produit {
         flex-direction: column;

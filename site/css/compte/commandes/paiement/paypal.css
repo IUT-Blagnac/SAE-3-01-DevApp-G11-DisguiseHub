@@ -166,6 +166,7 @@ button.btnpayer {
     line-height: 1.2;
     text-decoration: none;
     vertical-align: middle;
+    margin-bottom: 8px;
 }
 
 button.btnpayer:hover {

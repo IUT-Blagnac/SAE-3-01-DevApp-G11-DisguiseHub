@@ -98,7 +98,7 @@
     
                 <label for="mdp">Mot de passe</label>
                 <input type="password" name="mdp" id="mdp" autocomplete="current-password" required>
-                <a class="mdpoublie" href="/~saephp11/mdpoublie.php">Mot de passe oublié ?</a>
+                <a class="mdpoublie" href="/~saephp11/compte/mdpoublie.php">Mot de passe oublié ?</a>
 
                 <label class="checkbox">
                     <input type="checkbox" name="souvenir" <?php if(isset($_COOKIE["sesouvenir"])) { echo "checked"; }?>>

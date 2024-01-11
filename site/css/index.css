@@ -66,8 +66,6 @@
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
-    
-
 
 /* Styles du gestionnaire de produits */
 
@@ -79,50 +77,8 @@
 .products {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.product-container {
-    text-align: center;
-    margin-bottom: 20px;
-    width: 250px; 
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-    position: relative;
-    transition: box-shadow 0.3s ease; /* Ajout */
-}
-
-.product-container:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Ajout */
-}
-
-.product-image {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-}
-
-.product-name {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.product-description {
-    margin-bottom: 10px;
-}
-
-.product-price {
-    color: #e44d26;
-    font-weight: bold;
-}
-
-.product-container + .product-container {
-    margin-left: 20px;
+    justify-content: space-evenly;
+    gap: 20px;
 }
 
 @media screen and (max-width: 768px) {
@@ -135,33 +91,4 @@
         width: 100%;
         margin-left: 0;
     }
-}   
-/* Styles pour les liens des produits */
-
-.product-link {
-    text-decoration: none; 
-    color: #333; 
-    position: relative; 
-}
-
-.product-link:hover {
-    color: #e44d26; 
-}
-
-.product-link::before {
-    content: ""; 
-    position: absolute;
-    bottom: 6.5%; 
-    left: 0;
-    width: 100%;
-    height: 2px; 
-    background-color: #e44d26; 
-    transform: scaleX(0); 
-    transform-origin: right; 
-    transition: transform 0.3s ease; 
-}
-
-.product-link:hover::before {
-    transform: scaleX(1); 
-    transform-origin: left; 
 }

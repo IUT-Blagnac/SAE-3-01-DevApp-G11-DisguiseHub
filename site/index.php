@@ -34,11 +34,10 @@
 
             while ($cat = $req->fetch()) {
                 echo "<div class='category-container'>
-                        <a href='/~saephp11/recherche.php?cat=" . $cat["idCategorie"] . "'>
+                        <a href='/~saephp11/categorie.php?id=" . $cat["idCategorie"] . "'>
                             <img class='category-image' src='./img/" . $cat["nomCategorie"] . ".jpg' alt='Image " . $cat["nomCategorie"] . "' />
                             <p class='category-name'>" . strtoupper($cat["nomCategorie"]) . "</p>
                         </a>
-                       
                       </div>";
             }
 

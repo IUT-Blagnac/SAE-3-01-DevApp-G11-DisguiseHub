@@ -57,7 +57,11 @@
 
                     echo "<div class='articles'>";
                     
-                        $sql = "SELECT * FROM AssoProduitCateg WHERE idCategorie = :id";
+                        if (isset($categorie["idCategoriePere"])) {
+                            $sql = "SELECT * FROM AssoProduitCateg WHERE idCategorie = :id";
+                        } else {
+                            $sql = "SELECT * FROM AssoProduitCateg WHERE idCategorie IN (SELECT idCategorie FROM Categorie WHERE idCategoriePere = :id)";
+                        }
                         $req = $conn -> prepare($sql);
                         $req -> execute(["id" => $_GET["id"]]);
                         $articles = $req -> fetchAll();

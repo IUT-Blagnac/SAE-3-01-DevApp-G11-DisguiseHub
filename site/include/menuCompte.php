@@ -22,7 +22,7 @@
         <a href="/~saephp11/compte/commandes"><i class="fa-solid fa-box"></i> Mes commandes</a>
         <a href="/~saephp11/compte/informations.php"><i class="fa-solid fa-pen-to-square"></i> Mes informations</a>
         <a href="/~saephp11/compte/avis"><i class='fas fa-star'></i> Mes avis</a>
-        <a href="/~saephp11/compte/favoris.php"><i class="fa-solid fa-heart"></i> Mes favoris</a>
+        <!--<a href="/~saephp11/compte/favoris.php"><i class="fa-solid fa-heart"></i> Mes favoris</a>-->
         <a href="/~saephp11/compte/?deconnexion" style="margin-top: 20px;"><i class="fa-solid fa-right-from-bracket"></i> Déconnexion</a>
         <?php
             if (isset($_COOKIE["sesouvenir"])) {

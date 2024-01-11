@@ -1,0 +1,65 @@
+
+.boutons-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 0;
+    width: 200px;
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #fff;
+    border-radius: 4px;
+    margin: 0 auto; 
+    display: block;
+}
+
+.button:hover {
+    background-color: #ffffff;
+}
+
+.gestionnaire-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-manager {
+    margin-top: 20px;
+    text-align: center; 
+}
+
+
+.product-table {
+    width: 80%; 
+    margin: 20px auto; 
+    border-collapse: collapse;
+}
+
+.product-table th, .product-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.product-table th {
+    background-color: #f2f2f2;
+}
+
+/* Styles pour les boutons d'action */
+.action-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 4px;
+    text-decoration: none;
+    background-color: #e44d26;
+    color: #000000;
+    border: 1px solid #e44d26;
+    border-radius: 4px;
+}
+
+.action-btn:hover {
+    background-color: #ff3604;
+    border-color: #ff3300;
+}

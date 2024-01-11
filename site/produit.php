@@ -136,6 +136,7 @@
                                         <input type='hidden' name='id' value='" . $produit["refProduit"] . "'>
                                         <input type='hidden' name='amount' value='1'>
                                         <button type='submit' name='commander'>Ajouter au panier (" . $produit["qteProduit"] . " en stock)</button>
+    
                                     </form>";
                                 }
                             } else {
@@ -185,7 +186,7 @@
                                     echo "</div>";
                                     if (isset($avi["imageAvis"])) {
                                         echo "<img src='" . $avi["imageAvis"] . "' alt='Photo de l'avis " . $avi["idAvis"] . "'>";
-                                    }
+                                    }   
                                 echo "</div>";
                             }
                         }
@@ -218,6 +219,9 @@
                             }
                         }
                     echo "</div>";
+                   
+         
+                
                 }
             }
         ?>

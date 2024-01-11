@@ -40,7 +40,7 @@
                                 
                                 $sql = "SELECT idClient, mdpClient FROM Client WHERE mailClient = :email";
                                 $req = $conn -> prepare($sql);
-                                $req -> execute(["email" => $email]);
+                                $req -> execute(["email" => htmlspecialchars($email)]);
 
                                 // Si compte trouvé
                                 if($req && $req->rowCount() == 1) {

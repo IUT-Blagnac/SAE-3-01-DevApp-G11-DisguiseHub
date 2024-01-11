@@ -30,7 +30,7 @@
             } else {
                 $sql = "SELECT * FROM Produit WHERE refProduit = :ref";
                 $req = $conn -> prepare($sql);
-                $req -> execute(["ref" => $_GET["id"]]);
+                $req -> execute(["ref" => htmlspecialchars($_GET["id"])]);
                 
                 // Cas d'erreurs
                 if ($req && $req->rowCount() > 1) {
@@ -50,23 +50,23 @@
 
                     $sql = "SELECT * FROM AssoProduitCateg WHERE refProduit = :ref";
                     $req = $conn -> prepare($sql);
-                    $req -> execute(["ref" => $_GET["id"]]);
+                    $req -> execute(["ref" => htmlspecialchars($_GET["id"])]);
                     $categories = $req -> fetchAll();
 
                     $sql = "SELECT * FROM Image WHERE refProduit = :ref";
                     $req = $conn -> prepare($sql);
-                    $req -> execute(["ref" => $_GET["id"]]);
+                    $req -> execute(["ref" => htmlspecialchars($_GET["id"])]);
                     $images = $req -> fetchAll();
 
                     $sql = "SELECT * FROM Avis WHERE refProduit = :ref";
                     $req = $conn -> prepare($sql);
-                    $req -> execute(["ref" => $_GET["id"]]);
+                    $req -> execute(["ref" => htmlspecialchars($_GET["id"])]);
                     $avis = $req -> fetchAll();
 
                     if (count($avis) != 0) {
                         $sql = "SELECT AVG(note) AS moyenne FROM Avis WHERE refProduit = :ref";
                         $req = $conn -> prepare($sql);
-                        $req -> execute(["ref" => $_GET["id"]]);
+                        $req -> execute(["ref" => htmlspecialchars($_GET["id"])]);
                         $moyenne = round($req -> fetch()["moyenne"]);
                     }
 
@@ -94,13 +94,13 @@
 
                                         $sql = "SELECT * FROM Categorie WHERE idCategorie = :cat";
                                         $req = $conn -> prepare($sql);
-                                        $req -> execute(["cat" => $cat["idCategorie"]]);
+                                        $req -> execute(["cat" => htmlspecialchars($cat["idCategorie"])]);
                                         $categorie = $req -> fetch();
 
                                         if (isset($categorie["idCategoriePere"])) {
                                             $sql = "SELECT * FROM Categorie WHERE idCategorie = :cat";
                                             $req = $conn -> prepare($sql);
-                                            $req -> execute(["cat" => $categorie["idCategoriePere"]]);
+                                            $req -> execute(["cat" => htmlspecialchars($categorie["idCategoriePere"])]);
                                             $categoriePere = $req -> fetch();
                                             echo "<a href='/~saephp11/categorie.php?id=" . $categoriePere["idCategorie"] . "'>" . $categoriePere["nomCategorie"] . "</a> > ";
                                         }
@@ -155,13 +155,13 @@
                             foreach ($avis as $avi) {
                                 $sql = "SELECT nomClient, prenomClient FROM Client WHERE idClient = :id";
                                 $req = $conn -> prepare($sql);
-                                $req -> execute(["id" => $avi["idClient"]]);
+                                $req -> execute(["id" => htmlspecialchars($avi["idClient"])]);
                                 $client = $req -> fetch();
 
                                 if (isset($avi["idAvisPere"])) {
                                     $sql = "SELECT commentaire FROM Client WHERE idAvis = :id";
                                     $req = $conn -> prepare($sql);
-                                    $req -> execute(["id" => $avi["idAvisPere"]]);
+                                    $req -> execute(["id" => htmlspecialchars($avi["idAvisPere"])]);
                                     $reponse = $req -> fetch()["commentaire"];
                                 }
 

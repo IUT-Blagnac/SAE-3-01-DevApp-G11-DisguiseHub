@@ -55,11 +55,11 @@
                                 $sql = "SELECT * FROM Client WHERE prenomClient = :prenom AND nomClient = :nom AND dateNaissanceClient = :dtn AND mailClient = :email AND telClient = :tel";
                                 $req = $conn -> prepare($sql);
                                 $req -> execute([
-                                    "prenom" => $prenom,
-                                    "nom" => $nom,
-                                    "dtn" => $dtn,
-                                    "email" => $email,
-                                    "tel" => $tel
+                                    "prenom" => htmlspecialchars($prenom),
+                                    "nom" => htmlspecialchars($nom),
+                                    "dtn" => htmlspecialchars($dtn),
+                                    "email" => htmlspecialchars($email),
+                                    "tel" => htmlspecialchars($tel)
                                 ]);
 
                                 // Si aucun compte trouvé
@@ -84,7 +84,7 @@
                                         $sql = "UPDATE Client SET mdpClient = :mdp WHERE prenomClient = :prenom AND nomClient = :nom AND dateNaissanceClient = :dtn AND mailClient = :email AND telClient = :tel";
                                         $req = $conn->prepare($sql);
                                         $succes = $req->execute([
-                                            "mdp" => $mdp,
+                                            "mdp" => htmlspecialchars($mdp),
                                             "prenom" => htmlspecialchars($prenom),
                                             "nom" => htmlspecialchars($nom),
                                             "dtn" => htmlspecialchars($dtn),

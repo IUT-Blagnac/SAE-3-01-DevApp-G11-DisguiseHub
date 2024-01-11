@@ -1,7 +1,7 @@
 <?php
     $sql = "SELECT * FROM Image WHERE refProduit = :produit";
     $req = $conn->prepare($sql);
-    $req->execute(["produit" => $produit["refProduit"]]);
+    $req->execute(["produit" => htmlspecialchars($produit["refProduit"])]);
     $image = $req->fetch();
 
     echo "<a href='/~saephp11/produit.php?id=" . $produit["refProduit"] . "' class='produit'>";

@@ -40,7 +40,7 @@
                 if (!empty($nomProduit) && !empty($descProduit)) {
                     // Vérifier si le produit existe déjà
                     $checkProduitQuery = $conn->prepare("SELECT COUNT(*) FROM Produit WHERE nomProduit = :nomProduit");
-                    $checkProduitQuery->execute(['nomProduit' => $nomProduit]);
+                    $checkProduitQuery->execute(['nomProduit' => htmlspecialchars($nomProduit)]);
                     $produitExists = $checkProduitQuery->fetchColumn();
 
                     if ($produitExists) {
@@ -55,13 +55,13 @@
                         ");
 
                         $req->execute([
-                            'nomProduit' => $nomProduit,
-                            'descProduit' => $descProduit,
-                            'prixProduit' => $prixProduit,
-                            'qteProduit' => $qteProduit,
-                            'tailleProduit' => $tailleProduit,
-                            'couleurProduit' => $couleurProduit,
-                            'idCategorie' => $idCategorie
+                            'nomProduit' => htmlspecialchars($nomProduit),
+                            'descProduit' => htmlspecialchars($descProduit),
+                            'prixProduit' => htmlspecialchars($prixProduit),
+                            'qteProduit' => htmlspecialchars($qteProduit),
+                            'tailleProduit' => htmlspecialchars($tailleProduit),
+                            'couleurProduit' => htmlspecialchars($couleurProduit),
+                            'idCategorie' => htmlspecialchars($idCategorie)
                         ]);
 
                         echo '<script language="JavaScript" type="text/javascript">

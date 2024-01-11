@@ -50,8 +50,8 @@
                             "destinataire" => htmlspecialchars($destinataire),
                             "iban" => htmlspecialchars($iban),
                             "bic" => htmlspecialchars($bic),
-                            "montant" => $rowCommande["montantTotal"],
-                            "dateVirement" => date("Y-m-d")
+                            "montant" => htmlspecialchars($rowCommande["montantTotal"]),
+                            "dateVirement" => htmlspecialchars(date("Y-m-d"))
                         ]);
                         $idVirement = $conn->lastInsertId();
         
@@ -59,7 +59,7 @@
                         $sql = "INSERT INTO Paiement (idVirement) VALUES (:idVirement)";
                         $stmt = $conn->prepare($sql);
                         $stmt->execute([
-                            "idVirement" => $idVirement
+                            "idVirement" => htmlspecialchars($idVirement)
                         ]);
                         $idPaiement = $conn->lastInsertId();
 
@@ -67,9 +67,10 @@
                         $sql = "UPDATE Commande SET idPaiement = :idPaiement, statutCommande = :statut WHERE idCommande = :id";
                         $req = $conn->prepare($sql);
                         $req->execute([
-                            "idPaiement" => $idPaiement,
-                            "statut" => "En cours de préparation",
-                            "id" => $_POST["id"]]);
+                            "idPaiement" => htmlspecialchars($idPaiement),
+                            "statut" => htmlspecialchars("En cours de préparation"),
+                            "id" => htmlspecialchars($_POST["id"])
+                        ]);
                         header("Location: ./?succes=" . $_POST["id"]);
                         exit();
                     }

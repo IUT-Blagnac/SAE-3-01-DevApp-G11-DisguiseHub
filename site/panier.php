@@ -51,7 +51,7 @@
 
                     $sql = "SELECT * FROM Produit WHERE refProduit = :ref";
                     $req = $conn -> prepare($sql);
-                    $req -> execute(["ref" => $id]);
+                    $req -> execute(["ref" => htmlspecialchars($id)]);
                     $product = $req -> fetch();
 
                     $sql = "";
@@ -69,12 +69,12 @@
                 $sql = "INSERT INTO Commande (idClient, dateCommande, fraisLivraison, adrLivraison, villeLivraison, codePostalLivraison, paysCommande) VALUES (:idClient, :dateCommande, 4.99, :adrLivraison, :villeLivraison, :codePostalLivraison, :paysCommande)";
                 $req = $conn -> prepare($sql);
                 $req -> execute([
-                    "idClient" => $_SESSION["connexion"],
-                    "dateCommande" => date("Y-m-d"),
-                    "adrLivraison" => $_POST["adresse"],
-                    "villeLivraison" => $_POST["ville"],
-                    "codePostalLivraison" => $_POST["postal"],
-                    "paysCommande" => $_POST["pays"]
+                    "idClient" => htmlspecialchars($_SESSION["connexion"]),
+                    "dateCommande" => htmlspecialchars(date("Y-m-d")),
+                    "adrLivraison" => htmlspecialchars($_POST["adresse"]),
+                    "villeLivraison" => htmlspecialchars($_POST["ville"]),
+                    "codePostalLivraison" => htmlspecialchars($_POST["postal"]),
+                    "paysCommande" => htmlspecialchars($_POST["pays"])
                 ]);
                 $idCommande = $conn -> lastInsertId();
 
@@ -82,9 +82,9 @@
                     $sql = "INSERT INTO Commander (refProduit, idCommande, qteCommandee) VALUES (:refProduit, :idCommande, :qteCommandee)";
                     $req = $conn -> prepare($sql);
                     $req -> execute([
-                        "refProduit" => $id,
-                        "idCommande" => $idCommande,
-                        "qteCommandee" => $amount
+                        "refProduit" => htmlspecialchars($id),
+                        "idCommande" => htmlspecialchars($idCommande),
+                        "qteCommandee" => htmlspecialchars($amount)
                     ]);
                 }
 
@@ -98,7 +98,7 @@
 
             $sql = "SELECT * FROM Produit WHERE refProduit = :ref";
             $req = $conn -> prepare($sql);
-            $req -> execute(["ref" => $id]);
+            $req -> execute(["ref" => htmlspecialchars($id)]);
             $nbresult = $req -> rowCount();
 
             function ajout() {
@@ -218,7 +218,7 @@
 
                             $sql = "SELECT * FROM Produit WHERE refProduit = :ref";
                             $req = $conn -> prepare($sql);
-                            $req -> execute(["ref" => $id]);
+                            $req -> execute(["ref" => htmlspecialchars($id)]);
                             
                             // Cas d'erreurs
                             if ($req && $req->rowCount() != 1) {

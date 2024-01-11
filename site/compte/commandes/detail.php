@@ -34,7 +34,10 @@
                 <?php
                     $sql = "SELECT * FROM Commande WHERE idCommande = :id AND idClient = :idClient";
                     $req = $conn->prepare($sql);
-                    $req->execute(["id" => $_GET["id"], "idClient" => $_SESSION["connexion"]]);
+                    $req->execute([
+                        "id" => htmlspecialchars($_GET["id"]),
+                        "idClient" => htmlspecialchars($_SESSION["connexion"])
+                    ]);
                     if ($req->rowCount() != 1) {
                         echo "<h2>Erreur</h2>
                         <p>Une erreur s'est produite.</p>
@@ -71,7 +74,7 @@
                                     } else {
                                         $sql = "SELECT * FROM Paiement WHERE idPaiement = :id";
                                         $req2 = $conn->prepare($sql);
-                                        $req2->execute(["id" => $row["idPaiement"]]);
+                                        $req2->execute(["id" => htmlspecialchars($row["idPaiement"])]);
                                         $row2 = $req2->fetch();
                                         if ($row2["numCB"]) {
                                             echo "<td><i class='fas fa-credit-card'></i> Payé en CB</td>";
@@ -111,11 +114,11 @@
                         
                         $sql = "SELECT * FROM Commander WHERE idCommande = :id";
                         $req = $conn->prepare($sql);
-                        $req->execute(["id" => $_GET["id"]]);
+                        $req->execute(["id" => htmlspecialchars($_GET["id"])]);
                         while ($row = $req->fetch()) {
                             $sql = "SELECT * FROM Produit WHERE refProduit = :id";
                             $req2 = $conn->prepare($sql);
-                            $req2->execute(["id" => $row["refProduit"]]);
+                            $req2->execute(["id" => htmlspecialchars($row["refProduit"])]);
                             $row2 = $req2->fetch();
                             echo "<tr>
                                 <td>" . $row2["nomProduit"] . "</td>

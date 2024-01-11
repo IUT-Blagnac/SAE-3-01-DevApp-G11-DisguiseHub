@@ -36,7 +36,7 @@ if (!isset($_SESSION["connexion"])) {
             <?php
                 $sql = "SELECT * FROM Client WHERE idClient = :id";
                 $req = $conn->prepare($sql);
-                $req->execute(["id" => $_SESSION["connexion"]]);
+                $req->execute(["id" => htmlspecialchars($_SESSION["connexion"])]);
                 $row = $req->fetch();
             ?>
 

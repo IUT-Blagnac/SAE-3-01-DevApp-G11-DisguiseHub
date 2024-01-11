@@ -54,7 +54,7 @@
                                 
                                 $sql = "SELECT * FROM Client WHERE mailClient = :email";
                                 $req = $conn -> prepare($sql);
-                                $req -> execute(["email" => $email]);
+                                $req -> execute(["email" => htmlspecialchars($email)]);
 
                                 // Si compte déjà existant
                                 if($req && $req->rowCount() != 0) {
@@ -88,7 +88,7 @@
                                             "dtn" => htmlspecialchars($dtn),
                                             "email" => htmlspecialchars($email),
                                             "tel" => htmlspecialchars($tel),
-                                            "mdp" => $mdp
+                                            "mdp" => htmlspecialchars($mdp)
                                         ]);
 
                                         // Si création réussie

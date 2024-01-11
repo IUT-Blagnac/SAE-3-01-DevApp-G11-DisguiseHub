@@ -40,20 +40,23 @@
     <?php
     if (isset($_GET["recherche"])) {
         $recherche = $_GET["recherche"];
+        echo "<script type='text/javascript'>
+            document.title = 'Recherche : " . $recherche . " - Disguise\'Hub'
+        </script>";
         $categorie = $_GET["tri"]; // ASC, DESC, PERT
-        if ($categorie === "PERT") {
-            $statement = "SELECT * FROM Produit WHERE nomProduit LIKE :recherche;";
+        if ($categorie === "ASC" || $categorie === "DESC") {
+            $statement = "SELECT * FROM Produit WHERE nomProduit LIKE :recherche ORDER BY prixProduit " . htmlspecialchars($categorie);
         } else {
-            $statement = "SELECT * FROM Produit WHERE nomProduit LIKE :recherche ORDER BY prixProduit " . $categorie . ";";
+            $statement = "SELECT * FROM Produit WHERE nomProduit LIKE :recherche";
         }
         $req = $conn->prepare($statement);
-        $req->bindValue(':recherche', '%' . $recherche . '%', PDO::PARAM_STR);
-        $req->execute();
+        $req->execute(["recherche" => '%' . htmlspecialchars($recherche) . '%']);
+        $produits = $req->fetchAll();
 
 
         if ($req->rowCount() > 0) {
             echo "<div class='products'>";
-                while ($produit = $req->fetch()) {
+                foreach ($produits as $produit) {
                     require("./include/apercuProduit.php");
                 }
             echo "</div>";

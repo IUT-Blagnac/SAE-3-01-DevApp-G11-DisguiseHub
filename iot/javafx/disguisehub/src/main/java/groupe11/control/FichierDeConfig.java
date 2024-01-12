@@ -2,7 +2,6 @@ package groupe11.control;
 
 import groupe11.App;
 import groupe11.view.DisguiseHubAppController;
-import groupe11.view.DonneesParSalleController;
 import groupe11.view.FichierDeConfigController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

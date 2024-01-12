@@ -85,18 +85,6 @@ public class FichierDeConfigController {
     private CheckBox activityCheckBox;
 
     @FXML
-    private CheckBox tvocCheckBox;
-
-    @FXML
-    private CheckBox illuminationCheckBox;
-
-    @FXML
-    private CheckBox infraredCheckBox;
-
-    @FXML
-    private CheckBox infrared_and_visibleCheckBox;
-
-    @FXML
     private Button validerButton;
 
     @FXML
@@ -121,10 +109,6 @@ public class FichierDeConfigController {
     private boolean pressure;
     private boolean temperature;
     private boolean activity;
-    private boolean tvoc;
-    private boolean illumination;
-    private boolean infrared;
-    private boolean infrared_and_visible;
 
     public void initContext(FichierDeConfig fichierDeConfig, Stage configue) {
         this.fichierDeConfig = fichierDeConfig;
@@ -200,10 +184,6 @@ public class FichierDeConfigController {
         pressure = pressureCheckBox.isSelected();
         temperature = temperatureCheckBox.isSelected();
         activity = activityCheckBox.isSelected();
-        tvoc = tvocCheckBox.isSelected();
-        illumination = illuminationCheckBox.isSelected();
-        infrared = infraredCheckBox.isSelected();
-        infrared_and_visible = infrared_and_visibleCheckBox.isSelected();
 
         String filePath = "iot/python/config.yaml";
 
@@ -237,16 +217,8 @@ public class FichierDeConfigController {
             collecteList.add("co2");
         if (pressure)
             collecteList.add("pressure");
-        if (illumination)
-            collecteList.add("illumination");
-        if (infrared)
-            collecteList.add("infrared");
-        if (infrared_and_visible)
-            collecteList.add("infrared_and_visible");
         if (humidity)
             collecteList.add("humidity");
-        if (tvoc)
-            collecteList.add("tvoc");
 
         collecteConfig.put("collecte", collecteList);
 
@@ -327,23 +299,13 @@ public class FichierDeConfigController {
             if (collecteList.contains("humiditty")) {
                 this.humidityCheckBox.setSelected(true);
             }
-            if (collecteList.contains("illumination")) {
-                this.illuminationCheckBox.setSelected(true);
-            }
-            if (collecteList.contains("infrared")) {
-                this.infraredCheckBox.setSelected(true);
-            }
+
             if (collecteList.contains("activity")) {
                 this.activityCheckBox.setSelected(true);
             }
-            if (collecteList.contains("tvoc")) {
-                this.tvocCheckBox.setSelected(true);
-            }
+
             if (collecteList.contains("pressure")) {
                 this.pressureCheckBox.setSelected(true);
-            }
-            if (collecteList.contains("infared_and_visible")) {
-                this.infrared_and_visibleCheckBox.setSelected(true);
             }
 
             // Extraction des données de la section alerte
@@ -387,9 +349,6 @@ public class FichierDeConfigController {
         this.pressureCheckBox.setSelected(false);
         this.temperatureCheckBox.setSelected(false);
         this.activityCheckBox.setSelected(false);
-        this.tvocCheckBox.setSelected(false);
-        this.illuminationCheckBox.setSelected(false);
-        this.infraredCheckBox.setSelected(false);
-        this.infrared_and_visibleCheckBox.setSelected(false);
+
     }
 }

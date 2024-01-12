@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../css/general.css">
     <link rel="stylesheet" type="text/css" href="../css/compte/menuCompte.css">
-    <link rel="stylesheet" type="text/css" href="../css/compte/modification_informations.css">
+    <link rel="stylesheet" type="text/css" href="../css/compte/index.css">
     <script type="text/javascript" src="../include/fontawesome.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -38,18 +38,26 @@
     <div class="content">
         <?php include("../include/menuCompte.php"); ?>
 
-        <div class="compte_content">
-            <h1>Bonjour</h1> <br>
-            <div class="box">
-                <p>Vous pouvez consulter l'historique de vos demandes et gérer vos données personnelles dans votre compte client. Choisissez un des liens dans le menu de gauche pour accéder aux informations ou les modifier</p>
+        <div>
+            <h1>Mon compte</h1>
+
+            <?php
+                $sql = "SELECT fidelite FROM Client WHERE idClient = :id";
+                $req = $conn->prepare($sql);
+                $req->execute(["id" => htmlspecialchars($_SESSION["connexion"])]);
+                $row = $req->fetch();
+                $fidelite = $row["fidelite"];
+                $progression = $fidelite % 10 * 10;
+                if ($fidelite >= 10) {
+                    $progression = 100;
+                }
+            ?>
+            
+            <div class="barre">
+                <div class="progression" style = "width: <?php echo $progression ?>%;"><?php echo (($fidelite >= 1) ? $fidelite : "") ?></div>
             </div>
-            <br><br><br>
-            <div class="centrer">
-                <h2>Pour accéder à mon panier : </h2><br><br>
-                <a href="/~saephp11/panier.php"><button class="button">Mon panier</button></a><br><br><br>
-                <h2>Pour accéder à mes commandes : </h2><br><br>
-                <a href="/~saephp11/compte/commandes/index.php"><button class="button">Mes commandes</button></a><br>
-            </div>
+            <p>Vous avez actuellement <span><?php echo $fidelite ?> points de fidélité</span> ! Au bout de <span>10 points</span> vous recevrez <span>un avantage par email</span>.<br>
+            <span>1 point = 10€ d'achat</span></p>
         </div>
     </div>
 

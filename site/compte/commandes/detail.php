@@ -40,48 +40,68 @@
                         <p>Une erreur s'est produite.</p>
                         <a class='button' href='/~saephp11/compte/commandes'>Retourner à la liste des commandes</a>";
                     } else {
-                        echo "<h2>Commande " . $_GET["id"] . "</h2>";
-                        if (isset($_GET["succes"])) {
-                            echo "<p>Votre paiement a bien été effectué.</p>";
-                        }
-                        echo "<table>
-                            <tr class='head'>
-                                <td>ID</td>
-                                <td>Date</td>
-                                <td>Montant</td>
-                                <td>Frais de port</td>
-                                <td>Statut</td>
-                                <td>Paiement</td>
-                            </tr>";
+                        echo "<center>
+                            <h2>Commande " . $_GET["id"] . "</h2>";
+                            if (isset($_GET["succes"])) {
+                                echo "<p>Votre paiement a bien été effectué.</p>";
+                            } else if (isset($_GET["annuler"])) {
+                                echo "<p>Votre paiement a été annulé.</p>";
+                            } else if (isset($_GET["commande"])) {
+                                echo "<p>Votre devis a été créé.</p>";
+                            }
+                        echo "</center>";
                         while ($row = $req->fetch()) {
-                            echo "<tr>
-                                <td>" . $row["idCommande"] . "</td>
-                                <td>" . date("d/m/Y", strtotime($row["dateCommande"])) . "</td>
-                                <td>" . number_format($row["montantTotal"], 2, ",", " ") . " €</td>
-                                <td>" . number_format($row["fraisLivraison"], 2, ",", " ") . " €</td>
-                                <td>" . $row["statutCommande"] . "</td>";
-                                if (!$row["idPaiement"]) {
-                                    echo "<td><a href='/~saephp11/compte/commandes/paiement/?id=" . $row["idCommande"] . "'><i class='fa-solid fa-money-bill-wave'></i> Procéder au paiement</a></td>";
-                                } else {
-                                    $sql = "SELECT * FROM Paiement WHERE idPaiement = :id";
-                                    $req2 = $conn->prepare($sql);
-                                    $req2->execute(["id" => $row["idPaiement"]]);
-                                    $row2 = $req2->fetch();
-                                    if ($row2["numCB"]) {
-                                        echo "<td><i class='fas fa-credit-card'></i> Payé en CB</td>";
-                                    } else if ($row2["idPaypal"]) {
-                                        echo "<td><i class='fa-brands fa-cc-paypal'></i> Payé avec PayPal</td>";
-                                    } else if ($row2["idVirement"]) {
-                                        echo "<td><i class='fas fa-university'></i> Payé par virement</td>";
-                                    } else if ($row2["idCheque"]) {
-                                        echo "<td><i class='fa-solid fa-money-bill-wave'></i> Payé</td>";
+                            echo "<table>
+                                <tr class='head'>
+                                    <td>ID</td>
+                                    <td>Date</td>
+                                    <td>Montant</td>
+                                    <td>Frais de port</td>
+                                    <td>Statut</td>
+                                    <td>Paiement</td>
+                                </tr>
+                                <tr>
+                                    <td>" . $row["idCommande"] . "</td>
+                                    <td>" . date("d/m/Y", strtotime($row["dateCommande"])) . "</td>
+                                    <td>" . number_format($row["montantTotal"], 2, ",", " ") . " €</td>
+                                    <td>" . number_format($row["fraisLivraison"], 2, ",", " ") . " €</td>
+                                    <td>" . $row["statutCommande"] . "</td>";
+                                    if (!$row["idPaiement"]) {
+                                        echo "<td><a href='/~saephp11/compte/commandes/paiement/?id=" . $row["idCommande"] . "'><i class='fa-solid fa-money-bill-wave'></i> Procéder au paiement</a></td>";
+                                    } else {
+                                        $sql = "SELECT * FROM Paiement WHERE idPaiement = :id";
+                                        $req2 = $conn->prepare($sql);
+                                        $req2->execute(["id" => $row["idPaiement"]]);
+                                        $row2 = $req2->fetch();
+                                        if ($row2["numCB"]) {
+                                            echo "<td><i class='fas fa-credit-card'></i> Payé en CB</td>";
+                                        } else if ($row2["idPaypal"]) {
+                                            echo "<td><i class='fa-brands fa-cc-paypal'></i> Payé avec PayPal</td>";
+                                        } else if ($row2["idVirement"]) {
+                                            echo "<td><i class='fas fa-university'></i> Payé par virement</td>";
+                                        } else if ($row2["idCheque"]) {
+                                            echo "<td><i class='fa-solid fa-money-bill-wave'></i> Payé</td>";
+                                        }
                                     }
-                                }
-                            echo "</tr>";
+                                echo "</tr>
+                                </table>
+                                <table>
+                                    <tr class='head'>
+                                        <td>Adresse</td>
+                                        <td>Code postal</td>
+                                        <td>Ville</td>
+                                        <td>Pays</td>
+                                    </tr>
+                                    <tr>
+                                        <td>" . $row["adrLivraison"] . "</td>
+                                        <td>" . $row["codePostalLivraison"] . "</td>
+                                        <td>" . $row["villeLivraison"] . "</td>
+                                        <td>" . $row["paysCommande"] . "</td>
+                                    </tr>
+                                </table>";
                         }
-                        echo "</table>
                         
-                        <table>
+                        echo "<table>
                             <tr class='head'>
                                 <td>Produit</td>
                                 <td>Quantité</td>

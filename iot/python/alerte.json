@@ -2976,6 +2976,13 @@
       "activity": 0,
       "co2": 414,
       "pressure": 995.5
+    },
+    {
+      "date": 1704663883,
+      "temperature": 12.3,
+      "humidity": 50,
+      "co2": 480,
+      "pressure": 997
     }
   ],
   "E006": [
@@ -3268,6 +3275,13 @@
       "activity": 0,
       "co2": 867,
       "pressure": 995.7
+    },
+    {
+      "date": 1704663882,
+      "temperature": 13.4,
+      "humidity": 49,
+      "co2": 438,
+      "pressure": 996.8
     }
   ],
   "E004": [
@@ -3414,6 +3428,13 @@
       "activity": 0,
       "co2": 445,
       "pressure": 996.4
+    },
+    {
+      "date": 1704663867,
+      "temperature": 13.5,
+      "humidity": 42,
+      "co2": 458,
+      "pressure": 997.7
     }
   ],
   "E001": [

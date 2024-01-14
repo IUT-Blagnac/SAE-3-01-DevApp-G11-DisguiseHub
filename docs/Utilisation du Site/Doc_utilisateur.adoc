@@ -1,0 +1,142 @@
+= DOCUMENTATION UTILISATEUR
+:nofooter:
+:toc: left
+:icons: font
+
+== Guide du site web
+
+=== Crée un compte 
+
+Pour crée un compte client, rendez-vous sur page : [.underline]#Connexion# en cliquant sur le lien disponible sur *l'en-tête* et cliquer sur le bouton : [.underline]#Créer un compte chez DisguiseHub# pour être redirigez vers le formulaire de création d'un compte : +
+Saissisez ensuite les différent champs et valider en cliquant sur le bouton : *Valider* +
+
+image:./image/Inscription.png[Formulaire d'inscription]  +
+
+.La création d'un compte DisguiseHub ne peut être validée si l'un des cas suivant n'est pas respecter : 
+
+. Le champs _mot de passe_ doit contenir au minimum 8 caractères, sachant qu'il doit y avoir au minimum 
+.. une majuscule
+.. une minuscule
+.. un caractère spécial
+
+=== Se connecter à un compte
+
+Pour se connecter à un compte client, rendez-vous sur la page : [.underline]#Connexion# en cliquant sur le lien disponible sur *l'en-tête* et entrez les informations demander, à savoir le mail et le mot de passe. +
+
+image:./image/client.png[Formulaire de connexion]  +
+
+Au clique du bouton : [.underline]#Se connecter#, si ces deux informations ne sont pas erroné la connection est établie. +
+
+=== Recherche et consulter des produits
+
+Pour consulter les produits d'une catégorie spécifique, sélectionner celle-ci dans le sous-menu de *l'en-tête* +
+
+image:./image/Sous-menu.png[Catégories]  +
+
+image:./image/P_sous-menu.png[Produits]  +
+
+Pour rechercher un produit spécifique, utilisez la loop disponible à gauche de *l'en-tête* qui va vous redirigez vers une page dans laquelle sera présent les produits correspondant à votre recherche : +
+
+image:./image/Loop.png[Barre de recherche]  +
+
+image:./image/resultat-recherche.png[Produits]  +
+
+WARNING: La recherche peut échouer, votre produit n'existe peut-être pas ou vérifiez l'ortographe 
+
+=== Ajouter et consulter des produits dans son panier
+
+WARNING: Pour utiliser cette fonctionnalité, l'utilisateur doit être connecté à un compte
+
+Pour ajouter un produit à son panier, le client doit dans un premier temps se rendre sur la page des produits et cliquer sur le bouton : [.underline]#Ajouter au panier# du produit désirer (une alerte s'affiche) : +
+
+image:./image/ajout-panier.png[Produit désirer]  +
+
+image:./image/dans le panier.png[Alerte]  +
+
+Pour consulter les produits de son panier, le client doit se rendre sur la page de son panier en cliquant sur le logo représentatif sur *l'entête* : +
+
+image:./image/logo.png[Logo du panier]  +
+
+image:./image/panier.png[Page du panier]  
+
+=== Gérer les produits dans son panier 
+
+==== Modifier la quantité d'un produit
+
+WARNING: Pour utiliser cette fonctionnalité, l'utilisateur doit être connecté à son compte
+
+Pour modifier la quantité d'un produit dans son panier, le client doit se rendre dans son espace panier.
+Depuis cette page,il peut modifier la quantité de ses produits en cliquant sur le bouton *-* ou *+*, la quantité du produit sera modifié :
+
+image:./image/modification.png[Modification de la quantité d'un produit]
+
+==== Supprimer un produit de son panier
+
+WARNING: Pour utiliser cette fonctionnalité, l'utilisateur doit être connecté à son compte
+
+Pour supprimer un produit de son panier, le client doit se rendre dans son espace panier.
+Depuis cette page, en cliquant sur le bouton *-*  du produit, celui-ci sera supprimer de son panier.
+
+=== Réaliser une commande
+
+WARNING: Pour utiliser cette fonctionnalité, l'utilisateur doit être connecté à son compte et posséder un panier
+
+Pour réaliser une commande à la suite de la création d'un panier, le client doit se rendre dans la page [.underline]#panier.php# ou il devra cliquer sur le bouton *Passer la commande* : 
+
+image:./image/Commander.png[Bouton passer la commande]
+
+Il sera rediriger vers une page dans laquelle sera présente un devis récaputilatif de sa commande ainsi qu'une procédure de paiement auquel il aura le choix entre trois moyens de paiement : 
+
+image:./image/devis.png[Devise de la commande]
+
+image:./image/moyen de paiement.png[Moyen de paiement]
+
+image:./image/virement.png[Virement bancaire]
+
+=== Contacter DisguiseHub
+
+WARNING: Pour utiliser cette fonctionnalité, l'utilisateur doit être connecté à son compte
+
+Pour contacter DisguiseHub, le client devra se rendre en bas de la page d'accueil et cliquer sur *Aide et contact* : 
+
+image:./image/contact.png[CAide et contact]
+
+Lorsque le client cliquera sur le bouton : *envoyer*, le message sera envoyé à DisguiseHub pour qu'ils y réponde : 
+
+image:./image/formMessAdmin.png[message reçu par DisguiseHub]
+
+=== se connecter à un compte Administrateur
+
+Pour se connecter à un compte Administrateur, rendez-vous sur la page : [.underline]#Connexion#. +
+Depuis cette page, saisissez les informations administrateur dans le formulaire : +
+
+image:./image/Connexion.png[Formulaire de connexion]  +
+
+Si les informations saisies sont correct, l'utilisateur est redirigez vers une page dans laquelle sont présent des boutons permettant respectivement de redirigez vers les pages pour faire le CRUD des produits : 
+
+image:./image/page-admin.png[Page Administrateur]  +
+
+=== Gérer les produits (CRUD des produits)
+
+WARNING: Pour utiliser cette fonctionnalité, l'utilisateur doit être connecté à un compte administrateur. 
+
+Pour faire le CRUD des produits, l'administrateur doit cliquer sur le lien *administration* dans le menu de gauche de la page : 
+
+image:./image/Admin.png[Bouton gestion des produits]  +
+
+ce qui aura pour effet de le redirigez vers une page dans laquelle la liste de touts les produits est présente dans un tableau :
+
+image:./image/catalogue.png[Page gestion produits]  +
+
+Depuis cette page, l'Administrateur aura la possibilité de faire trois actions différentes : +
+
+* Ajouter un produit
+* Modifier les informations d'un produit
+* Supprimer un produit
+
+La fonctionnalité permettant d'ajouter un produit redirige l'administrateur vers une page dans laquelle est présente un formaulaire dans lequel il est invité à entrer les nouvelles informations : 
+
+image:./image/ajout-produit.png[Page d'ajout d'un produit]  +
+
+
+

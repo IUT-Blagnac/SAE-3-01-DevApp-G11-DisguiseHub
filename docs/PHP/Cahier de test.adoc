@@ -112,6 +112,7 @@ Ordinateur sous Windows ou OS équivalent.
 ^|All_I_CCI.1 ^|Cliquer sur le bouton du bonhomme blanc en haut à droite du site. ^|Les différents éléments du compte client s'affichent (les commandes, les avis, les informations,...) ^|Le client doit être déjà connecté ^|OK
 ^|All_I_CCI.2 ^|Sélectionner le bouton "Mes informations". ^|Toutes les informations concernant le client s'affichent + un bouton "Modifier" et un bouton "Changer de mot de passe". ^|aucune ^|OK
 ^|All_I_CCI.3 ^|Cliquer sur le bouton "Modifier" ^|Le client peut modifier ses informations personnelles et enregistrer une carte bleue si il le souhaite ^|aucune ^|OK
+^|All_I_CCI.4 ^|Remplir les champs à modifier puis cliquer sur "Valider" ^| Une pop-up apparait, cliquez sur "OK" -> redirection vers la page des informations avec les nouvelles ^|aucune ^|OK
 
 
 |====
@@ -119,32 +120,29 @@ Ordinateur sous Windows ou OS équivalent.
 |====
 
 >|Cas de test 4+|Test-01-02-02
->|Titre 4+|Création d'un compte
->|Objectif 4+| Vérifier qu'il est possible de créer un compte client
+>|Titre 4+|Modifier mon mot de passe
+>|Objectif 4+| Vérifier qu'il est possible de modifier son mot de passe
 
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_G_CB.3 ^|Sélectionner le bouton "Nouveau Compte". ^|La page des informations sur le nouveau compte s’affiche. ^| Consulter un compte client ^|OK
-^|All_G_CB.4 ^|Compléter les champs spécifiés et ajouter. ^|Un nouveau compte pour le client est créé. ^| La fenêtre de création d'un compte client est active ^|OK
-^|All_G_CB.5 ^|Compléter les champs spécifiés par des caractères spéciaux ("nvjvfbjvvf") et ajouter. ^|Un nouveau compte pour le client est créé avec les champs par défaut ("-200" et "0.0"). ^| La fenêtre de création d'un compte client est active ^|OK
-^|All_G_CB.6 ^|Compléter les champs et cliquer sur le bouton "Annuler". ^|Retour sur les informations des comptes du client. Le compte n'est pas créé. ^|La fenêtre de création d'un compte client est active ^|OK
+^|All_I_CCI.5 ^|Cliquer sur le bouton "Changer de mot de passe" ^|Redirection vers un formulaire de changement de mot de passe ^| Être sur la page des informations du client ^|OK
+^|All_I_CCI.6 ^|Remplir les champs pour modifier le mot de passe ^|Redirection vers la page de connexion ^|aucune ^|Ne fonctionne pas (à corriger pour plus tard)
 
 |====
 
 |====
 
 >|Cas de test 4+|Test-01-02-03
->|Titre 4+|Modifier d'un compte
->|Objectif 4+| Vérifier qu'il est possible de modifier un compte client
+>|Titre 4+|Accéder à mon panier et mes commandes
+>|Objectif 4+| Vérifier qu'il est possible d'accéder à son panier et ses commandes
 
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_G_CB.7 ^|Sélectionner le bouton "Modifier". ^|La page des informations sur le compte à modifier s'affiche. ^|Sélection d'un compte client ^|OK
-^|All_G_CB.8 ^|Modifier le champs "Découvert autorisé" et modifier. ^|Le compte client est modifié. ^|La fenêtre de modification d'un compte client est active ^|OK
-^|All_G_CB.8 ^|Modifier le champs "Découvert autorisé" par des caractères spéciaux ("dnjkx") et modifier. ^|Le compte client n'est pas modifié, il garde sont ancien "Découvert autorisé". ^|La fenêtre de modification d'un compte client est active ^|OK
-^|All_G_CB.9 ^|Modifier les champs et cliquer sur le bouton "Annuler". ^|Retour sur les informations des comptes du client. Le compte n'est pas modifié. ^|La fenêtre de modification d'un compte client est active ^|OK
+^|All_I_CCI.7 ^|Cliquer sur le bouton du bonhomme blanc en haut à droite du site. ^|Les différents éléments du compte client s'affichent (les commandes, les avis, les informations,...) ^|Le client doit être déjà connecté ^|OK
+^|All_I_CCI.8 ^|Cliquer sur le bouton "Mon panier" ^|Redirection vers le panier du client avec les articles (ou non) ^|aucune ^|OK
+^|All_I_CCI.9 ^|Cliquer sur le bouton "Mes commandes" ^|Redirection vers les informations des commandes passées par le client ^|Avoir recliquer sur le bonhomme au préalable ^|OK
 
 
 |====
@@ -152,27 +150,35 @@ Ordinateur sous Windows ou OS équivalent.
 |====
 
 >|Cas de test 4+|Test-01-02-04
->|Titre 4+|Clôturer un compte
->|Objectif 4+| Vérifier qu'il est possible de clôturer le compte courant d'un client
+>|Titre 4+|Accéder à mes avis
+>|Objectif 4+| Vérifier qu'il est possible d'accéder à ses avis
 
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_G_CB.10 ^|Sélectionner le bouton "Supprimer compte". ^|La page des gestions des comptes s'affiche avec le compte en mode "Cloture". ^|Sélection d'un compte client ^|OK
-^|All_G_CB.11 ^|Supprimer un compte dont le solde est de 135 €. ^|Blocage + Pop-up. ^|Sélection d'un compte client ^|OK
+^|All_I_CCI.10 ^|Cliquer sur le bouton du bonhomme blanc en haut à droite du site. ^|Les différents éléments du compte client s'affichent (les commandes, les avis, les informations,...) ^|Le client doit être déjà connecté ^|OK
+^|All_I_CCI.11 ^|Cliquer sur le bouton "Mes avis" ^|Redirection vers la liste des avis du client ^|aucune ^|OK
+^|All_I_CCI.12 ^|Ajouter un avis sur un produit déjà commandé par le client et remplir les champs puis Valider ^|Redirection vers la liste des avis du client avec l'avis ajouté (l'image ne marche pas encore) ^|aucune ^|OK
+^|All_I_CCI.13 ^|Modifier un avis en modifiant les champs de l'avis déjà préremplis puis valider  ^|Redirection vers la liste des avis du client avec l'avis ajouté (l'image ne marche pas encore) ^|aucune ^|OK
+^|All_I_CCI.14 ^|Supprimer un avis en cliquant sur le bouton "Supprimer" et Valider ou  en cliquant sur "Modifier" puis "Supprimer" et Valider ^|Redirection vers la liste des avis du client avec l'avis supprimé ^|aucune ^|OK
+^|All_I_CCI.15 ^|Supprimer, Modifier ou Ajouter un avis puis cliquer sur "Retour" ^|Redirection vers la liste des avis du client avec aucun changement ^|aucune ^|OK
+
+
 
 |====
 
 |====
 
 >|Cas de test 4+|Test-01-02-05
->|Titre 4+|Générer un relevé mensuel en PDF
->|Objectif 4+| Vérifier qu'il est possible de générer un relevé de compte en PDF
+>|Titre 4+|Mon panier
+>|Objectif 4+| Vérifier qu'il est possible de gérer son panier
 
 5+|
 
 ^|ID ^|Action ^|Comportement attendu ^|Pré-conditions ^|Résultat
-^|All_G_CB.12 ^|Sélectionner le bouton "Générer relevé PDF" . ^|Le fichier s'enregistre dans les téléchargement et s'ouvre dans un navigateur. ^|Consulter les compte d'un client ^|OK
+^|All_I_CCI.16 ^|Cliquer sur le panier en haut à droite ou sur "Mon Panier" ^|Redirection vers le panier du client ^|Être sur la page des informations du client dans le deuxième cas ^|OK
+
+
 
 
 |====

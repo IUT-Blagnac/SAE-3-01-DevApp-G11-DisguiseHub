@@ -167,17 +167,13 @@ client.loop_forever()
 client.loop_forever()
 ----
 
-=== 7. Points d'Attention
-[.text-justify]
 
-* Le code utilise des variables globales ('*config*', '*data*', '*alerte*') pour partager des données entre différentes parties du code. Cela peut potentiellement causer des problèmes en termes de lisibilité et de maintenance.
-
-=== 8. Gestion des exceptions
+=== 7. Gestion des exceptions
 [.text-justify]
 
 * La gestion des exceptions est présente dans certaines parties du code, notifiée avec des messages appropriés.
 
-=== 9. Commentaires
+=== 8. Commentaires
 [.text-justify]
 
 * Le code est accompagné de commentaires clairs expliquant chaque étape, facilitant la compréhension du code.

@@ -8,11 +8,26 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * Classe principale de l'application DisguiseHubApp, étendant Application de
+ * JavaFX.
+ * Cette classe sert de point d'entrée pour l'application JavaFX.
+ */
 public class DisguiseHubApp extends Application {
 
     private Stage primaryStage;
 
     @Override
+    /**
+     * Point d'entrée principal de l'application JavaFX.
+     * Charge l'interface utilisateur depuis le fichier FXML, applique la feuille de
+     * style,
+     * initialise le contrôleur associé et affiche la fenêtre principale.
+     *
+     * @param primaryStage Stage principal de l'application.
+     * @throws Exception Si une erreur survient pendant le chargement de l'interface
+     *                   utilisateur.
+     */
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
 
@@ -43,6 +58,10 @@ public class DisguiseHubApp extends Application {
         }
     }
 
+    /**
+     * Méthode statique pour lancer l'application JavaFX.
+     * Cette méthode invoque la méthode start de la classe DisguiseHubApp.
+     */
     public static void launch() {
         Application.launch();
     }

@@ -1,3 +1,11 @@
+/**
+ * Contrôleur pour l'affichage des données par salle.
+ * Gère les graphiques en temps réel des capteurs de température, humidité, activité, CO2 et pression.
+ * Utilise la bibliothèque JavaFX pour l'interface utilisateur.
+ *
+ * @author guychel babela
+ * @version 1.0
+ */
 package groupe11.view;
 
 import groupe11.control.DisguiseHubApp;
@@ -39,8 +47,16 @@ public class DonneesParSalleController {
     @FXML
     private ChoiceBox<String> choiceBoxSalles;
 
+    /**
+     * Initialise le contexte du contrôleur avec les données par salle et la scène
+     * associée.
+     * Initialise également les graphiques et les mises à jour en temps réel.
+     *
+     * @param donneesParSalle L'objet DonneesParSalle pour gérer les données.
+     * @param stage           La scène (Stage) associée à ce contrôleur.
+     */
     public void initContext(DonneesParSalle donneesParSalle, Stage stage) {
-
+        // Initialisations
         this.donneesParSalle = donneesParSalle;
         this.stage = stage;
 
@@ -79,7 +95,11 @@ public class DonneesParSalleController {
     Thread update;
     Process python;
 
+    /**
+     * Démarre le script Python en tant que processus séparé.
+     */
     private void startPython() {
+        // Démarrage du script Python
         thread = new Thread(() -> {
             try {
                 ProcessBuilder p = new ProcessBuilder("python", "main.py");
@@ -100,7 +120,11 @@ public class DonneesParSalleController {
         thread.start();
     }
 
+    /**
+     * Démarre la mise à jour en temps réel des données.
+     */
     private void startUpdate() {
+        // Démarrage de la mise à jour
         update = new Thread(() -> {
             long checkLast = 0;
             while (update != null && update.isAlive()) {
@@ -123,7 +147,11 @@ public class DonneesParSalleController {
         update.start();
     }
 
+    /**
+     * Arrête le script Python et les threads associés.
+     */
     private void stopPython() {
+        // Arrêt du script Python
         if (python != null && python.isAlive()) {
             python.destroy();
         }
@@ -135,7 +163,11 @@ public class DonneesParSalleController {
         }
     }
 
+    /**
+     * Met à jour les données affichées sur les graphiques.
+     */
     private void updateData() {
+        // Mise à jour des graphiques
         updateGraphData(chartTemp, "temp");
         updateGraphData(chartCO2, "co2");
         updateGraphData(chartPression, "pres");
@@ -143,7 +175,14 @@ public class DonneesParSalleController {
         updateGraphData(chartHumidity, "hum");
     }
 
+    /**
+     * Récupère les données des capteurs à partir du fichier JSON.
+     *
+     * @param salleChoisie Le nom de la salle choisie ou null pour toutes les
+     *                     salles.
+     */
     private void getdata(String salleChoisie) {
+        // Récupération des données depuis le fichier JSON
         try {
             // Charger les données à partir du fichier JSON
             ObjectMapper mapper = new ObjectMapper();
@@ -187,7 +226,11 @@ public class DonneesParSalleController {
         }
     }
 
+    /**
+     * Classe interne pour représenter les données d'un capteur.
+     */
     private class SensorData {
+        // Définition de la classe SensorData
         String salle;
         String date;
         Double temperature;
@@ -211,7 +254,13 @@ public class DonneesParSalleController {
     private List<SensorData> sensorDataList = new ArrayList<>();
     private List<SensorData> sensorDataBySalle = new ArrayList<>();
 
+    /**
+     * Récupère les données spécifiques à une salle choisie.
+     *
+     * @param salle Le nom de la salle choisie ou "Toutes les salles".
+     */
     private void getSalleDatas(String salle) {
+        // Récupération des données spécifiques à la salle
         sensorDataBySalle.clear();
         if (salle == null || salle.equals("Toutes les salles")) {
             sensorDataBySalle.addAll(sensorDataList);
@@ -224,8 +273,15 @@ public class DonneesParSalleController {
         }
     }
 
+    /**
+     * Met à jour les données des graphiques pour un type de capteur spécifié.
+     *
+     * @param _graph Le graphique à mettre à jour.
+     * @param type   Le type de capteur (temp, co2, pres, act, hum).
+     */
     private void updateGraphData(LineChart<String, Number> _graph, String type) {
         _graph.getData().clear();
+        // Mise à jour des données du graphique
 
         for (SensorData sensorData : sensorDataBySalle) {
             String id = sensorData.salle;
@@ -243,7 +299,15 @@ public class DonneesParSalleController {
         }
     }
 
+    /**
+     * Récupère la valeur spécifiée du capteur.
+     *
+     * @param data Les données du capteur.
+     * @param type Le type de capteur (temp, co2, pres, act, hum).
+     * @return La valeur du capteur ou null si le type est inconnu.
+     */
     private Double getData(SensorData data, String type) {
+        // Récupération des données spécifiques du capteur
         switch (type) {
             case "temp":
                 return data.temperature;
@@ -260,7 +324,11 @@ public class DonneesParSalleController {
         }
     }
 
+    /**
+     * Affiche la fenêtre associée à ce contrôleur.
+     */
     public void displayDialog() {
+        // Affichage de la fenêtre
         this.stage.show();
     }
 
@@ -274,8 +342,14 @@ public class DonneesParSalleController {
         VoirLesAlertes controller = new VoirLesAlertes(stage);
     }
 
+    /**
+     * Gère l'événement du bouton "Accueil" pour revenir à la page d'accueil.
+     *
+     * @throws Exception En cas d'erreur lors du démarrage de la page d'accueil.
+     */
     @FXML
     private void accueil() throws Exception {
+        // Retour à la page d'accueil
         DisguiseHubApp cont = new DisguiseHubApp();
         cont.start(stage);
     }

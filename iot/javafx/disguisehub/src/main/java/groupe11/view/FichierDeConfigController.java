@@ -1,3 +1,11 @@
+/**
+ * Contrôleur pour la configuration du fichier de configuration.
+ * Gère l'interface utilisateur et les opérations liées à la configuration.
+ * Utilise la bibliothèque JavaFX pour la gestion de l'interface graphique.
+ *
+ * @author guychel babela
+ * @version 1.0
+ */
 package groupe11.view;
 
 import java.io.FileWriter;
@@ -110,6 +118,14 @@ public class FichierDeConfigController {
     private boolean temperature;
     private boolean activity;
 
+    /**
+     * Initialise le contexte du contrôleur avec le fichier de configuration et la
+     * scène associée.
+     *
+     * @param fichierDeConfig L'objet FichierDeConfig pour gérer la configuration.
+     * @param configue        La scène (Stage) associée à ce contrôleur.
+     */
+
     public void initContext(FichierDeConfig fichierDeConfig, Stage configue) {
         this.fichierDeConfig = fichierDeConfig;
         this.configue = configue;
@@ -125,6 +141,9 @@ public class FichierDeConfigController {
         initFromConfigFile();
     }
 
+    /**
+     * Affiche la fenêtre de configuration.
+     */
     public void displayDialog() {
         this.configue.show();
     }
@@ -145,6 +164,12 @@ public class FichierDeConfigController {
         cont.start(configue);
     }
 
+    /**
+     * Convertit une chaîne en entier.
+     *
+     * @param _val La chaîne à convertir.
+     * @return L'entier résultant ou 0 en cas d'erreur de conversion.
+     */
     public int entierDeString(String _val) {
         try {
             int i = Integer.parseInt(_val.trim());
@@ -154,6 +179,12 @@ public class FichierDeConfigController {
         }
     }
 
+    /**
+     * Convertit une chaîne en double.
+     *
+     * @param _val La chaîne à convertir.
+     * @return Le double résultant ou 0.0 en cas d'erreur de conversion.
+     */
     public double doubleDeString(String _val) {
         try {
             double i = Double.parseDouble(_val.trim());
@@ -163,6 +194,11 @@ public class FichierDeConfigController {
         }
     }
 
+    /**
+     * Gère l'événement du bouton de validation.
+     * Collecte les valeurs des champs, les organise dans une structure YAML et
+     * écrit dans un fichier.
+     */
     @FXML
     private void validerButton() {
         host = hostTextField.getText().trim();
@@ -268,6 +304,10 @@ public class FichierDeConfigController {
         }
     }
 
+    /**
+     * Initialise les champs de la fenêtre de configuration à partir du fichier de
+     * configuration.
+     */
     private void initFromConfigFile() {
         String configFilePath = "iot/python/config.yaml";
 
@@ -328,6 +368,9 @@ public class FichierDeConfigController {
         }
     }
 
+    /**
+     * Réinitialise tous les champs de la fenêtre de configuration.
+     */
     @FXML
     private void reinitialiserButton() {
         this.hostTextField.setText("");

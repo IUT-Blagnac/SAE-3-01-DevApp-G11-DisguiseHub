@@ -57,7 +57,7 @@
 
                     echo "<div class='articles'>";
                     
-                        if (isset($categorie["idCategoriePere"])) {
+                        if (isset($categorie["idCategoriePere"]) || $_GET["id"] == 1) {
                             $sql = "SELECT * FROM AssoProduitCateg WHERE idCategorie = :id";
                         } else {
                             $sql = "SELECT * FROM AssoProduitCateg WHERE idCategorie IN (SELECT idCategorie FROM Categorie WHERE idCategoriePere = :id)";

@@ -244,6 +244,11 @@
                             } else {
                                 $product = $req -> fetch();
 
+                                // Prix soldé
+                                if ($product["prixSolde"]) {
+                                    $product["prixProduit"] = $product["prixSolde"];
+                                }
+
                                 // Rupture de stock
                                 if ($product["qteProduit"] < $amount) {
 

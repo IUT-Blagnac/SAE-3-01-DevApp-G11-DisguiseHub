@@ -24,6 +24,14 @@ div.produit {
     gap: 25px;
 }
 
+div.produit div.images {
+    max-width: 50%;
+}
+
+div.produit div.images img {
+    width: 100%;
+}
+
 div.details {
     position: relative;
     width: 100%;
@@ -52,10 +60,19 @@ div.details span.prix {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 5px 10px;
+    padding: 4px 6px;
     background-color: var(--secondary-color);
     color: #FFFFFF;
     border-radius: 5px;
+}
+
+div.details span.prix span.solde {
+    position: absolute;
+    top: -19px;
+    right: 0;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    text-decoration: line-through;
 }
 
 div.details td {
@@ -125,6 +142,10 @@ a.button.avis {
     div.produit {
         flex-direction: column;
         align-items: center;
+    }
+
+    div.produit div.images {
+        max-width: none;
     }
 
     div.avi {

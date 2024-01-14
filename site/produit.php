@@ -142,8 +142,15 @@
                             } else {
                                 echo "<button type='submit' name='commander' disabled>Rupture de stock</button>";
                             }
-                            echo "<span class='prix'>" . number_format($produit["prixProduit"], 2, ",", " ") . " €</span>
-                        </div>
+                            if (isset($produit["prixSolde"])) {
+                                echo "<span class='prix'>
+                                    <span class='solde'>" . number_format($produit["prixProduit"], 2, ",", " ") . " €</span>
+                                    " . number_format($produit["prixSolde"], 2, ",", " ") . " €
+                                </span>";
+                            } else {
+                                echo "<span class='prix'>" . number_format($produit["prixProduit"], 2, ",", " ") . " €</span>";
+                            }
+                        echo "</div>
                     </div>
                     
                     <div class='avis'>";

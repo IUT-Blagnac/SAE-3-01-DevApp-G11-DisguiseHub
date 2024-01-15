@@ -81,7 +81,7 @@ Depuis cette page, en cliquant sur le bouton *-*  du produit, celui-ci sera supp
 
 WARNING: Pour utiliser cette fonctionnalité, l'utilisateur doit être connecté à son compte et posséder un panier
 
-Pour réaliser une commande à la suite de la création d'un panier, le client doit se rendre dans la page [.underline]#panier.php# ou il devra cliquer sur le bouton *Passer la commande* : 
+Pour réaliser une commande à la suite de la création d'un panier, le client doit se rendre dans la page [.underline]#panier.php# ou il devra cliquer sur le bouton *commander* : 
 
 image:./image/Commander.png[Bouton passer la commande]
 

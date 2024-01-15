@@ -31,8 +31,15 @@
                         <th>Description</th>
                         <th>Prix</th>
                         <th>Stock</th>
-                        <th>Rajouter</th>
+                     <!--   <th>Rajouter</th>
                         <th>Enlever</th>
+                               <td>
+                                <a href='/~saephp11/admin/ajouterstock.php?id=" . $product["refProduit"] . "' class='action-btn'>+1</a>
+                                </td>
+                                <td>
+                                <a href='/~saephp11/admin/retirerstock.php?id=" . $product["refProduit"] . "' class='action-btn'>-1</a>
+                                </td> 
+                             -->
                         <th>Modifier</th>
                         <th>Supprimer</th>
                         
@@ -50,13 +57,7 @@
                                 <td>" . $product["descProduit"] . "</td>
                                 <td>" . $product["prixProduit"] . " €</td>
                                 <td>" . $product["qteProduit"] . "</td>
-                                <td>
-                                <a href='/~saephp11/admin/ajouterstock.php?id=" . $product["refProduit"] . "' class='action-btn'>+1</a>
-                                </td>
-                                <td>
-                                <a href='/~saephp11/admin/retirerstock.php?id=" . $product["refProduit"] . "' class='action-btn'>-1</a>
-                                </td>
-                                <td>
+                                <td> 
                                 <a href='/~saephp11/admin/modifierproduit.php?id=" . $product["refProduit"] . "' class='action-btn'>Modifier</a>  
                                 </td>
                                 <td>

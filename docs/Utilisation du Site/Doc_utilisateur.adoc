@@ -101,10 +101,6 @@ Pour contacter DisguiseHub, le client devra se rendre en bas de la page d'accuei
 
 image:./image/contact.png[CAide et contact]
 
-Lorsque le client cliquera sur le bouton : *envoyer*, le message sera envoyé à DisguiseHub pour qu'ils y réponde : 
-
-image:./image/formMessAdmin.png[message reçu par DisguiseHub]
-
 === se connecter à un compte Administrateur
 
 Pour se connecter à un compte Administrateur, rendez-vous sur la page : [.underline]#Connexion#. +

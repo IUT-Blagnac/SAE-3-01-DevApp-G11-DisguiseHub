@@ -46,7 +46,8 @@
                 $req = $conn->prepare($sql);
                 $req->execute(["id" => htmlspecialchars($_SESSION["connexion"])]);
                 $row = $req->fetch();
-                $fidelite = $row["fidelite"];
+                $fidelite = floor($row["fidelite"] % 10);
+                $avantages = floor($row["fidelite"] / 10);
                 $progression = $fidelite % 10 * 10;
                 if ($fidelite >= 10) {
                     $progression = 100;
@@ -54,10 +55,12 @@
             ?>
             
             <div class="barre">
-                <div class="progression" style = "width: <?php echo $progression ?>%;"><?php echo (($fidelite >= 1) ? $fidelite : "") ?></div>
+                <div class="progression" style="width: <?php echo $progression ?>%;"><?php echo (($fidelite >= 1) ? $fidelite : "") ?></div>
             </div>
             <p>Vous avez actuellement <span><?php echo $fidelite ?> points de fidélité</span> ! Au bout de <span>10 points</span> vous recevrez <span>un avantage par email</span>.<br>
             <span>1 point = 10€ d'achat</span></p>
+            <p>Vous avez actuellement <span><?php echo $avantages ?> avantage<?php echo ($avantages > 1) ? "s" : "" ?></span> !
+            <?php echo ($avantages > 0) ? "<br>Retrouvez les dans votre boîte mail ! (Vérifiez votre dossier spam)" : "" ?></p>
         </div>
     </div>
 

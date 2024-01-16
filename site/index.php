@@ -38,7 +38,7 @@
                             <img class='category-image' src='./img/" . $cat["nomCategorie"] . ".jpg' alt='Image " . $cat["nomCategorie"] . "' />
                             <p class='category-name'>" . strtoupper($cat["nomCategorie"]) . "</p>
                         </a>
-                      </div>";
+                    </div>";
             }
 
             $req->closeCursor();

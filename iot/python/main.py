@@ -105,14 +105,14 @@ def unixwrite(numero, frame):
 def dataload():
     global config, data, alerte
 
-    if os.path.exists("config.yaml"):
+    if os.path.exists("iot\python\config.yaml"):
         if (sys.platform.startswith("linux")):
-            config_fd = os.open("config.yaml", os.O_RDONLY)
-            config_content = os.read(config_fd, os.path.getsize("config.yaml"))
+            config_fd = os.open("iot\python\config.yaml", os.O_RDONLY)
+            config_content = os.read(config_fd, os.path.getsize("iot\python\config.yaml"))
             os.close(config_fd)
             config = yaml.safe_load(config_content)
         else:
-            with open("config.yaml", "r") as file:
+            with open("iot\python\config.yaml", "r") as file:
                 config = yaml.safe_load(file)
     else:
         print("❌ Fichier de configuration introuvable")

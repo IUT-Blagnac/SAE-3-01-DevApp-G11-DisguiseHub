@@ -15,7 +15,7 @@ import groupe11.control.VoirLesAlertes;
 import groupe11.tools.AlertUtilities;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.chart.LineChart;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Alert.AlertType;
@@ -34,15 +34,15 @@ public class DonneesParSalleController {
     private Stage stage;
 
     @FXML
-    private LineChart<String, Number> chartTemp;
+    private BarChart<String, Number> chartTemp;
     @FXML
-    private LineChart<String, Number> chartHumidity;
+    private BarChart<String, Number> chartHumidity;
     @FXML
-    private LineChart<String, Number> chartAct;
+    private BarChart<String, Number> chartAct;
     @FXML
-    private LineChart<String, Number> chartCO2;
+    private BarChart<String, Number> chartCO2;
     @FXML
-    private LineChart<String, Number> chartPression;
+    private BarChart<String, Number> chartPression;
 
     @FXML
     private ChoiceBox<String> choiceBoxSalles;
@@ -279,7 +279,7 @@ public class DonneesParSalleController {
      * @param _graph Le graphique à mettre à jour.
      * @param type   Le type de capteur (temp, co2, pres, act, hum).
      */
-    private void updateGraphData(LineChart<String, Number> _graph, String type) {
+    private void updateGraphData(BarChart<String, Number> _graph, String type) {
         _graph.getData().clear();
         // Mise à jour des données du graphique
 

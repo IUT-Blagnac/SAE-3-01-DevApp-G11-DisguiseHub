@@ -31,7 +31,7 @@
                 <?php
                     $sql = "SELECT * FROM Commande WHERE idClient = :id ORDER BY idCommande DESC";
                     $req = $conn->prepare($sql);
-                    $req->execute(["id" => $_SESSION["connexion"]]);
+                    $req->execute(["id" => htmlspecialchars($_SESSION["connexion"])]);
 
                     if ($req->rowCount() == 0) {
                         echo "<p>Vous n'avez pas encore passé de commande.</p>";
@@ -56,7 +56,7 @@
                                 } else {
                                     $sql = "SELECT * FROM Paiement WHERE idPaiement = :id";
                                     $req2 = $conn->prepare($sql);
-                                    $req2->execute(["id" => $row["idPaiement"]]);
+                                    $req2->execute(["id" => htmlspecialchars($row["idPaiement"])]);
                                     $row2 = $req2->fetch();
                                     if ($row2["numCB"]) {
                                         echo "<td><i class='fas fa-credit-card'></i> Payé en CB</td>";

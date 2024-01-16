@@ -78,7 +78,7 @@
                 if (isset($_FILES["image"]) && $_FILES["image"]["error"] == 0) {
                     $sql = "SELECT * FROM Avis WHERE idAvis = :id";
                     $req = $conn->prepare($sql);
-                    $req->execute(["id" => $_POST["id"]]);
+                    $req->execute(["id" => htmlspecialchars($_POST["id"])]);
                     $avi = $req->fetch();
                     $target_dir = "/home/saephp11/public_html/img/avis/";
                     $target_file = $target_dir . basename($_FILES["image"]["name"]);
@@ -132,8 +132,8 @@
                     AND P.refProduit = :produit";
                     $req = $conn->prepare($sql);
                     $req->execute([
-                        "id" => $_SESSION["connexion"],
-                        "produit" => $_GET["id"]
+                        "id" => htmlspecialchars($_SESSION["connexion"]),
+                        "produit" => htmlspecialchars($_GET["id"])
                     ]);
                     if ($req->rowCount() == 0) {
                         echo "<h2>Erreur</h2>
@@ -156,8 +156,8 @@
                         )";
                         $req = $conn->prepare($sql);
                         $req->execute([
-                            "id" => $_SESSION["connexion"],
-                            "produit" => $_GET["id"]
+                            "id" => htmlspecialchars($_SESSION["connexion"]),
+                            "produit" => htmlspecialchars($_GET["id"])
                         ]);
                         if (isset($_GET["supprimer"])) {
                             $status = "supprimer";
@@ -171,13 +171,13 @@
                         }
                         $sql = "SELECT * FROM Produit WHERE refProduit = :id";
                         $req = $conn->prepare($sql);
-                        $req->execute(["id" => $_GET["id"]]);
+                        $req->execute(["id" => htmlspecialchars($_GET["id"])]);
                         $produit = $req->fetch();
                         $sql = "SELECT * FROM Avis WHERE idClient = :id AND refProduit = :produit";
                         $req = $conn->prepare($sql);
                         $req->execute([
-                            "id" => $_SESSION["connexion"],
-                            "produit" => $_GET["id"]
+                            "id" => htmlspecialchars($_SESSION["connexion"]),
+                            "produit" => htmlspecialchars($_GET["id"])
                         ]);
                         $avi = $req->fetch();
 

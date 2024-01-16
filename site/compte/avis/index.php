@@ -33,7 +33,7 @@
                 <?php
                     $sql = "SELECT * FROM Avis WHERE idClient = :id ORDER BY idAvis DESC";
                     $avis = $conn->prepare($sql);
-                    $avis->execute(["id" => $_SESSION["connexion"]]);
+                    $avis->execute(["id" => htmlspecialchars($_SESSION["connexion"])]);
 
                     if ($avis->rowCount() == 0) {
                         echo "<p>Vous n'avez pas laissé d'avis.</p>";
@@ -41,11 +41,11 @@
                         while ($avi = $avis->fetch()) {
                             $sql = "SELECT * FROM Produit WHERE refProduit = :id";
                             $req = $conn->prepare($sql);
-                            $req->execute(["id" => $avi["refProduit"]]);
+                            $req->execute(["id" => htmlspecialchars($avi["refProduit"])]);
                             $produit = $req->fetch();
                             $sql = "SELECT * FROM Avis WHERE idAvisPere = :id";
                             $req = $conn->prepare($sql);
-                            $req->execute(["id" => $avi["idAvis"]]);
+                            $req->execute(["id" => htmlspecialchars($avi["idAvis"])]);
                             $reponse = $req->fetch();
 
                             echo "<div class='avi'>
@@ -89,7 +89,7 @@
                         WHERE A.idClient = C.idClient
                     )";
                     $req = $conn->prepare($sql);
-                    $req->execute(["id" => $_SESSION["connexion"]]);
+                    $req->execute(["id" => htmlspecialchars($_SESSION["connexion"])]);
                     if ($req->rowCount() != 0) {
                         echo "<form action='edit.php' method='GET'>
                             <select name='id' required>

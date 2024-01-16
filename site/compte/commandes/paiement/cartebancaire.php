@@ -100,9 +100,9 @@
                         $sql = "UPDATE Commande SET idPaiement = :idPaiement, statutCommande = :statut WHERE idCommande = :id";
                         $req = $conn->prepare($sql);
                         $req->execute([
-                            "idPaiement" => $idPaiement,
-                            "statut" => "En cours de préparation",
-                            "id" => $_POST["id"]]);
+                            "idPaiement" => htmlspecialchars($idPaiement),
+                            "statut" => htmlspecialchars("En cours de préparation"),
+                            "id" => htmlspecialchars($_POST["id"])]);
                         header("Location: ./?succes=" . $_POST["id"]);
                         exit();
                     }

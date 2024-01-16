@@ -27,7 +27,7 @@
                 if (isset($_GET["succes"])) {
                     $sql = "SELECT * FROM Commande WHERE idCommande = :id AND idPaiement IS NOT NULL";
                     $req = $conn->prepare($sql);
-                    $req->execute(["id" => $_GET["succes"]]);
+                    $req->execute(["id" => htmlspecialchars($_GET["succes"])]);
                     $row = $req->fetch();
                     if ($req->rowCount() != 1 || $row["idClient"] != $_SESSION["connexion"]) {
                         echo "<h2>Erreur</h2>
@@ -58,8 +58,8 @@
                     $sql = "SELECT * FROM Commande WHERE idCommande = :id AND idClient = :idClient AND idPaiement IS NULL";
                     $req = $conn->prepare($sql);
                     $req->execute([
-                        "id" => $_GET["id"],
-                        "idClient" => $_SESSION["connexion"]
+                        "id" => htmlspecialchars($_GET["id"]),
+                        "idClient" => htmlspecialchars($_SESSION["connexion"])
                     ]);
                     $row = $req->fetch();
                     if ($req->rowCount() != 1) {

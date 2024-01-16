@@ -35,19 +35,20 @@
 
                     $sql = "INSERT INTO Paypal (idPaypal) VALUES (:idPaypal)";
                     $req = $conn->prepare($sql);
-                    $req->execute(["idPaypal" => $idPaypal]);
+                    $req->execute(["idPaypal" => htmlspecialchars($idPaypal)]);
 
                     $sql = "INSERT INTO Paiement (idPaypal) VALUES (:idPaypal)";
                     $req = $conn->prepare($sql);
-                    $req->execute(["idPaypal" => $idPaypal]);
+                    $req->execute(["idPaypal" => htmlspecialchars($idPaypal)]);
                     $idPaiement = $conn->lastInsertId();
 
                     $sql = "UPDATE Commande SET idPaiement = :idPaiement, statutCommande = :statut WHERE idCommande = :id";
                     $req = $conn->prepare($sql);
                     $req->execute([
-                        "idPaiement" => $idPaiement,
-                        "statut" => "En cours de préparation",
-                        "id" => $_POST["id"]]);
+                        "idPaiement" => htmlspecialchars($idPaiement),
+                        "statut" => htmlspecialchars("En cours de préparation"),
+                        "id" => htmlspecialchars($_POST["id"])
+                    ]);
                     header("Location: ./?succes=" . $_POST["id"]);
                     exit();
                 }
@@ -65,7 +66,7 @@
                             if(isset($_POST["id"])) {
                                 $sql = "SELECT * FROM Commande WHERE idCommande = :id";
                                 $req = $conn->prepare($sql);
-                                $req->execute(["id" => $_POST["id"]]);
+                                $req->execute(["id" => htmlspecialchars($_POST["id"])]);
                                 $row = $req->fetch();
                                 $prix = number_format($row["montantTotal"], 2, ",", " ");
                                 echo "<div class='prix'>

@@ -8,8 +8,24 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * Contrôleur pour la gestion des données par salle dans l'application
+ * DisguiseHub.
+ * Cette classe est responsable du chargement de l'interface utilisateur
+ * associée
+ * et de l'initialisation des composants nécessaires.
+ */
 public class DonneesParSalle {
-
+    /**
+     * Constructeur de la classe DonneesParSalle.
+     * Charge l'interface utilisateur depuis le fichier FXML, applique la feuille de
+     * style,
+     * initialise le contrôleur associé et affiche la fenêtre de gestion des données
+     * par salle.
+     *
+     * @param stage Stage dans lequel afficher la fenêtre de gestion des données par
+     *              salle.
+     */
     public DonneesParSalle(Stage stage) {
         try {
 

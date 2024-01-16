@@ -1,3 +1,11 @@
+/**
+ * Contrôleur pour la configuration du fichier de configuration.
+ * Gère l'interface utilisateur et les opérations liées à la configuration.
+ * Utilise la bibliothèque JavaFX pour la gestion de l'interface graphique.
+ *
+ * @author guychel babela
+ * @version 1.0
+ */
 package groupe11.view;
 
 import java.io.FileWriter;
@@ -85,18 +93,6 @@ public class FichierDeConfigController {
     private CheckBox activityCheckBox;
 
     @FXML
-    private CheckBox tvocCheckBox;
-
-    @FXML
-    private CheckBox illuminationCheckBox;
-
-    @FXML
-    private CheckBox infraredCheckBox;
-
-    @FXML
-    private CheckBox infrared_and_visibleCheckBox;
-
-    @FXML
     private Button validerButton;
 
     @FXML
@@ -121,10 +117,14 @@ public class FichierDeConfigController {
     private boolean pressure;
     private boolean temperature;
     private boolean activity;
-    private boolean tvoc;
-    private boolean illumination;
-    private boolean infrared;
-    private boolean infrared_and_visible;
+
+    /**
+     * Initialise le contexte du contrôleur avec le fichier de configuration et la
+     * scène associée.
+     *
+     * @param fichierDeConfig L'objet FichierDeConfig pour gérer la configuration.
+     * @param configue        La scène (Stage) associée à ce contrôleur.
+     */
 
     public void initContext(FichierDeConfig fichierDeConfig, Stage configue) {
         this.fichierDeConfig = fichierDeConfig;
@@ -141,6 +141,9 @@ public class FichierDeConfigController {
         initFromConfigFile();
     }
 
+    /**
+     * Affiche la fenêtre de configuration.
+     */
     public void displayDialog() {
         this.configue.show();
     }
@@ -161,6 +164,12 @@ public class FichierDeConfigController {
         cont.start(configue);
     }
 
+    /**
+     * Convertit une chaîne en entier.
+     *
+     * @param _val La chaîne à convertir.
+     * @return L'entier résultant ou 0 en cas d'erreur de conversion.
+     */
     public int entierDeString(String _val) {
         try {
             int i = Integer.parseInt(_val.trim());
@@ -170,6 +179,12 @@ public class FichierDeConfigController {
         }
     }
 
+    /**
+     * Convertit une chaîne en double.
+     *
+     * @param _val La chaîne à convertir.
+     * @return Le double résultant ou 0.0 en cas d'erreur de conversion.
+     */
     public double doubleDeString(String _val) {
         try {
             double i = Double.parseDouble(_val.trim());
@@ -179,6 +194,11 @@ public class FichierDeConfigController {
         }
     }
 
+    /**
+     * Gère l'événement du bouton de validation.
+     * Collecte les valeurs des champs, les organise dans une structure YAML et
+     * écrit dans un fichier.
+     */
     @FXML
     private void validerButton() {
         host = hostTextField.getText().trim();
@@ -200,10 +220,6 @@ public class FichierDeConfigController {
         pressure = pressureCheckBox.isSelected();
         temperature = temperatureCheckBox.isSelected();
         activity = activityCheckBox.isSelected();
-        tvoc = tvocCheckBox.isSelected();
-        illumination = illuminationCheckBox.isSelected();
-        infrared = infraredCheckBox.isSelected();
-        infrared_and_visible = infrared_and_visibleCheckBox.isSelected();
 
         String filePath = "iot/python/config.yaml";
 
@@ -237,16 +253,8 @@ public class FichierDeConfigController {
             collecteList.add("co2");
         if (pressure)
             collecteList.add("pressure");
-        if (illumination)
-            collecteList.add("illumination");
-        if (infrared)
-            collecteList.add("infrared");
-        if (infrared_and_visible)
-            collecteList.add("infrared_and_visible");
         if (humidity)
             collecteList.add("humidity");
-        if (tvoc)
-            collecteList.add("tvoc");
 
         collecteConfig.put("collecte", collecteList);
 
@@ -296,6 +304,10 @@ public class FichierDeConfigController {
         }
     }
 
+    /**
+     * Initialise les champs de la fenêtre de configuration à partir du fichier de
+     * configuration.
+     */
     private void initFromConfigFile() {
         String configFilePath = "iot/python/config.yaml";
 
@@ -327,23 +339,13 @@ public class FichierDeConfigController {
             if (collecteList.contains("humiditty")) {
                 this.humidityCheckBox.setSelected(true);
             }
-            if (collecteList.contains("illumination")) {
-                this.illuminationCheckBox.setSelected(true);
-            }
-            if (collecteList.contains("infrared")) {
-                this.infraredCheckBox.setSelected(true);
-            }
+
             if (collecteList.contains("activity")) {
                 this.activityCheckBox.setSelected(true);
             }
-            if (collecteList.contains("tvoc")) {
-                this.tvocCheckBox.setSelected(true);
-            }
+
             if (collecteList.contains("pressure")) {
                 this.pressureCheckBox.setSelected(true);
-            }
-            if (collecteList.contains("infared_and_visible")) {
-                this.infrared_and_visibleCheckBox.setSelected(true);
             }
 
             // Extraction des données de la section alerte
@@ -366,6 +368,9 @@ public class FichierDeConfigController {
         }
     }
 
+    /**
+     * Réinitialise tous les champs de la fenêtre de configuration.
+     */
     @FXML
     private void reinitialiserButton() {
         this.hostTextField.setText("");
@@ -387,9 +392,6 @@ public class FichierDeConfigController {
         this.pressureCheckBox.setSelected(false);
         this.temperatureCheckBox.setSelected(false);
         this.activityCheckBox.setSelected(false);
-        this.tvocCheckBox.setSelected(false);
-        this.illuminationCheckBox.setSelected(false);
-        this.infraredCheckBox.setSelected(false);
-        this.infrared_and_visibleCheckBox.setSelected(false);
+
     }
 }

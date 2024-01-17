@@ -113,6 +113,10 @@ Dans une vision stratégique, la société Disguise'Hub nous a sollicité pour l
 - *PHP*
 ** link:docs/PHP/Schéma%20d'enchaînement%20des%20pages.png[Schéma d'enchaînement des pages]
 
+=== Tests
+- *Site Web*
+** link:docs/PHP/Cahier_de_test.adoc[Cahier de test du site web]
+
 === Installation
 
 ==== Application IOT (Python)

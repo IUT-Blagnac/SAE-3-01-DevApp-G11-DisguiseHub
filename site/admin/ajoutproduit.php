@@ -85,7 +85,7 @@
                 <textarea name="descProduit" rows="4" required></textarea>
 
                 <label>Prix:</label>
-                <input type="text" name="prixProduit" required>
+                <input type="number" name="prixProduit" required>
 
                 <label>Sous-catégorie:</label>
                 <select name="idCategorie" required>

@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.VBox;
@@ -23,7 +22,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -34,7 +32,6 @@ import java.text.SimpleDateFormat;
 import com.fasterxml.jackson.databind.JsonNode;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Objects;
 
 import org.yaml.snakeyaml.Yaml;
 

@@ -51,8 +51,8 @@ if (!isset($_SESSION["connexion"])) {
                     $sqlSupClientCB = "UPDATE Client SET numCB = NULL WHERE idClient = :id";
                     $reqSupClientCB = $conn->prepare($sqlSupClientCB);
                     $reqSupCarteBleue = $conn->prepare($sqlSupCarteBleue);
-                    $reqSupCarteBleue->bindParam(':nomSurCB', $_POST["new_nom"]);
-                    $reqSupClientCB->bindParam(':id', $_SESSION["connexion"]);
+                    $reqSupCarteBleue->bindParam(':nomSurCB', htmlspecialchars($_POST["new_nom"]));
+                    $reqSupClientCB->bindParam(':id', htmlspecialchars($_SESSION["connexion"]));
                     $reqSupClientCB->execute();
                     $reqSupCarteBleue->execute();
                 }
@@ -60,14 +60,14 @@ if (!isset($_SESSION["connexion"])) {
 
                 $sqlCarteBleue = "SELECT * FROM Cartebleue WHERE numCB = :numCB";
                 $reqCarteBleue = $conn->prepare($sqlCarteBleue);
-                $reqCarteBleue->bindParam(':numCB', $numCB);
+                $reqCarteBleue->bindParam(':numCB', htmlspecialchars($numCB));
                 $reqCarteBleue->execute();
 
                 if ($reqCarteBleue->rowCount() == 0) {
                     $sqlInsertCarteBleue = "INSERT INTO Cartebleue (numCB, nomSurCB) VALUES (:numCB, :nomSurCB)";
                     $reqInsertCarteBleue = $conn->prepare($sqlInsertCarteBleue);
-                    $reqInsertCarteBleue->bindParam(':numCB', $numCB);
-                    $reqInsertCarteBleue->bindParam(':nomSurCB', $_POST["new_nom"]);
+                    $reqInsertCarteBleue->bindParam(':numCB', htmlspecialchars($numCB));
+                    $reqInsertCarteBleue->bindParam(':nomSurCB', htmlspecialchars($_POST["new_nom"]));
                     $reqInsertCarteBleue->execute();
                 }
 
@@ -81,16 +81,16 @@ if (!isset($_SESSION["connexion"])) {
 
                 $reqUpd = $conn->prepare($sqlUpd);
 
-                $reqUpd->bindParam(':new_nom', $_POST["new_nom"]);
-                $reqUpd->bindParam(':new_prenom', $_POST["new_prenom"]);
-                $reqUpd->bindParam(':new_adresse', $_POST["new_adresse"]);
-                $reqUpd->bindParam(':new_mail', $_POST["new_email"]);
-                $reqUpd->bindParam(':new_codePostal', $newCodePostal, PDO::PARAM_INT);
-                $reqUpd->bindParam(':new_ville', $_POST["new_ville"]);
-                $reqUpd->bindParam(':new_dateNaissance', $newDateNaissance, PDO::PARAM_STR);
-                $reqUpd->bindParam(':new_tel', $_POST["new_tel"]);
-                $reqUpd->bindParam(':new_cb', $numCB);
-                $reqUpd->bindParam(':id', $_SESSION["connexion"]);
+                $reqUpd->bindParam(':new_nom', htmlspecialchars($_POST["new_nom"]));
+                $reqUpd->bindParam(':new_prenom', htmlspecialchars($_POST["new_prenom"]));
+                $reqUpd->bindParam(':new_adresse', htmlspecialchars($_POST["new_adresse"]));
+                $reqUpd->bindParam(':new_mail', htmlspecialchars($_POST["new_email"]));
+                $reqUpd->bindParam(':new_codePostal', htmlspecialchars($newCodePostal), PDO::PARAM_INT);
+                $reqUpd->bindParam(':new_ville', htmlspecialchars($_POST["new_ville"]));
+                $reqUpd->bindParam(':new_dateNaissance', htmlspecialchars($newDateNaissance), PDO::PARAM_STR);
+                $reqUpd->bindParam(':new_tel', htmlspecialchars($_POST["new_tel"]));
+                $reqUpd->bindParam(':new_cb', htmlspecialchars($numCB));
+                $reqUpd->bindParam(':id', htmlspecialchars($_SESSION["connexion"]));
 
                 if ($reqUpd->execute()) {
 
@@ -109,7 +109,7 @@ if (!isset($_SESSION["connexion"])) {
 
         $sql = "SELECT * FROM Client WHERE idClient = :id";
         $req = $conn->prepare($sql);
-        $req->execute(["id" => $_SESSION["connexion"]]);
+        $req->execute(["id" => htmlspecialchars($_SESSION["connexion"])]);
         $row = $req->fetch();
         ?>
 

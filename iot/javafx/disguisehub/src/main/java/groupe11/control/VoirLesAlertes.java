@@ -9,7 +9,24 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * Contrôleur responsable de la gestion des alertes dans l'application
+ * DisguiseHub.
+ * Cette classe charge l'interface utilisateur associée à la gestion des alertes
+ * depuis un fichier FXML,
+ * initialise les composants nécessaires, et affiche la fenêtre de gestion des
+ * alertes.
+ */
 public class VoirLesAlertes {
+    /**
+     * Constructeur de la classe VoirLesAlertes.
+     * Charge l'interface utilisateur depuis le fichier FXML, applique la feuille de
+     * style,
+     * initialise le contrôleur associé, et affiche la fenêtre de gestion des
+     * alertes.
+     *
+     * @param alerte Stage dans lequel afficher la fenêtre de gestion des alertes.
+     */
     public VoirLesAlertes(Stage alerte) {
         try {
 

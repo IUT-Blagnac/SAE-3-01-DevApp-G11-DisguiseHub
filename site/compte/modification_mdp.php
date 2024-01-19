@@ -6,7 +6,7 @@ if (!isset($_SESSION["connexion"])) {
     exit;
 }
 
-require_once("../../include/connect.inc.php");
+require_once("../include/connect.inc.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["changer_mot_de_passe"])) {
     $oldPassword = isset($_POST["old_password"]) ? $_POST["old_password"] : "";
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["changer_mot_de_passe"
     } else {
         $sql = "SELECT mdpClient FROM Client WHERE idClient = :id";
         $req = $conn->prepare($sql);
-        $req->execute(["id" => $_SESSION["connexion"]]);
+        $req->execute(["id" => htmlspecialchars($_SESSION["connexion"])]);
         $row = $req->fetch();
 
         if ($row && password_verify($oldPassword, $row["mdpClient"])) {
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["changer_mot_de_passe"
 
                 $sqlUpdate = "UPDATE Client SET mdpClient = :newPassword WHERE idClient = :id";
                 $reqUpdate = $conn->prepare($sqlUpdate);
-                $reqUpdate->execute(["newPassword" => $hashedPassword, "id" => $_SESSION["connexion"]]);
+                $reqUpdate->execute(["newPassword" => htmlspecialchars($hashedPassword), "id" => htmlspecialchars($_SESSION["connexion"])]);
 
                 echo '<script>alert("Le mot de passe a bien été changé !"); window.location.href = "informations.php";</script>';
                 exit;

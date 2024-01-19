@@ -26,7 +26,7 @@
             } else {
                 $sql = "SELECT * FROM Categorie WHERE idCategorie = :id";
                 $req = $conn -> prepare($sql);
-                $req -> execute(["id" => $_GET["id"]]);
+                $req -> execute(["id" => htmlspecialchars($_GET["id"])]);
 
                 // Cas d'erreurs
                 if ($req && $req->rowCount() > 1) {
@@ -49,7 +49,7 @@
                     if (isset($categorie["idCategoriePere"])) {
                         $sql = "SELECT * FROM Categorie WHERE idCategorie = :id";
                         $req = $conn -> prepare($sql);
-                        $req -> execute(["id" => $categorie["idCategoriePere"]]);
+                        $req -> execute(["id" => htmlspecialchars($categorie["idCategoriePere"])]);
                         $categoriePere = $req -> fetch();
 
                         echo "<a class='categoriepere' href='/~saephp11/categorie.php?id=" . $categoriePere["idCategorie"] . "'>" . $categoriePere["nomCategorie"] . "</a>";
@@ -57,32 +57,22 @@
 
                     echo "<div class='articles'>";
                     
-                        $sql = "SELECT * FROM AssoProduitCateg WHERE idCategorie = :id";
+                        if (isset($categorie["idCategoriePere"]) || $_GET["id"] == 1) {
+                            $sql = "SELECT * FROM AssoProduitCateg WHERE idCategorie = :id";
+                        } else {
+                            $sql = "SELECT * FROM AssoProduitCateg WHERE idCategorie IN (SELECT idCategorie FROM Categorie WHERE idCategoriePere = :id)";
+                        }
                         $req = $conn -> prepare($sql);
-                        $req -> execute(["id" => $_GET["id"]]);
+                        $req -> execute(["id" => htmlspecialchars($_GET["id"])]);
                         $articles = $req -> fetchAll();
 
                         foreach ($articles as $article) {
                             $sql = "SELECT * FROM Produit WHERE refProduit = :id";
                             $req = $conn -> prepare($sql);
-                            $req -> execute(["id" => $article["refProduit"]]);
+                            $req -> execute(["id" => htmlspecialchars($article["refProduit"])]);
                             $produit = $req -> fetch();
 
-                            $sql = "SELECT * FROM Image WHERE refProduit = :id";
-                            $req = $conn -> prepare($sql);
-                            $req -> execute(["id" => $article["refProduit"]]);
-                            
-                            echo "<a class='article' href='/~saephp11/produit.php?id=" . $produit["refProduit"] . "'>";
-                            
-                            if ($req && $req->rowCount() > 0) {
-                                $image = $req -> fetch();
-                                echo "<img src='" . $image["imageProduit"] . "' alt='" . $produit["nomProduit"] . "'>";
-                            }
-
-                                echo "<h2>" . $produit["nomProduit"] . "</h2>
-                                <p>" . $produit["tailleProduit"] . " - " . $produit["couleurProduit"] . "</p>
-                                <span>" . $produit["prixProduit"] . "€</span>
-                            </a>";
+                            require("./include/apercuProduit.php");
                         }
                     echo "</div>";
                 }

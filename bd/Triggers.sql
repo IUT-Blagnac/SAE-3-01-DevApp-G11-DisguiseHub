@@ -1,4 +1,4 @@
-CREATE TRIGGER check_dateExpCB
+CREATE OR REPLACE TRIGGER check_dateExpCB
 BEFORE INSERT ON Cartebleue
 FOR EACH ROW
 BEGIN
@@ -9,18 +9,18 @@ BEGIN
 END;
 //
 
-CREATE TRIGGER check_dateNaissanceClient
+CREATE OR REPLACE TRIGGER check_dateNaissanceClient
 BEFORE INSERT ON Client
 FOR EACH ROW
 BEGIN
     IF NEW.dateNaissanceClient <> DATE_FORMAT(NEW.dateNaissanceClient, '%Y-%m-%d') THEN
         SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'La date de naissance du client doit être au format YYYY/MM/DD.';
+        SET MESSAGE_TEXT = 'La date de naissance du client doit être au format YYYY-MM-DD.';
     END IF;
 END;
 //
 
-CREATE TRIGGER check_tailleProduit
+CREATE OR REPLACE TRIGGER check_tailleProduit
 BEFORE INSERT ON Produit
 FOR EACH ROW
 BEGIN
@@ -31,7 +31,7 @@ BEGIN
 END;
 //
 
-CREATE TRIGGER check_dateCommande
+CREATE OR REPLACE TRIGGER check_dateCommande
 BEFORE INSERT ON Commande
 FOR EACH ROW
 BEGIN
@@ -42,7 +42,7 @@ BEGIN
 END;
 //
 
-CREATE TRIGGER check_note
+CREATE OR REPLACE TRIGGER check_note
 BEFORE INSERT ON Avis
 FOR EACH ROW
 BEGIN
@@ -53,7 +53,7 @@ BEGIN
 END;
 //
 
-CREATE TRIGGER check_tailleFR_and_tailleACommander
+CREATE OR REPLACE TRIGGER check_tailleFR_and_tailleACommander
 BEFORE INSERT ON GuideTaille
 FOR EACH ROW
 BEGIN
@@ -64,7 +64,7 @@ BEGIN
 END;
 //
 
-CREATE TRIGGER check_tailleSelonAgeEtSexe
+CREATE OR REPLACE TRIGGER check_tailleSelonAgeEtSexe
 BEFORE INSERT ON CategTaille
 FOR EACH ROW
 BEGIN
@@ -76,7 +76,7 @@ END;
 //
 
 
-CREATE TRIGGER check_qteStock
+CREATE OR REPLACE TRIGGER check_qteStock
 BEFORE INSERT ON Commander
 FOR EACH ROW
 BEGIN
@@ -96,7 +96,7 @@ END;
 //
 
 
-CREATE TRIGGER maj_qteProduit
+CREATE OR REPLACE TRIGGER maj_qteProduit
 AFTER INSERT ON Commander
 FOR EACH ROW
 BEGIN
@@ -113,7 +113,7 @@ END;
 //
 
 
-CREATE TRIGGER calcul_montantTotal
+CREATE OR REPLACE TRIGGER calcul_montantTotal
 BEFORE INSERT ON Commander
 FOR EACH ROW
 BEGIN

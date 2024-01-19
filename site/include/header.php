@@ -27,7 +27,7 @@
 
         while ($cat = $req -> fetch()) {
             echo "<div class='item'>
-                <a class='categorie'>" . $cat["nomCategorie"] . "</a>";
+                <a class='categorie' href='/~saephp11/categorie.php?id=" . $cat["idCategorie"] . "'>" . $cat["nomCategorie"] . "</a>";
                 
                 $sql = "SELECT * FROM Categorie WHERE idCategoriePere = " . $cat["idCategorie"];
                 $req2 = $conn -> prepare($sql);

@@ -15,6 +15,10 @@
 
 <body>
 
+    <?php
+        session_start();
+    ?>
+
     <?php include("include/header.php"); ?>
 
     <div class="content">
@@ -26,7 +30,7 @@
             } else {
                 $sql = "SELECT * FROM Produit WHERE refProduit = :ref";
                 $req = $conn -> prepare($sql);
-                $req -> execute(["ref" => $_GET["id"]]);
+                $req -> execute(["ref" => htmlspecialchars($_GET["id"])]);
                 
                 // Cas d'erreurs
                 if ($req && $req->rowCount() > 1) {
@@ -46,33 +50,35 @@
 
                     $sql = "SELECT * FROM AssoProduitCateg WHERE refProduit = :ref";
                     $req = $conn -> prepare($sql);
-                    $req -> execute(["ref" => $_GET["id"]]);
+                    $req -> execute(["ref" => htmlspecialchars($_GET["id"])]);
                     $categories = $req -> fetchAll();
 
                     $sql = "SELECT * FROM Image WHERE refProduit = :ref";
                     $req = $conn -> prepare($sql);
-                    $req -> execute(["ref" => $_GET["id"]]);
+                    $req -> execute(["ref" => htmlspecialchars($_GET["id"])]);
                     $images = $req -> fetchAll();
 
                     $sql = "SELECT * FROM Avis WHERE refProduit = :ref";
                     $req = $conn -> prepare($sql);
-                    $req -> execute(["ref" => $_GET["id"]]);
+                    $req -> execute(["ref" => htmlspecialchars($_GET["id"])]);
                     $avis = $req -> fetchAll();
 
                     if (count($avis) != 0) {
                         $sql = "SELECT AVG(note) AS moyenne FROM Avis WHERE refProduit = :ref";
                         $req = $conn -> prepare($sql);
-                        $req -> execute(["ref" => $_GET["id"]]);
+                        $req -> execute(["ref" => htmlspecialchars($_GET["id"])]);
                         $moyenne = round($req -> fetch()["moyenne"]);
                     }
 
-                    echo "<div class='produit'>
-                        <div class='images'>";
-                            foreach ($images as $image) {
-                                echo "<img src='" . $image["imageProduit"] . "' alt='" . $produit["nomProduit"] . "'>";
-                            }
-                        echo "</div>
-                        <div class='details'>";
+                    echo "<div class='produit'>";
+                        if (count($images) != 0) {
+                            echo "<div class='images'>";
+                                foreach ($images as $image) {
+                                    echo "<img src='" . $image["imageProduit"] . "' alt='" . $produit["nomProduit"] . "'>";
+                                }
+                            echo "</div>";
+                        }
+                        echo "<div class='details'>";
                             if (isset($moyenne)) {
                                 for ($i = 0; $i < $moyenne; $i++) {
                                     echo "<i class='fas fa-star color'></i>";
@@ -88,13 +94,13 @@
 
                                         $sql = "SELECT * FROM Categorie WHERE idCategorie = :cat";
                                         $req = $conn -> prepare($sql);
-                                        $req -> execute(["cat" => $cat["idCategorie"]]);
+                                        $req -> execute(["cat" => htmlspecialchars($cat["idCategorie"])]);
                                         $categorie = $req -> fetch();
 
                                         if (isset($categorie["idCategoriePere"])) {
                                             $sql = "SELECT * FROM Categorie WHERE idCategorie = :cat";
                                             $req = $conn -> prepare($sql);
-                                            $req -> execute(["cat" => $categorie["idCategoriePere"]]);
+                                            $req -> execute(["cat" => htmlspecialchars($categorie["idCategoriePere"])]);
                                             $categoriePere = $req -> fetch();
                                             echo "<a href='/~saephp11/categorie.php?id=" . $categoriePere["idCategorie"] . "'>" . $categoriePere["nomCategorie"] . "</a> > ";
                                         }
@@ -136,8 +142,15 @@
                             } else {
                                 echo "<button type='submit' name='commander' disabled>Rupture de stock</button>";
                             }
-                            echo "<span class='prix'>" . number_format($produit["prixProduit"], 2, ",", " ") . " €</span>
-                        </div>
+                            if (isset($produit["prixSolde"])) {
+                                echo "<span class='prix'>
+                                    <span class='solde'>" . number_format($produit["prixProduit"], 2, ",", " ") . " €</span>
+                                    " . number_format($produit["prixSolde"], 2, ",", " ") . " €
+                                </span>";
+                            } else {
+                                echo "<span class='prix'>" . number_format($produit["prixProduit"], 2, ",", " ") . " €</span>";
+                            }
+                        echo "</div>
                     </div>
                     
                     <div class='avis'>";
@@ -149,13 +162,13 @@
                             foreach ($avis as $avi) {
                                 $sql = "SELECT nomClient, prenomClient FROM Client WHERE idClient = :id";
                                 $req = $conn -> prepare($sql);
-                                $req -> execute(["id" => $avi["idClient"]]);
+                                $req -> execute(["id" => htmlspecialchars($avi["idClient"])]);
                                 $client = $req -> fetch();
 
                                 if (isset($avi["idAvisPere"])) {
                                     $sql = "SELECT commentaire FROM Client WHERE idAvis = :id";
                                     $req = $conn -> prepare($sql);
-                                    $req -> execute(["id" => $avi["idAvisPere"]]);
+                                    $req -> execute(["id" => htmlspecialchars($avi["idAvisPere"])]);
                                     $reponse = $req -> fetch()["commentaire"];
                                 }
 
@@ -182,6 +195,34 @@
                                         echo "<img src='" . $avi["imageAvis"] . "' alt='Photo de l'avis " . $avi["idAvis"] . "'>";
                                     }   
                                 echo "</div>";
+                            }
+                        }
+                        if (isset($_SESSION["connexion"])) {
+                            $sql = "SELECT DISTINCT P.refProduit FROM Produit P, Commander Co, Commande C
+                            WHERE P.refProduit = Co.refProduit
+                            AND Co.idCommande = C.idCommande
+                            AND C.idClient = :id
+                            AND P.refProduit = :produit";
+                            $req = $conn -> prepare($sql);
+                            $req -> execute([
+                                "id" => htmlspecialchars($_SESSION["connexion"]),
+                                "produit" => htmlspecialchars($_GET["id"])
+                            ]);
+                            if ($req -> rowCount() != 0) {
+                                $sql = "SELECT * FROM Avis WHERE idClient = :id AND refProduit = :produit";
+                                $req = $conn -> prepare($sql);
+                                $req -> execute([
+                                    "id" => htmlspecialchars($_SESSION["connexion"]),
+                                    "produit" => htmlspecialchars($_GET["id"])
+                                ]);
+                                if ($req -> rowCount() != 0) {
+                                    echo "<div class='buttons'>
+                                        <a class='button avis' href='/~saephp11/compte/avis/edit.php?id=" . $produit["refProduit"] . "'>Modifier mon avis</a>
+                                        <a class='button avis' href='/~saephp11/compte/avis/edit.php?id=" . $produit["refProduit"] . "&supprimer'>Supprimer mon avis</a>
+                                    </div>";
+                                } else {
+                                    echo "<a class='button avis' href='/~saephp11/compte/avis/edit.php?id=" . $produit["refProduit"] . "'>Laisser un avis</a>";
+                                }
                             }
                         }
                     echo "</div>";

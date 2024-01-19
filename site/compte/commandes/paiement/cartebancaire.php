@@ -100,9 +100,9 @@
                         $sql = "UPDATE Commande SET idPaiement = :idPaiement, statutCommande = :statut WHERE idCommande = :id";
                         $req = $conn->prepare($sql);
                         $req->execute([
-                            "idPaiement" => $idPaiement,
-                            "statut" => "En cours de préparation",
-                            "id" => $_POST["id"]]);
+                            "idPaiement" => htmlspecialchars($idPaiement),
+                            "statut" => htmlspecialchars("En cours de préparation"),
+                            "id" => htmlspecialchars($_POST["id"])]);
                         header("Location: ./?succes=" . $_POST["id"]);
                         exit();
                     }
@@ -149,7 +149,7 @@
                             </label>
                 
                             <button type='submit' name='payer'>Payer " . number_format($row["montantTotal"], 2, ",", " ") . " €</button>
-                            <a class='button' href='/~saephp11/compte/commandes/detail.php?id=" . $_POST["id"] . "'>Annuler</a>
+                            <a class='button' href='/~saephp11/compte/commandes/detail.php?id=" . $_POST["id"] . "&annuler'>Annuler</a>
                 
                         </form>";
                     }

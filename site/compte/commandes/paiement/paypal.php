@@ -23,6 +23,10 @@
             session_start();
             require_once("../../../include/connect.inc.php");
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                if(isset($_POST["annuler"])) {
+                    header("Location: ../detail.php?id=" . $_POST["id"] . "&annuler");
+                    exit();
+                }
                 if(isset($_POST["payer"]) && isset($_POST["id"])) {
                     $sql = "SELECT * FROM Paypal";
                     $req = $conn->prepare($sql);
@@ -31,19 +35,20 @@
 
                     $sql = "INSERT INTO Paypal (idPaypal) VALUES (:idPaypal)";
                     $req = $conn->prepare($sql);
-                    $req->execute(["idPaypal" => $idPaypal]);
+                    $req->execute(["idPaypal" => htmlspecialchars($idPaypal)]);
 
                     $sql = "INSERT INTO Paiement (idPaypal) VALUES (:idPaypal)";
                     $req = $conn->prepare($sql);
-                    $req->execute(["idPaypal" => $idPaypal]);
+                    $req->execute(["idPaypal" => htmlspecialchars($idPaypal)]);
                     $idPaiement = $conn->lastInsertId();
 
                     $sql = "UPDATE Commande SET idPaiement = :idPaiement, statutCommande = :statut WHERE idCommande = :id";
                     $req = $conn->prepare($sql);
                     $req->execute([
-                        "idPaiement" => $idPaiement,
-                        "statut" => "En cours de préparation",
-                        "id" => $_POST["id"]]);
+                        "idPaiement" => htmlspecialchars($idPaiement),
+                        "statut" => htmlspecialchars("En cours de préparation"),
+                        "id" => htmlspecialchars($_POST["id"])
+                    ]);
                     header("Location: ./?succes=" . $_POST["id"]);
                     exit();
                 }
@@ -61,7 +66,7 @@
                             if(isset($_POST["id"])) {
                                 $sql = "SELECT * FROM Commande WHERE idCommande = :id";
                                 $req = $conn->prepare($sql);
-                                $req->execute(["id" => $_POST["id"]]);
+                                $req->execute(["id" => htmlspecialchars($_POST["id"])]);
                                 $row = $req->fetch();
                                 $prix = number_format($row["montantTotal"], 2, ",", " ");
                                 echo "<div class='prix'>
@@ -83,6 +88,7 @@
                                 <form action='" . $_SERVER["PHP_SELF"] . "' method='POST'>
                                     <input type='hidden' name='id' value='" . $_POST["id"] . "'>
                                     <button class='btnpayer' name='payer'>Payer " . $prix . " €</button>
+                                    <button class='btnpayer' name='annuler'>Annuler</button>
                                 </form>";
                             } else {
                                 echo "<p>Désolé, une erreur s'est produite. Merci de réessayer ultérieusement.</p>

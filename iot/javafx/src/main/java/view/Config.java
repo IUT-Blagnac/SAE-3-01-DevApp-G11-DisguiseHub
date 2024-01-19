@@ -3,7 +3,7 @@
  * Gère l'interface utilisateur et les opérations liées à la configuration.
  * Utilise la bibliothèque JavaFX pour la gestion de l'interface graphique.
  *
- * @author guychel babela
+ * 
  * @version 1.0
  */
 package view;

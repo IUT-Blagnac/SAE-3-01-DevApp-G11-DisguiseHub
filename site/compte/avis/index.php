@@ -80,7 +80,7 @@
                 ?>
                 </div>
                 <?php
-                    $sql = "SELECT DISTINCT P.refProduit, P.nomProduit FROM Produit P, Commander Co, Commande C
+                    $sql = "SELECT DISTINCT P.refProduit, P.nomProduit, P.tailleProduit, P.couleurProduit FROM Produit P, Commander Co, Commande C
                     WHERE P.refProduit = Co.refProduit
                     AND Co.idCommande = C.idCommande
                     AND C.idClient = :id
@@ -95,7 +95,14 @@
                             <select name='id' required>
                                 <option value='' selected disabled>Choisissez un produit</option>";
                                 while ($produit = $req->fetch()) {
-                                    echo "<option value='" . $produit["refProduit"] . "'>" . $produit["nomProduit"] . "</option>";
+                                    $champ = $produit["refProduit"];
+                                    if (isset($produit["tailleProduit"])) {
+                                        $champ .= " - " . $produit["tailleProduit"];
+                                    }
+                                    if (isset($produit["couleurProduit"])) {
+                                        $champ .= " - " . $produit["couleurProduit"];
+                                    }
+                                    echo "<option value='" . $champ . "'>" . $produit["nomProduit"] . "</option>";
                                 }
                             echo "</select>
                             <button type='submit'>Ajouter un avis</button>

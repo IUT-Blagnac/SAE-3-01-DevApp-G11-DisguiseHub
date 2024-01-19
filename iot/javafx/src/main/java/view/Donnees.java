@@ -126,51 +126,67 @@ public class Donnees implements SceneController {
      */
     private void startPython() {
         try {
-            // Chemin vers le script Python dans les ressources
-            String pythonScriptPath = "/python/main.py";
-
-            // Obtenir le flux d'entrée du fichier Python depuis les ressources
-            InputStream pythonScriptStream = Objects.requireNonNull(
-                    Donnees.class.getResourceAsStream(pythonScriptPath),
-                    "Le fichier Python n'a pas pu être chargé depuis les ressources."
-            );
-
-            // Créer le process builder
-            ProcessBuilder processBuilder = new ProcessBuilder("python", "-");
-            processBuilder.redirectErrorStream(true);
-
-            // Lancer le processus
-            Process process = processBuilder.start();
-
-            // Écrire le contenu du script Python dans l'entrée standard du processus
-            try (OutputStream outputStream = process.getOutputStream()) {
-                byte[] buffer = new byte[1024];
-                int bytesRead;
-                while ((bytesRead = pythonScriptStream.read(buffer)) != -1) {
-                    outputStream.write(buffer, 0, bytesRead);
-                }
-            }
-
-            // Fermer le flux d'entrée du fichier Python
-            pythonScriptStream.close();
-
             // Lire les sorties du processus dans un thread séparé
             Thread thread = new Thread(() -> {
-                try (InputStream inputStream = process.getInputStream();
-                     BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
-                    String outputLine;
-                    while ((outputLine = reader.readLine()) != null) {
-                        System.out.println(outputLine);
+                try {    
+                    if (this.controller.getApp() == null) {
+                        System.err.println("Le script Python n'a pas été trouvé dans les ressources.");
+                        AlertUtilities.showAlert(stage, "Erreur", "Le script Python n'a pas été trouvé dans les ressources.", "", AlertType.ERROR);
+                        System.exit(1);
                     }
-                } catch (IOException e) {
+    
+                    // Obtenez le chemin absolu du fichier à partir de l'URL
+                    String scriptPath = new File(this.controller.getApp().toURI()).getAbsolutePath();
+    
+                    // Commande pour exécuter le script Python
+                    String command = "python \"" + scriptPath + "\"";
+                    System.out.println("Commande : " + command);
+    
+                    // Créer le process builder
+                    ProcessBuilder processBuilder = new ProcessBuilder(command.split("\\s+"));
+
+                    // Définir le répertoire de travail
+                    processBuilder.directory(new File(this.controller.getApp().toURI()).getParentFile());
+
+                    // Définir l'encodage de la console Python
+                    processBuilder.environment().put("PYTHONIOENCODING", "UTF-8");
+
+                    // Rediriger la sortie du processus Python
+                    processBuilder.redirectErrorStream(true);
+
+                    // Démarrer le processus
+                    Process process = processBuilder.start();
+    
+                    // Lire la sortie du processus Python
+                    try (InputStream inputStream = process.getInputStream();
+                         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+    
+                        String line;
+                        while ((line = reader.readLine()) != null) {
+                            // Afficher la sortie du script Python dans la console Java
+                            System.out.println(line);
+                        }
+    
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+    
+                    // Attendre que le processus se termine
+                    int exitCode = process.waitFor();
+    
+                    // Afficher le code de sortie
+                    System.out.println("Le script Python s'est terminé avec le code de sortie : " + exitCode);
+    
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             });
 
             thread.start();
-
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            AlertUtilities.showAlert(stage, "Erreur", "Erreur lors de l'exécution du script Python", e.getMessage(), AlertType.ERROR);
+            System.exit(1);
         }
     }
 
@@ -186,7 +202,6 @@ public class Donnees implements SceneController {
                 try {
                     File file = new File(getClass().getResource("/python/" + getFileName("data") + ".json").toURI());
                     actually = file.lastModified();
-                    System.out.println(actually);
                 } catch (Exception e) {
                     actually = 0;
                 }
@@ -418,6 +433,13 @@ public class Donnees implements SceneController {
         return null;
     }
 
+    /**
+     * Récupère le nom du fichier de configuration.
+     * 
+     * @param file Le nom du fichier à récupérer.
+     * @return Le nom du fichier de configuration ou null en cas d'erreur.
+     * @author KRILL Maxence
+     */
     private String getFileName(String file) {
         try {
             Yaml yaml = new Yaml();

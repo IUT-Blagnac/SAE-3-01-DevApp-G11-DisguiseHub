@@ -37,10 +37,11 @@
             <table class="product-table">
                 <thead>
                     <tr class="head">
-                        <th>Nom</th>
-                        <th>Description</th>
-                        <th>Prix</th>
-                        <th>Stock</th>
+                        <td>Nom</td>
+                        <td>Description</td>
+                        <td>Prix</td>
+                        <td>Prix soldé</td>
+                        <td>Stock</td>
                      <!--   <th>Rajouter</th>
                         <th>Enlever</th>
                                <td>
@@ -50,8 +51,8 @@
                                 <a href='/~saephp11/admin/retirerstock.php?id=" . $product["refProduit"] . "' class='action-btn'>-1</a>
                                 </td> 
                              -->
-                        <th>Modifier</th>
-                        <th>Supprimer</th>
+                        <td>Modifier</td>
+                        <td>Supprimer</td>
                         
                     </tr>
                 </thead>
@@ -65,8 +66,13 @@
                         echo "<tr>
                                 <td>" . $product["nomProduit"] . "</td>
                                 <td>" . $product["descProduit"] . "</td>
-                                <td>" . $product["prixProduit"] . " €</td>
-                                <td>" . $product["qteProduit"] . "</td>
+                                <td>" . $product["prixProduit"] . " €</td>";
+                                if (isset($product["prixSolde"])) {
+                                    echo "<td>" . $product["prixSolde"] . " €</td>";
+                                } else {
+                                    echo "<td></td>";
+                                }
+                                echo "<td>" . $product["qteProduit"] . "</td>
                                 <td> 
                                 <a href='/~saephp11/admin/modifierproduit.php?id=" . $product["refProduit"] . "' class='action-btn'>Modifier</a>  
                                 </td>

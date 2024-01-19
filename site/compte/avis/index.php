@@ -95,14 +95,7 @@
                             <select name='id' required>
                                 <option value='' selected disabled>Choisissez un produit</option>";
                                 while ($produit = $req->fetch()) {
-                                    $champ = $produit["refProduit"];
-                                    if (isset($produit["tailleProduit"])) {
-                                        $champ .= " - " . $produit["tailleProduit"];
-                                    }
-                                    if (isset($produit["couleurProduit"])) {
-                                        $champ .= " - " . $produit["couleurProduit"];
-                                    }
-                                    echo "<option value='" . $champ . "'>" . $produit["nomProduit"] . "</option>";
+                                    echo "<option value='" . $champ . "'>" . $produit["refProduit"] . "</option>";
                                 }
                             echo "</select>
                             <button type='submit'>Ajouter un avis</button>

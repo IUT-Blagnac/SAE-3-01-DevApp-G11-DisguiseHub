@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.VBox;
@@ -18,6 +19,7 @@ import java.util.HashMap;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -182,7 +184,9 @@ public class Donnees implements SceneController {
             while (update != null && update.isAlive()) {
                 long actually;
                 try {
-                    actually = this.dataFile.get("lastModified").asLong();
+                    File file = new File(getClass().getResource("/python/" + getFileName("data") + ".json").toURI());
+                    actually = file.lastModified();
+                    System.out.println(actually);
                 } catch (Exception e) {
                     actually = 0;
                 }
@@ -403,6 +407,19 @@ public class Donnees implements SceneController {
      */
     private JsonNode openJson(String jsonFile) {
         try {
+            InputStream file = getClass().getResourceAsStream("/python/" + getFileName(jsonFile) + ".json");
+            JsonNode ret = new ObjectMapper().readTree(file);
+            return ret;
+        } catch (IOException e) {
+            AlertUtilities.showAlert(stage, "Erreur", "Erreur lors de la lecture du fichier de configuration", e.getMessage(), AlertType.ERROR);
+            e.printStackTrace();
+            System.exit(1);
+        }
+        return null;
+    }
+
+    private String getFileName(String file) {
+        try {
             Yaml yaml = new Yaml();
             byte[] configBytes;
             configBytes = Files.readAllBytes(Paths.get(this.controller.getConfig().toURI()));
@@ -410,26 +427,10 @@ public class Donnees implements SceneController {
             Map<String, Object> config = yaml.load(configString);
             Map<String, Object> ecriture = (Map<String, Object>) config.get("ecriture");
             Map<String, Object> fichiers = (Map<String, Object>) ecriture.get("fichiers");
-            String filename;
-            InputStream file;
-            JsonNode ret;
-            switch (jsonFile) {
-                case "data":
-                    filename = (String.valueOf(fichiers.get("data")));
-                    file = getClass().getResourceAsStream("/python/" + filename + ".json");
-                    ret = new ObjectMapper().readTree(file);
-                    return ret;
-                case "alerte":
-                    filename = (String.valueOf(fichiers.get("alerte")));
-                    file = getClass().getResourceAsStream("/python/" + filename + ".json");
-                    ret = new ObjectMapper().readTree(file);
-                    return ret;
-                default:
-                    return null;
-            }
+            return String.valueOf(fichiers.get(file));
         } catch (IOException | URISyntaxException e) {
-            AlertUtilities.showAlert(stage, "Erreur", "Erreur lors de la lecture du fichier de configuration", e.getMessage(), AlertType.ERROR);
             e.printStackTrace();
+            AlertUtilities.showAlert(stage, "Erreur", "Erreur lors de la lecture du fichier de configuration", e.getMessage(), AlertType.ERROR);
             System.exit(1);
         }
         return null;

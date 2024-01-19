@@ -1,0 +1,5 @@
+.iut {
+    -fx-background-image: url('../images/exterieur.jpg');
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}

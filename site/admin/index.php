@@ -5,8 +5,8 @@
     <title>Disguise'Hub</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../css/general.css">
-    <link rel="stylesheet" type="text/css" href="../css/admin/gestionnaireproduit.css">
-    <script type="text/javascript" src="./include/fontawesome.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/compte/menuCompte.css">
+    <script type="text/javascript" src="../include/fontawesome.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/~saephp11/img/favicon/apple-touch-icon.png">
@@ -15,9 +15,19 @@
     <meta name="theme-color" content="#DE6E22">
 </head>
 
+
 <body>
+        <?php
+            session_start();
+            if(!isset($_SESSION["connexion"])) {
+                header("location: ../compte/connexion.php");
+                exit;
+            }
+        ?>
     <?php include("../include/header.php"); ?>
-    <div class="gestionnaire-page">
+    <div class="content">
+        <?php include("../include/menuCompte.php"); ?>
+        
         <div class="product-manager">
             <h2>Catalogue de produits</h2>
 
@@ -26,7 +36,7 @@
             </div>
             <table class="product-table">
                 <thead>
-                    <tr>
+                    <tr class="head">
                         <th>Nom</th>
                         <th>Description</th>
                         <th>Prix</th>

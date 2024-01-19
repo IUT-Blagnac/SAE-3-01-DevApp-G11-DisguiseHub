@@ -1,11 +1,3 @@
-/**
- * Contrôleur pour la configuration du fichier de configuration.
- * Gère l'interface utilisateur et les opérations liées à la configuration.
- * Utilise la bibliothèque JavaFX pour la gestion de l'interface graphique.
- *
- * 
- * @version 1.0
- */
 package view;
 
 import java.io.IOException;
@@ -32,6 +24,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
+/**
+ * Contrôleur pour la configuration du fichier de configuration.
+ * Gère l'interface utilisateur et les opérations liées à la configuration.
+ * Utilise la bibliothèque JavaFX pour la gestion de l'interface graphique.
+ *
+ * @author BABELA Guychel
+ * @version 1.0
+ */
 public class Config implements SceneController {
     private SceneBuilder controller;
 
